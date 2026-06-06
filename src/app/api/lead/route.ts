@@ -1,44 +1,43 @@
 import { NextResponse } from "next/server"
 
 export interface LeadData {
+  interest: string
   name: string
   email: string
-  phone: string
-  location: string
-  reason: string
-  timeline: string
-  budget: string
+  city: string
   propertyType: string
-  message: string
-  propertyTitle: string
-  propertyAddress: string
-  propertyId: string
+  address: string
+  beds: string
+  baths: string
+  sqft: string
+  budget: string
+  timeline: string
 }
 
 export async function POST(request: Request) {
   try {
     const data: LeadData = await request.json()
 
-    if (!data.name || !data.email || !data.phone) {
+    if (!data.name || !data.email) {
       return NextResponse.json(
-        { error: "Name, email, and phone are required" },
+        { error: "Name and email are required" },
         { status: 400 }
       )
     }
 
-    console.log("--- New Lead ---")
-    console.log("Property:", data.propertyTitle)
-    console.log("Address:", data.propertyAddress)
+    console.log("=== Halifacts New Lead ===")
+    console.log("Interest:", data.interest)
     console.log("Name:", data.name)
     console.log("Email:", data.email)
-    console.log("Phone:", data.phone)
-    console.log("Location:", data.location)
-    console.log("Reason:", data.reason)
-    console.log("Timeline:", data.timeline)
-    console.log("Budget:", data.budget)
+    console.log("City:", data.city)
     console.log("Property Type:", data.propertyType)
-    console.log("Message:", data.message)
-    console.log("-----------------")
+    console.log("Address:", data.address)
+    console.log("Beds:", data.beds)
+    console.log("Baths:", data.baths)
+    console.log("Sq Ft:", data.sqft)
+    console.log("Budget:", data.budget)
+    console.log("Timeline:", data.timeline)
+    console.log("==========================")
 
     return NextResponse.json({ success: true })
   } catch (error) {

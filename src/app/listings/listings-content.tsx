@@ -10,12 +10,12 @@ import { properties, propertyTypes } from "@/lib/mock-data"
 
 const priceRanges = [
   { value: "", label: "Any Price" },
-  { value: "0-500000", label: "Under $500K" },
-  { value: "500000-1000000", label: "$500K - $1M" },
-  { value: "1000000-2000000", label: "$1M - $2M" },
-  { value: "2000000-5000000", label: "$2M - $5M" },
-  { value: "5000000-10000000", label: "$5M - $10M" },
-  { value: "10000000-99999999", label: "$10M+" },
+  { value: "0-450000", label: "Under $450K" },
+  { value: "450000-600000", label: "$450K - $600K" },
+  { value: "600000-800000", label: "$600K - $800K" },
+  { value: "800000-1000000", label: "$800K - $1M" },
+  { value: "1000000-1300000", label: "$1M - $1.3M" },
+  { value: "1300000-99999999", label: "$1.3M+" },
 ]
 
 const bedsOptions = [
@@ -87,6 +87,7 @@ const sortOptions = [
 
 export default function ListingsContent() {
   const searchParams = useSearchParams()
+  const fromFunnel = searchParams.get("fromFunnel") === "true"
   const initialLocation = searchParams.get("location") || ""
   const initialType = searchParams.get("type") || ""
   const initialMinPrice = searchParams.get("minPrice") || ""
@@ -224,8 +225,13 @@ export default function ListingsContent() {
     <div>
       <div className="py-16" style={{ background: "rgba(45, 25, 15, 0.85)" }}>
         <div className="max-w-page section-padding">
+          {fromFunnel && (
+            <p className="text-terracotta text-xs tracking-widest uppercase font-medium mb-2">
+              Matching Your Search Criteria
+            </p>
+          )}
           <h1 className="font-serif italic text-3xl md:text-4xl text-white mb-2" style={{ fontFamily: "var(--font-serif)" }}>
-            Property Listings
+            East Bay Properties
           </h1>
           <p className="text-white/70 text-sm font-light">
             {filtered.length} {filtered.length === 1 ? "property" : "properties"} found

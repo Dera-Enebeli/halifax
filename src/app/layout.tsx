@@ -13,9 +13,9 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Haven Realty | Luxury California Properties",
+  title: "Halifacts Property and Investment | East Bay Real Estate",
   description:
-    "Discover exceptional properties across California. From stunning beachfront estates to modern urban lofts, find your dream home with Haven Realty.",
+    "Your trusted East Bay real estate partner. Get property valuations, buy, or sell with expert guidance from Alex Rivera and the Halifacts team.",
 }
 
 export default function RootLayout({

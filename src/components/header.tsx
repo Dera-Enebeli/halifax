@@ -4,8 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 
 const navItems = [
-  { label: "Buy", href: "#" },
-  { label: "Sell", href: "#" },
   { label: "Properties", href: "/listings" },
   { label: "About", href: "#" },
   { label: "Contact", href: "#" },
@@ -42,7 +40,7 @@ export default function Header() {
               className="font-serif italic text-[28px] text-terracotta tracking-tight"
               style={{ fontFamily: "var(--font-serif)" }}
             >
-              Haven
+              Halifacts
             </Link>
 
             <nav className="hidden lg:flex items-center gap-8">
@@ -66,7 +64,7 @@ export default function Header() {
                     : "border border-white/30 text-white hover:bg-white/10"
                 }`}
               >
-                Schedule a Tour
+                Get a Valuation
               </Link>
             </nav>
 
@@ -115,7 +113,7 @@ export default function Header() {
               className="text-xs font-medium tracking-[1.5px] uppercase bg-terracotta text-white px-5 py-3 rounded text-center"
               onClick={() => setMobileOpen(false)}
             >
-              Schedule a Tour
+              Get a Valuation
             </Link>
           </div>
         </div>

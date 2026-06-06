@@ -136,7 +136,7 @@ export default function RequestInfoForm({ property, children }: RequestInfoFormP
                 {property.title}
               </p>
               <p className="text-sm text-gray-400">
-                A Haven Realty agent will reach out to you shortly.
+                Alex Rivera will reach out to you shortly.
               </p>
             </div>
           ) : (
@@ -280,7 +280,7 @@ export default function RequestInfoForm({ property, children }: RequestInfoFormP
               </Button>
 
               <p className="text-xs text-gray-400 text-center">
-                A Haven Realty agent will contact you about this property.
+                Alex Rivera will contact you about this property.
               </p>
             </form>
           )}

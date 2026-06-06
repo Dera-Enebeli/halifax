@@ -2,10 +2,10 @@ import Link from "next/link"
 
 const footerLinks = {
   Explore: [
+    { label: "Properties", href: "/listings" },
+    { label: "Get a Valuation", href: "/" },
     { label: "Buy", href: "#" },
     { label: "Sell", href: "#" },
-    { label: "Properties", href: "/listings" },
-    { label: "Market Reports", href: "#" },
   ],
   Company: [
     { label: "About Us", href: "#" },
@@ -14,9 +14,9 @@ const footerLinks = {
     { label: "Press", href: "#" },
   ],
   Contact: [
-    { label: "(310) 555-0123", href: "tel:+13105550123" },
-    { label: "hello@havenrealty.com", href: "mailto:hello@havenrealty.com" },
-    { label: "Los Angeles, CA", href: "#" },
+    { label: "(510) 555-0142", href: "tel:+15105550142" },
+    { label: "alex@halifacts.com", href: "mailto:alex@halifacts.com" },
+    { label: "East Bay, CA", href: "#" },
     { label: "Instagram", href: "#" },
   ],
 }
@@ -32,10 +32,10 @@ export default function Footer() {
               className="font-serif italic text-2xl text-terracotta tracking-tight"
               style={{ fontFamily: "var(--font-serif)" }}
             >
-              Haven
+              Halifacts
             </Link>
             <p className="text-[13px] leading-relaxed text-gray-500 font-light max-w-[300px] mt-4">
-              California&apos;s premier luxury real estate brokerage, connecting discerning buyers and sellers with extraordinary properties across the Golden State.
+              Your trusted East Bay real estate partner. Expert guidance for property valuations, buying, and selling across the East Bay.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ export default function Footer() {
         <div className="h-px mb-6" style={{ background: "rgba(0,0,0,0.07)" }} />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-light">
-          <span>&copy; {new Date().getFullYear()} Haven Realty. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Halifacts Property and Investment. All rights reserved.</span>
           <span>
             <a href="#" className="text-terracotta hover:opacity-70 transition-opacity">Privacy</a>
             {" "}&middot;{" "}
