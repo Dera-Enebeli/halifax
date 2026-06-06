@@ -32,7 +32,7 @@ export default function Footer() {
               className="font-serif italic text-2xl text-terracotta tracking-tight"
               style={{ fontFamily: "var(--font-serif)" }}
             >
-              Halifacts
+              Halifact's
             </Link>
             <p className="text-[13px] leading-relaxed text-gray-500 font-light max-w-[300px] mt-4">
               Your trusted East Bay real estate partner. Expert guidance for property valuations, buying, and selling across the East Bay.
@@ -66,7 +66,7 @@ export default function Footer() {
         <div className="h-px mb-6" style={{ background: "rgba(0,0,0,0.07)" }} />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-light">
-          <span>&copy; {new Date().getFullYear()} Halifacts Property and Investment. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Halifact's Property and Investment. All rights reserved.</span>
           <span>
             <a href="#" className="text-terracotta hover:opacity-70 transition-opacity">Privacy</a>
             {" "}&middot;{" "}

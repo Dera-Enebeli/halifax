@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       )
     }
 
-    console.log("=== Halifacts New Lead ===")
+    console.log("=== Halifact's New Lead ===")
     console.log("Interest:", data.interest)
     console.log("Name:", data.name)
     console.log("Email:", data.email)

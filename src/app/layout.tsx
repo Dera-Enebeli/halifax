@@ -13,9 +13,9 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Halifacts Property and Investment | East Bay Real Estate",
+  title: "Halifact's Property and Investment | East Bay Real Estate",
   description:
-    "Your trusted East Bay real estate partner. Get property valuations, buy, or sell with expert guidance from Alex Rivera and the Halifacts team.",
+    "Your trusted East Bay real estate partner. Get property valuations, buy, or sell with expert guidance from Alex Rivera and the Halifact's team.",
 }
 
 export default function RootLayout({

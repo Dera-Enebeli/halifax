@@ -6,7 +6,10 @@ import { estimatePropertyValue, properties, agent } from "@/lib/mock-data"
 export default function LeadStepConsultation() {
   const { state, dispatch } = useFunnel()
 
-  const estimate = state.interest === "homeowner"
+  const showEstimate = state.interest === "homeowner" || state.interest === "seller"
+  const showMatchCount = state.interest === "buyer"
+
+  const estimate = showEstimate
     ? estimatePropertyValue({
         city: state.specs.city || "Oakland",
         propertyType: state.specs.propertyType || "House",
@@ -16,7 +19,7 @@ export default function LeadStepConsultation() {
       })
     : null
 
-  const matchCount = state.interest === "buy-sell"
+  const matchCount = showMatchCount
     ? properties.filter((p) => {
         if (state.specs.city && p.city !== state.specs.city) return false
         if (state.specs.minPrice && p.price < state.specs.minPrice) return false
@@ -60,10 +63,11 @@ export default function LeadStepConsultation() {
             </div>
 
             <div className="space-y-5">
+
               {estimate && (
                 <div className="bg-white p-5 shadow-inner">
                   <p className="text-[14px] font-bold text-olive-dark uppercase tracking-wider mb-2">
-                    Estimated Value
+                    {state.interest === "seller" ? "Estimated Listing Range" : "Estimated Value"}
                   </p>
                   <p className="font-serif text-[clamp(28px,4vw,36px)] text-near-black font-semibold" style={{ fontFamily: "var(--font-serif)" }}>
                     {estimate.formatted}
@@ -72,8 +76,36 @@ export default function LeadStepConsultation() {
                     Based on recent comparable sales in {state.specs.city || "the East Bay"}
                   </p>
                   <p className="text-[12px] text-gray-400 mt-2 font-normal">
-                    This is a preliminary estimate. Actual market value may vary.
+                    {state.interest === "seller"
+                      ? "This is a preliminary listing estimate. A full market analysis will be prepared during your consultation."
+                      : "This is a preliminary estimate. Actual market value may vary."}
                   </p>
+                </div>
+              )}
+
+              {state.interest === "seller" && (
+                <div className="bg-white p-5 shadow-inner">
+                  <p className="text-[14px] font-bold text-olive-dark uppercase tracking-wider mb-2">
+                    Listing Preparation
+                  </p>
+                  <ul className="text-[14px] text-gray-600 space-y-1.5">
+                    <li className="flex items-start gap-2">
+                      <span className="text-terracotta mt-0.5">&bull;</span>
+                      Professional staging and photography
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-terracotta mt-0.5">&bull;</span>
+                      Targeted MLS marketing strategy
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-terracotta mt-0.5">&bull;</span>
+                      Open houses and private showings
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-terracotta mt-0.5">&bull;</span>
+                      Negotiation and closing support
+                    </li>
+                  </ul>
                 </div>
               )}
 
@@ -114,12 +146,23 @@ export default function LeadStepConsultation() {
               </div>
 
               <div className="space-y-3 pt-2">
-                <a
-                  href={listingsUrl}
-                  className="block w-full h-12 leading-[48px] text-center bg-terracotta text-white text-[15px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300"
-                >
-                  Browse Available Properties
-                </a>
+                {state.interest === "buyer" && (
+                  <a
+                    href={listingsUrl}
+                    className="block w-full h-12 leading-[48px] text-center bg-terracotta text-white text-[15px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300"
+                  >
+                    Browse Available Properties
+                  </a>
+                )}
+
+                {state.interest === "seller" && (
+                  <button
+                    type="button"
+                    className="w-full h-12 bg-terracotta text-white text-[15px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300"
+                  >
+                    Schedule a Listing Consultation
+                  </button>
+                )}
 
                 <button
                   type="button"

@@ -17,7 +17,7 @@ export interface FunnelSpecs {
 }
 
 export interface FunnelState {
-  interest: "homeowner" | "buy-sell" | null
+  interest: "homeowner" | "buyer" | "seller" | null
   name: string
   email: string
   specs: FunnelSpecs
@@ -25,7 +25,7 @@ export interface FunnelState {
 }
 
 type Action =
-  | { type: "SET_INTEREST"; payload: "homeowner" | "buy-sell" }
+  | { type: "SET_INTEREST"; payload: "homeowner" | "buyer" | "seller" }
   | { type: "SET_CONTACT"; payload: { name: string; email: string } }
   | { type: "SET_SPECS"; payload: Partial<FunnelSpecs> }
   | { type: "SET_STEP"; payload: number }

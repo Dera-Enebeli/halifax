@@ -28,7 +28,7 @@ export default function LeadStepInterest() {
               className="font-serif text-terracotta leading-[1.1] tracking-wide"
               style={{ fontSize: "clamp(36px, 4vw, 50px)", fontFamily: "var(--font-serif)" }}
             >
-              Halifacts
+              Halifact's
             </h1>
             <p className="font-serif text-cream/60 text-[clamp(12px,1.2vw,16px)] tracking-[0.2em] uppercase mt-1.5" style={{ fontFamily: "var(--font-serif)" }}>
               Property and Investment
@@ -36,10 +36,10 @@ export default function LeadStepInterest() {
           </div>
 
           <p className="text-cream/80 text-[17px] font-normal mb-2 max-w-md leading-relaxed">
-            Welcome to Halifacts. Your trusted East Bay real estate partner.
+            Welcome to Halifact's. Your trusted East Bay real estate partner.
           </p>
           <p className="text-cream/50 text-[14px] font-normal mb-8 max-w-md leading-relaxed">
-            Whether you&apos;re curious about your home&apos;s value or ready to make a move, we&apos;re here to guide you.
+            Tell us about your plans so we can guide you better.
           </p>
 
           <div className="space-y-4">
@@ -54,24 +54,41 @@ export default function LeadStepInterest() {
                     I&apos;m a Homeowner
                   </h3>
                   <p className="text-[14px] text-gray-500 font-normal mt-1.5 leading-relaxed">
-                    Interested in the value of your property and investment
+                    Curious about the value of my property and investment options
                   </p>
                 </div>
               </div>
             </button>
 
             <button
-              onClick={() => dispatch({ type: "SET_INTEREST", payload: "buy-sell" })}
+              onClick={() => dispatch({ type: "SET_INTEREST", payload: "buyer" })}
               className="group w-full text-left bg-cream p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-1.5 self-stretch bg-olive" />
                 <div>
                   <h3 className="font-serif text-[20px] text-near-black leading-tight group-hover:text-olive-dark transition-colors duration-300" style={{ fontFamily: "var(--font-serif)" }}>
-                    I&apos;m Looking to Buy or Sell
+                    I&apos;m Looking to Buy
                   </h3>
                   <p className="text-[14px] text-gray-500 font-normal mt-1.5 leading-relaxed">
-                    Ready to find your next home or list your property
+                    Ready to find my next home in the East Bay
+                  </p>
+                </div>
+              </div>
+            </button>
+
+            <button
+              onClick={() => dispatch({ type: "SET_INTEREST", payload: "seller" })}
+              className="group w-full text-left bg-cream p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-1.5 self-stretch bg-near-black/40" />
+                <div>
+                  <h3 className="font-serif text-[20px] text-near-black leading-tight group-hover:text-near-black transition-colors duration-300" style={{ fontFamily: "var(--font-serif)" }}>
+                    I&apos;m Looking to Sell
+                  </h3>
+                  <p className="text-[14px] text-gray-500 font-normal mt-1.5 leading-relaxed">
+                    Want to list my property and find the right buyer
                   </p>
                 </div>
               </div>
