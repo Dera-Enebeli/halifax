@@ -1,0 +1,622 @@
+import { Home, Building2, Warehouse, Castle, Mountain, Building } from "lucide-react"
+
+export interface Property {
+  id: string
+  title: string
+  address: string
+  city: string
+  state: string
+  zip: string
+  price: number
+  beds: number
+  baths: number
+  sqft: number
+  lotSize: string
+  yearBuilt: number
+  garage: number
+  description: string
+  images: string[]
+  type: "House" | "Condo" | "Townhouse" | "Estate" | "Villa"
+  status: "Active" | "Pending" | "Sold"
+  featured: boolean
+  listDate: string
+  agent: {
+    name: string
+    phone: string
+    email: string
+    image: string
+  }
+  features: string[]
+  location: {
+    lat: number
+    lng: number
+  }
+}
+
+export const properties: Property[] = [
+  {
+    id: "prop-001",
+    title: "Modern Waterfront Estate",
+    address: "42 Oceanview Drive",
+    city: "Santa Monica",
+    state: "CA",
+    zip: "90401",
+    price: 4895000,
+    beds: 5,
+    baths: 4.5,
+    sqft: 5200,
+    lotSize: "0.75 acres",
+    yearBuilt: 2021,
+    garage: 4,
+    description:
+      "Stunning contemporary waterfront estate with panoramic ocean views. This meticulously designed home features floor-to-ceiling windows, a gourmet chef's kitchen with Wolf and Sub-Zero appliances, and a primary suite with a spa-like bathroom. Outdoor living includes a saltwater pool, outdoor kitchen, and private dock access.",
+    images: [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753086-00f18b8b7b10?w=1200&q=80",
+    ],
+    type: "Estate",
+    status: "Active",
+    featured: true,
+    listDate: "2026-04-15",
+    agent: {
+      name: "Sarah Mitchell",
+      phone: "(310) 555-0142",
+      email: "sarah@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
+    },
+    features: [
+      "Ocean Views",
+      "Heated Saltwater Pool",
+      "Chef's Kitchen",
+      "Smart Home System",
+      "Wine Cellar",
+      "Home Theater",
+      "Private Dock",
+      "Outdoor Kitchen",
+      "EV Charging Station",
+      "Radiant Floor Heating",
+    ],
+    location: { lat: 34.0195, lng: -118.4912 },
+  },
+  {
+    id: "prop-002",
+    title: "Mediterranean Hilltop Villa",
+    address: "1289 Bella Vista Lane",
+    city: "Beverly Hills",
+    state: "CA",
+    zip: "90210",
+    price: 7250000,
+    beds: 6,
+    baths: 5.5,
+    sqft: 6800,
+    lotSize: "1.2 acres",
+    yearBuilt: 2019,
+    garage: 5,
+    description:
+      "A breathtaking Mediterranean villa perched atop the Beverly Hills hillside. This architectural masterpiece offers sweeping city and canyon views from every room. Features include imported Italian marble, a private spa, infinity pool, and a fully equipped outdoor entertainment pavilion.",
+    images: [
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7c3a0b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c3c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1200&q=80",
+    ],
+    type: "Villa",
+    status: "Active",
+    featured: true,
+    listDate: "2026-05-01",
+    agent: {
+      name: "James Rodriguez",
+      phone: "(310) 555-0198",
+      email: "james@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
+    },
+    features: [
+      "City Views",
+      "Infinity Pool",
+      "Spa & Sauna",
+      "Home Gym",
+      "Italian Marble",
+      "Private Elevator",
+      "Wine Cellar",
+      "Outdoor Pavilion",
+      "Helipad",
+      "Gated Entry",
+    ],
+    location: { lat: 34.0736, lng: -118.4004 },
+  },
+  {
+    id: "prop-003",
+    title: "Contemporary Urban Loft",
+    address: "350 S Grand Avenue #420",
+    city: "Los Angeles",
+    state: "CA",
+    zip: "90071",
+    price: 1250000,
+    beds: 2,
+    baths: 2,
+    sqft: 1850,
+    lotSize: "N/A",
+    yearBuilt: 2022,
+    garage: 2,
+    description:
+      "Sleek urban loft in the heart of downtown LA's financial district. This corner unit features 12-foot ceilings, floor-to-ceiling windows with stunning city views, custom Italian cabinetry, and top-of-the-line Miele appliances. Building amenities include 24-hour concierge, rooftop pool, and fitness center.",
+    images: [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+      "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80",
+    ],
+    type: "Condo",
+    status: "Active",
+    featured: true,
+    listDate: "2026-04-28",
+    agent: {
+      name: "Emily Chen",
+      phone: "(213) 555-0234",
+      email: "emily@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
+    },
+    features: [
+      "Corner Unit",
+      "12' Ceilings",
+      "City Views",
+      "Rooftop Pool",
+      "Fitness Center",
+      "Concierge",
+      "Valet Parking",
+      "Wine Storage",
+    ],
+    location: { lat: 34.0522, lng: -118.2437 },
+  },
+  {
+    id: "prop-004",
+    title: "Charming Spanish Bungalow",
+    address: "867 Willow Creek Road",
+    city: "Santa Barbara",
+    state: "CA",
+    zip: "93101",
+    price: 1895000,
+    beds: 3,
+    baths: 2,
+    sqft: 2200,
+    lotSize: "0.35 acres",
+    yearBuilt: 1928,
+    garage: 2,
+    description:
+      "Beautifully restored Spanish Colonial bungalow in the coveted Riviera district. Original hardwood floors, hand-painted tiles, arched doorways, and a cozy courtyard garden. Updated kitchen and baths blend modern convenience with old-world charm. Walking distance to downtown shops and restaurants.",
+    images: [
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7c3a0b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80",
+    ],
+    type: "House",
+    status: "Active",
+    featured: false,
+    listDate: "2026-05-10",
+    agent: {
+      name: "Sarah Mitchell",
+      phone: "(310) 555-0142",
+      email: "sarah@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
+    },
+    features: [
+      "Hardwood Floors",
+      "Courtyard Garden",
+      "Original Tile Work",
+      "Updated Kitchen",
+      "Arched Doorways",
+      "Fireplace",
+      "Built-in Shelving",
+      "French Doors",
+    ],
+    location: { lat: 34.4208, lng: -119.6982 },
+  },
+  {
+    id: "prop-005",
+    title: "Luxury Mountain Retreat",
+    address: "55 Pine Crest Trail",
+    city: "Lake Tahoe",
+    state: "CA",
+    zip: "96145",
+    price: 3950000,
+    beds: 4,
+    baths: 3.5,
+    sqft: 4100,
+    lotSize: "2.5 acres",
+    yearBuilt: 2017,
+    garage: 3,
+    description:
+      "Exquisite mountain modern retreat nestled in the pines with stunning lake views. The great room features a double-sided stone fireplace, chef's kitchen with vaulted timber ceilings. Floor-to-ceiling windows blur the line between indoor and outdoor living. Includes a hot tub, fire pit, and direct access to hiking trails.",
+    images: [
+      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c3c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+    ],
+    type: "Estate",
+    status: "Active",
+    featured: true,
+    listDate: "2026-04-20",
+    agent: {
+      name: "James Rodriguez",
+      phone: "(310) 555-0198",
+      email: "james@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
+    },
+    features: [
+      "Lake Views",
+      "Stone Fireplace",
+      "Vaulted Ceilings",
+      "Hot Tub",
+      "Fire Pit",
+      "Trail Access",
+      "Covered Patio",
+      "Mountain Modern",
+    ],
+    location: { lat: 39.1641, lng: -120.1456 },
+  },
+  {
+    id: "prop-006",
+    title: "Modern Family Home",
+    address: "2845 Maple Avenue",
+    city: "Irvine",
+    state: "CA",
+    zip: "92602",
+    price: 1425000,
+    beds: 4,
+    baths: 3,
+    sqft: 2850,
+    lotSize: "0.18 acres",
+    yearBuilt: 2023,
+    garage: 2,
+    description:
+      "Brand-new modern family home in the highly sought-after Orchard Hills community. Open concept layout with a gourmet kitchen, large island, and great room. Upstairs features a generous primary suite with spa bath, three secondary bedrooms, and a loft. Energy-efficient construction with solar panels.",
+    images: [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+    ],
+    type: "House",
+    status: "Active",
+    featured: false,
+    listDate: "2026-05-05",
+    agent: {
+      name: "Emily Chen",
+      phone: "(213) 555-0234",
+      email: "emily@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
+    },
+    features: [
+      "Solar Panels",
+      "Gourmet Kitchen",
+      "Open Floor Plan",
+      "Loft",
+      "Smart Home",
+      "Community Pool",
+      "Parks Nearby",
+      "Top-Rated Schools",
+    ],
+    location: { lat: 33.6846, lng: -117.8265 },
+  },
+  {
+    id: "prop-007",
+    title: "Beachfront Paradise",
+    address: "101 Pacific Coast Highway #PH",
+    city: "Malibu",
+    state: "CA",
+    zip: "90265",
+    price: 8950000,
+    beds: 4,
+    baths: 4.5,
+    sqft: 4500,
+    lotSize: "0.5 acres",
+    yearBuilt: 2020,
+    garage: 3,
+    description:
+      "Unparalleled beachfront living in this architectural penthouse. Direct beach access, 180-degree ocean views, and designer finishes throughout. The open living area features a custom glass wine wall, state-of-the-art kitchen, and a vast oceanfront terrace. Primary suite includes a steam shower, soaking tub, and private patio.",
+    images: [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753086-00f18b8b7b10?w=1200&q=80",
+    ],
+    type: "Condo",
+    status: "Active",
+    featured: true,
+    listDate: "2026-04-10",
+    agent: {
+      name: "Sarah Mitchell",
+      phone: "(310) 555-0142",
+      email: "sarah@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
+    },
+    features: [
+      "Oceanfront",
+      "Private Terrace",
+      "Wine Wall",
+      "Designer Finishes",
+      "Beach Access",
+      "Steam Shower",
+      "Smart Home",
+      "Private Garage",
+    ],
+    location: { lat: 34.0326, lng: -118.6806 },
+  },
+  {
+    id: "prop-008",
+    title: "Historic Craftsman Beauty",
+    address: "724 Oak Street",
+    city: "Pasadena",
+    state: "CA",
+    zip: "91101",
+    price: 1650000,
+    beds: 3,
+    baths: 2.5,
+    sqft: 2400,
+    lotSize: "0.25 acres",
+    yearBuilt: 1910,
+    garage: 1,
+    description:
+      "Meticulously preserved Craftsman home in the historic Bungalow Heaven district. Features original built-in cabinetry, leaded glass windows, a brick fireplace, and a wraparound porch. Updated systems and kitchen while maintaining period charm. Professionally landscaped gardens with mature fruit trees.",
+    images: [
+      "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7c3a0b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
+    ],
+    type: "House",
+    status: "Pending",
+    featured: false,
+    listDate: "2026-03-15",
+    agent: {
+      name: "Emily Chen",
+      phone: "(213) 555-0234",
+      email: "emily@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
+    },
+    features: [
+      "Original Woodwork",
+      "Leaded Glass",
+      "Brick Fireplace",
+      "Wraparound Porch",
+      "Mature Gardens",
+      "Built-in Cabinetry",
+      "Coffered Ceilings",
+      "Fruit Trees",
+    ],
+    location: { lat: 34.1478, lng: -118.1443 },
+  },
+  {
+    id: "prop-009",
+    title: "Sleek Mid-Century Modern",
+    address: "1880 Sunset Ridge Road",
+    city: "Palm Springs",
+    state: "CA",
+    zip: "92262",
+    price: 2100000,
+    beds: 3,
+    baths: 3,
+    sqft: 2800,
+    lotSize: "0.5 acres",
+    yearBuilt: 1958,
+    garage: 2,
+    description:
+      "Iconic mid-century modern masterpiece designed by a noted architect. Recently restored with period-appropriate finishes including terrazzo floors, mahogany paneling, and a dramatic butterfly roof. Resort-style backyard with a pool, fire pit, and mountain views. Located in the prestigious Old Las Palmas neighborhood.",
+    images: [
+      "https://images.unsplash.com/photo-1600566753086-00f18b8b7b10?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+    ],
+    type: "House",
+    status: "Active",
+    featured: false,
+    listDate: "2026-05-08",
+    agent: {
+      name: "James Rodriguez",
+      phone: "(310) 555-0198",
+      email: "james@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
+    },
+    features: [
+      "Butterfly Roof",
+      "Terrazzo Floors",
+      "Mahogany Paneling",
+      "Resort Pool",
+      "Mountain Views",
+      "Fire Pit",
+      "Period Lighting",
+      "Original Tile",
+    ],
+    location: { lat: 33.8303, lng: -116.5453 },
+  },
+  {
+    id: "prop-010",
+    title: "Starter Townhome",
+    address: "980 Park Lane #204",
+    city: "San Diego",
+    state: "CA",
+    zip: "92101",
+    price: 725000,
+    beds: 2,
+    baths: 1.5,
+    sqft: 1150,
+    lotSize: "N/A",
+    yearBuilt: 2018,
+    garage: 1,
+    description:
+      "Light and bright townhome in the vibrant East Village neighborhood. Open layout with hardwood floors, quartz countertops, and stainless steel appliances. Rooftop access with stunning city and bay views. Walking distance to Petco Park, restaurants, and the waterfront.",
+    images: [
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80",
+    ],
+    type: "Townhouse",
+    status: "Active",
+    featured: false,
+    listDate: "2026-05-12",
+    agent: {
+      name: "Emily Chen",
+      phone: "(213) 555-0234",
+      email: "emily@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
+    },
+    features: [
+      "Hardwood Floors",
+      "Quartz Counters",
+      "Rooftop Access",
+      "City Views",
+      "In-Unit Laundry",
+      "Assigned Parking",
+      "Pet Friendly",
+      "Walk Score 95",
+    ],
+    location: { lat: 32.7157, lng: -117.1611 },
+  },
+  {
+    id: "prop-011",
+    title: "Wine Country Estate",
+    address: "7200 Vineyard Road",
+    city: "Napa",
+    state: "CA",
+    zip: "94558",
+    price: 6200000,
+    beds: 5,
+    baths: 4.5,
+    sqft: 5800,
+    lotSize: "10 acres",
+    yearBuilt: 2005,
+    garage: 4,
+    description:
+      "Magnificent wine country estate with its own vineyard and tasting room. The main residence features a grand great room with a two-story stone fireplace, a professional-grade kitchen, and an entertainer's patio overlooking the vines. Includes a guest house, pool, and a fully equipped wine cave.",
+    images: [
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7c3a0b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c3c?w=1200&q=80",
+    ],
+    type: "Estate",
+    status: "Active",
+    featured: true,
+    listDate: "2026-04-05",
+    agent: {
+      name: "Sarah Mitchell",
+      phone: "(310) 555-0142",
+      email: "sarah@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
+    },
+    features: [
+      "Working Vineyard",
+      "Wine Cave",
+      "Guest House",
+      "Pool & Spa",
+      "Stone Fireplace",
+      "Chef's Kitchen",
+      "Mountain Views",
+      "Tasting Room",
+    ],
+    location: { lat: 38.2975, lng: -122.2869 },
+  },
+  {
+    id: "prop-012",
+    title: "Coastal Cottage",
+    address: "246 Seashell Avenue",
+    city: "Laguna Beach",
+    state: "CA",
+    zip: "92651",
+    price: 2750000,
+    beds: 3,
+    baths: 2,
+    sqft: 1800,
+    lotSize: "0.12 acres",
+    yearBuilt: 1945,
+    garage: 2,
+    description:
+      "Charming beach cottage just two blocks from Main Beach. Updated open-concept living with a modern kitchen, vaulted ceilings, and a cozy fireplace. The outdoor space features a private patio with an outdoor shower and lush tropical landscaping. A true Laguna Beach gem with serious income potential as a vacation rental.",
+    images: [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+    ],
+    type: "House",
+    status: "Active",
+    featured: false,
+    listDate: "2026-05-03",
+    agent: {
+      name: "James Rodriguez",
+      phone: "(310) 555-0198",
+      email: "james@havenrealty.com",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
+    },
+    features: [
+      "Steps to Beach",
+      "Private Patio",
+      "Outdoor Shower",
+      "Vaulted Ceilings",
+      "Fireplace",
+      "Lush Landscaping",
+      "Updated Kitchen",
+      "Income Potential",
+    ],
+    location: { lat: 33.5427, lng: -117.7854 },
+  },
+]
+
+export const propertyTypes = [
+  { value: "all", label: "All Types", icon: Home },
+  { value: "House", label: "Houses", icon: Building2 },
+  { value: "Condo", label: "Condos", icon: Building },
+  { value: "Townhouse", label: "Townhomes", icon: Warehouse },
+  { value: "Estate", label: "Estates", icon: Castle },
+  { value: "Villa", label: "Villas", icon: Mountain },
+] as const
+
+export const cities = [
+  "All Cities",
+  "Santa Monica",
+  "Beverly Hills",
+  "Los Angeles",
+  "Santa Barbara",
+  "Lake Tahoe",
+  "Irvine",
+  "Malibu",
+  "Pasadena",
+  "Palm Springs",
+  "San Diego",
+  "Napa",
+  "Laguna Beach",
+]
+
+export function getPropertyById(id: string): Property | undefined {
+  return properties.find((p) => p.id === id)
+}
+
+export function getFeaturedProperties(): Property[] {
+  return properties.filter((p) => p.featured)
+}
+
+export function getPropertiesByCity(city: string): Property[] {
+  if (!city || city === "All Cities") return properties
+  return properties.filter((p) => p.city === city)
+}
+
+export function getMarketStats() {
+  return {
+    totalListings: properties.length,
+    averagePrice: Math.round(
+      properties.reduce((sum, p) => sum + p.price, 0) / properties.length
+    ),
+    medianPrice: 2350000,
+    avgDaysOnMarket: 24,
+    pricePerSqft: 625,
+    inventory: properties.filter((p) => p.status === "Active").length,
+  }
+}
