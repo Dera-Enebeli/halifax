@@ -20,16 +20,27 @@
   }
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
   }
   body {
     color: var(--color-near-black);
     background: var(--color-cream);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem;
+    line-height: 1.6;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
-    font-weight: 400;
+  }
+}
+
+@layer utilities {
+  .touch-target {
+    @apply min-h-[48px] min-w-[48px];
+  }
+  .touch-target-lg {
+    @apply min-h-[56px] min-w-[56px];
   }
 }
 

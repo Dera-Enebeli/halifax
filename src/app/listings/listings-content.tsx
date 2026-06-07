@@ -241,18 +241,18 @@ export default function ListingsContent() {
 
       <div className="max-w-page section-padding py-8">
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-72 shrink-0">
+            <div className="lg:w-72 shrink-0">
             <div className="flex items-center justify-between lg:hidden mb-4">
               <Button
                 variant="outline"
                 onClick={() => setShowFilters(!showFilters)}
-                className="gap-2"
+                className="gap-2 h-12 sm:h-10 text-[15px] sm:text-sm px-4"
               >
-                <SlidersHorizontal className="h-4 w-4" />
+                <SlidersHorizontal className="h-5 w-5 sm:h-4 sm:w-4" />
                 Filters
               </Button>
               {hasActiveFilters && (
-                <button onClick={clearFilters} className="text-sm text-terracotta hover:underline">
+                <button onClick={clearFilters} className="text-[15px] sm:text-sm text-terracotta hover:underline">
                   Clear all
                 </button>
               )}
@@ -260,11 +260,11 @@ export default function ListingsContent() {
 
             <div className={`space-y-5 ${showFilters ? "block" : "hidden lg:block"}`}>
               <div>
-                <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-1.5">
+                <label className="block text-[14px] sm:text-xs font-medium text-gray-600 uppercase tracking-wider mb-2 sm:mb-1.5">
                   Location
                 </label>
                 <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 sm:h-4 sm:w-4 text-gray-400" />
                   <input
                     type="text"
                     placeholder="City or Address..."
@@ -273,13 +273,13 @@ export default function ListingsContent() {
                       setSearchText(e.target.value)
                       setFilters((f) => ({ ...f, location: e.target.value }))
                     }}
-                    className="w-full h-10 pl-9 pr-3 rounded border border-warm-border bg-white text-sm text-near-black placeholder:text-gray-400 focus:outline-none focus:border-terracotta transition-colors"
+                    className="w-full h-12 sm:h-10 pl-10 sm:pl-9 pr-4 sm:pr-3 rounded-xl sm:rounded border border-warm-border bg-white text-[17px] sm:text-sm text-near-black placeholder:text-gray-400 focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 sm:focus:ring-0 transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-1.5">
+                <label className="block text-[14px] sm:text-xs font-medium text-gray-600 uppercase tracking-wider mb-2 sm:mb-1.5">
                   Property Type
                 </label>
                 <Select
@@ -288,11 +288,12 @@ export default function ListingsContent() {
                   onChange={(e) =>
                     setFilters((f) => ({ ...f, type: e.target.value }))
                   }
+                  className="h-12 sm:h-10 text-[17px] sm:text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-1.5">
+                <label className="block text-[14px] sm:text-xs font-medium text-gray-600 uppercase tracking-wider mb-2 sm:mb-1.5">
                   Price Range
                 </label>
                 <Select
@@ -301,12 +302,13 @@ export default function ListingsContent() {
                   onChange={(e) =>
                     setFilters((f) => ({ ...f, price: e.target.value }))
                   }
+                  className="h-12 sm:h-10 text-[17px] sm:text-sm"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-1.5">
+                  <label className="block text-[14px] sm:text-xs font-medium text-gray-600 uppercase tracking-wider mb-2 sm:mb-1.5">
                     Bedrooms
                   </label>
                   <Select
@@ -315,10 +317,11 @@ export default function ListingsContent() {
                     onChange={(e) =>
                       setFilters((f) => ({ ...f, beds: e.target.value }))
                     }
+                    className="h-12 sm:h-10 text-[17px] sm:text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-1.5">
+                  <label className="block text-[14px] sm:text-xs font-medium text-gray-600 uppercase tracking-wider mb-2 sm:mb-1.5">
                     Bathrooms
                   </label>
                   <Select
@@ -327,12 +330,13 @@ export default function ListingsContent() {
                     onChange={(e) =>
                       setFilters((f) => ({ ...f, baths: e.target.value }))
                     }
+                    className="h-12 sm:h-10 text-[17px] sm:text-sm"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-1.5">
+                <label className="block text-[14px] sm:text-xs font-medium text-gray-600 uppercase tracking-wider mb-2 sm:mb-1.5">
                   Min Sq Ft
                 </label>
                 <Select
@@ -341,11 +345,12 @@ export default function ListingsContent() {
                   onChange={(e) =>
                     setFilters((f) => ({ ...f, sqft: e.target.value }))
                   }
+                  className="h-12 sm:h-10 text-[17px] sm:text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-1.5">
+                <label className="block text-[14px] sm:text-xs font-medium text-gray-600 uppercase tracking-wider mb-2 sm:mb-1.5">
                   Min Garage
                 </label>
                 <Select
@@ -354,11 +359,12 @@ export default function ListingsContent() {
                   onChange={(e) =>
                     setFilters((f) => ({ ...f, garage: e.target.value }))
                   }
+                  className="h-12 sm:h-10 text-[17px] sm:text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-1.5">
+                <label className="block text-[14px] sm:text-xs font-medium text-gray-600 uppercase tracking-wider mb-2 sm:mb-1.5">
                   Min Year Built
                 </label>
                 <Select
@@ -367,11 +373,12 @@ export default function ListingsContent() {
                   onChange={(e) =>
                     setFilters((f) => ({ ...f, yearBuilt: e.target.value }))
                   }
+                  className="h-12 sm:h-10 text-[17px] sm:text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-1.5">
+                <label className="block text-[14px] sm:text-xs font-medium text-gray-600 uppercase tracking-wider mb-2 sm:mb-1.5">
                   Status
                 </label>
                 <Select
@@ -380,22 +387,23 @@ export default function ListingsContent() {
                   onChange={(e) =>
                     setFilters((f) => ({ ...f, status: e.target.value }))
                   }
+                  className="h-12 sm:h-10 text-[17px] sm:text-sm"
                 />
               </div>
 
               {hasActiveFilters && (
                 <button
                   onClick={clearFilters}
-                  className="hidden lg:flex items-center gap-1 text-sm text-terracotta hover:opacity-70 transition-opacity"
+                  className="hidden lg:flex items-center gap-1 text-[14px] sm:text-sm text-terracotta hover:opacity-70 transition-opacity"
                 >
-                  <X className="h-3.5 w-3.5" />
+                  <X className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
                   Clear all filters
                 </button>
               )}
             </div>
           </div>
 
-          <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
                 <Select
@@ -404,21 +412,21 @@ export default function ListingsContent() {
                   onChange={(e) =>
                     setFilters((f) => ({ ...f, sort: e.target.value }))
                   }
-                  className="w-44"
+                  className="w-full sm:w-48 h-12 sm:h-10 text-[17px] sm:text-sm"
                 />
               </div>
-              <div className="flex items-center border border-warm-border rounded overflow-hidden">
+              <div className="flex items-center border border-warm-border rounded-xl sm:rounded overflow-hidden">
                 <button
                   onClick={() => setViewMode("grid")}
-                  className={`p-2 transition-colors ${viewMode === "grid" ? "bg-terracotta text-white" : "text-gray-500 hover:bg-gray-50"}`}
+                  className={`p-3 sm:p-2 transition-colors touch-target sm:min-h-0 sm:min-w-0 ${viewMode === "grid" ? "bg-terracotta text-white" : "text-gray-500 hover:bg-gray-50"}`}
                 >
-                  <LayoutGrid className="h-4 w-4" />
+                  <LayoutGrid className="h-5 w-5 sm:h-4 sm:w-4" />
                 </button>
                 <button
                   onClick={() => setViewMode("list")}
-                  className={`p-2 transition-colors ${viewMode === "list" ? "bg-terracotta text-white" : "text-gray-500 hover:bg-gray-50"}`}
+                  className={`p-3 sm:p-2 transition-colors touch-target sm:min-h-0 sm:min-w-0 ${viewMode === "list" ? "bg-terracotta text-white" : "text-gray-500 hover:bg-gray-50"}`}
                 >
-                  <List className="h-4 w-4" />
+                  <List className="h-5 w-5 sm:h-4 sm:w-4" />
                 </button>
               </div>
             </div>
@@ -443,7 +451,7 @@ export default function ListingsContent() {
                 className={
                   viewMode === "grid"
                     ? "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6"
-                    : "space-y-4"
+                    : "space-y-6"
                 }
               >
                 {filtered.map((property) => (

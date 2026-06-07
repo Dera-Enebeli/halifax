@@ -1,13 +1,13 @@
 "use client"
 
 import { useFunnel } from "@/lib/funnel-store"
-import { estimatePropertyValue, properties, agent } from "@/lib/mock-data"
+import { estimatePropertyValue, agent } from "@/lib/mock-data"
+import { openWhatsApp } from "@/lib/whatsapp"
 
 export default function LeadStepConsultation() {
   const { state, dispatch } = useFunnel()
 
   const showEstimate = state.interest === "homeowner" || state.interest === "seller"
-  const showMatchCount = state.interest === "buyer"
 
   const estimate = showEstimate
     ? estimatePropertyValue({
@@ -19,24 +19,10 @@ export default function LeadStepConsultation() {
       })
     : null
 
-  const matchCount = showMatchCount
-    ? properties.filter((p) => {
-        if (state.city && p.city !== state.city) return false
-        if (state.minPrice && p.price < state.minPrice) return false
-        if (state.maxPrice && p.price > state.maxPrice) return false
-        if (state.bedrooms && p.beds < state.bedrooms) return false
-        return true
-      }).length
-    : null
-
-  const listingsUrl = `/listings?city=${encodeURIComponent(state.city || "")}&minPrice=${state.minPrice || ""}&maxPrice=${state.maxPrice || ""}&bedrooms=${state.bedrooms || ""}`
-
   return (
-    <div className="relative min-h-screen bg-wood-warm overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
-
-      <div className="relative z-10 min-h-screen flex items-center justify-center section-padding py-16">
-        <div className="w-full max-w-xl my-8">
+    <section className="py-16 md:py-20" style={{ background: "var(--color-cream-dark, #EAE2D6)" }}>
+      <div className="max-w-page section-padding">
+        <div className="w-full max-w-xl mx-auto">
           <div className="bg-cream shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
             <div className="h-1 w-full bg-terracotta" />
 
@@ -98,27 +84,13 @@ export default function LeadStepConsultation() {
                   </div>
                 )}
 
-                {matchCount !== null && (
-                  <div className="bg-white p-8 shadow-inner text-center">
-                    <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
-                      Properties Matching Your Criteria
-                    </p>
-                    <p className="font-serif text-[clamp(44px,6vw,64px)] text-near-black font-bold leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                      {matchCount}
-                    </p>
-                    <p className="text-[18px] text-gray-500 mt-1 font-normal">
-                      {matchCount === 1 ? "property found" : "properties found"} in the East Bay
-                    </p>
-                  </div>
-                )}
-
                 <div className="bg-white p-8 shadow-inner">
                   <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3">
                     Speak with your agent
                   </p>
                   <div className="flex items-start gap-4">
                     <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center font-serif text-[24px] font-bold bg-terracotta text-white" style={{ fontFamily: "var(--font-serif)" }}>
-                      AR
+                      GE
                     </div>
                     <div>
                       <p className="text-[20px] font-bold text-near-black">
@@ -135,18 +107,20 @@ export default function LeadStepConsultation() {
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  {state.interest === "buyer" && (
-                    <a
-                      href={listingsUrl}
-                      className="block w-full h-14 leading-[56px] text-center bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300"
-                    >
-                      Browse Available Properties
-                    </a>
-                  )}
-
                   {state.interest === "seller" && (
                     <button
                       type="button"
+                      onClick={() => openWhatsApp({
+                        "Schedule": "Listing Consultation",
+                        Name: state.name,
+                        Email: state.email,
+                        City: state.city,
+                        Address: state.address,
+                        "Property Type": state.propertyType || "House",
+                        "Sq Footage": state.sqft || "Unknown",
+                        Beds: state.bedrooms ? String(state.bedrooms) : "Unknown",
+                        Baths: state.baths ? String(state.baths) : "Unknown",
+                      })}
                       className="w-full h-14 bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
                     >
                       Schedule a Listing Consultation
@@ -156,6 +130,17 @@ export default function LeadStepConsultation() {
                   {state.interest === "homeowner" && (
                     <button
                       type="button"
+                      onClick={() => openWhatsApp({
+                        "Schedule": "Full Valuation",
+                        Name: state.name,
+                        Email: state.email,
+                        City: state.city,
+                        Address: state.address,
+                        "Property Type": state.propertyType || "House",
+                        "Sq Footage": state.sqft || "Unknown",
+                        Beds: state.bedrooms ? String(state.bedrooms) : "Unknown",
+                        Baths: state.baths ? String(state.baths) : "Unknown",
+                      })}
                       className="w-full h-14 bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
                     >
                       Schedule a Full Valuation
@@ -180,6 +165,6 @@ export default function LeadStepConsultation() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

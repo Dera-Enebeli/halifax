@@ -198,7 +198,13 @@ export default async function PropertyDetailPage(props: PageProps<"/listings/[id
                         Estimated Monthly
                       </label>
                       <p className="text-2xl font-bold text-terracotta">
-                        {formatPrice(Math.round(property.price * 0.8 * 0.005 / 12 * 100) * 100)}
+                        {(() => {
+                          const loan = property.price * 0.8
+                          const r = 0.065 / 12
+                          const n = 360
+                          const payment = loan * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1)
+                          return formatPrice(Math.round(payment / 100) * 100)
+                        })()}
                       </p>
                     </div>
                     <p className="text-xs text-gray-400">

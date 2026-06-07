@@ -34,9 +34,9 @@ export interface Property {
 }
 
 export const agent = {
-  name: "Alex Rivera",
+  name: "Geoffrey Enebeli",
   phone: "(510) 555-0142",
-  email: "alex@halifaxproperties.com",
+  email: "geoffrey@halifaxproperties.com",
   image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
 }
 
@@ -138,8 +138,8 @@ export const properties: Property[] = [
     images: [
       "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600566753376-12c8ab7c3a0b?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c3c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
     ],
     type: "House",
     status: "Active",
@@ -178,7 +178,7 @@ export const properties: Property[] = [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600566753086-00f18b8b7b10?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
     ],
     type: "Townhouse",
     status: "Active",
@@ -214,8 +214,8 @@ export const properties: Property[] = [
     description:
       "Brand-new townhome in Dublin's vibrant Positano community. Open concept main level with gourmet kitchen, great room, and powder room. Upstairs features three bedrooms including a primary suite with dual vanity and walk-in closet. Solar panels, smart home features, and a two-car garage. Near BART and great schools.",
     images: [
-      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c3c?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
     ],
@@ -331,7 +331,7 @@ export const properties: Property[] = [
     description:
       "Classic mid-century ranch with incredible potential in San Leandro's Broadmoor neighborhood. Original hardwood floors, large picture windows, and a spacious backyard ready for your personal touch. Updated roof and HVAC. Close to Bayfair Center, BART, and major commuter routes.",
     images: [
-      "https://images.unsplash.com/photo-1600566753086-00f18b8b7b10?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
@@ -372,8 +372,8 @@ export const properties: Property[] = [
     images: [
       "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600566753376-12c8ab7c3a0b?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c3c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
     ],
     type: "Bungalow",
     status: "Active",
@@ -451,7 +451,7 @@ export const properties: Property[] = [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
-      "https://images.unsplash.com/photo-1600566753086-00f18b8b7b10?w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
     ],
     type: "Townhouse",
     status: "Active",

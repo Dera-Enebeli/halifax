@@ -2,10 +2,11 @@
 
 import { useState } from "react"
 import * as Dialog from "@radix-ui/react-dialog"
-import { X, CheckCircle, Loader2 } from "lucide-react"
+import { X, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
+import { openWhatsApp } from "@/lib/whatsapp"
 import type { Property } from "@/lib/mock-data"
 
 interface RequestInfoFormProps {
@@ -56,7 +57,6 @@ const propertyTypes = [
 export default function RequestInfoForm({ property, children }: RequestInfoFormProps) {
   const [open, setOpen] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
   const [form, setForm] = useState({
@@ -75,34 +75,30 @@ export default function RequestInfoForm({ property, children }: RequestInfoFormP
     setForm((f) => ({ ...f, [field]: value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
-    setLoading(true)
 
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          propertyTitle: property.title,
-          propertyAddress: `${property.address}, ${property.city}, ${property.state} ${property.zip}`,
-          propertyId: property.id,
-        }),
-      })
-
-      if (!res.ok) {
-        const data = await res.json()
-        throw new Error(data.error || "Something went wrong")
-      }
-
-      setSubmitted(true)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Submission failed")
-    } finally {
-      setLoading(false)
+    if (!form.name || !form.email) {
+      setError("Name and email are required")
+      return
     }
+
+    openWhatsApp({
+      Property: property.title,
+      Address: `${property.address}, ${property.city}, ${property.state} ${property.zip}`,
+      Name: form.name,
+      Email: form.email,
+      Phone: form.phone,
+      Location: form.location,
+      Reason: form.reason,
+      Timeline: form.timeline,
+      Budget: form.budget,
+      "Property Type": form.propertyType,
+      Message: form.message,
+    })
+
+    setSubmitted(true)
   }
 
   return (
@@ -136,7 +132,7 @@ export default function RequestInfoForm({ property, children }: RequestInfoFormP
                 {property.title}
               </p>
               <p className="text-sm text-gray-400">
-                Alex Rivera will reach out to you shortly.
+                Geoffrey Enebeli will reach out to you shortly.
               </p>
             </div>
           ) : (
@@ -267,20 +263,12 @@ export default function RequestInfoForm({ property, children }: RequestInfoFormP
                 type="submit"
                 className="w-full"
                 size="lg"
-                disabled={loading}
               >
-                {loading ? (
-                  <>
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  "Send Request"
-                )}
+                Send Request
               </Button>
 
               <p className="text-xs text-gray-400 text-center">
-                Alex Rivera will contact you about this property.
+                Geoffrey Enebeli will contact you about this property.
               </p>
             </form>
           )}

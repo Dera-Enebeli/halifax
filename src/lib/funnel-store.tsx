@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useReducer, useEffect, type ReactNode } from "react"
+import { useRouter } from "next/navigation"
 
 export interface FunnelState {
   interest: "homeowner" | "buyer" | "seller" | null
@@ -90,24 +91,26 @@ interface FunnelContextValue {
 const FunnelContext = createContext<FunnelContextValue | null>(null)
 
 export function FunnelProvider({ children }: { children: ReactNode }) {
+  const router = useRouter()
   const [state, dispatch] = useReducer(reducer, initialState, () => {
-    if (typeof window === "undefined") return initialState
-    try {
-      const stored = sessionStorage.getItem(STORAGE_KEY)
-      return stored ? JSON.parse(stored) : initialState
-    } catch {
-      return initialState
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem(STORAGE_KEY)
     }
+    return initialState
   })
 
   useEffect(() => {
     if (typeof window === "undefined") return
     const params = new URLSearchParams(window.location.search)
     const interest = params.get("interest")
-    if (interest === "buyer" || interest === "seller" || interest === "homeowner") {
+    if (interest === "buyer") {
+      router.replace("/listings")
+      return
+    }
+    if (interest === "seller" || interest === "homeowner") {
       dispatch({ type: "SET_INTEREST", payload: interest })
     }
-  }, [])
+  }, [router])
 
   useEffect(() => {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state))

@@ -12,33 +12,33 @@ export default function PropertyCard({ property, variant = "grid" }: PropertyCar
   if (variant === "list") {
     return (
       <Link href={`/listings/${property.id}`}>
-        <div className="bg-white border border-warm-border rounded overflow-hidden transition-colors duration-300 hover:border-[#d5cdc0] flex flex-row">
-          <div className="relative w-48 shrink-0 min-h-[130px]">
+        <div className="bg-white border border-warm-border rounded-xl overflow-hidden transition-colors duration-300 hover:border-[#d5cdc0] flex flex-col sm:flex-row">
+          <div className="relative w-full sm:w-56 shrink-0 h-40 sm:h-auto min-h-[160px]">
             <Image
               src={property.images[0]}
               alt={property.title}
               fill
               className="object-cover"
-              sizes="200px"
+              sizes="(max-width: 640px) 100vw, 224px"
             />
           </div>
-          <div className="flex-1 min-w-0 p-5 flex flex-col justify-between">
+          <div className="flex-1 min-w-0 p-5 sm:p-6 flex flex-col justify-between">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <span className="inline-block text-[10px] font-medium tracking-[1.2px] uppercase px-2.5 py-0.5 rounded-sm bg-olive/10 text-olive mb-2">
+                <span className="inline-block text-[12px] sm:text-[10px] font-medium tracking-[1.2px] uppercase px-3 py-1 sm:px-2.5 sm:py-0.5 rounded bg-olive/10 text-olive mb-2">
                   {property.status}
                 </span>
                 <h3
-                  className="font-serif text-lg text-near-black leading-tight"
+                  className="font-serif text-[18px] sm:text-lg text-near-black leading-tight"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
                   {property.title}
                 </h3>
-                <p className="text-[13px] text-gray-500 font-light mt-1">{property.city}</p>
+                <p className="text-[15px] sm:text-[13px] text-gray-500 font-light mt-1">{property.city}</p>
               </div>
-              <p className="text-xl font-medium text-terracotta whitespace-nowrap">{formatPrice(property.price)}</p>
+              <p className="text-[20px] font-medium text-terracotta whitespace-nowrap">{formatPrice(property.price)}</p>
             </div>
-            <div className="flex gap-4 text-xs text-gray-500 pt-3 mt-3 border-t border-warm-border">
+            <div className="flex gap-4 text-[14px] sm:text-xs text-gray-500 pt-3 mt-3 border-t border-warm-border">
               <span>{property.beds} bd</span>
               <span>{property.baths} ba</span>
               <span>{property.sqft.toLocaleString()} sqft</span>
@@ -51,8 +51,8 @@ export default function PropertyCard({ property, variant = "grid" }: PropertyCar
 
   return (
     <Link href={`/listings/${property.id}`}>
-      <div className="bg-white border border-warm-border rounded overflow-hidden transition-colors duration-300 hover:border-[#d5cdc0] group">
-        <div className="relative h-[280px] overflow-hidden">
+      <div className="bg-white border border-warm-border rounded-xl overflow-hidden transition-colors duration-300 hover:border-[#d5cdc0] group">
+        <div className="relative h-52 sm:h-[280px] overflow-hidden">
           <Image
             src={property.images[0]}
             alt={property.title}
@@ -61,19 +61,19 @@ export default function PropertyCard({ property, variant = "grid" }: PropertyCar
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
-        <div className="p-6">
-          <span className="inline-block text-[10px] font-medium tracking-[1.2px] uppercase px-2.5 py-0.5 rounded-sm bg-olive/10 text-olive mb-3">
+        <div className="p-5 sm:p-6">
+          <span className="inline-block text-[12px] sm:text-[10px] font-medium tracking-[1.2px] uppercase px-3 py-1 sm:px-2.5 sm:py-0.5 rounded bg-olive/10 text-olive mb-3">
             {property.status}
           </span>
           <h3
-            className="font-serif text-xl text-near-black mb-1 leading-tight"
+            className="font-serif text-[18px] sm:text-xl text-near-black mb-1.5 sm:mb-1 leading-tight"
             style={{ fontFamily: "var(--font-serif)" }}
           >
             {property.title}
           </h3>
-          <p className="text-[13px] text-gray-500 font-light mb-3">{property.city}</p>
-          <p className="text-[22px] font-medium text-terracotta mb-3">{formatPrice(property.price)}</p>
-          <div className="flex gap-4 text-xs text-gray-500 pt-3 border-t border-warm-border">
+          <p className="text-[15px] sm:text-[13px] text-gray-500 font-light mb-3">{property.city}</p>
+          <p className="text-[22px] sm:text-[22px] font-medium text-terracotta mb-3">{formatPrice(property.price)}</p>
+          <div className="flex gap-4 text-[14px] sm:text-xs text-gray-500 pt-3 border-t border-warm-border">
             <span>{property.beds} bd</span>
             <span>{property.baths} ba</span>
             <span>{property.sqft.toLocaleString()} sqft</span>
