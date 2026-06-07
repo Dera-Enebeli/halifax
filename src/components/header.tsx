@@ -6,7 +6,7 @@ import { Home, X, Menu } from "lucide-react"
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Properties", href: "/listings" },
+  { label: "East Bay Listings", href: "/listings" },
   { label: "About", href: "#" },
   { label: "Contact", href: "/consultation" },
 ]
@@ -43,12 +43,17 @@ export default function Header() {
               <div className="w-9 h-9 bg-near-black rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                 <Home className="h-5 w-5 text-white" />
               </div>
-              <span
-                className="font-serif italic text-[26px] text-near-black tracking-tight"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                Halifax
-              </span>
+              <div className="flex flex-col leading-tight">
+                <span
+                  className="font-serif italic text-[22px] text-near-black tracking-tight"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  Halifax
+                </span>
+                <span className="text-[10px] font-semibold text-terracotta tracking-[2px] uppercase">
+                  East Bay
+                </span>
+              </div>
             </Link>
 
             <nav className="hidden lg:flex items-center gap-9">

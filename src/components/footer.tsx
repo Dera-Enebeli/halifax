@@ -3,12 +3,13 @@ import { Home, Phone, Mail, MapPin } from "lucide-react"
 
 const footerLinks = [
   {
-    title: "Quick Links",
+    title: "East Bay",
     links: [
-      { label: "Home", href: "/" },
-      { label: "Properties", href: "/listings" },
-      { label: "About Us", href: "#" },
-      { label: "Contact", href: "/consultation" },
+      { label: "Oakland", href: "/listings?city=Oakland" },
+      { label: "Berkeley", href: "/listings?city=Berkeley" },
+      { label: "Walnut Creek", href: "/listings?city=Walnut+Creek" },
+      { label: "Dublin", href: "/listings?city=Dublin" },
+      { label: "Pleasanton", href: "/listings?city=Pleasanton" },
     ],
   },
   {
@@ -50,7 +51,7 @@ export default function Footer() {
                 </span>
               </Link>
               <p className="text-[13px] text-white/50 font-light leading-relaxed max-w-xs mb-6">
-                Your trusted East Bay real estate partner. Expert guidance for property valuations, buying, and selling.
+                Your East Bay real estate partner. Get access to premium properties across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.
               </p>
               <div className="flex flex-col gap-2.5">
                 <a
@@ -98,7 +99,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-[12px] text-white/40 font-light">
           <span>
-            &copy; {new Date().getFullYear()} Halifax Properties &amp; Investments. All rights reserved.
+            &copy; {new Date().getFullYear()} Halifax Properties &amp; Investments — East Bay. All rights reserved.
           </span>
           <div className="flex items-center gap-4">
             <a href="#" className="hover:text-white transition-colors duration-200">Privacy</a>

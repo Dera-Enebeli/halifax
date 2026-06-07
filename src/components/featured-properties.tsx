@@ -87,10 +87,10 @@ export default function FeaturedProperties() {
             className="font-serif italic text-[clamp(28px,3.5vw,40px)] text-near-black leading-tight"
             style={{ fontFamily: "var(--font-serif)" }}
           >
-            Featured Properties
+            Featured East Bay Listings
           </h2>
           <p className="text-[15px] text-gray-500 font-light max-w-lg mx-auto mt-3">
-            Hand-picked properties hand-selected by our expert team.
+            Hand-selected East Bay properties you won&apos;t want to miss.
           </p>
         </div>
 

@@ -4,6 +4,11 @@ export default function SearchFilterBar() {
   return (
     <div className="relative z-20 -mt-10 mb-12">
       <div className="max-w-page section-padding">
+        <div className="text-center mb-6">
+          <p className="text-xs font-medium tracking-[2px] uppercase text-olive">
+            Search East Bay Properties
+          </p>
+        </div>
         <div className="bg-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-warm-border px-5 py-3 flex flex-wrap items-center gap-3">
           <div className="flex-1 min-w-[130px]">
             <input

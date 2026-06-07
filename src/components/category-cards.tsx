@@ -14,13 +14,13 @@ export default function CategoryCards() {
       <div className="max-w-page section-padding">
         <div className="text-center mb-10">
           <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-2">
-            Explore
+            Browse by Type
           </p>
           <h2
             className="font-serif italic text-[clamp(28px,3.5vw,40px)] text-near-black leading-tight"
             style={{ fontFamily: "var(--font-serif)" }}
           >
-            Apartment Types
+            East Bay Property Types
           </h2>
         </div>
 

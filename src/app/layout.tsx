@@ -13,9 +13,9 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Halifax Properties & Investments | East Bay Real Estate",
+  title: "Halifax Properties & Investments | East Bay Listings & Real Estate",
   description:
-    "Your trusted East Bay real estate partner. Get property valuations, buy, or sell with expert guidance from Alex Rivera and the Halifax Properties & Investments team.",
+    "Find your place in the East Bay. Halifax Properties & Investments offers exclusive access to premium listings across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay. Buy, sell, or get a valuation from the East Bay's trusted real estate partner.",
 }
 
 export default function RootLayout({
