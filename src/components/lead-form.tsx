@@ -5,7 +5,7 @@ import { eastBayCities, propertyTypes } from "@/lib/mock-data"
 
 function FieldFAQ({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[15px] text-gray-400 italic mt-1 leading-snug font-normal">
+    <p className="text-[16px] text-gray-400 italic mt-1.5 leading-snug font-normal">
       {children}
     </p>
   )
@@ -50,34 +50,38 @@ export default function LeadForm() {
               </div>
 
               <div className="text-center mb-7">
-                <p className="text-[17px] sm:text-[18px] text-gray-600 font-normal max-w-md mx-auto leading-relaxed">
+                <p className="text-[18px] sm:text-[19px] text-gray-600 font-normal max-w-md mx-auto leading-relaxed">
                   Tell us about yourself and we&apos;ll show you what the East Bay has to offer.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-7">
+              <form onSubmit={handleSubmit} className="space-y-8">
 
                 <div>
-                  <label className="block text-[18px] font-bold text-near-black mb-3">
-                    I&apos;m a...
+                  <label className="block text-[20px] font-bold text-near-black mb-4">
+                    Are you buying, selling, or looking for a valuation on your property?
                   </label>
                   <div className="grid grid-cols-3 gap-3">
-                    {(["homeowner", "buyer", "seller"] as const).map((option) => (
+                    {([
+                      { value: "buyer" as const, label: "Buying" },
+                      { value: "seller" as const, label: "Selling" },
+                      { value: "homeowner" as const, label: "Valuation" },
+                    ]).map((option) => (
                       <button
-                        key={option}
+                        key={option.value}
                         type="button"
-                        onClick={() => dispatch({ type: "SET_INTEREST", payload: option })}
-                        className={`text-left p-4 transition-all duration-200 cursor-pointer ${
-                          state.interest === option
+                        onClick={() => dispatch({ type: "SET_INTEREST", payload: option.value })}
+                        className={`text-center p-5 transition-all duration-200 cursor-pointer ${
+                          state.interest === option.value
                             ? "bg-near-black text-white shadow-md"
                             : "bg-white text-near-black border-2 border-warm-border hover:border-near-black/30"
                         }`}
                       >
-                        <span className="block text-[17px] font-bold leading-tight">
-                          {option === "homeowner" ? "Homeowner" : option === "buyer" ? "Buyer" : "Seller"}
+                        <span className="block text-[19px] font-bold leading-tight">
+                          {option.label}
                         </span>
-                        <span className={`block text-[14px] mt-1 leading-snug font-normal ${state.interest === option ? "text-white/70" : "text-gray-500"}`}>
-                          {option === "homeowner" ? "Home value" : option === "buyer" ? "Find a home" : "List my home"}
+                        <span className={`block text-[15px] mt-1.5 leading-snug font-normal ${state.interest === option.value ? "text-white/70" : "text-gray-500"}`}>
+                          {option.value === "buyer" ? "Find a home" : option.value === "seller" ? "List my home" : "Home value"}
                         </span>
                       </button>
                     ))}
@@ -86,7 +90,7 @@ export default function LeadForm() {
                 </div>
 
                 <div>
-                  <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                  <label className="block text-[20px] font-bold text-near-black mb-2">
                     What&apos;s your name?
                   </label>
                   <input
@@ -95,13 +99,13 @@ export default function LeadForm() {
                     onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
                     placeholder="Your full name"
                     required
-                    className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta"
+                    className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta"
                   />
                   <FieldFAQ>So we know how to address you.</FieldFAQ>
                 </div>
 
                 <div>
-                  <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                  <label className="block text-[20px] font-bold text-near-black mb-2">
                     What&apos;s your email address?
                   </label>
                   <input
@@ -110,20 +114,20 @@ export default function LeadForm() {
                     onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
                     placeholder="your@email.com"
                     required
-                    className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta"
+                    className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta"
                   />
                   <FieldFAQ>So we can send your results and follow up.</FieldFAQ>
                 </div>
 
                 <div>
-                  <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                  <label className="block text-[20px] font-bold text-near-black mb-2">
                     Which city interests you?
                   </label>
                   <select
                     value={state.city}
                     onChange={(e) => dispatch({ type: "SET_CITY", payload: e.target.value })}
                     required
-                    className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
+                    className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                       backgroundPosition: "right 16px center",
@@ -146,10 +150,10 @@ export default function LeadForm() {
 
                 {(state.interest === "homeowner" || state.interest === "seller") && (
                   <div className="space-y-5 pt-1 border-t border-warm-border">
-                    <p className="text-[16px] font-bold text-olive-dark mt-3">Property Details</p>
+                    <p className="text-[17px] font-bold text-olive-dark mt-3">Property Details</p>
 
                     <div>
-                      <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                      <label className="block text-[20px] font-bold text-near-black mb-2">
                         Property address
                       </label>
                       <input
@@ -157,20 +161,20 @@ export default function LeadForm() {
                         value={state.address}
                         onChange={(e) => dispatch({ type: "SET_ADDRESS", payload: e.target.value })}
                         placeholder="Street address"
-                        className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta"
+                        className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta"
                       />
                       <FieldFAQ>Your address helps us give you a more accurate estimate. Your information is kept private.</FieldFAQ>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                        <label className="block text-[20px] font-bold text-near-black mb-2">
                           Property type
                         </label>
                         <select
                           value={state.propertyType}
                           onChange={(e) => dispatch({ type: "SET_PROPERTY_TYPE", payload: e.target.value })}
-                          className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
+                          className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",
@@ -186,13 +190,13 @@ export default function LeadForm() {
                       </div>
 
                       <div>
-                        <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                        <label className="block text-[20px] font-bold text-near-black mb-2">
                           Sq. Footage
                         </label>
                         <select
                           value={state.sqft}
                           onChange={(e) => dispatch({ type: "SET_SQFT", payload: e.target.value })}
-                          className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
+                          className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",
@@ -212,13 +216,13 @@ export default function LeadForm() {
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                        <label className="block text-[20px] font-bold text-near-black mb-2">
                           Bedrooms
                         </label>
                         <select
                           value={state.bedrooms || ""}
                           onChange={(e) => dispatch({ type: "SET_BEDROOMS", payload: Number(e.target.value) || 0 })}
-                          className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
+                          className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",
@@ -235,13 +239,13 @@ export default function LeadForm() {
                       </div>
 
                       <div>
-                        <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                        <label className="block text-[20px] font-bold text-near-black mb-2">
                           Bathrooms
                         </label>
                         <select
                           value={state.baths || ""}
                           onChange={(e) => dispatch({ type: "SET_BATHS", payload: Number(e.target.value) || 0 })}
-                          className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
+                          className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",
@@ -261,17 +265,17 @@ export default function LeadForm() {
 
                 {state.interest === "buyer" && (
                   <div className="space-y-5 pt-1 border-t border-warm-border">
-                    <p className="text-[16px] font-bold text-olive-dark mt-3">Search Preferences</p>
+                    <p className="text-[17px] font-bold text-olive-dark mt-3">Search Preferences</p>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                        <label className="block text-[20px] font-bold text-near-black mb-2">
                           Min budget
                         </label>
                         <select
                           value={state.minPrice || ""}
                           onChange={(e) => dispatch({ type: "SET_MIN_PRICE", payload: Number(e.target.value) || 0 })}
-                          className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
+                          className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",
@@ -289,13 +293,13 @@ export default function LeadForm() {
                       </div>
 
                       <div>
-                        <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                        <label className="block text-[20px] font-bold text-near-black mb-2">
                           Max budget
                         </label>
                         <select
                           value={state.maxPrice || ""}
                           onChange={(e) => dispatch({ type: "SET_MAX_PRICE", payload: Number(e.target.value) || 0 })}
-                          className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
+                          className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",
@@ -314,13 +318,13 @@ export default function LeadForm() {
                     </div>
 
                     <div>
-                      <label className="block text-[18px] font-bold text-near-black mb-1.5">
+                      <label className="block text-[20px] font-bold text-near-black mb-2">
                         Bedrooms
                       </label>
                       <select
                         value={state.bedrooms || ""}
                         onChange={(e) => dispatch({ type: "SET_BEDROOMS", payload: Number(e.target.value) || 0 })}
-                        className="w-full h-14 px-4 bg-white text-[18px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
+                        className="w-full h-14 px-4 bg-white text-[19px] text-near-black font-medium outline-none focus:ring-2 focus:ring-terracotta/30 transition-all border-l-4 border-transparent focus:border-terracotta appearance-none cursor-pointer"
                         style={{
                           backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                           backgroundPosition: "right 12px center",
@@ -342,7 +346,7 @@ export default function LeadForm() {
                 <button
                   type="submit"
                   disabled={!canSubmit}
-                  className={`w-full h-14 text-[18px] font-bold tracking-wide transition-all duration-300 ${
+                  className={`w-full h-14 text-[20px] font-bold tracking-wide transition-all duration-300 ${
                     canSubmit
                       ? "bg-terracotta text-white hover:bg-terracotta-dark cursor-pointer"
                       : "bg-gray-300 text-gray-500 cursor-not-allowed"
@@ -355,7 +359,7 @@ export default function LeadForm() {
             </div>
 
             <div className="border-t border-warm-border px-8 sm:px-10 py-4">
-              <p className="text-[13px] text-gray-400 text-center leading-relaxed font-normal">
+              <p className="text-[14px] text-gray-400 text-center leading-relaxed font-normal">
                 By submitting, you agree to be contacted regarding your real estate inquiry.
                 Your information is kept private and never shared.
               </p>

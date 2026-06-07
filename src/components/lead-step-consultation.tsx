@@ -52,7 +52,7 @@ export default function LeadStepConsultation() {
               </div>
 
               <div className="text-center mb-7">
-                <p className="text-[17px] sm:text-[18px] text-gray-600 font-normal max-w-md mx-auto leading-relaxed">
+                <p className="text-[19px] text-gray-600 font-normal max-w-md mx-auto leading-relaxed">
                   Here are your results, {state.name?.split(" ")[0]}
                 </p>
               </div>
@@ -60,17 +60,17 @@ export default function LeadStepConsultation() {
               <div className="space-y-5">
 
                 {estimate && (
-                  <div className="bg-white p-6 shadow-inner">
-                    <p className="text-[16px] font-bold text-olive-dark uppercase tracking-wider mb-2">
+                  <div className="bg-white p-8 shadow-inner">
+                    <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
                       {state.interest === "seller" ? "Estimated Listing Range" : "Estimated Value"}
                     </p>
-                    <p className="font-serif text-[clamp(30px,4.5vw,42px)] text-near-black font-bold leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
+                    <p className="font-serif text-[clamp(32px,4.5vw,46px)] text-near-black font-bold leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
                       {estimate.formatted}
                     </p>
-                    <p className="text-[16px] text-gray-500 mt-3 font-normal italic">
+                    <p className="text-[17px] text-gray-500 mt-3 font-normal italic">
                       Based on recent comparable sales in {state.city || "the East Bay"}
                     </p>
-                    <p className="text-[14px] text-gray-400 mt-2 font-normal">
+                    <p className="text-[15px] text-gray-400 mt-2 font-normal">
                       {state.interest === "seller"
                         ? "This is a preliminary listing estimate. A full market analysis will be prepared during your consultation."
                         : "This is a preliminary estimate. Actual market value may vary."}
@@ -79,11 +79,11 @@ export default function LeadStepConsultation() {
                 )}
 
                 {state.interest === "seller" && (
-                  <div className="bg-white p-6 shadow-inner">
-                    <p className="text-[16px] font-bold text-olive-dark uppercase tracking-wider mb-3">
+                  <div className="bg-white p-8 shadow-inner">
+                    <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3">
                       Listing Preparation
                     </p>
-                    <ul className="text-[16px] text-gray-600 space-y-2">
+                    <ul className="text-[17px] text-gray-600 space-y-3">
                       <li className="flex items-start gap-2.5">
                         <span className="text-terracotta font-bold mt-0.5">&bull;</span>
                         Professional staging and photography
@@ -105,21 +105,21 @@ export default function LeadStepConsultation() {
                 )}
 
                 {matchCount !== null && (
-                  <div className="bg-white p-6 shadow-inner text-center">
-                    <p className="text-[16px] font-bold text-olive-dark uppercase tracking-wider mb-2">
+                  <div className="bg-white p-8 shadow-inner text-center">
+                    <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
                       Properties Matching Your Criteria
                     </p>
-                    <p className="font-serif text-[clamp(42px,6vw,60px)] text-near-black font-bold leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
+                    <p className="font-serif text-[clamp(44px,6vw,64px)] text-near-black font-bold leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
                       {matchCount}
                     </p>
-                    <p className="text-[17px] text-gray-500 mt-1 font-normal">
+                    <p className="text-[18px] text-gray-500 mt-1 font-normal">
                       {matchCount === 1 ? "property found" : "properties found"} in the East Bay
                     </p>
                   </div>
                 )}
 
-                <div className="bg-white p-6 shadow-inner">
-                  <p className="text-[16px] font-bold text-olive-dark uppercase tracking-wider mb-3">
+                <div className="bg-white p-8 shadow-inner">
+                  <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3">
                     Speak with your agent
                   </p>
                   <div className="flex items-start gap-4">
@@ -127,13 +127,13 @@ export default function LeadStepConsultation() {
                       AR
                     </div>
                     <div>
-                      <p className="text-[19px] font-bold text-near-black">
+                      <p className="text-[20px] font-bold text-near-black">
                         {agent.name}
                       </p>
-                      <p className="text-[16px] text-gray-500 font-normal">
+                      <p className="text-[17px] text-gray-500 font-normal">
                         {agent.phone}
                       </p>
-                      <p className="text-[16px] text-terracotta font-medium">
+                      <p className="text-[17px] text-terracotta font-medium">
                         {agent.email}
                       </p>
                     </div>
@@ -144,7 +144,7 @@ export default function LeadStepConsultation() {
                   {state.interest === "buyer" && (
                     <a
                       href={listingsUrl}
-                      className="block w-full h-14 leading-[56px] text-center bg-terracotta text-white text-[18px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300"
+                      className="block w-full h-14 leading-[56px] text-center bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300"
                     >
                       Browse Available Properties
                     </a>
@@ -153,7 +153,7 @@ export default function LeadStepConsultation() {
                   {state.interest === "seller" && (
                     <button
                       type="button"
-                      className="w-full h-14 bg-terracotta text-white text-[18px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
+                      className="w-full h-14 bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
                     >
                       Schedule a Listing Consultation
                     </button>
@@ -162,7 +162,7 @@ export default function LeadStepConsultation() {
                   {state.interest === "homeowner" && (
                     <button
                       type="button"
-                      className="w-full h-14 bg-terracotta text-white text-[18px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
+                      className="w-full h-14 bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
                     >
                       Schedule a Full Valuation
                     </button>
@@ -171,13 +171,13 @@ export default function LeadStepConsultation() {
                   <button
                     type="button"
                     onClick={() => dispatch({ type: "RESET" })}
-                    className="w-full h-14 bg-white border-2 border-near-black/20 text-near-black text-[18px] font-bold hover:border-terracotta hover:text-terracotta transition-all duration-300 cursor-pointer"
+                    className="w-full h-14 bg-white border-2 border-near-black/20 text-near-black text-[19px] font-bold hover:border-terracotta hover:text-terracotta transition-all duration-300 cursor-pointer"
                   >
                     Start Over
                   </button>
                 </div>
 
-                <p className="text-[13px] text-gray-400 text-center leading-relaxed font-normal pt-1">
+                <p className="text-[14px] text-gray-400 text-center leading-relaxed font-normal pt-1">
                   By submitting, you agree to be contacted by {agent.name} regarding
                   your real estate inquiry.
                 </p>

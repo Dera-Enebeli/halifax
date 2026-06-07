@@ -101,6 +101,15 @@ export function FunnelProvider({ children }: { children: ReactNode }) {
   })
 
   useEffect(() => {
+    if (typeof window === "undefined") return
+    const params = new URLSearchParams(window.location.search)
+    const interest = params.get("interest")
+    if (interest === "buyer" || interest === "seller" || interest === "homeowner") {
+      dispatch({ type: "SET_INTEREST", payload: interest })
+    }
+  }, [])
+
+  useEffect(() => {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state))
   }, [state])
 
