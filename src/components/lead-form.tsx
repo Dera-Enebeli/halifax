@@ -38,19 +38,13 @@ export default function LeadForm() {
           <div className="bg-cream shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
             <div className="h-1 w-full bg-terracotta" />
 
-            <div className="p-8 sm:p-10 sm:pt-10">
+            <div className="p-6 sm:p-8">
 
-              <div className="text-center mb-3">
-                <h1 className="font-serif text-[clamp(28px,3.5vw,38px)] text-near-black leading-[1.15] tracking-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                  Halifax
-                </h1>
-                <p className="font-serif text-[clamp(13px,1.3vw,17px)] text-olive-dark tracking-[0.15em] uppercase mt-0.5" style={{ fontFamily: "var(--font-serif)" }}>
-                  Properties &amp; Investments
+              <div className="text-center mb-5">
+                <p className="font-serif italic text-[22px] text-near-black leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
+                  Halifax <span className="text-olive text-[11px] tracking-[2px] uppercase font-semibold not-italic">· East Bay Listings</span>
                 </p>
-              </div>
-
-              <div className="text-center mb-7">
-                <p className="text-[18px] sm:text-[19px] text-gray-600 font-normal max-w-md mx-auto leading-relaxed">
+                <p className="text-[17px] text-gray-500 mt-1.5 font-normal leading-snug">
                   Tell us about yourself and we&apos;ll show you what the East Bay has to offer.
                 </p>
               </div>
