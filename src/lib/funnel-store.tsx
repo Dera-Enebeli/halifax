@@ -2,67 +2,79 @@
 
 import { createContext, useContext, useReducer, useEffect, type ReactNode } from "react"
 
-export interface FunnelSpecs {
-  city: string
-  propertyType: string
-  beds: string
-  baths: string
-  sqft: string
-  budget: string
-  address: string
-  timeline: string
-  minPrice: number
-  maxPrice: number
-  bedrooms: number
-}
-
 export interface FunnelState {
   interest: "homeowner" | "buyer" | "seller" | null
   name: string
   email: string
-  specs: FunnelSpecs
-  step: number
+  city: string
+  address: string
+  propertyType: string
+  sqft: string
+  minPrice: number
+  maxPrice: number
+  bedrooms: number
+  baths: number
+  submitted: boolean
 }
 
 type Action =
-  | { type: "SET_INTEREST"; payload: "homeowner" | "buyer" | "seller" }
-  | { type: "SET_CONTACT"; payload: { name: string; email: string } }
-  | { type: "SET_SPECS"; payload: Partial<FunnelSpecs> }
-  | { type: "SET_STEP"; payload: number }
+  | { type: "SET_INTEREST"; payload: "homeowner" | "buyer" | "seller" | null }
+  | { type: "SET_NAME"; payload: string }
+  | { type: "SET_EMAIL"; payload: string }
+  | { type: "SET_CITY"; payload: string }
+  | { type: "SET_ADDRESS"; payload: string }
+  | { type: "SET_PROPERTY_TYPE"; payload: string }
+  | { type: "SET_SQFT"; payload: string }
+  | { type: "SET_MIN_PRICE"; payload: number }
+  | { type: "SET_MAX_PRICE"; payload: number }
+  | { type: "SET_BEDROOMS"; payload: number }
+  | { type: "SET_BATHS"; payload: number }
+  | { type: "SUBMIT" }
   | { type: "RESET" }
 
 const initialState: FunnelState = {
   interest: null,
   name: "",
   email: "",
-  specs: {
-    city: "",
-    propertyType: "",
-    beds: "",
-    baths: "",
-    sqft: "",
-    budget: "",
-    address: "",
-    timeline: "",
-    minPrice: 0,
-    maxPrice: 0,
-    bedrooms: 0,
-  },
-  step: 1,
+  city: "",
+  address: "",
+  propertyType: "",
+  sqft: "",
+  minPrice: 0,
+  maxPrice: 0,
+  bedrooms: 0,
+  baths: 0,
+  submitted: false,
 }
 
-const STORAGE_KEY = "halifacts-funnel"
+const STORAGE_KEY = "halifax-funnel"
 
 function reducer(state: FunnelState, action: Action): FunnelState {
   switch (action.type) {
     case "SET_INTEREST":
-      return { ...state, interest: action.payload, step: 2 }
-    case "SET_CONTACT":
-      return { ...state, ...action.payload, step: 3 }
-    case "SET_SPECS":
-      return { ...state, specs: { ...state.specs, ...action.payload } }
-    case "SET_STEP":
-      return { ...state, step: action.payload }
+      return { ...state, interest: action.payload }
+    case "SET_NAME":
+      return { ...state, name: action.payload }
+    case "SET_EMAIL":
+      return { ...state, email: action.payload }
+    case "SET_CITY":
+      return { ...state, city: action.payload }
+    case "SET_ADDRESS":
+      return { ...state, address: action.payload }
+    case "SET_PROPERTY_TYPE":
+      return { ...state, propertyType: action.payload }
+    case "SET_SQFT":
+      return { ...state, sqft: action.payload }
+    case "SET_MIN_PRICE":
+      return { ...state, minPrice: action.payload }
+    case "SET_MAX_PRICE":
+      return { ...state, maxPrice: action.payload }
+    case "SET_BEDROOMS":
+      return { ...state, bedrooms: action.payload }
+    case "SET_BATHS":
+      return { ...state, baths: action.payload }
+    case "SUBMIT":
+      return { ...state, submitted: true }
     case "RESET":
       return initialState
     default:

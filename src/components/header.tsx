@@ -40,7 +40,7 @@ export default function Header() {
               className="font-serif italic text-[28px] text-terracotta tracking-tight"
               style={{ fontFamily: "var(--font-serif)" }}
             >
-              Halifact's
+              Halifax
             </Link>
 
             <nav className="hidden lg:flex items-center gap-8">

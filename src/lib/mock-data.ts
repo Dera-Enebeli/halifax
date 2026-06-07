@@ -36,7 +36,7 @@ export interface Property {
 export const agent = {
   name: "Alex Rivera",
   phone: "(510) 555-0142",
-  email: "alex@halifacts.com",
+  email: "alex@halifaxproperties.com",
   image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
 }
 

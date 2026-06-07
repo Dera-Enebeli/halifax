@@ -5,13 +5,13 @@ export interface LeadData {
   name: string
   email: string
   city: string
-  propertyType: string
   address: string
-  beds: string
-  baths: string
+  propertyType: string
   sqft: string
-  budget: string
-  timeline: string
+  minPrice: number
+  maxPrice: number
+  bedrooms: number
+  baths: number
 }
 
 export async function POST(request: Request) {
@@ -25,19 +25,19 @@ export async function POST(request: Request) {
       )
     }
 
-    console.log("=== Halifact's New Lead ===")
+    console.log("=== Halifax Properties & Investments New Lead ===")
     console.log("Interest:", data.interest)
     console.log("Name:", data.name)
     console.log("Email:", data.email)
     console.log("City:", data.city)
-    console.log("Property Type:", data.propertyType)
     console.log("Address:", data.address)
-    console.log("Beds:", data.beds)
-    console.log("Baths:", data.baths)
+    console.log("Property Type:", data.propertyType)
     console.log("Sq Ft:", data.sqft)
-    console.log("Budget:", data.budget)
-    console.log("Timeline:", data.timeline)
-    console.log("==========================")
+    console.log("Min Price:", data.minPrice)
+    console.log("Max Price:", data.maxPrice)
+    console.log("Bedrooms:", data.bedrooms)
+    console.log("Baths:", data.baths)
+    console.log("================================================")
 
     return NextResponse.json({ success: true })
   } catch (error) {
