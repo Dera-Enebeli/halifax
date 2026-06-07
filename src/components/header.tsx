@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { Home, X, Menu } from "lucide-react"
 
 const navItems = [
+  { label: "Home", href: "/" },
   { label: "Properties", href: "/listings" },
   { label: "About", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Contact", href: "/consultation" },
 ]
 
 export default function Header() {
@@ -30,64 +32,49 @@ export default function Header() {
       />
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-cream border-b border-warm-border" : "bg-transparent"
+          scrolled
+            ? "bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
+            : "bg-white"
         }`}
       >
         <div className="max-w-page section-padding">
           <div className="flex items-center justify-between h-20">
-            <Link
-              href="/"
-              className="font-serif italic text-[28px] text-terracotta tracking-tight"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              Halifax
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="w-9 h-9 bg-near-black rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <Home className="h-5 w-5 text-white" />
+              </div>
+              <span
+                className="font-serif italic text-[26px] text-near-black tracking-tight"
+                style={{ fontFamily: "var(--font-serif)" }}
+              >
+                Halifax
+              </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-9">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`text-xs font-medium tracking-[1.2px] uppercase relative pb-[3px] transition-colors duration-300 ${
-                    scrolled ? "text-near-black hover:text-terracotta" : "text-white/90 hover:text-white"
-                  }`}
+                  className="text-sm font-medium text-near-black/80 hover:text-terracotta transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-terracotta after:transition-all after:duration-300 after:w-0 hover:after:w-full"
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-terracotta transition-all duration-300 group-hover:w-full" />
                 </Link>
               ))}
               <Link
-                href="/listings"
-                className={`text-xs font-medium tracking-[1.5px] uppercase px-5 py-2.5 rounded transition-all duration-300 ${
-                  scrolled
-                    ? "bg-terracotta text-white hover:bg-[#a83e15]"
-                    : "border border-white/30 text-white hover:bg-white/10"
-                }`}
+                href="/consultation"
+                className="text-sm font-semibold text-white bg-terracotta hover:bg-terracotta-dark px-6 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-terracotta/25"
               >
-                Get a Valuation
+                Book Now
               </Link>
             </nav>
 
             <button
-              className={`lg:hidden flex items-center justify-center w-9 h-9 cursor-pointer bg-none border-none z-50 transition-colors duration-300 ${
-                mobileOpen
-                  ? "text-near-black"
-                  : scrolled
-                    ? "text-near-black"
-                    : "text-white"
-              }`}
+              className={`lg:hidden flex items-center justify-center w-9 h-9 cursor-pointer bg-none border-none z-50 transition-colors duration-300 text-near-black`}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Menu"}
             >
-              {mobileOpen ? (
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M5 5l12 12M17 5L5 17" />
-                </svg>
-              ) : (
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M3 6h16M3 11h16M3 16h16" />
-                </svg>
-              )}
+              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -109,11 +96,11 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/listings"
-              className="text-xs font-medium tracking-[1.5px] uppercase bg-terracotta text-white px-5 py-3 rounded text-center"
+              href="/consultation"
+              className="text-sm font-semibold text-white bg-terracotta px-6 py-3 rounded-full text-center hover:bg-terracotta-dark transition-colors"
               onClick={() => setMobileOpen(false)}
             >
-              Get a Valuation
+              Book Now
             </Link>
           </div>
         </div>
