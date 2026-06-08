@@ -153,11 +153,20 @@ export default async function PropertyDetailPage(props: PageProps<"/listings/[id
                   </div>
 
                   <div className="space-y-3 mb-6">
-                    <RequestInfoForm property={property}>
-                      <Button className="w-full" size="lg">
-                        Request Info
-                      </Button>
-                    </RequestInfoForm>
+                    {property.status === "Sold" ? (
+                      <Link
+                        href={`/listings?type=${property.type}`}
+                        className="flex items-center justify-center w-full h-12 text-sm font-semibold text-white bg-terracotta hover:bg-terracotta-dark rounded-lg transition-all duration-200"
+                      >
+                        Find Similar Properties
+                      </Link>
+                    ) : (
+                      <RequestInfoForm property={property}>
+                        <Button className="w-full" size="lg">
+                          Request Info
+                        </Button>
+                      </RequestInfoForm>
+                    )}
                   </div>
 
                   <div className="h-px mb-4" style={{ background: "var(--color-warm-border, #E5DDD3)" }} />

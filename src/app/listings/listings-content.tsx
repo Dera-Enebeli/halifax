@@ -1,8 +1,9 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import Link from "next/link"
 import { useSearchParams } from "next/navigation"
-import { Search, MapPin, X, LayoutGrid, List, SlidersHorizontal } from "lucide-react"
+import { Search, MapPin, X, LayoutGrid, List, SlidersHorizontal, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Select } from "@/components/ui/select"
 import PropertyCard from "@/components/property-card"
@@ -225,6 +226,13 @@ export default function ListingsContent() {
     <div>
       <div className="py-16" style={{ background: "rgba(45, 25, 15, 0.85)" }}>
         <div className="max-w-page section-padding">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-sm text-white/60 hover:text-white transition-colors mb-4 lg:hidden"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back
+          </Link>
           {fromFunnel && (
             <p className="text-terracotta text-xs tracking-widest uppercase font-medium mb-2">
               Matching Your Search Criteria
@@ -234,7 +242,7 @@ export default function ListingsContent() {
             East Bay Properties
           </h1>
           <p className="text-white/70 text-sm font-light">
-            {filtered.length} {filtered.length === 1 ? "property" : "properties"} found
+            Browse all available East Bay listings
           </p>
         </div>
       </div>

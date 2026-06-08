@@ -18,7 +18,6 @@ const footerLinks = [
       { label: "Buy a Home", href: "/listings" },
       { label: "Sell a Home", href: "/consultation?interest=seller" },
       { label: "Property Valuation", href: "/consultation?interest=homeowner" },
-      { label: "Market Analysis", href: "/consultation?interest=homeowner" },
     ],
   },
   {

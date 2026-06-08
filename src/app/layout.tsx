@@ -16,6 +16,21 @@ export const metadata: Metadata = {
   title: "Halifax Properties & Investments | East Bay Listings & Real Estate",
   description:
     "Find your place in the East Bay. Halifax Properties & Investments offers exclusive access to premium listings across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay. Buy, sell, or get a valuation from the East Bay's trusted real estate partner.",
+  openGraph: {
+    title: "Halifax Properties & Investments | East Bay Listings & Real Estate",
+    description:
+      "Find your place in the East Bay. Premium listings across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.",
+    url: "https://real-estate-site-six.vercel.app",
+    siteName: "Halifax Properties & Investments",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Halifax Properties & Investments | East Bay Listings & Real Estate",
+    description:
+      "Find your place in the East Bay. Premium listings across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.",
+  },
 }
 
 export default function RootLayout({

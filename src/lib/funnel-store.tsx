@@ -11,8 +11,6 @@ export interface FunnelState {
   address: string
   propertyType: string
   sqft: string
-  minPrice: number
-  maxPrice: number
   bedrooms: number
   baths: number
   submitted: boolean
@@ -26,8 +24,6 @@ type Action =
   | { type: "SET_ADDRESS"; payload: string }
   | { type: "SET_PROPERTY_TYPE"; payload: string }
   | { type: "SET_SQFT"; payload: string }
-  | { type: "SET_MIN_PRICE"; payload: number }
-  | { type: "SET_MAX_PRICE"; payload: number }
   | { type: "SET_BEDROOMS"; payload: number }
   | { type: "SET_BATHS"; payload: number }
   | { type: "SUBMIT" }
@@ -41,8 +37,6 @@ const initialState: FunnelState = {
   address: "",
   propertyType: "",
   sqft: "",
-  minPrice: 0,
-  maxPrice: 0,
   bedrooms: 0,
   baths: 0,
   submitted: false,
@@ -66,10 +60,6 @@ function reducer(state: FunnelState, action: Action): FunnelState {
       return { ...state, propertyType: action.payload }
     case "SET_SQFT":
       return { ...state, sqft: action.payload }
-    case "SET_MIN_PRICE":
-      return { ...state, minPrice: action.payload }
-    case "SET_MAX_PRICE":
-      return { ...state, maxPrice: action.payload }
     case "SET_BEDROOMS":
       return { ...state, bedrooms: action.payload }
     case "SET_BATHS":

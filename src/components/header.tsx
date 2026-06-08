@@ -8,7 +8,6 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "East Bay Listings", href: "/listings" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/consultation" },
 ]
 
 export default function Header() {

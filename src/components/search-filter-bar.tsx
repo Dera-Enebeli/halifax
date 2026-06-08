@@ -120,24 +120,6 @@ export default function SearchFilterBar() {
               />
             </div>
             <div className="w-px h-7 bg-warm-border" />
-            <div className="flex-1 min-w-[110px]">
-              <select
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-                className="w-full h-10 px-3 text-sm text-near-black outline-none bg-transparent appearance-none cursor-pointer"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
-                  backgroundPosition: "right 4px center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "16px",
-                }}
-              >
-                <option value="">Sell or Rent</option>
-                <option value="House">Sell</option>
-                <option value="Condo">Rent</option>
-              </select>
-            </div>
-            <div className="w-px h-7 bg-warm-border hidden sm:block" />
             <div className="flex-1 min-w-[120px]">
               <select
                 value={type}

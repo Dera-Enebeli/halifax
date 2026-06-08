@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { Home, Building2, DollarSign, Phone, Mail, MapPin, CheckCircle } from "lucide-react"
+import { Home, Building2, DollarSign, Phone, Mail, MapPin, ArrowLeft } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import UtilityBar from "@/components/utility-bar"
 
 const values = [
   {
@@ -24,10 +25,19 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <UtilityBar />
       <Header />
       <main className="pt-20">
         <div className="py-16" style={{ background: "rgba(45, 25, 15, 0.85)" }}>
-          <div className="max-w-page section-padding text-center">
+          <div className="max-w-page section-padding">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-sm text-white/60 hover:text-white transition-colors mb-4"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back
+            </Link>
+            <div className="text-center">
             <h1 className="font-serif italic text-3xl md:text-4xl text-white mb-3" style={{ fontFamily: "var(--font-serif)" }}>
               About Halifax Properties &amp; Investments
             </h1>
@@ -36,6 +46,7 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
+      </div>
 
         <section className="py-16 md:py-20">
           <div className="max-w-page section-padding">
@@ -48,7 +59,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-[16px] text-gray-500 font-light leading-relaxed">
                 At Halifax Properties &amp; Investments, we believe buying or selling a home should be exciting, not overwhelming. 
-                Led by agent Geoffrey Enebeli, we bring years of East Bay market knowledge, honest advice, and a genuine commitment 
+                Led by Geoffrey Enebeli, we bring years of East Bay market knowledge, honest advice, and a genuine commitment 
                 to helping you reach your goals — whether that&apos;s finding your first home, upgrading to more space, downsizing, 
                 or getting the best value for a property you&apos;re ready to sell.
               </p>
@@ -83,9 +94,9 @@ export default function AboutPage() {
                     <h3 className="font-bold text-xl text-near-black mb-1">Meet Geoffrey Enebeli</h3>
                     <p className="text-sm text-olive font-medium tracking-wide uppercase mb-3">East Bay Real Estate Agent</p>
                     <p className="text-[15px] text-gray-500 leading-relaxed mb-4">
-                      Alex has spent years helping East Bay families navigate the real estate market with confidence. 
+                      Geoffrey has spent years helping East Bay families navigate the real estate market with confidence. 
                       Whether you&apos;re a first-time buyer looking in Fremont or a family selling their home of 30 years in Berkeley, 
-                      Alex brings the same dedication, market knowledge, and personal attention to every client.
+                      Geoffrey brings the same dedication, market knowledge, and personal attention to every client.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm text-gray-500">
                       <span className="flex items-center gap-2">

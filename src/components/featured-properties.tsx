@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Bed, Bath, Square, Car } from "lucide-react"
 import { getFeaturedProperties } from "@/lib/mock-data"
 import type { Property } from "@/lib/mock-data"
@@ -16,10 +17,12 @@ function PropertyCard({ property }: { property: Property }) {
   return (
     <div className="group bg-white rounded-xl overflow-hidden shadow-sm border border-warm-border transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
       <div className="relative h-52 overflow-hidden">
-        <img
+        <Image
           src={property.images[0]}
           alt={property.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
         <div className="absolute top-3 left-3 bg-near-black text-white text-[12px] sm:text-[11px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full">
           {property.status === "Active" ? (property.type === "Condo" ? "Rent" : "Sale") : property.status}

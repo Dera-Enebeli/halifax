@@ -97,7 +97,7 @@ export default function LeadForm() {
                   <label className="block text-sm font-semibold text-near-black mb-3">
                     Are you selling or looking for a valuation on your property?
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-2 gap-2.5">
                     {([
                       { value: "seller" as const, label: "Selling", sub: "List my home" },
                       { value: "homeowner" as const, label: "Valuation", sub: "Home value" },

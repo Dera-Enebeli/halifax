@@ -1,6 +1,7 @@
 import { Suspense } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import UtilityBar from "@/components/utility-bar"
 import ListingsContent from "./listings-content"
 
 function ListingsFallback() {
@@ -17,6 +18,7 @@ function ListingsFallback() {
 export default function ListingsPage() {
   return (
     <>
+      <UtilityBar />
       <Header />
       <main className="pt-20">
         <Suspense fallback={<ListingsFallback />}>

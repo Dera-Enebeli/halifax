@@ -1,10 +1,11 @@
+import Link from "next/link"
 import { Home, Building, Warehouse, TreePine } from "lucide-react"
 
 const categories = [
-  { label: "Houses", icon: Home },
-  { label: "Condos", icon: Building },
-  { label: "Townhomes", icon: Warehouse },
-  { label: "Bungalows", icon: TreePine },
+  { label: "Houses", icon: Home, type: "House" },
+  { label: "Condos", icon: Building, type: "Condo" },
+  { label: "Townhomes", icon: Warehouse, type: "Townhouse" },
+  { label: "Bungalows", icon: TreePine, type: "Bungalow" },
 ]
 
 export default function CategoryCards() {
@@ -27,16 +28,17 @@ export default function CategoryCards() {
           {categories.map((cat) => {
             const Icon = cat.icon
             return (
-              <div
+              <Link
                 key={cat.label}
-                className="group relative bg-white rounded-xl border border-warm-border shadow-sm hover:shadow-md px-3 sm:px-5 py-5 sm:py-7 text-center cursor-pointer transition-all duration-300 hover:-translate-y-1 touch-target"
+                href={`/listings?type=${cat.type}`}
+                className="group relative bg-white rounded-xl border border-warm-border shadow-sm hover:shadow-md px-3 sm:px-5 py-5 sm:py-7 text-center transition-all duration-300 hover:-translate-y-1 touch-target"
               >
                 <div className="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-2.5 sm:mb-4 rounded-full bg-olive/10 flex items-center justify-center transition-colors duration-300 group-hover:bg-olive/20">
                   <Icon className="h-[18px] w-[18px] sm:h-6 sm:w-6 text-olive" />
                 </div>
                 <h3 className="text-[14px] sm:text-base font-bold text-near-black mb-0.5 leading-snug">{cat.label}</h3>
                 <p className="text-[12px] sm:text-[13px] text-gray-500 font-medium">Browse All</p>
-              </div>
+              </Link>
             )
           })}
         </div>
