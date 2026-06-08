@@ -1,11 +1,11 @@
 import Link from "next/link"
-import { Home, FileText, DollarSign, ArrowRight } from "lucide-react"
+import { Phone, Mail, ArrowRight } from "lucide-react"
 
 export default function HeroSection() {
   return (
     <section className="relative w-full">
       <div className="max-w-page section-padding">
-        <div className="relative rounded-3xl overflow-hidden min-h-[440px] sm:min-h-[460px] md:min-h-[540px] lg:min-h-[620px] flex items-center justify-center">
+        <div className="relative rounded-3xl overflow-hidden min-h-[480px] sm:min-h-[500px] md:min-h-[560px] lg:min-h-[620px] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -13,55 +13,46 @@ export default function HeroSection() {
                 'url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=90")',
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
 
           <div className="relative z-10 text-center px-5 max-w-3xl mx-auto py-12">
-            <p className="text-white/80 text-[12px] sm:text-sm font-semibold tracking-[3px] uppercase mb-4">
-              Halifax Properties &amp; Investments
-            </p>
-            <h1 className="text-white font-serif text-[clamp(30px,7vw,46px)] sm:text-[clamp(34px,5.5vw,56px)] lg:text-[clamp(38px,5.5vw,64px)] leading-[1.1] tracking-tight mb-4">
-              Find Your Place in the<br />East Bay
-            </h1>
-            <p className="text-white/80 text-[15px] sm:text-[17px] leading-relaxed font-normal max-w-2xl mx-auto mb-7 sm:mb-8">
-              Exclusive East Bay listings. From Oakland to Walnut Creek,
-              Dublin to Berkeley — your next home starts here.
-            </p>
-
-            {/* Primary CTA */}
-            <Link
-              href="/listings"
-              className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[18px] font-bold text-white bg-terracotta hover:bg-terracotta-dark px-5 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-terracotta/25 hover:scale-[1.02] mb-5 sm:mb-6"
-            >
-              View East Bay Listings
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-
-            {/* Secondary links — clearly clickable, not buttons */}
-            <div className="flex items-center justify-center gap-5 sm:gap-8">
-              <Link
-              href="/listings"
-              className="text-white/70 hover:text-white text-[14px] sm:text-[15px] font-medium transition-colors duration-200 underline underline-offset-4 decoration-white/20 hover:decoration-white/60"
-            >
-              <span className="sm:hidden">Buy</span>
-              <span className="hidden sm:inline">Buy a House</span>
-              </Link>
-              <span className="text-white/20 text-[13px]">|</span>
-              <Link
-                href="/consultation?interest=seller"
-                className="text-white/70 hover:text-white text-[14px] sm:text-[15px] font-medium transition-colors duration-200 underline underline-offset-4 decoration-white/20 hover:decoration-white/60"
-              >
-                <span className="sm:hidden">Sell</span>
-                <span className="hidden sm:inline">Sell a House</span>
-              </Link>
-              <span className="text-white/20 text-[13px]">|</span>
-              <Link
-                href="/consultation?interest=homeowner"
-                className="text-white/70 hover:text-white text-[14px] sm:text-[15px] font-medium transition-colors duration-200 underline underline-offset-4 decoration-white/20 hover:decoration-white/60"
-              >
-                <span className="sm:hidden">Valuation</span>
-                <span className="hidden sm:inline">Home Valuation</span>
-              </Link>
+            <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 flex items-center justify-center font-serif text-[20px] sm:text-[24px] font-bold bg-terracotta text-white rounded-full" style={{ fontFamily: "var(--font-serif)" }}>
+              H
             </div>
+            <h1 className="text-white font-serif text-[clamp(28px,6vw,48px)] leading-[1.1] tracking-tight mb-2" style={{ fontFamily: "var(--font-serif)" }}>
+              Halifax Properties <span className="text-terracotta">&amp;</span> Investments
+            </h1>
+            <p className="text-white/70 text-[15px] sm:text-[17px] font-medium mb-1">
+              East Bay Real Estate
+            </p>
+            <p className="text-white/50 text-[13px] sm:text-[14px] font-light mb-5 sm:mb-6">
+              by Geoffrey Enebeli
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6">
+              <a
+                href="tel:+15105075088"
+                className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[17px] font-bold text-white bg-terracotta hover:bg-terracotta-dark px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-terracotta/25"
+              >
+                <Phone className="h-5 w-5" />
+                (510) 507-5088
+              </a>
+              <a
+                href="mailto:geoffrey@halifaxproperties.com"
+                className="inline-flex items-center justify-center gap-2 text-[14px] sm:text-[15px] font-semibold text-white/80 hover:text-white border border-white/30 hover:border-white/60 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition-all duration-200"
+              >
+                <Mail className="h-4.5 w-4.5" />
+                geoffrey@halifaxproperties.com
+              </a>
+            </div>
+
+            <Link
+              href="/consultation"
+              className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white/70 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white/70 transition-all duration-200"
+            >
+              Get a Free Consultation
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </div>

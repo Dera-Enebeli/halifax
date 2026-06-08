@@ -3,19 +3,9 @@ import { Home, Phone, Mail, MapPin } from "lucide-react"
 
 const footerLinks = [
   {
-    title: "East Bay",
-    links: [
-      { label: "Oakland", href: "/listings?city=Oakland" },
-      { label: "Berkeley", href: "/listings?city=Berkeley" },
-      { label: "Walnut Creek", href: "/listings?city=Walnut+Creek" },
-      { label: "Dublin", href: "/listings?city=Dublin" },
-      { label: "Pleasanton", href: "/listings?city=Pleasanton" },
-    ],
-  },
-  {
     title: "Services",
     links: [
-      { label: "Buy a Home", href: "/listings" },
+      { label: "Buy a Home", href: "/consultation" },
       { label: "Sell a Home", href: "/consultation?interest=seller" },
       { label: "Property Valuation", href: "/consultation?interest=homeowner" },
     ],
@@ -51,11 +41,11 @@ export default function Footer() {
               </p>
               <div className="flex flex-col gap-2.5">
                 <a
-                  href="tel:+15105550142"
+                  href="tel:+15105075088"
                   className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60 hover:text-white transition-colors duration-200"
                 >
                   <Phone className="h-3.5 w-3.5 text-terracotta shrink-0" />
-                  (510) 555-0142
+                  (510) 507-5088
                 </a>
                 <a
                   href="mailto:geoffrey@halifaxproperties.com"

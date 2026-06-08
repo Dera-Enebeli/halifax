@@ -101,7 +101,7 @@ export default function AboutPage() {
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm text-gray-500">
                       <span className="flex items-center gap-2">
                         <Phone className="h-4 w-4 text-terracotta" />
-                        (510) 555-0142
+                        (510) 507-5088
                       </span>
                       <span className="flex items-center gap-2">
                         <Mail className="h-4 w-4 text-terracotta" />
@@ -125,15 +125,15 @@ export default function AboutPage() {
               Ready to Get Started?
             </h2>
             <p className="text-[16px] text-gray-500 font-light mb-6">
-              Browse East Bay listings or reach out for a free consultation.
+              Reach out for a free consultation and let&apos;s discuss your real estate goals.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
-                href="/listings"
+                href="/consultation"
                 className="inline-flex items-center gap-2 bg-terracotta text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-terracotta-dark transition-all duration-200"
               >
-                <Home className="h-4 w-4" />
-                View East Bay Listings
+                <Phone className="h-4 w-4" />
+                Get a Free Consultation
               </Link>
               <Link
                 href="/consultation"

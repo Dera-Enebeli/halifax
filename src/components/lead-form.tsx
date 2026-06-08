@@ -20,16 +20,17 @@ export default function LeadForm() {
   const router = useRouter()
   const { state, dispatch } = useFunnel()
 
-  const canSubmit = !!state.interest && !!state.name.trim() && !!state.email.trim() && !!state.city
+  const canSubmit = !!state.interest && !!state.name.trim() && !!state.email.trim() && !!state.phone.trim() && !!state.city
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!canSubmit) return
 
     const data: Record<string, string> = {
-      Interest: state.interest === "buyer" ? "Buying" : state.interest === "seller" ? "Selling" : "Valuation",
+      Interest: state.interest === "seller" ? "Selling" : "Valuation",
       Name: state.name,
       Email: state.email,
+      Phone: state.phone,
       City: state.city,
     }
 
@@ -78,13 +79,13 @@ export default function LeadForm() {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-near-black">Geoffrey Enebeli</p>
-                  <p className="text-xs text-gray-500">(510) 555-0142 &middot; geoffrey@halifaxproperties.com</p>
+                  <p className="text-xs text-gray-500">(510) 507-5088 &middot; geoffrey@halifaxproperties.com</p>
                 </div>
               </div>
 
               <div className="text-center mb-6">
                 <p className="font-serif italic text-xl text-near-black leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                  Halifax <span className="text-olive text-[10px] tracking-[2px] uppercase font-semibold not-italic">· East Bay Listings</span>
+                  Halifax <span className="text-olive text-[10px] tracking-[2px] uppercase font-semibold not-italic">· East Bay Real Estate</span>
                 </p>
                 <p className="text-sm text-gray-500 mt-1">
                   Tell us about your property and we&apos;ll help you move forward.
@@ -154,7 +155,22 @@ export default function LeadForm() {
 
                 <div>
                   <label className="block text-sm font-semibold text-near-black mb-1.5">
-                    Which city interests you?
+                    What&apos;s your phone number?
+                  </label>
+                  <Input
+                    type="tel"
+                    value={state.phone}
+                    onChange={(e) => dispatch({ type: "SET_PHONE", payload: e.target.value })}
+                    placeholder="(555) 123-4567"
+                    required
+                    className="focus:ring-terracotta/20 focus:border-terracotta"
+                  />
+                  <FieldFAQ>So we can reach you quickly with results.</FieldFAQ>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-near-black mb-1.5">
+                    Which city are you interested in?
                   </label>
                   <select
                     value={state.city}
@@ -182,7 +198,7 @@ export default function LeadForm() {
 
                 {(state.interest === "homeowner" || state.interest === "seller") && (
                   <div className="space-y-5 pt-4 border-t border-gray-200">
-                    <p className="text-sm font-bold text-olive-dark">Property Details</p>
+                    <p className="text-sm font-bold text-olive-dark">About Your Property</p>
 
                     <div>
                       <label className="block text-sm font-semibold text-near-black mb-1.5">

@@ -6,7 +6,6 @@ import { Home, X, Menu } from "lucide-react"
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "East Bay Listings", href: "/listings" },
   { label: "About", href: "/about" },
 ]
 
@@ -69,7 +68,7 @@ export default function Header() {
                 href="/consultation"
                 className="text-sm font-semibold text-white bg-terracotta hover:bg-terracotta-dark px-6 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-terracotta/25"
               >
-                Book Now
+                Get in Touch
               </Link>
             </nav>
 
@@ -104,7 +103,7 @@ export default function Header() {
               className="text-[17px] font-semibold text-white bg-terracotta px-6 py-4 rounded-full text-center hover:bg-terracotta-dark transition-colors touch-target"
               onClick={() => setMobileOpen(false)}
             >
-              Book Now
+              Get in Touch
             </Link>
           </div>
         </div>

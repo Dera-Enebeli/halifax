@@ -12,11 +12,11 @@ export default function UtilityBar() {
             </span>
             <span className="text-white/20">|</span>
             <a
-              href="tel:+15105550142"
+              href="tel:+15105075088"
               className="flex items-center gap-1.5 hover:text-white transition-colors duration-200"
             >
               <Phone className="h-4 w-4 shrink-0 sm:h-3.5 sm:w-3.5" />
-              <span className="font-medium sm:font-normal">(510) 555-0142</span>
+              <span className="font-medium sm:font-normal">(510) 507-5088</span>
             </a>
             <span className="text-white/20">|</span>
             <a

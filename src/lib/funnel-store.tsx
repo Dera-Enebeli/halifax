@@ -7,6 +7,7 @@ export interface FunnelState {
   interest: "homeowner" | "buyer" | "seller" | null
   name: string
   email: string
+  phone: string
   city: string
   address: string
   propertyType: string
@@ -20,6 +21,7 @@ type Action =
   | { type: "SET_INTEREST"; payload: "homeowner" | "buyer" | "seller" | null }
   | { type: "SET_NAME"; payload: string }
   | { type: "SET_EMAIL"; payload: string }
+  | { type: "SET_PHONE"; payload: string }
   | { type: "SET_CITY"; payload: string }
   | { type: "SET_ADDRESS"; payload: string }
   | { type: "SET_PROPERTY_TYPE"; payload: string }
@@ -33,6 +35,7 @@ const initialState: FunnelState = {
   interest: null,
   name: "",
   email: "",
+  phone: "",
   city: "",
   address: "",
   propertyType: "",
@@ -52,6 +55,8 @@ function reducer(state: FunnelState, action: Action): FunnelState {
       return { ...state, name: action.payload }
     case "SET_EMAIL":
       return { ...state, email: action.payload }
+    case "SET_PHONE":
+      return { ...state, phone: action.payload }
     case "SET_CITY":
       return { ...state, city: action.payload }
     case "SET_ADDRESS":
@@ -93,10 +98,6 @@ export function FunnelProvider({ children }: { children: ReactNode }) {
     if (typeof window === "undefined") return
     const params = new URLSearchParams(window.location.search)
     const interest = params.get("interest")
-    if (interest === "buyer") {
-      router.replace("/listings")
-      return
-    }
     if (interest === "seller" || interest === "homeowner") {
       dispatch({ type: "SET_INTEREST", payload: interest })
     }
