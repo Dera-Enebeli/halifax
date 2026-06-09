@@ -13,13 +13,13 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Halifax Properties & Investments | East Bay Listings & Real Estate",
+  title: "Halifax Properties & Investments | East Bay Real Estate",
   description:
-    "Find your place in the East Bay. Halifax Properties & Investments offers exclusive access to premium listings across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay. Buy, sell, or get a valuation from the East Bay's trusted real estate partner.",
+    "East Bay real estate with Halifax Properties & Investments. Buy, sell, or get a property valuation. Led by Geoffrey Enebeli — your trusted East Bay real estate agent.",
   openGraph: {
-    title: "Halifax Properties & Investments | East Bay Listings & Real Estate",
+    title: "Halifax Properties & Investments | East Bay Real Estate",
     description:
-      "Find your place in the East Bay. Premium listings across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.",
+      "East Bay real estate with Halifax Properties & Investments. Buy, sell, or get a property valuation.",
     url: "https://real-estate-site-six.vercel.app",
     siteName: "Halifax Properties & Investments",
     locale: "en_US",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Halifax Properties & Investments | East Bay Listings & Real Estate",
+    title: "Halifax Properties & Investments | East Bay Real Estate",
     description:
-      "Find your place in the East Bay. Premium listings across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.",
+      "East Bay real estate with Halifax Properties & Investments. Buy, sell, or get a property valuation.",
   },
 }
 

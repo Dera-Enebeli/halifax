@@ -60,8 +60,8 @@ export default function Home() {
                       <Icon className="h-6 w-6 text-olive" />
                     </div>
                     <h3 className="font-bold text-lg text-near-black mb-2">{s.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-4">{s.desc}</p>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-terracotta group-hover:gap-2 transition-all">
+                    <p className="text-[16px] text-gray-500 leading-relaxed mb-4">{s.desc}</p>
+                    <span className="inline-flex items-center gap-1 text-[16px] font-semibold text-terracotta group-hover:gap-2 transition-all">
                       Get Started <ArrowRight className="h-4 w-4" />
                     </span>
                   </Link>

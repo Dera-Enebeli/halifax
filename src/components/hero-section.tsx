@@ -1,11 +1,11 @@
 import Link from "next/link"
-import { Phone, Mail, ArrowRight } from "lucide-react"
+import { Phone, Mail, Home, Building2, DollarSign } from "lucide-react"
 
 export default function HeroSection() {
   return (
     <section className="relative w-full">
       <div className="max-w-page section-padding">
-        <div className="relative rounded-3xl overflow-hidden min-h-[480px] sm:min-h-[500px] md:min-h-[560px] lg:min-h-[620px] flex items-center justify-center">
+        <div className="relative rounded-3xl overflow-hidden min-h-[440px] sm:min-h-[500px] md:min-h-[560px] lg:min-h-[620px] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -15,7 +15,7 @@ export default function HeroSection() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
 
-          <div className="relative z-10 text-center px-5 max-w-3xl mx-auto py-12">
+          <div className="relative z-10 text-center px-5 max-w-3xl mx-auto py-8 sm:py-12">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 flex items-center justify-center font-serif text-[20px] sm:text-[24px] font-bold bg-terracotta text-white rounded-full" style={{ fontFamily: "var(--font-serif)" }}>
               H
             </div>
@@ -46,13 +46,29 @@ export default function HeroSection() {
               </a>
             </div>
 
-            <Link
-              href="/consultation"
-              className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white/70 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white/70 transition-all duration-200"
-            >
-              Get a Free Consultation
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="grid grid-cols-3 gap-3 max-w-lg mx-auto">
+              <Link
+                href="/consultation?interest=buyer"
+                className="group flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 text-white text-sm font-semibold px-2 sm:px-4 py-3 rounded-xl transition-all duration-200"
+              >
+                <Home className="h-5 w-5 sm:h-4 sm:w-4 text-terracotta" />
+                <span>Buy</span>
+              </Link>
+              <Link
+                href="/consultation?interest=seller"
+                className="group flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 text-white text-sm font-semibold px-2 sm:px-4 py-3 rounded-xl transition-all duration-200"
+              >
+                <Building2 className="h-5 w-5 sm:h-4 sm:w-4 text-terracotta" />
+                <span>Sell</span>
+              </Link>
+              <Link
+                href="/consultation?interest=homeowner"
+                className="group flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 text-white text-sm font-semibold px-2 sm:px-4 py-3 rounded-xl transition-all duration-200"
+              >
+                <DollarSign className="h-5 w-5 sm:h-4 sm:w-4 text-terracotta" />
+                <span>Valuation</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

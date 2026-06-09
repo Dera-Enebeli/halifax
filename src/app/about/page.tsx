@@ -74,7 +74,7 @@ export default function AboutPage() {
                       <Icon className="h-6 w-6 text-olive" />
                     </div>
                     <h3 className="font-bold text-lg text-near-black mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                    <p className="text-[16px] text-gray-500 leading-relaxed">{item.desc}</p>
                   </div>
                 )
               })}
@@ -98,7 +98,7 @@ export default function AboutPage() {
                       Whether you&apos;re a first-time buyer looking in Fremont or a family selling their home of 30 years in Berkeley, 
                       Geoffrey brings the same dedication, market knowledge, and personal attention to every client.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm text-gray-500">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-[16px] text-gray-500">
                       <span className="flex items-center gap-2">
                         <Phone className="h-4 w-4 text-terracotta" />
                         (510) 507-5088
@@ -130,14 +130,14 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/consultation"
-                className="inline-flex items-center gap-2 bg-terracotta text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-terracotta-dark transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-terracotta text-white text-[16px] font-semibold px-6 py-3.5 rounded-full hover:bg-terracotta-dark transition-all duration-200"
               >
                 <Phone className="h-4 w-4" />
                 Get a Free Consultation
               </Link>
               <Link
                 href="/consultation"
-                className="inline-flex items-center gap-2 border border-terracotta text-terracotta text-sm font-semibold px-6 py-3 rounded-full hover:bg-terracotta hover:text-white transition-all duration-200"
+                className="inline-flex items-center gap-2 border border-terracotta text-terracotta text-[16px] font-semibold px-6 py-3.5 rounded-full hover:bg-terracotta hover:text-white transition-all duration-200"
               >
                 Contact Geoffrey Enebeli
               </Link>

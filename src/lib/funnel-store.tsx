@@ -98,7 +98,7 @@ export function FunnelProvider({ children }: { children: ReactNode }) {
     if (typeof window === "undefined") return
     const params = new URLSearchParams(window.location.search)
     const interest = params.get("interest")
-    if (interest === "seller" || interest === "homeowner") {
+    if (interest === "buyer" || interest === "seller" || interest === "homeowner") {
       dispatch({ type: "SET_INTEREST", payload: interest })
     }
   }, [router])

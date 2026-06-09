@@ -26,8 +26,13 @@ export default function LeadForm() {
     e.preventDefault()
     if (!canSubmit) return
 
+    const interestLabels: Record<string, string> = {
+      buyer: "Buying",
+      seller: "Selling",
+      homeowner: "Valuation",
+    }
     const data: Record<string, string> = {
-      Interest: state.interest === "seller" ? "Selling" : "Valuation",
+      Interest: interestLabels[state.interest ?? ""] || "Valuation",
       Name: state.name,
       Email: state.email,
       Phone: state.phone,
@@ -84,10 +89,10 @@ export default function LeadForm() {
               </div>
 
               <div className="text-center mb-6">
-                <p className="font-serif italic text-xl text-near-black leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
+                <p className="font-serif italic text-[22px] sm:text-xl text-near-black leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
                   Halifax <span className="text-olive text-[10px] tracking-[2px] uppercase font-semibold not-italic">· East Bay Real Estate</span>
                 </p>
-                <p className="text-sm text-gray-500 mt-1">
+                <p className="text-[16px] text-gray-500 mt-1">
                   Tell us about your property and we&apos;ll help you move forward.
                 </p>
               </div>
@@ -95,11 +100,12 @@ export default function LeadForm() {
               <form onSubmit={handleSubmit} className="space-y-6">
 
                 <div>
-                  <label className="block text-sm font-semibold text-near-black mb-3">
-                    Are you selling or looking for a valuation on your property?
+                  <label className="block text-[16px] font-semibold text-near-black mb-3">
+                    What are you looking for?
                   </label>
-                  <div className="grid grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-3 gap-2.5">
                     {([
+                      { value: "buyer" as const, label: "Buying", sub: "Find a home" },
                       { value: "seller" as const, label: "Selling", sub: "List my home" },
                       { value: "homeowner" as const, label: "Valuation", sub: "Home value" },
                     ]).map((option) => (
@@ -107,13 +113,13 @@ export default function LeadForm() {
                         key={option.value}
                         type="button"
                         onClick={() => dispatch({ type: "SET_INTEREST", payload: option.value })}
-                        className={`text-center p-4 rounded-lg transition-all duration-200 cursor-pointer border ${
+                        className={`text-center py-3 sm:py-4 px-1 sm:px-2 rounded-lg transition-all duration-200 cursor-pointer border ${
                           state.interest === option.value
                             ? "bg-terracotta text-white border-terracotta"
                             : "bg-white text-near-black border-gray-300 hover:border-near-black/40"
                         }`}
                       >
-                        <span className="block text-sm font-bold">{option.label}</span>
+                        <span className="block text-[16px] font-bold">{option.label}</span>
                         <span className={`block text-xs mt-0.5 ${state.interest === option.value ? "text-white/70" : "text-gray-400"}`}>
                           {option.sub}
                         </span>
@@ -124,7 +130,7 @@ export default function LeadForm() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-near-black mb-1.5">
+                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
                     What&apos;s your name?
                   </label>
                   <Input
@@ -139,7 +145,7 @@ export default function LeadForm() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-near-black mb-1.5">
+                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
                     What&apos;s your email address?
                   </label>
                   <Input
@@ -154,7 +160,7 @@ export default function LeadForm() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-near-black mb-1.5">
+                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
                     What&apos;s your phone number?
                   </label>
                   <Input
@@ -169,7 +175,7 @@ export default function LeadForm() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-near-black mb-1.5">
+                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
                     Which city are you interested in?
                   </label>
                   <select
@@ -198,12 +204,12 @@ export default function LeadForm() {
 
                 {(state.interest === "homeowner" || state.interest === "seller") && (
                   <div className="space-y-5 pt-4 border-t border-gray-200">
-                    <p className="text-sm font-bold text-olive-dark">About Your Property</p>
+                    <p className="text-[16px] font-bold text-olive-dark">About Your Property</p>
 
                     <div>
-                      <label className="block text-sm font-semibold text-near-black mb-1.5">
-                        Property address
-                      </label>
+                        <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                          Property address
+                        </label>
                       <Input
                         type="text"
                         value={state.address}
@@ -216,9 +222,9 @@ export default function LeadForm() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-sm font-semibold text-near-black mb-1.5">
-                          Property type
-                        </label>
+                          <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                            Property type
+                          </label>
                         <select
                           value={state.propertyType}
                           onChange={(e) => dispatch({ type: "SET_PROPERTY_TYPE", payload: e.target.value })}
@@ -237,9 +243,9 @@ export default function LeadForm() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-near-black mb-1.5">
-                          Sq. Footage
-                        </label>
+                          <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                            Sq. Footage
+                          </label>
                         <select
                           value={state.sqft}
                           onChange={(e) => dispatch({ type: "SET_SQFT", payload: e.target.value })}
@@ -263,9 +269,9 @@ export default function LeadForm() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-sm font-semibold text-near-black mb-1.5">
-                          Bedrooms
-                        </label>
+                          <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                            Bedrooms
+                          </label>
                         <select
                           value={state.bedrooms ? String(state.bedrooms) : ""}
                           onChange={(e) => dispatch({ type: "SET_BEDROOMS", payload: Number(e.target.value) || 0 })}
@@ -285,9 +291,9 @@ export default function LeadForm() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-near-black mb-1.5">
-                          Bathrooms
-                        </label>
+                          <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                            Bathrooms
+                          </label>
                         <select
                           value={state.baths ? String(state.baths) : ""}
                           onChange={(e) => dispatch({ type: "SET_BATHS", payload: Number(e.target.value) || 0 })}
@@ -312,8 +318,8 @@ export default function LeadForm() {
                 <Button
                   type="submit"
                   disabled={!canSubmit}
-                  className="w-full h-13 text-base font-bold"
-                  size="lg"
+                  className="w-full h-14 text-[18px] font-bold"
+                  size="xl"
                 >
                   Get My Results
                 </Button>

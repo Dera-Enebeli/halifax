@@ -30,7 +30,7 @@ export default function LeadStepConsultation() {
 
               <div className="text-center mb-5">
                 <p className="font-serif italic text-[22px] text-near-black leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                  Halifax <span className="text-olive text-[11px] tracking-[2px] uppercase font-semibold not-italic">· East Bay Listings</span>
+                  Halifax <span className="text-olive text-[11px] tracking-[2px] uppercase font-semibold not-italic">· East Bay Real Estate</span>
                 </p>
                 <p className="text-[17px] text-gray-500 mt-1.5 font-normal leading-snug">
                   Here are your results, {state.name?.split(" ")[0]}
@@ -38,6 +38,17 @@ export default function LeadStepConsultation() {
               </div>
 
               <div className="space-y-5">
+
+                {state.interest === "buyer" && (
+                  <div className="bg-white p-8 shadow-inner text-center">
+                    <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
+                      Let&apos;s Find Your Next Home
+                    </p>
+                    <p className="text-[17px] text-gray-500 leading-relaxed">
+                      I&apos;ll reach out to learn more about what you&apos;re looking for and help you find the perfect property in the East Bay.
+                    </p>
+                  </div>
+                )}
 
                 {estimate && (
                   <div className="bg-white p-8 shadow-inner">
@@ -107,6 +118,22 @@ export default function LeadStepConsultation() {
                 </div>
 
                 <div className="space-y-3 pt-2">
+                  {state.interest === "buyer" && (
+                    <button
+                      type="button"
+                      onClick={() => openWhatsApp({
+                        "Schedule": "Home Buying Consultation",
+                        Name: state.name,
+                        Email: state.email,
+                        Phone: state.phone,
+                        City: state.city,
+                      })}
+                      className="w-full h-14 bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
+                    >
+                      Get in Touch
+                    </button>
+                  )}
+
                   {state.interest === "seller" && (
                     <button
                       type="button"
@@ -114,6 +141,7 @@ export default function LeadStepConsultation() {
                         "Schedule": "Listing Consultation",
                         Name: state.name,
                         Email: state.email,
+                        Phone: state.phone,
                         City: state.city,
                         Address: state.address,
                         "Property Type": state.propertyType || "House",
@@ -134,6 +162,7 @@ export default function LeadStepConsultation() {
                         "Schedule": "Full Valuation",
                         Name: state.name,
                         Email: state.email,
+                        Phone: state.phone,
                         City: state.city,
                         Address: state.address,
                         "Property Type": state.propertyType || "House",
