@@ -46,27 +46,27 @@ export default function HeroSection() {
               </a>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 max-w-lg mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
               <Link
                 href="/consultation?interest=buyer"
-                className="group flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 text-white text-sm font-semibold px-2 sm:px-4 py-3 rounded-xl transition-all duration-200"
+                className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
-                <Home className="h-5 w-5 sm:h-4 sm:w-4 text-terracotta" />
-                <span>Buy</span>
+                <Home className="h-3.5 w-3.5 text-terracotta" />
+                Buy
               </Link>
               <Link
                 href="/consultation?interest=seller"
-                className="group flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 text-white text-sm font-semibold px-2 sm:px-4 py-3 rounded-xl transition-all duration-200"
+                className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
-                <Building2 className="h-5 w-5 sm:h-4 sm:w-4 text-terracotta" />
-                <span>Sell</span>
+                <Building2 className="h-3.5 w-3.5 text-terracotta" />
+                Sell
               </Link>
               <Link
                 href="/consultation?interest=homeowner"
-                className="group flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 text-white text-sm font-semibold px-2 sm:px-4 py-3 rounded-xl transition-all duration-200"
+                className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
-                <DollarSign className="h-5 w-5 sm:h-4 sm:w-4 text-terracotta" />
-                <span>Valuation</span>
+                <DollarSign className="h-3.5 w-3.5 text-terracotta" />
+                Valuation
               </Link>
             </div>
           </div>
