@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useFunnel } from "@/lib/funnel-store"
 import { estimatePropertyValue, agent } from "@/lib/mock-data"
 import { openWhatsApp } from "@/lib/whatsapp"
@@ -24,7 +25,7 @@ export default function LeadStepConsultation() {
       <div className="max-w-page section-padding">
         <div className="w-full max-w-xl mx-auto">
           <div className="bg-cream shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
-            <div className="h-1 w-full bg-terracotta" />
+            <div className="h-1 w-full bg-crimson" />
 
             <div className="p-6 sm:p-8">
 
@@ -76,19 +77,19 @@ export default function LeadStepConsultation() {
                     </p>
                     <ul className="text-[17px] text-gray-600 space-y-3">
                       <li className="flex items-start gap-2.5">
-                        <span className="text-terracotta font-bold mt-0.5">&bull;</span>
+                        <span className="text-crimson font-bold mt-0.5">&bull;</span>
                         Professional staging and photography
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <span className="text-terracotta font-bold mt-0.5">&bull;</span>
+                        <span className="text-crimson font-bold mt-0.5">&bull;</span>
                         Targeted MLS marketing strategy
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <span className="text-terracotta font-bold mt-0.5">&bull;</span>
+                        <span className="text-crimson font-bold mt-0.5">&bull;</span>
                         Open houses and private showings
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <span className="text-terracotta font-bold mt-0.5">&bull;</span>
+                        <span className="text-crimson font-bold mt-0.5">&bull;</span>
                         Negotiation and closing support
                       </li>
                     </ul>
@@ -100,8 +101,8 @@ export default function LeadStepConsultation() {
                     Speak with your agent
                   </p>
                   <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center font-serif text-[24px] font-bold bg-terracotta text-white" style={{ fontFamily: "var(--font-serif)" }}>
-                      GE
+                    <div className="w-16 h-16 flex-shrink-0 relative flex items-center justify-center">
+                      <Image src="/logo.png" alt="Halifax" width={64} height={64} className="object-contain" />
                     </div>
                     <div>
                       <p className="text-[20px] font-bold text-near-black">
@@ -110,7 +111,7 @@ export default function LeadStepConsultation() {
                       <p className="text-[17px] text-gray-500 font-normal">
                         {agent.phone}
                       </p>
-                      <p className="text-[17px] text-terracotta font-medium">
+                      <p className="text-[17px] text-crimson font-medium">
                         {agent.email}
                       </p>
                     </div>
@@ -128,7 +129,7 @@ export default function LeadStepConsultation() {
                         Phone: state.phone,
                         City: state.city,
                       })}
-                      className="w-full h-14 bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
+                      className="w-full h-14 bg-crimson text-white text-[19px] font-bold tracking-wide hover:bg-crimson-dark transition-all duration-300 cursor-pointer"
                     >
                       Get in Touch
                     </button>
@@ -149,7 +150,7 @@ export default function LeadStepConsultation() {
                         Beds: state.bedrooms ? String(state.bedrooms) : "Unknown",
                         Baths: state.baths ? String(state.baths) : "Unknown",
                       })}
-                      className="w-full h-14 bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
+                      className="w-full h-14 bg-crimson text-white text-[19px] font-bold tracking-wide hover:bg-crimson-dark transition-all duration-300 cursor-pointer"
                     >
                       Schedule a Listing Consultation
                     </button>
@@ -170,7 +171,7 @@ export default function LeadStepConsultation() {
                         Beds: state.bedrooms ? String(state.bedrooms) : "Unknown",
                         Baths: state.baths ? String(state.baths) : "Unknown",
                       })}
-                      className="w-full h-14 bg-terracotta text-white text-[19px] font-bold tracking-wide hover:bg-terracotta-dark transition-all duration-300 cursor-pointer"
+                      className="w-full h-14 bg-crimson text-white text-[19px] font-bold tracking-wide hover:bg-crimson-dark transition-all duration-300 cursor-pointer"
                     >
                       Schedule a Full Valuation
                     </button>
@@ -179,7 +180,7 @@ export default function LeadStepConsultation() {
                   <button
                     type="button"
                     onClick={() => dispatch({ type: "RESET" })}
-                    className="w-full h-14 bg-white border-2 border-near-black/20 text-near-black text-[19px] font-bold hover:border-terracotta hover:text-terracotta transition-all duration-300 cursor-pointer"
+                    className="w-full h-14 bg-white border-2 border-near-black/20 text-near-black text-[19px] font-bold hover:border-crimson hover:text-crimson transition-all duration-300 cursor-pointer"
                   >
                     Start Over
                   </button>

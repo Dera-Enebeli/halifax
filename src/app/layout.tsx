@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Halifax Properties & Investments | East Bay Real Estate",
   description:
     "East Bay real estate with Halifax Properties & Investments. Buy, sell, or get a property valuation. Led by Geoffrey Enebeli — your trusted East Bay real estate agent.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "Halifax Properties & Investments | East Bay Real Estate",
     description:

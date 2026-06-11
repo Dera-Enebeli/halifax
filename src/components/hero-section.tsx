@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail, Home, Building2, DollarSign } from "lucide-react"
 
 export default function HeroSection() {
@@ -16,14 +17,17 @@ export default function HeroSection() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
 
           <div className="relative z-10 text-center px-5 max-w-3xl mx-auto py-8 sm:py-12">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 flex items-center justify-center font-serif text-[20px] sm:text-[24px] font-bold bg-terracotta text-white rounded-full" style={{ fontFamily: "var(--font-serif)" }}>
-              H
+            <div className="w-[72px] h-[72px] sm:w-24 sm:h-24 mx-auto mb-4 relative flex items-center justify-center">
+              <Image src="/logo.png" alt="Halifax Properties & Investments" width={96} height={96} className="object-contain drop-shadow-lg" />
             </div>
             <h1 className="text-white font-serif text-[clamp(28px,6vw,48px)] leading-[1.1] tracking-tight mb-2" style={{ fontFamily: "var(--font-serif)" }}>
-              Halifax Properties <span className="text-terracotta">&amp;</span> Investments
+              Halifax Properties <span className="text-crimson">&amp;</span> Investments
             </h1>
             <p className="text-white/70 text-[15px] sm:text-[17px] font-medium mb-1">
               East Bay Real Estate
+            </p>
+            <p className="text-white/80 text-[14px] sm:text-[15px] font-medium mb-0.5">
+              Realtor, BA, CRS, CHS &middot; DRE# 0899654
             </p>
             <p className="text-white/50 text-[13px] sm:text-[14px] font-light mb-5 sm:mb-6">
               by Geoffrey Enebeli
@@ -32,7 +36,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6">
               <a
                 href="tel:+15105075088"
-                className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[17px] font-bold text-white bg-terracotta hover:bg-terracotta-dark px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-terracotta/25"
+                className="inline-flex items-center justify-center gap-2 text-[15px] sm:text-[17px] font-bold text-white bg-crimson hover:bg-crimson-dark px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-crimson/25"
               >
                 <Phone className="h-5 w-5" />
                 (510) 507-5088
@@ -51,21 +55,21 @@ export default function HeroSection() {
                 href="/consultation?interest=buyer"
                 className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
-                <Home className="h-3.5 w-3.5 text-terracotta" />
+                <Home className="h-3.5 w-3.5 text-sky" />
                 Buy
               </Link>
               <Link
                 href="/consultation?interest=seller"
                 className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
-                <Building2 className="h-3.5 w-3.5 text-terracotta" />
+                <Building2 className="h-3.5 w-3.5 text-sky" />
                 Sell
               </Link>
               <Link
                 href="/consultation?interest=homeowner"
                 className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
-                <DollarSign className="h-3.5 w-3.5 text-terracotta" />
+                <DollarSign className="h-3.5 w-3.5 text-sky" />
                 Valuation
               </Link>
             </div>

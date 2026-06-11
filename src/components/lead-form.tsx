@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
 import { useFunnel } from "@/lib/funnel-store"
@@ -65,22 +66,22 @@ export default function LeadForm() {
       <div className="max-w-page section-padding">
         <div className="w-full max-w-xl mx-auto">
           <div className="bg-cream shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
-            <div className="h-1 w-full bg-terracotta" />
+            <div className="h-1 w-full bg-crimson" />
 
               <div className="p-6 sm:p-8">
 
               <button
                 type="button"
                 onClick={() => router.back()}
-                className="flex items-center gap-1.5 text-sm font-medium text-terracotta hover:text-terracotta-dark transition-colors mb-5 cursor-pointer group"
+                className="flex items-center gap-1.5 text-sm font-medium text-crimson hover:text-crimson-dark transition-colors mb-5 cursor-pointer group"
               >
                 <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
                 Back
               </button>
 
               <div className="bg-white rounded-lg border border-warm-border p-4 sm:p-5 mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5">
-                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center font-serif text-lg font-bold bg-terracotta text-white rounded-full" style={{ fontFamily: "var(--font-serif)" }}>
-                  GE
+                <div className="w-10 h-10 flex-shrink-0 relative flex items-center justify-center">
+                  <Image src="/logo.png" alt="Halifax" width={40} height={40} className="object-contain" />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-near-black">Geoffrey Enebeli</p>
@@ -115,7 +116,7 @@ export default function LeadForm() {
                         onClick={() => dispatch({ type: "SET_INTEREST", payload: option.value })}
                         className={`text-center py-3 sm:py-4 px-1 sm:px-2 rounded-lg transition-all duration-200 cursor-pointer border ${
                           state.interest === option.value
-                            ? "bg-terracotta text-white border-terracotta"
+                            ? "bg-crimson text-white border-crimson"
                             : "bg-white text-near-black border-gray-300 hover:border-near-black/40"
                         }`}
                       >
@@ -139,7 +140,7 @@ export default function LeadForm() {
                     onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
                     placeholder="Your full name"
                     required
-                    className="focus:ring-terracotta/20 focus:border-terracotta"
+                    className="focus:ring-crimson/20 focus:border-crimson"
                   />
                   <FieldFAQ>So we know how to address you.</FieldFAQ>
                 </div>
@@ -154,7 +155,7 @@ export default function LeadForm() {
                     onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
                     placeholder="your@email.com"
                     required
-                    className="focus:ring-terracotta/20 focus:border-terracotta"
+                    className="focus:ring-crimson/20 focus:border-crimson"
                   />
                   <FieldFAQ>So we can send your results and follow up.</FieldFAQ>
                 </div>
@@ -169,7 +170,7 @@ export default function LeadForm() {
                     onChange={(e) => dispatch({ type: "SET_PHONE", payload: e.target.value })}
                     placeholder="(555) 123-4567"
                     required
-                    className="focus:ring-terracotta/20 focus:border-terracotta"
+                    className="focus:ring-crimson/20 focus:border-crimson"
                   />
                   <FieldFAQ>So we can reach you quickly with results.</FieldFAQ>
                 </div>
@@ -182,7 +183,7 @@ export default function LeadForm() {
                     value={state.city}
                     onChange={(e) => dispatch({ type: "SET_CITY", payload: e.target.value })}
                     required
-                    className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta appearance-none cursor-pointer"
+                    className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson appearance-none cursor-pointer"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                       backgroundPosition: "right 12px center",
@@ -215,7 +216,7 @@ export default function LeadForm() {
                         value={state.address}
                         onChange={(e) => dispatch({ type: "SET_ADDRESS", payload: e.target.value })}
                         placeholder="Street address"
-                        className="focus:ring-terracotta/20 focus:border-terracotta"
+                        className="focus:ring-crimson/20 focus:border-crimson"
                       />
                       <FieldFAQ>Your address helps us give you a more accurate estimate. Your information is kept private.</FieldFAQ>
                     </div>
@@ -228,7 +229,7 @@ export default function LeadForm() {
                         <select
                           value={state.propertyType}
                           onChange={(e) => dispatch({ type: "SET_PROPERTY_TYPE", payload: e.target.value })}
-                          className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta appearance-none cursor-pointer"
+                          className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",
@@ -249,7 +250,7 @@ export default function LeadForm() {
                         <select
                           value={state.sqft}
                           onChange={(e) => dispatch({ type: "SET_SQFT", payload: e.target.value })}
-                          className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta appearance-none cursor-pointer"
+                          className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",
@@ -275,7 +276,7 @@ export default function LeadForm() {
                         <select
                           value={state.bedrooms ? String(state.bedrooms) : ""}
                           onChange={(e) => dispatch({ type: "SET_BEDROOMS", payload: Number(e.target.value) || 0 })}
-                          className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta appearance-none cursor-pointer"
+                          className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",
@@ -297,7 +298,7 @@ export default function LeadForm() {
                         <select
                           value={state.baths ? String(state.baths) : ""}
                           onChange={(e) => dispatch({ type: "SET_BATHS", payload: Number(e.target.value) || 0 })}
-                          className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta appearance-none cursor-pointer"
+                          className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson appearance-none cursor-pointer"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
                             backgroundPosition: "right 12px center",

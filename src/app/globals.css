@@ -4,12 +4,15 @@
   --color-cream: #F5F0E8;
   --color-cream-dark: #EAE2D6;
   --color-near-black: #1A1A1A;
-  --color-terracotta: #C04A1A;
-  --color-terracotta-dark: #a83e15;
+  --color-navy: #1E5A7A;
+  --color-navy-dark: #15445E;
+  --color-crimson: #cc2032;
+  --color-crimson-dark: #a81a28;
+  --color-sky: #45bcfd;
   --color-olive: #6B7D5E;
   --color-olive-dark: #4A5E3E;
   --color-warm-border: #E5DDD3;
-  --color-warm-overlay: rgba(45, 25, 15, 0.6);
+  --color-warm-overlay: rgba(30, 74, 122, 0.6);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
 }

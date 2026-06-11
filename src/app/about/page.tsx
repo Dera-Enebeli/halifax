@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Home, Building2, DollarSign, Phone, Mail, MapPin, ArrowLeft } from "lucide-react"
 import Header from "@/components/header"
@@ -28,7 +29,7 @@ export default function AboutPage() {
       <UtilityBar />
       <Header />
       <main className="pt-20">
-        <div className="py-16" style={{ background: "rgba(45, 25, 15, 0.85)" }}>
+        <div className="py-16" style={{ background: "rgba(30, 74, 122, 0.85)" }}>
           <div className="max-w-page section-padding">
             <Link
               href="/"
@@ -87,28 +88,40 @@ export default function AboutPage() {
             <div className="max-w-3xl mx-auto">
               <div className="bg-white rounded-xl border border-warm-border p-8 sm:p-10 shadow-sm">
                 <div className="flex flex-col sm:flex-row items-start gap-6">
-                  <div className="w-20 h-20 flex-shrink-0 flex items-center justify-center font-serif text-[30px] font-bold bg-terracotta text-white rounded-full" style={{ fontFamily: "var(--font-serif)" }}>
-                    GE
+                  <div className="w-20 h-20 flex-shrink-0 relative flex items-center justify-center">
+                    <Image src="/logo.png" alt="Halifax" width={80} height={80} className="object-contain" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl text-near-black mb-1">Meet Geoffrey Enebeli</h3>
+                    <h3 className="font-bold text-xl text-near-black mb-1">Geoffrey Enebeli</h3>
+                    <p className="text-sm text-crimson font-semibold tracking-wide mb-1">
+                      Realtor, BA, CRS, CHS &middot; DRE# 0899654
+                    </p>
                     <p className="text-sm text-olive font-medium tracking-wide uppercase mb-3">East Bay Real Estate Agent</p>
-                    <p className="text-[15px] text-gray-500 leading-relaxed mb-4">
-                      Geoffrey has spent years helping East Bay families navigate the real estate market with confidence. 
-                      Whether you&apos;re a first-time buyer looking in Fremont or a family selling their home of 30 years in Berkeley, 
-                      Geoffrey brings the same dedication, market knowledge, and personal attention to every client.
+                    <div className="text-[15px] text-gray-500 leading-relaxed mb-4 space-y-4">
+                      <p>
+                        Choosing the right real estate agent makes all the difference. You need someone committed to delivering expert guidance and deep knowledge of the local market, someone who will walk you through every step of the buying or selling process with clarity and confidence. That level of dedication is what has allowed me to consistently deliver strong results for my clients.
+                      </p>
+                      <p>
+                        There&apos;s nothing more rewarding to me than helping people achieve their real estate goals. I&apos;m committed to always acting in your best interest, and I pride myself on being honest, reliable, and knowledgeable. Whether you&apos;re searching for your dream home or aiming to secure the best possible offer for your property, I&apos;ll work tirelessly to make it happen.
+                      </p>
+                      <p>
+                        From first-time buyers to seasoned investors, I&apos;m here to provide guidance, support, and results. Feel free to explore my website or reach out directly to schedule a consultation&mdash;I&apos;d be happy to help you every step of the way.
+                      </p>
+                    </div>
+                    <p className="text-[13px] text-navy font-bold tracking-[2px] uppercase mb-4">
+                      Halifax Properties &amp; Investment &mdash; One Stop Real Estate
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-[16px] text-gray-500">
                       <span className="flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-terracotta" />
+                        <Phone className="h-4 w-4 text-crimson" />
                         (510) 507-5088
                       </span>
                       <span className="flex items-center gap-2">
-                        <Mail className="h-4 w-4 text-terracotta" />
+                        <Mail className="h-4 w-4 text-crimson" />
                         geoffrey@halifaxproperties.com
                       </span>
                       <span className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 text-terracotta" />
+                        <MapPin className="h-4 w-4 text-crimson" />
                         East Bay, CA
                       </span>
                     </div>
@@ -130,14 +143,14 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/consultation"
-                className="inline-flex items-center gap-2 bg-terracotta text-white text-[16px] font-semibold px-6 py-3.5 rounded-full hover:bg-terracotta-dark transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-crimson text-white text-[16px] font-semibold px-6 py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200"
               >
                 <Phone className="h-4 w-4" />
                 Get a Free Consultation
               </Link>
               <Link
                 href="/consultation"
-                className="inline-flex items-center gap-2 border border-terracotta text-terracotta text-[16px] font-semibold px-6 py-3.5 rounded-full hover:bg-terracotta hover:text-white transition-all duration-200"
+                className="inline-flex items-center gap-2 border border-crimson text-crimson text-[16px] font-semibold px-6 py-3.5 rounded-full hover:bg-crimson hover:text-white transition-all duration-200"
               >
                 Contact Geoffrey Enebeli
               </Link>

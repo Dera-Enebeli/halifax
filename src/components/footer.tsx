@@ -1,5 +1,6 @@
+import Image from "next/image"
 import Link from "next/link"
-import { Home, Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin } from "lucide-react"
 
 const footerLinks = [
   {
@@ -26,8 +27,8 @@ export default function Footer() {
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
             <div className="col-span-2 sm:col-span-2 lg:col-span-1">
               <Link href="/" className="flex items-center gap-2.5 group mb-4">
-                <div className="w-8 h-8 bg-terracotta rounded-lg flex items-center justify-center">
-                  <Home className="h-4 w-4 text-white" />
+                <div className="w-8 h-8 relative flex items-center justify-center">
+                  <Image src="/logo.png" alt="Halifax" width={32} height={32} className="object-contain" />
                 </div>
                 <span
                   className="font-serif italic text-xl text-white tracking-tight"
@@ -44,18 +45,18 @@ export default function Footer() {
                   href="tel:+15105075088"
                   className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60 hover:text-white transition-colors duration-200"
                 >
-                  <Phone className="h-3.5 w-3.5 text-terracotta shrink-0" />
+                  <Phone className="h-3.5 w-3.5 text-crimson shrink-0" />
                   (510) 507-5088
                 </a>
                 <a
                   href="mailto:geoffrey@halifaxproperties.com"
                   className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60 hover:text-white transition-colors duration-200"
                 >
-                  <Mail className="h-3.5 w-3.5 text-terracotta shrink-0" />
+                  <Mail className="h-3.5 w-3.5 text-crimson shrink-0" />
                   geoffrey@halifaxproperties.com
                 </a>
                 <div className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60">
-                  <MapPin className="h-3.5 w-3.5 text-terracotta shrink-0" />
+                  <MapPin className="h-3.5 w-3.5 text-crimson shrink-0" />
                   East Bay, CA
                 </div>
               </div>

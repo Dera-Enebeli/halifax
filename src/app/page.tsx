@@ -61,7 +61,7 @@ export default function Home() {
                     </div>
                     <h3 className="font-bold text-lg text-near-black mb-2">{s.title}</h3>
                     <p className="text-[16px] text-gray-500 leading-relaxed mb-4">{s.desc}</p>
-                    <span className="inline-flex items-center gap-1 text-[16px] font-semibold text-terracotta group-hover:gap-2 transition-all">
+                    <span className="inline-flex items-center gap-1 text-[16px] font-semibold text-crimson group-hover:gap-2 transition-all">
                       Get Started <ArrowRight className="h-4 w-4" />
                     </span>
                   </Link>
@@ -86,14 +86,14 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-8">
                 <a
                   href="tel:+15105075088"
-                  className="inline-flex items-center gap-2.5 bg-terracotta text-white text-base font-bold px-6 py-3.5 rounded-full hover:bg-terracotta-dark transition-all duration-200 shadow-lg shadow-terracotta/15"
+                  className="inline-flex items-center gap-2.5 bg-crimson text-white text-base font-bold px-6 py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200 shadow-lg shadow-crimson/15"
                 >
                   <Phone className="h-5 w-5" />
                   (510) 507-5088
                 </a>
                 <a
                   href="mailto:geoffrey@halifaxproperties.com"
-                  className="inline-flex items-center gap-2.5 border-2 border-near-black/20 text-near-black text-base font-semibold px-6 py-3.5 rounded-full hover:border-terracotta hover:text-terracotta transition-all duration-200"
+                  className="inline-flex items-center gap-2.5 border-2 border-near-black/20 text-near-black text-base font-semibold px-6 py-3.5 rounded-full hover:border-crimson hover:text-crimson transition-all duration-200"
                 >
                   <Mail className="h-5 w-5" />
                   geoffrey@halifaxproperties.com

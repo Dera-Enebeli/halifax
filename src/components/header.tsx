@@ -1,8 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import Link from "next/link"
-import { Home, X, Menu } from "lucide-react"
+import { X, Menu } from "lucide-react"
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -38,8 +39,8 @@ export default function Header() {
         <div className="max-w-page section-padding">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 lg:w-9 lg:h-9 bg-near-black rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                <Home className="h-4 w-4 lg:h-5 lg:w-5 text-white" />
+              <div className="w-8 h-8 lg:w-9 lg:h-9 relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <Image src="/logo.png" alt="Halifax" width={36} height={36} className="object-contain" />
               </div>
               <div className="flex flex-row items-baseline sm:flex-col sm:items-start gap-1.5 sm:gap-0 leading-tight">
                 <span
@@ -48,7 +49,7 @@ export default function Header() {
                 >
                   Halifax
                 </span>
-                <span className="text-[10px] font-semibold text-terracotta tracking-[2px] uppercase sm:block">
+                <span className="text-[10px] font-semibold text-crimson tracking-[2px] uppercase sm:block">
                   East Bay
                 </span>
               </div>
@@ -59,14 +60,14 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-medium text-near-black/80 hover:text-terracotta transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-terracotta after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+                  className="text-sm font-medium text-near-black/80 hover:text-crimson transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 after:w-0 hover:after:w-full"
                 >
                   {item.label}
                 </Link>
               ))}
               <Link
                 href="/consultation"
-                className="text-sm font-semibold text-white bg-terracotta hover:bg-terracotta-dark px-6 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-terracotta/25"
+                className="text-sm font-semibold text-white bg-crimson hover:bg-crimson-dark px-6 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-crimson/25"
               >
                 Get in Touch
               </Link>
@@ -92,7 +93,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-[17px] font-medium text-near-black hover:text-terracotta transition-colors touch-target py-2"
+                className="text-[17px] font-medium text-near-black hover:text-crimson transition-colors touch-target py-2"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
@@ -100,7 +101,7 @@ export default function Header() {
             ))}
             <Link
               href="/consultation"
-              className="text-[17px] font-semibold text-white bg-terracotta px-6 py-4 rounded-full text-center hover:bg-terracotta-dark transition-colors touch-target"
+              className="text-[17px] font-semibold text-white bg-crimson px-6 py-4 rounded-full text-center hover:bg-crimson-dark transition-colors touch-target"
               onClick={() => setMobileOpen(false)}
             >
               Get in Touch
