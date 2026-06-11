@@ -4,7 +4,7 @@ export function buildWhatsAppLink(data: Record<string, string>): string {
   const header = "🔔 New Lead from halifaxproperties.com"
   const lines = [header, "---"]
 
-  const orderedKeys = ["Interest", "Name", "Email", "Phone", "City", "Address", "Property Type", "Sq Footage", "Bedrooms", "Bathrooms"]
+  const orderedKeys = ["Interest", "Name", "Email", "Phone", "Best Time to Call", "Area of Interest", "Message"]
 
   for (const key of orderedKeys) {
     if (data[key]) {
@@ -19,7 +19,7 @@ export function buildWhatsAppLink(data: Record<string, string>): string {
   }
 
   lines.push("---")
-  lines.push("Geoffrey Enebeli | Halifax Properties & Investments")
+  lines.push("Geoffrey Enebly | Halifax Properties & Investments")
 
   const text = encodeURIComponent(lines.join("\n"))
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`

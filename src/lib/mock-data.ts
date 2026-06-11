@@ -1,21 +1,29 @@
-import { Home, Building2, Warehouse, Building } from "lucide-react"
-
 export const agent = {
-  name: "Geoffrey Enebeli",
+  name: "Geoffrey Enebly",
   phone: "(510) 507-5088",
-  email: "geoffrey@halifaxproperties.com",
-  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
+  email: "Enebly@aol.com",
+  image: "/j-pic.png",
+  license: "CalBRE# 00899654",
+  experience: "30 Years Experience",
+  licensedSince: "1985",
+  serviceAreas: ["Oakland", "Emeryville"],
+  represents: "Both Buyers and Sellers",
+  languages: ["English"],
+  brokerage: "Halifax Solutions Inc",
+  address: "5097 Wagon Wheel Way, Antioch, CA 94531",
+  licenseType: "Agent",
+  type: "Broker",
 }
 
-export const propertyTypes = [
-  { value: "all", label: "All Types", icon: Home },
-  { value: "House", label: "Houses", icon: Building2 },
-  { value: "Condo", label: "Condos", icon: Building },
-  { value: "Townhouse", label: "Townhomes", icon: Warehouse },
-  { value: "Craftsman", label: "Craftsman", icon: Building2 },
-  { value: "Victorian", label: "Victorian", icon: Building2 },
-  { value: "Bungalow", label: "Bungalows", icon: Building2 },
-] as const
+export const certifications = [
+  { abbrev: "BPOR", name: "Broker Price Opinion Resource", image: "/certs/bpor.png" },
+  { abbrev: "CRS", name: "Certified Residential Specialist", image: "/certs/crs.png" },
+  { abbrev: "REALTOR\u00ae", name: "National Association of REALTORS\u00ae", image: "/certs/realtor.png" },
+  { abbrev: "CDPE", name: "Certified Distressed Property Expert", image: "/certs/cdpe.png" },
+  { abbrev: "CBR", name: "Certified Buyer Representative", image: "/certs/cbr.png" },
+  { abbrev: "CHS", name: "Certified Home Specialist", image: "/certs/chs.png" },
+  { abbrev: "CSP", name: "Certified Short-Sale Professional", image: "/certs/csp.png" },
+]
 
 export const eastBayCities = [
   "All Cities",
@@ -30,40 +38,3 @@ export const eastBayCities = [
   "Richmond",
   "Concord",
 ]
-
-export function estimatePropertyValue(specs: {
-  city: string
-  propertyType: string
-  beds: string
-  baths: string
-  sqft: string
-}): { low: number; high: number; formatted: string } {
-  const baseByCity: Record<string, number> = {
-    Oakland: 550,
-    Berkeley: 650,
-    "Walnut Creek": 500,
-    Dublin: 480,
-    Pleasanton: 550,
-    Fremont: 520,
-    "San Leandro": 460,
-    Hayward: 420,
-    Richmond: 380,
-    Concord: 400,
-  }
-  const sqftNum = parseInt(specs.sqft) || 1200
-  const base = baseByCity[specs.city] || 450
-  const estimate = base * sqftNum
-  const margin = Math.round(estimate * 0.12)
-  const low = estimate - margin
-  const high = estimate + margin
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  })
-  return {
-    low,
-    high,
-    formatted: `${formatter.format(low)} – ${formatter.format(high)}`,
-  }
-}

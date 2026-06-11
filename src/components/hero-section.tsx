@@ -27,10 +27,10 @@ export default function HeroSection() {
               East Bay Real Estate
             </p>
             <p className="text-white/80 text-[14px] sm:text-[15px] font-medium mb-0.5">
-              Realtor, BA, CRS, CHS &middot; DRE# 0899654
+              30 Yrs Experience &middot; Realtor &middot; CalBRE# 00899654
             </p>
             <p className="text-white/50 text-[13px] sm:text-[14px] font-light mb-5 sm:mb-6">
-              by Geoffrey Enebeli
+              by Geoffrey Enebly
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6">
@@ -42,11 +42,11 @@ export default function HeroSection() {
                 (510) 507-5088
               </a>
               <a
-                href="mailto:geoffrey@halifaxproperties.com"
-                className="inline-flex items-center justify-center gap-2 text-[14px] sm:text-[15px] font-semibold text-white/80 hover:text-white border border-white/30 hover:border-white/60 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition-all duration-200"
+                href="mailto:Enebly@aol.com"
+                className="inline-flex items-center justify-center gap-2 text-[14px] sm:text-[15px] font-semibold text-white/80 hover:text-white border border-white/30 hover:border-white/60 px-5 sm:px-7 py-3.5 rounded-full transition-all duration-200"
               >
                 <Mail className="h-4.5 w-4.5" />
-                geoffrey@halifaxproperties.com
+                Enebly@aol.com
               </a>
             </div>
 

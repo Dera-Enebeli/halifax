@@ -3,27 +3,27 @@ import Header from "@/components/header"
 import HeroSection from "@/components/hero-section"
 import Footer from "@/components/footer"
 import Link from "next/link"
-import { Phone, Mail, HomeIcon, Building2, DollarSign, ArrowRight } from "lucide-react"
+import { Phone, Mail } from "lucide-react"
 
-const services = [
-  {
-    icon: HomeIcon,
-    title: "Buy",
-    desc: "Looking for your next home? I'll help you find the right property in the East Bay and guide you through every step of the purchase.",
-    href: "/consultation",
-  },
-  {
-    icon: Building2,
-    title: "Sell",
-    desc: "Ready to sell? I'll market your property, handle showings, and negotiate the best price on your behalf.",
-    href: "/consultation?interest=seller",
-  },
-  {
-    icon: DollarSign,
-    title: "Valuation",
-    desc: "Curious what your home is worth? Get a free, no-obligation valuation based on local market data.",
-    href: "/consultation?interest=homeowner",
-  },
+const buyerServices = [
+  "Free access to Bay Area property listings",
+  "Free pre-qualification",
+  "3% down",
+  "Zero closing costs",
+]
+
+const sellerServices = [
+  "Free property value / appraisal",
+  "Free market analysis",
+  "How to sell your home for top $$",
+  "Free relocation",
+]
+
+const valuationServices = [
+  "Free home value estimate",
+  "Comparable market analysis",
+  "Local market data & trends",
+  "No-obligation consultation",
 ]
 
 export default function Home() {
@@ -36,37 +36,69 @@ export default function Home() {
 
         <section className="py-16 md:py-20">
           <div className="max-w-page section-padding">
-            <div className="text-center mb-10">
+            <div className="text-center mb-12">
               <p className="text-[13px] font-medium tracking-[2px] uppercase text-olive mb-2">
-                How I Can Help
+                Free Consultation
               </p>
               <h2
                 className="font-serif italic text-[clamp(26px,3.5vw,40px)] text-near-black leading-tight"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
-                East Bay Real Estate Services
+                One Stop Real Estate
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {services.map((s) => {
-                const Icon = s.icon
-                return (
-                  <Link
-                    key={s.title}
-                    href={s.href}
-                    className="group bg-white rounded-xl border border-warm-border p-6 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                  >
-                    <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-olive/10 flex items-center justify-center group-hover:bg-olive/20 transition-colors">
-                      <Icon className="h-6 w-6 text-olive" />
-                    </div>
-                    <h3 className="font-bold text-lg text-near-black mb-2">{s.title}</h3>
-                    <p className="text-[16px] text-gray-500 leading-relaxed mb-4">{s.desc}</p>
-                    <span className="inline-flex items-center gap-1 text-[16px] font-semibold text-crimson group-hover:gap-2 transition-all">
-                      Get Started <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </Link>
-                )
-              })}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="bg-white rounded-xl border border-warm-border p-6">
+                <h3 className="font-bold text-lg text-near-black mb-4">For Buyers</h3>
+                <ul className="space-y-3">
+                  {buyerServices.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-[16px] text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-crimson mt-2.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/consultation?interest=buyer"
+                  className="mt-6 inline-flex items-center gap-1 text-[16px] font-semibold text-crimson hover:gap-2 transition-all"
+                >
+                  Get Started &rarr;
+                </Link>
+              </div>
+              <div className="bg-white rounded-xl border border-warm-border p-6">
+                <h3 className="font-bold text-lg text-near-black mb-4">For Sellers</h3>
+                <ul className="space-y-3">
+                  {sellerServices.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-[16px] text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-crimson mt-2.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/consultation?interest=seller"
+                  className="mt-6 inline-flex items-center gap-1 text-[16px] font-semibold text-crimson hover:gap-2 transition-all"
+                >
+                  Get Started &rarr;
+                </Link>
+              </div>
+              <div className="bg-white rounded-xl border border-warm-border p-6">
+                <h3 className="font-bold text-lg text-near-black mb-4">Valuation</h3>
+                <ul className="space-y-3">
+                  {valuationServices.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-[16px] text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-crimson mt-2.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/consultation?interest=homeowner"
+                  className="mt-6 inline-flex items-center gap-1 text-[16px] font-semibold text-crimson hover:gap-2 transition-all"
+                >
+                  Get Started &rarr;
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -92,11 +124,11 @@ export default function Home() {
                   (510) 507-5088
                 </a>
                 <a
-                  href="mailto:geoffrey@halifaxproperties.com"
+                  href="mailto:Enebly@aol.com"
                   className="inline-flex items-center gap-2.5 border-2 border-near-black/20 text-near-black text-base font-semibold px-6 py-3.5 rounded-full hover:border-crimson hover:text-crimson transition-all duration-200"
                 >
                   <Mail className="h-5 w-5" />
-                  geoffrey@halifaxproperties.com
+                  Enebly@aol.com
                 </a>
               </div>
               <Link

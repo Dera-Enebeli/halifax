@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, Building2 } from "lucide-react"
+import { agent } from "@/lib/mock-data"
 
 const footerLinks = [
   {
@@ -40,26 +41,30 @@ export default function Footer() {
               <p className="text-[15px] sm:text-[13px] text-white/50 font-light leading-relaxed max-w-xs mb-6">
                 Your East Bay real estate partner. Get access to premium properties across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.
               </p>
-              <div className="flex flex-col gap-2.5">
-                <a
-                  href="tel:+15105075088"
-                  className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60 hover:text-white transition-colors duration-200"
-                >
-                  <Phone className="h-3.5 w-3.5 text-crimson shrink-0" />
-                  (510) 507-5088
-                </a>
-                <a
-                  href="mailto:geoffrey@halifaxproperties.com"
-                  className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60 hover:text-white transition-colors duration-200"
-                >
-                  <Mail className="h-3.5 w-3.5 text-crimson shrink-0" />
-                  geoffrey@halifaxproperties.com
-                </a>
-                <div className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60">
-                  <MapPin className="h-3.5 w-3.5 text-crimson shrink-0" />
-                  East Bay, CA
+                <div className="flex items-center gap-2 text-[13px] text-white/40 mb-3">
+                  <Building2 className="h-3.5 w-3.5 text-crimson shrink-0" />
+                  Geoffrey Enebly &middot; {agent.type} &middot; {agent.license}
                 </div>
-              </div>
+                <div className="flex flex-col gap-2.5">
+                  <a
+                    href="tel:+15105075088"
+                    className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60 hover:text-white transition-colors duration-200"
+                  >
+                    <Phone className="h-3.5 w-3.5 text-crimson shrink-0" />
+                    (510) 507-5088
+                  </a>
+                  <a
+                    href="mailto:Enebly@aol.com"
+                    className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60 hover:text-white transition-colors duration-200"
+                  >
+                    <Mail className="h-3.5 w-3.5 text-crimson shrink-0" />
+                    Enebly@aol.com
+                  </a>
+                  <div className="flex items-center gap-2.5 text-[15px] sm:text-[13px] text-white/60">
+                    <MapPin className="h-3.5 w-3.5 text-crimson shrink-0" />
+                    Antioch, CA
+                  </div>
+                </div>
             </div>
 
             {footerLinks.map((group) => (

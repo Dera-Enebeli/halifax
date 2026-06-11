@@ -8,12 +8,9 @@ export interface FunnelState {
   name: string
   email: string
   phone: string
-  city: string
-  address: string
-  propertyType: string
-  sqft: string
-  bedrooms: number
-  baths: number
+  bestTimeToCall: string
+  areaOfInterest: string
+  message: string
   submitted: boolean
 }
 
@@ -22,12 +19,9 @@ type Action =
   | { type: "SET_NAME"; payload: string }
   | { type: "SET_EMAIL"; payload: string }
   | { type: "SET_PHONE"; payload: string }
-  | { type: "SET_CITY"; payload: string }
-  | { type: "SET_ADDRESS"; payload: string }
-  | { type: "SET_PROPERTY_TYPE"; payload: string }
-  | { type: "SET_SQFT"; payload: string }
-  | { type: "SET_BEDROOMS"; payload: number }
-  | { type: "SET_BATHS"; payload: number }
+  | { type: "SET_BEST_TIME_TO_CALL"; payload: string }
+  | { type: "SET_AREA_OF_INTEREST"; payload: string }
+  | { type: "SET_MESSAGE"; payload: string }
   | { type: "SUBMIT" }
   | { type: "RESET" }
 
@@ -36,12 +30,9 @@ const initialState: FunnelState = {
   name: "",
   email: "",
   phone: "",
-  city: "",
-  address: "",
-  propertyType: "",
-  sqft: "",
-  bedrooms: 0,
-  baths: 0,
+  bestTimeToCall: "",
+  areaOfInterest: "",
+  message: "",
   submitted: false,
 }
 
@@ -57,18 +48,12 @@ function reducer(state: FunnelState, action: Action): FunnelState {
       return { ...state, email: action.payload }
     case "SET_PHONE":
       return { ...state, phone: action.payload }
-    case "SET_CITY":
-      return { ...state, city: action.payload }
-    case "SET_ADDRESS":
-      return { ...state, address: action.payload }
-    case "SET_PROPERTY_TYPE":
-      return { ...state, propertyType: action.payload }
-    case "SET_SQFT":
-      return { ...state, sqft: action.payload }
-    case "SET_BEDROOMS":
-      return { ...state, bedrooms: action.payload }
-    case "SET_BATHS":
-      return { ...state, baths: action.payload }
+    case "SET_BEST_TIME_TO_CALL":
+      return { ...state, bestTimeToCall: action.payload }
+    case "SET_AREA_OF_INTEREST":
+      return { ...state, areaOfInterest: action.payload }
+    case "SET_MESSAGE":
+      return { ...state, message: action.payload }
     case "SUBMIT":
       return { ...state, submitted: true }
     case "RESET":

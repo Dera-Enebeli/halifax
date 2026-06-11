@@ -20,18 +20,18 @@ export default function UtilityBar() {
             </a>
             <span className="text-white/20">|</span>
             <a
-              href="mailto:geoffrey@halifaxproperties.com"
+              href="mailto:Enebly@aol.com"
               className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors duration-200"
             >
               <Mail className="h-3.5 w-3.5 shrink-0" />
-              <span>geoffrey@halifaxproperties.com</span>
+              <span>Enebly@aol.com</span>
             </a>
           </div>
           <a
             href="/consultation"
             className="text-white/70 hover:text-white transition-colors duration-200 font-medium sm:font-normal text-[14px] sm:text-xs"
           >
-            Contact Geoffrey Enebeli
+            Contact Geoffrey Enebly
           </a>
         </div>
       </div>
