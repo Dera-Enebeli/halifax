@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
 import { useFunnel } from "@/lib/funnel-store"
 import { eastBayCities, agent } from "@/lib/mock-data"
-import { openWhatsApp } from "@/lib/whatsapp"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
@@ -43,7 +42,6 @@ export default function LeadForm() {
     if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
     if (state.message.trim()) data["Message"] = state.message
 
-    openWhatsApp(data)
     dispatch({ type: "SUBMIT" })
   }
 

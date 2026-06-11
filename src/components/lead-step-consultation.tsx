@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useRouter } from "next/navigation"
+import { Phone, Mail, MessageCircle } from "lucide-react"
 import { useFunnel } from "@/lib/funnel-store"
 import { agent } from "@/lib/mock-data"
 import { openWhatsApp } from "@/lib/whatsapp"
@@ -89,24 +90,44 @@ export default function LeadStepConsultation() {
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const data: Record<string, string> = {
-                        Name: state.name,
-                        Email: state.email,
-                        Phone: state.phone,
-                      }
-                      if (state.bestTimeToCall) data["Best Time to Call"] = state.bestTimeToCall
-                      if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
-                      if (state.message) data["Message"] = state.message
-                      data["Schedule"] = state.interest === "buyer" ? "Home Buying Consultation" : state.interest === "seller" ? "Listing Consultation" : "Full Valuation"
-                      openWhatsApp(data)
-                    }}
-                    className="w-full h-14 bg-crimson text-white text-[19px] font-bold tracking-wide hover:bg-crimson-dark transition-all duration-300 cursor-pointer"
-                  >
-                    Get in Touch
-                  </button>
+                  <p className="text-[15px] font-semibold text-near-black text-center mb-1">
+                    Contact {agent.name}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <a
+                      href={`tel:+1${agent.phone.replace(/[^\d]/g, "")}`}
+                      className="flex items-center justify-center gap-2 h-12 bg-white border-2 border-near-black/20 text-near-black text-[15px] font-semibold rounded-full hover:border-crimson hover:text-crimson transition-all duration-200"
+                    >
+                      <Phone className="h-4 w-4" />
+                      Call
+                    </a>
+                    <a
+                      href={`mailto:${agent.email}`}
+                      className="flex items-center justify-center gap-2 h-12 bg-white border-2 border-near-black/20 text-near-black text-[15px] font-semibold rounded-full hover:border-crimson hover:text-crimson transition-all duration-200"
+                    >
+                      <Mail className="h-4 w-4" />
+                      Email
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const data: Record<string, string> = {
+                          Name: state.name,
+                          Email: state.email,
+                          Phone: state.phone,
+                        }
+                        if (state.bestTimeToCall) data["Best Time to Call"] = state.bestTimeToCall
+                        if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
+                        if (state.message) data["Message"] = state.message
+                        data["Schedule"] = state.interest === "buyer" ? "Home Buying Consultation" : state.interest === "seller" ? "Listing Consultation" : "Full Valuation"
+                        openWhatsApp(data)
+                      }}
+                      className="flex items-center justify-center gap-2 h-12 bg-crimson text-white text-[15px] font-semibold rounded-full hover:bg-crimson-dark transition-all duration-200"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      WhatsApp
+                    </button>
+                  </div>
 
                   <button
                     type="button"
