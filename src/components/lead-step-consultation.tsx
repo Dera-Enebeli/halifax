@@ -133,7 +133,7 @@ export default function LeadStepConsultation() {
                   <button
                     type="button"
                     onClick={() => router.push("/")}
-                    className="w-full h-14 bg-white border-2 border-near-black/20 text-near-black text-[19px] font-bold hover:border-crimson hover:text-crimson transition-all duration-300 cursor-pointer"
+                    className="w-full h-11 bg-white border-2 border-near-black/20 text-near-black text-[15px] font-semibold hover:border-crimson hover:text-crimson transition-all duration-300 cursor-pointer"
                   >
                     Back
                   </button>
