@@ -68,11 +68,11 @@ export default function LeadStepConsultation() {
                     <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3">
                       Speak with your agent
                     </p>
-                    <div className="flex items-start gap-4">
+                    <div className="flex flex-col items-center md:flex-row md:items-start gap-4">
                       <div className="w-16 h-16 flex-shrink-0 relative flex items-center justify-center">
                         <Image src="/logo.png" alt="Halifax" width={64} height={64} className="object-contain" />
                       </div>
-                      <div>
+                      <div className="text-center md:text-left">
                         <p className="text-[20px] font-bold text-near-black">
                           {agent.name}
                         </p>
