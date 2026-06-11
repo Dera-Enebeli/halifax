@@ -57,9 +57,9 @@ export default function LeadForm() {
               <button
                 type="button"
                 onClick={() => router.back()}
-                className="flex items-center gap-1 text-xs font-medium text-crimson hover:text-crimson-dark transition-colors mb-4 cursor-pointer group"
+                className="flex items-center gap-1.5 text-sm font-medium text-crimson hover:text-crimson-dark transition-colors mb-5 cursor-pointer group"
               >
-                <ArrowLeft className="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
+                <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
                 Back
               </button>
 

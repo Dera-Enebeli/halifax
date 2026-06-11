@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { Phone, Mail, MessageCircle } from "lucide-react"
+import { Phone, Mail, MessageCircle, ArrowLeft } from "lucide-react"
 import { useFunnel } from "@/lib/funnel-store"
 import { agent } from "@/lib/mock-data"
 import { openWhatsApp } from "@/lib/whatsapp"
@@ -130,13 +130,16 @@ export default function LeadStepConsultation() {
                     </button>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => router.push("/")}
-                    className="w-full h-11 bg-white border-2 border-near-black/20 text-near-black text-[15px] font-semibold hover:border-crimson hover:text-crimson transition-all duration-300 cursor-pointer"
-                  >
-                    Back
-                  </button>
+                  <div className="pt-2 text-center">
+                    <button
+                      type="button"
+                      onClick={() => router.push("/")}
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-crimson hover:text-crimson-dark transition-colors cursor-pointer group"
+                    >
+                      <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
+                      Back
+                    </button>
+                  </div>
                 </div>
 
                 <p className="text-[14px] text-gray-400 text-center leading-relaxed font-normal pt-1">
