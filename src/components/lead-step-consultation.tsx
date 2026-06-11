@@ -30,59 +30,59 @@ export default function LeadStepConsultation() {
               </div>
 
               <div className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
                   {state.interest === "buyer" && (
-                    <div className="bg-white p-8 shadow-inner text-center md:text-left">
-                      <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
+                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center lg:text-left flex flex-col justify-center">
+                      <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
                         Let&apos;s Find Your Next Home
                       </p>
-                      <p className="text-[17px] text-gray-500 leading-relaxed">
+                      <p className="text-[15px] sm:text-[17px] text-gray-500 leading-relaxed">
                         I&apos;ll reach out to learn more about what you&apos;re looking for and help you find the perfect property in the East Bay.
                       </p>
                     </div>
                   )}
 
                   {state.interest === "seller" && (
-                    <div className="bg-white p-8 shadow-inner text-center md:text-left">
-                      <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
+                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center lg:text-left flex flex-col justify-center">
+                      <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
                         Let&apos;s Sell Your Home
                       </p>
-                      <p className="text-[17px] text-gray-500 leading-relaxed">
+                      <p className="text-[15px] sm:text-[17px] text-gray-500 leading-relaxed">
                         I&apos;ll help you prepare a market analysis, set the right price, and market your property to the right buyers.
                       </p>
                     </div>
                   )}
 
                   {state.interest === "homeowner" && (
-                    <div className="bg-white p-8 shadow-inner text-center md:text-left">
-                      <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
+                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center lg:text-left flex flex-col justify-center">
+                      <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
                         Let&apos;s Discuss Your Home&apos;s Value
                       </p>
-                      <p className="text-[17px] text-gray-500 leading-relaxed">
+                      <p className="text-[15px] sm:text-[17px] text-gray-500 leading-relaxed">
                         I&apos;ll prepare a full market analysis and walk you through what your property is worth in today&apos;s market.
                       </p>
                     </div>
                   )}
 
-                  <div className="bg-white p-6 md:p-8 shadow-inner">
-                    <p className="text-[15px] md:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3 text-center md:text-left">
+                  <div className="bg-white p-6 sm:p-8 shadow-inner flex flex-col justify-center">
+                    <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3 text-center lg:text-left">
                       Speak with your agent
                     </p>
-                    <div className="flex flex-col items-center md:flex-row md:items-start gap-3 md:gap-4">
-                      <div className="w-14 h-14 md:w-16 md:h-16 flex-shrink-0 relative flex items-center justify-center">
-                        <Image src="/logo.png" alt="Halifax" width={56} height={56} className="object-contain md:w-16 md:h-16" />
+                    <div className="flex flex-col items-center lg:flex-row lg:items-start gap-3 lg:gap-4">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex-shrink-0 relative flex items-center justify-center">
+                        <Image src="/logo.png" alt="Halifax" width={48} height={48} className="object-contain sm:w-14 sm:h-14 lg:w-16 lg:h-16" />
                       </div>
-                      <div className="text-center md:text-left">
-                        <p className="text-[17px] md:text-[20px] font-bold text-near-black">
+                      <div className="text-center lg:text-left">
+                        <p className="text-[16px] sm:text-[17px] lg:text-[20px] font-bold text-near-black">
                           {agent.name}
                         </p>
-                        <p className="text-[13px] md:text-[15px] text-gray-400 font-medium">
+                        <p className="text-[13px] sm:text-[13px] lg:text-[15px] text-gray-400 font-medium">
                           {agent.type} &middot; {agent.experience}
                         </p>
-                        <p className="text-[15px] md:text-[17px] text-gray-500 font-normal">
+                        <p className="text-[14px] sm:text-[15px] lg:text-[17px] text-gray-500 font-normal">
                           {agent.phone}
                         </p>
-                        <p className="text-[15px] md:text-[17px] text-crimson font-medium">
+                        <p className="text-[14px] sm:text-[15px] lg:text-[17px] text-crimson font-medium">
                           {agent.email}
                         </p>
                       </div>
