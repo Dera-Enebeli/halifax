@@ -1,11 +1,13 @@
 "use client"
 
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { useFunnel } from "@/lib/funnel-store"
 import { agent } from "@/lib/mock-data"
 import { openWhatsApp } from "@/lib/whatsapp"
 
 export default function LeadStepConsultation() {
+  const router = useRouter()
   const { state, dispatch } = useFunnel()
 
   return (
@@ -108,10 +110,10 @@ export default function LeadStepConsultation() {
 
                   <button
                     type="button"
-                    onClick={() => dispatch({ type: "RESET" })}
+                    onClick={() => router.push("/")}
                     className="w-full h-14 bg-white border-2 border-near-black/20 text-near-black text-[19px] font-bold hover:border-crimson hover:text-crimson transition-all duration-300 cursor-pointer"
                   >
-                    Start Over
+                    Back
                   </button>
                 </div>
 
