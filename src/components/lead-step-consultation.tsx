@@ -32,7 +32,7 @@ export default function LeadStepConsultation() {
               <div className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
                   {state.interest === "buyer" && (
-                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center lg:text-left flex flex-col justify-center">
+                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center flex flex-col justify-center">
                       <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
                         Let&apos;s Find Your Next Home
                       </p>
@@ -43,7 +43,7 @@ export default function LeadStepConsultation() {
                   )}
 
                   {state.interest === "seller" && (
-                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center lg:text-left flex flex-col justify-center">
+                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center flex flex-col justify-center">
                       <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
                         Let&apos;s Sell Your Home
                       </p>
@@ -54,7 +54,7 @@ export default function LeadStepConsultation() {
                   )}
 
                   {state.interest === "homeowner" && (
-                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center lg:text-left flex flex-col justify-center">
+                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center flex flex-col justify-center">
                       <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
                         Let&apos;s Discuss Your Home&apos;s Value
                       </p>
@@ -65,24 +65,24 @@ export default function LeadStepConsultation() {
                   )}
 
                   <div className="bg-white p-6 sm:p-8 shadow-inner flex flex-col justify-center">
-                    <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3 text-center lg:text-left">
+                    <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3 text-center">
                       Speak with your agent
                     </p>
-                    <div className="flex flex-col items-center lg:flex-row lg:items-start gap-3 lg:gap-4">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex-shrink-0 relative flex items-center justify-center">
-                        <Image src="/logo.png" alt="Halifax" width={48} height={48} className="object-contain sm:w-14 sm:h-14 lg:w-16 lg:h-16" />
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 relative flex items-center justify-center">
+                        <Image src="/logo.png" alt="Halifax" width={48} height={48} className="object-contain sm:w-14 sm:h-14" />
                       </div>
-                      <div className="text-center lg:text-left">
-                        <p className="text-[16px] sm:text-[17px] lg:text-[20px] font-bold text-near-black">
+                      <div className="text-center">
+                        <p className="text-[16px] sm:text-[17px] font-bold text-near-black">
                           {agent.name}
                         </p>
-                        <p className="text-[13px] sm:text-[13px] lg:text-[15px] text-gray-400 font-medium">
+                        <p className="text-[13px] sm:text-[13px] text-gray-400 font-medium">
                           {agent.type} &middot; {agent.experience}
                         </p>
-                        <p className="text-[14px] sm:text-[15px] lg:text-[17px] text-gray-500 font-normal">
+                        <p className="text-[14px] sm:text-[15px] text-gray-500 font-normal">
                           {agent.phone}
                         </p>
-                        <p className="text-[14px] sm:text-[15px] lg:text-[17px] text-crimson font-medium">
+                        <p className="text-[14px] sm:text-[15px] text-crimson font-medium">
                           {agent.email}
                         </p>
                       </div>
