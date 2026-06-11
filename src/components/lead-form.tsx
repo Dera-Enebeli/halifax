@@ -48,7 +48,7 @@ export default function LeadForm() {
   return (
     <section className="py-16 md:py-20" style={{ background: "var(--color-cream-dark, #EAE2D6)" }}>
       <div className="max-w-page section-padding">
-        <div className="w-full max-w-xl mx-auto">
+        <div className="w-full max-w-xl md:max-w-3xl mx-auto">
           <div className="bg-cream shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
             <div className="h-1 w-full bg-crimson" />
 
@@ -114,86 +114,88 @@ export default function LeadForm() {
                   <FieldFAQ>Select the option that best fits your goal.</FieldFAQ>
                 </div>
 
-                <div>
-                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
-                    Full Name
-                  </label>
-                  <Input
-                    type="text"
-                    value={state.name}
-                    onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
-                    placeholder="Your full name"
-                    required
-                    className="focus:ring-crimson/20 focus:border-crimson"
-                  />
-                  <FieldFAQ>So we know how to address you.</FieldFAQ>
-                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5">
+                  <div>
+                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                      Full Name
+                    </label>
+                    <Input
+                      type="text"
+                      value={state.name}
+                      onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
+                      placeholder="Your full name"
+                      required
+                      className="focus:ring-crimson/20 focus:border-crimson"
+                    />
+                    <FieldFAQ>So we know how to address you.</FieldFAQ>
+                  </div>
 
-                <div>
-                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
-                    Email Address
-                  </label>
-                  <Input
-                    type="email"
-                    value={state.email}
-                    onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
-                    placeholder="your@email.com"
-                    required
-                    className="focus:ring-crimson/20 focus:border-crimson"
-                  />
-                  <FieldFAQ>So we can follow up with you.</FieldFAQ>
-                </div>
+                  <div>
+                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                      Email Address
+                    </label>
+                    <Input
+                      type="email"
+                      value={state.email}
+                      onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
+                      placeholder="your@email.com"
+                      required
+                      className="focus:ring-crimson/20 focus:border-crimson"
+                    />
+                    <FieldFAQ>So we can follow up with you.</FieldFAQ>
+                  </div>
 
-                <div>
-                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
-                    Phone Number
-                  </label>
-                  <Input
-                    type="tel"
-                    value={state.phone}
-                    onChange={(e) => dispatch({ type: "SET_PHONE", payload: e.target.value })}
-                    placeholder="(555) 123-4567"
-                    required
-                    className="focus:ring-crimson/20 focus:border-crimson"
-                  />
-                  <FieldFAQ>So we can reach you directly.</FieldFAQ>
-                </div>
+                  <div>
+                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                      Phone Number
+                    </label>
+                    <Input
+                      type="tel"
+                      value={state.phone}
+                      onChange={(e) => dispatch({ type: "SET_PHONE", payload: e.target.value })}
+                      placeholder="(555) 123-4567"
+                      required
+                      className="focus:ring-crimson/20 focus:border-crimson"
+                    />
+                    <FieldFAQ>So we can reach you directly.</FieldFAQ>
+                  </div>
 
-                <div>
-                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
-                    Best Time to Call
-                  </label>
-                  <Input
-                    type="text"
-                    value={state.bestTimeToCall}
-                    onChange={(e) => dispatch({ type: "SET_BEST_TIME_TO_CALL", payload: e.target.value })}
-                    placeholder="e.g. Morning, Afternoon, Evening, Anytime"
-                    className="focus:ring-crimson/20 focus:border-crimson"
-                  />
-                  <FieldFAQ>When is the most convenient time to reach you?</FieldFAQ>
-                </div>
+                  <div>
+                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                      Best Time to Call
+                    </label>
+                    <Input
+                      type="text"
+                      value={state.bestTimeToCall}
+                      onChange={(e) => dispatch({ type: "SET_BEST_TIME_TO_CALL", payload: e.target.value })}
+                      placeholder="e.g. Morning, Afternoon, Evening, Anytime"
+                      className="focus:ring-crimson/20 focus:border-crimson"
+                    />
+                    <FieldFAQ>When is the most convenient time to reach you?</FieldFAQ>
+                  </div>
 
-                <div>
-                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
-                    Area of Interest
-                  </label>
-                    <select
-                      value={state.areaOfInterest}
-                      onChange={(e) => dispatch({ type: "SET_AREA_OF_INTEREST", payload: e.target.value })}
-                      className="flex h-12 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-[16px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson appearance-none cursor-pointer"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
-                        backgroundPosition: "right 12px center",
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "16px",
-                      }}
-                    >
-                      <option value="">Select an area</option>
-                      {eastBayCities.filter((c) => c !== "All Cities").map((city) => (
-                        <option key={city} value={city}>{city}</option>
-                      ))}
-                    </select>
-                    <FieldFAQ>Which part of the East Bay are you interested in?</FieldFAQ>
+                  <div className="md:col-span-2">
+                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                      Area of Interest
+                    </label>
+                      <select
+                        value={state.areaOfInterest}
+                        onChange={(e) => dispatch({ type: "SET_AREA_OF_INTEREST", payload: e.target.value })}
+                        className="flex h-12 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-[16px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson appearance-none cursor-pointer"
+                        style={{
+                          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
+                          backgroundPosition: "right 12px center",
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "16px",
+                        }}
+                      >
+                        <option value="">Select an area</option>
+                        {eastBayCities.filter((c) => c !== "All Cities").map((city) => (
+                          <option key={city} value={city}>{city}</option>
+                        ))}
+                      </select>
+                      <FieldFAQ>Which part of the East Bay are you interested in?</FieldFAQ>
+                    </div>
                   </div>
 
                 <div>
