@@ -64,25 +64,25 @@ export default function LeadStepConsultation() {
                     </div>
                   )}
 
-                  <div className="bg-white p-8 shadow-inner">
-                    <p className="text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3">
+                  <div className="bg-white p-6 md:p-8 shadow-inner">
+                    <p className="text-[15px] md:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3 text-center md:text-left">
                       Speak with your agent
                     </p>
-                    <div className="flex flex-col items-center md:flex-row md:items-start gap-4">
-                      <div className="w-16 h-16 flex-shrink-0 relative flex items-center justify-center">
-                        <Image src="/logo.png" alt="Halifax" width={64} height={64} className="object-contain" />
+                    <div className="flex flex-col items-center md:flex-row md:items-start gap-3 md:gap-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 flex-shrink-0 relative flex items-center justify-center">
+                        <Image src="/logo.png" alt="Halifax" width={56} height={56} className="object-contain md:w-16 md:h-16" />
                       </div>
                       <div className="text-center md:text-left">
-                        <p className="text-[20px] font-bold text-near-black">
+                        <p className="text-[17px] md:text-[20px] font-bold text-near-black">
                           {agent.name}
                         </p>
-                        <p className="text-[15px] text-gray-400 font-medium">
+                        <p className="text-[13px] md:text-[15px] text-gray-400 font-medium">
                           {agent.type} &middot; {agent.experience}
                         </p>
-                        <p className="text-[17px] text-gray-500 font-normal">
+                        <p className="text-[15px] md:text-[17px] text-gray-500 font-normal">
                           {agent.phone}
                         </p>
-                        <p className="text-[17px] text-crimson font-medium">
+                        <p className="text-[15px] md:text-[17px] text-crimson font-medium">
                           {agent.email}
                         </p>
                       </div>
