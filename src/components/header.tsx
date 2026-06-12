@@ -42,7 +42,7 @@ export default function Header() {
               <div className="w-8 h-8 lg:w-9 lg:h-9 relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                 <Image src="/main-logo.png" alt="Halifax" width={36} height={36} className="object-contain" />
               </div>
-              <div className="flex flex-row items-baseline sm:flex-col sm:items-start gap-1.5 sm:gap-0 leading-tight">
+              <div className="flex flex-col items-start gap-0 leading-tight">
                 <span
                   className="font-serif italic text-xl lg:text-heading text-near-black tracking-tight transition-transform duration-300 group-hover:scale-105"
                 >
@@ -66,14 +66,14 @@ export default function Header() {
               ))}
               <Link
                 href="/consultation"
-                className="text-sm font-semibold text-white bg-crimson hover:bg-crimson-dark px-6 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-crimson/25"
+                className="                text-sm font-semibold text-white bg-crimson hover:bg-crimson-dark px-6 py-3 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-crimson/25"
               >
                 Get in Touch
               </Link>
             </nav>
 
             <button
-              className={`lg:hidden flex items-center justify-center w-10 h-10 lg:w-9 lg:h-9 cursor-pointer bg-none border-none z-50 transition-colors duration-300 text-near-black touch-target`}
+              className={`lg:hidden flex items-center justify-center w-12 h-12 cursor-pointer bg-none border-none z-50 transition-colors duration-300 text-near-black touch-target`}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Menu"}
             >

@@ -86,7 +86,7 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7 pb-14 md:pb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7 pb-14 md:pb-20">
               {services.map((s, i) => (
                 <ScrollReveal key={s.label} delay={i * 150}>
                   <div className="relative pt-6 md:pt-8 px-5 md:px-7 pb-6 md:pb-7 border-t-[3px] border-crimson">
@@ -129,7 +129,7 @@ export default function Home() {
                   </ul>
                   <Link
                     href={s.href}
-                    className="inline-block text-xs uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200"
+                    className="inline-block text-sm sm:text-xs uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2"
                   >
                     Learn more &rarr;
                   </Link>
@@ -153,16 +153,16 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 mb-7 md:mb-8">
                 <a
                   href="tel:+15105075088"
-                  className="inline-flex items-center justify-center gap-2.5 bg-crimson text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200 shadow-lg shadow-crimson/15 w-full sm:w-auto"
-                >
-                  <Phone className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
-                  (510) 507-5088
-                </a>
-                <a
-                  href="mailto:Enebly@aol.com"
-                  className="inline-flex items-center justify-center gap-2.5 border-2 border-near-black/20 text-near-black text-sm sm:text-base font-semibold px-5 sm:px-6 py-3 sm:py-3.5 rounded-full hover:border-crimson hover:text-crimson transition-all duration-200 w-full sm:w-auto"
-                >
-                  <Mail className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+                    className="inline-flex items-center justify-center gap-2.5 bg-crimson text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-3.5 sm:py-4 rounded-full hover:bg-crimson-dark transition-all duration-200 shadow-lg shadow-crimson/15 w-full sm:w-auto"
+                  >
+                    <Phone className="h-[18px] w-[18px] sm:h-5 sm:w-5" />
+                    (510) 507-5088
+                  </a>
+                  <a
+                    href="mailto:Enebly@aol.com"
+                    className="inline-flex items-center justify-center gap-2.5 border-2 border-near-black/20 text-near-black text-sm sm:text-base font-semibold px-5 sm:px-6 py-3.5 sm:py-4 rounded-full hover:border-crimson hover:text-crimson transition-all duration-200 w-full sm:w-auto"
+                  >
+                    <Mail className="h-[18px] w-[18px] sm:h-5 sm:w-5" />
                   Enebly@aol.com
                 </a>
               </div>

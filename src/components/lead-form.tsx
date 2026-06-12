@@ -157,22 +157,23 @@ export default function LeadForm() {
                     })}
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                    <button
-                      type="button"
-                      onClick={() => setShowContactStep(false)}
-                      className="flex-1 h-13 text-base font-semibold text-near-black border-2 border-warm-border rounded-full hover:border-near-black/30 transition-all duration-200 cursor-pointer"
-                    >
-                      Back
-                    </button>
+                  <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
                     <button
                       type="button"
                       onClick={handleConfirmContact}
                       disabled={!selectedMethod}
-                      className="flex-1 h-13 text-base font-bold tracking-wide text-white bg-crimson rounded-full hover:bg-crimson-dark transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                      className="h-12 px-8 text-base font-bold tracking-wide text-crimson border-2 border-crimson rounded-lg hover:bg-crimson hover:text-white transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 w-full sm:w-auto"
                     >
-                      <Check className="h-5 w-5" />
-                      Confirm &amp; Submit
+                      <Check className="h-5 w-5 flex-shrink-0" />
+                      <span>Confirm &amp; Submit</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowContactStep(false)}
+                      className="flex items-center gap-1.5 text-sm font-medium text-near-black/40 hover:text-crimson transition-colors cursor-pointer group"
+                    >
+                      <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
+                      Back
                     </button>
                   </div>
                 </div>
@@ -310,7 +311,7 @@ export default function LeadForm() {
                 <Button
                   type="submit"
                   disabled={!canSubmit}
-                  className="w-full h-13 text-base font-bold tracking-wide"
+                  className="w-full h-12 text-base font-bold tracking-wide"
                   size="xl"
                 >
                   Submit Inquiry
@@ -320,7 +321,7 @@ export default function LeadForm() {
               )}
             </div>
 
-            <div className="border-t border-warm-border px-10 py-4">
+            <div className="border-t border-warm-border px-7 sm:px-10 py-4">
               <p className="text-xs text-near-black/35 text-center">
                 By submitting, you agree to be contacted regarding your real estate inquiry.
                 Your information is kept private and never shared.

@@ -74,7 +74,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {values.map((item, i) => {
                 const Icon = item.icon
                 return (
@@ -285,7 +285,7 @@ export default function AboutPage() {
                 <div className="w-12 h-[3px] bg-crimson mx-auto" />
                 </ScrollReveal>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {certifications.map((cert, i) => (
                   <ScrollReveal key={cert.abbrev} delay={i * 100}>
                   <div
@@ -297,7 +297,7 @@ export default function AboutPage() {
                       <Image src={cert.image} alt={cert.abbrev} width={40} height={40} className="object-contain" />
                     </div>
                     <p className="text-sm font-bold text-near-black mb-0.5">{cert.abbrev}</p>
-                    <p className="text-[12px] text-near-black/50 leading-snug">{cert.name}</p>
+                    <p className="text-[12px] text-near-black/50 leading-snug break-words">{cert.name}</p>
                   </div>
                   </ScrollReveal>
                 ))}
@@ -321,14 +321,14 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link
                   href="/consultation"
-                  className="inline-flex items-center gap-2 bg-crimson text-white text-[15px] font-bold px-7 py-3.5 rounded-full hover:bg-crimson-dark hover:shadow-lg hover:shadow-crimson/25 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 bg-crimson text-white text-[15px] font-bold px-7 py-3.5 rounded-full hover:bg-crimson-dark hover:shadow-lg hover:shadow-crimson/25 transition-all duration-200 w-full sm:w-auto"
                 >
                   <Phone className="h-4 w-4" />
                   Get a Free Consultation
                 </Link>
                 <Link
                   href="/consultation"
-                  className="inline-flex items-center gap-2 border-2 border-crimson text-crimson text-[15px] font-semibold px-7 py-3.5 rounded-full hover:bg-crimson hover:text-white transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-crimson text-crimson text-[15px] font-semibold px-7 py-3.5 rounded-full hover:bg-crimson hover:text-white transition-all duration-200 w-full sm:w-auto"
                 >
                   Contact Geoffrey Enebly
                 </Link>

@@ -139,7 +139,7 @@ export default function LeadStepConsultation() {
               </div>
             </div>
 
-            <div className="border-t border-warm-border px-10 py-4">
+            <div className="border-t border-warm-border px-7 sm:px-10 py-4">
               <p className="text-xs text-near-black/35 text-center">
                 By submitting, you agree to be contacted by {agent.name} regarding
                 your real estate inquiry.

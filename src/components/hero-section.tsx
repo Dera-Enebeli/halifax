@@ -46,7 +46,7 @@ export default function HeroSection() {
                 href="mailto:Enebly@aol.com"
                 className="inline-flex items-center justify-center gap-2 font-semibold text-sm sm:text-body text-white/80 hover:text-white border border-white/30 hover:border-white/60 px-5 sm:px-7 py-3.5 rounded-full transition-all duration-200"
               >
-                <Mail className="h-4.5 w-4.5" />
+                <Mail className="h-[18px] w-[18px]" />
                 Enebly@aol.com
               </a>
             </div>

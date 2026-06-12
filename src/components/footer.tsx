@@ -25,8 +25,8 @@ export default function Footer() {
     <footer className="bg-near-black text-white">
       <div className="max-w-page section-padding">
         <div className="py-16 md:py-20">
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
-            <div className="col-span-2 sm:col-span-2 lg:col-span-1">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
+            <div className="col-span-2 md:col-span-1">
               <Link href="/" className="flex items-center gap-2.5 group mb-4">
                 <div className="w-8 h-8 relative flex items-center justify-center">
                   <Image src="/main-logo.png" alt="Halifax" width={32} height={32} className="object-contain" />
