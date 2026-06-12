@@ -3,27 +3,44 @@ import Header from "@/components/header"
 import HeroSection from "@/components/hero-section"
 import Footer from "@/components/footer"
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail } from "lucide-react"
+import ScrollReveal from "@/components/scroll-reveal"
 
-const buyerServices = [
-  "Free access to Bay Area property listings",
-  "Free pre-qualification",
-  "3% down",
-  "Zero closing costs",
-]
-
-const sellerServices = [
-  "Free property value / appraisal",
-  "Free market analysis",
-  "How to sell your home for top $$",
-  "Free relocation",
-]
-
-const valuationServices = [
-  "Free home value estimate",
-  "Comparable market analysis",
-  "Local market data & trends",
-  "No-obligation consultation",
+const services = [
+  {
+    label: "For Buyers",
+    headline: "Your first home starts here",
+    items: [
+      "Free access to Bay Area property listings",
+      "Free pre-qualification",
+      "3% down",
+      "Zero closing costs",
+    ],
+    href: "/consultation?interest=buyer",
+  },
+  {
+    label: "For Sellers",
+    headline: "Maximize your home\u2019s value",
+    items: [
+      "Free property value / appraisal",
+      "Free market analysis",
+      "How to sell your home for top $$",
+      "Free relocation",
+    ],
+    href: "/consultation?interest=seller",
+  },
+  {
+    label: "Valuation",
+    headline: "Know what your home is worth",
+    items: [
+      "Free home value estimate",
+      "Comparable market analysis",
+      "Local market data & trends",
+      "No-obligation consultation",
+    ],
+    href: "/consultation?interest=homeowner",
+  },
 ]
 
 export default function Home() {
@@ -31,103 +48,121 @@ export default function Home() {
     <>
       <UtilityBar />
       <Header />
-      <main className="pt-16 lg:pt-20">
+      <main>
         <HeroSection />
 
-        <section className="py-16 md:py-20">
-          <div className="max-w-page section-padding">
-            <div className="text-center mb-12">
-              <p className="text-[13px] font-medium tracking-[2px] uppercase text-olive mb-2">
-                Free Consultation
-              </p>
-              <h2
-                className="font-serif italic text-[clamp(26px,3.5vw,40px)] text-near-black leading-tight"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                One Stop Real Estate
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="bg-white rounded-xl border border-warm-border p-6">
-                <h3 className="font-bold text-lg text-near-black mb-4">For Buyers</h3>
-                <ul className="space-y-3">
-                  {buyerServices.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-[16px] text-gray-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-crimson mt-2.5 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/consultation?interest=buyer"
-                  className="mt-6 inline-flex items-center gap-1 text-[16px] font-semibold text-crimson hover:gap-2 transition-all"
-                >
-                  Get Started &rarr;
-                </Link>
+        <section className="relative overflow-hidden bg-near-black">
+          <div
+            className="absolute inset-0 md:inset-auto md:-top-24 md:-bottom-24 md:-right-24 md:w-[55%] opacity-[0.2] md:opacity-[0.45]"
+            style={{
+              maskImage: "linear-gradient(to left, black 25%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to left, black 25%, transparent 100%)",
+            }}
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1691320396937-e3b66cd332f1?w=1600&q=85"
+              alt=""
+              fill
+              className="object-cover"
+              sizes="100vw md:55vw"
+              unoptimized
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-near-black/40 to-near-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-near-black via-transparent to-near-black pointer-events-none" />
+          <div className="max-w-page section-padding relative z-[1]">
+            <ScrollReveal>
+              <div className="text-center py-14 md:py-20 px-4">
+                <p className="text-xs font-medium tracking-[0.18em] uppercase text-olive/80 mb-4">
+                  Free Consultation
+                </p>
+                <h2 className="font-serif italic text-[clamp(28px,3rem,52px)] font-medium text-white leading-[1.15]">
+                  One Stop <span className="text-crimson italic">Real Estate</span>
+                </h2>
+                <hr className="w-12 h-[2px] bg-crimson border-0 mx-auto my-5" />
+                <p className="max-w-[600px] mx-auto text-[15px] text-white/50 leading-relaxed [text-wrap:pretty]">
+                  Buying, selling, or valuing&mdash;we guide you through every step of the East Bay market with local expertise and honest advice.
+                </p>
               </div>
-              <div className="bg-white rounded-xl border border-warm-border p-6">
-                <h3 className="font-bold text-lg text-near-black mb-4">For Sellers</h3>
-                <ul className="space-y-3">
-                  {sellerServices.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-[16px] text-gray-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-crimson mt-2.5 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/consultation?interest=seller"
-                  className="mt-6 inline-flex items-center gap-1 text-[16px] font-semibold text-crimson hover:gap-2 transition-all"
-                >
-                  Get Started &rarr;
-                </Link>
-              </div>
-              <div className="bg-white rounded-xl border border-warm-border p-6">
-                <h3 className="font-bold text-lg text-near-black mb-4">Valuation</h3>
-                <ul className="space-y-3">
-                  {valuationServices.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-[16px] text-gray-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-crimson mt-2.5 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/consultation?interest=homeowner"
-                  className="mt-6 inline-flex items-center gap-1 text-[16px] font-semibold text-crimson hover:gap-2 transition-all"
-                >
-                  Get Started &rarr;
-                </Link>
-              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7 pb-14 md:pb-20">
+              {services.map((s, i) => (
+                <ScrollReveal key={s.label} delay={i * 150}>
+                  <div className="relative pt-6 md:pt-8 px-5 md:px-7 pb-6 md:pb-7 border-t-[3px] border-crimson">
+                  {i === 0 && (
+                    <div className="absolute -top-10 -right-10 w-48 h-48 opacity-[0.15] text-crimson pointer-events-none" aria-hidden="true">
+                      <div className="w-full h-full rounded-full border border-current" />
+                      <div className="absolute inset-7 rounded-full border border-current" />
+                      <div className="absolute inset-14 rounded-full border border-current" />
+                    </div>
+                  )}
+                  {i === 1 && (
+                    <div className="absolute -bottom-10 -left-10 w-44 h-44 opacity-[0.15] text-crimson pointer-events-none" aria-hidden="true">
+                      <div className="w-full h-full border border-current rotate-45" />
+                      <div className="absolute inset-10 border border-current rotate-45" />
+                    </div>
+                  )}
+                  {i === 2 && (
+                    <div className="absolute top-1 right-1 w-28 h-28 opacity-[0.18] text-crimson pointer-events-none" aria-hidden="true">
+                      <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'2px', left:'2px'}} />
+                      <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'0', left:'22px'}} />
+                      <div className="w-[18px] h-[18px] rounded-full bg-current absolute" style={{top:'12px', left:'48px'}} />
+                      <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'30px', left:'8px'}} />
+                      <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'36px', left:'42px'}} />
+                      <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'52px', left:'48px'}} />
+                      <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'50px', left:'0px'}} />
+                      <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'52px', left:'18px'}} />
+                    </div>
+                  )}
+                  <p className="font-serif italic text-olive text-base mb-2">{s.label}</p>
+                  <h3 className="font-serif text-[22px] md:text-[28px] font-semibold leading-[1.2] text-white mb-4 md:mb-5">
+                    {s.headline}
+                  </h3>
+                  <ul className="space-y-1.5 mb-7">
+                    {s.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-[14px] leading-relaxed text-white/60">
+                        <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={s.href}
+                    className="inline-block text-xs uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200"
+                  >
+                    Learn more &rarr;
+                  </Link>
+                </div>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="py-14" style={{ background: "var(--color-cream-dark, #EAE2D6)" }}>
+        <section className="py-14 md:py-20" style={{ background: "var(--color-cream-dark, #EAE2D6)" }}>
           <div className="max-w-page section-padding">
+            <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center">
-              <p className="text-[13px] font-medium tracking-[2px] uppercase text-olive mb-2">
+              <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-2">
                 Get in Touch
               </p>
-              <h2
-                className="font-serif italic text-[clamp(24px,3vw,34px)] text-near-black leading-tight mb-6"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
+              <h2 className="font-serif italic text-[clamp(24px,3vw,34px)] text-near-black leading-tight mb-5 md:mb-6">
                 Reach Out Directly
               </h2>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 mb-7 md:mb-8">
                 <a
                   href="tel:+15105075088"
-                  className="inline-flex items-center gap-2.5 bg-crimson text-white text-base font-bold px-6 py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200 shadow-lg shadow-crimson/15"
+                  className="inline-flex items-center justify-center gap-2.5 bg-crimson text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200 shadow-lg shadow-crimson/15 w-full sm:w-auto"
                 >
-                  <Phone className="h-5 w-5" />
+                  <Phone className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
                   (510) 507-5088
                 </a>
                 <a
                   href="mailto:Enebly@aol.com"
-                  className="inline-flex items-center gap-2.5 border-2 border-near-black/20 text-near-black text-base font-semibold px-6 py-3.5 rounded-full hover:border-crimson hover:text-crimson transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2.5 border-2 border-near-black/20 text-near-black text-sm sm:text-base font-semibold px-5 sm:px-6 py-3 sm:py-3.5 rounded-full hover:border-crimson hover:text-crimson transition-all duration-200 w-full sm:w-auto"
                 >
-                  <Mail className="h-5 w-5" />
+                  <Mail className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
                   Enebly@aol.com
                 </a>
               </div>
@@ -138,6 +173,7 @@ export default function Home() {
                 Or fill out the contact form
               </Link>
             </div>
+            </ScrollReveal>
           </div>
         </section>
       </main>

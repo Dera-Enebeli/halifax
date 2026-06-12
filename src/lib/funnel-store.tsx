@@ -11,6 +11,7 @@ export interface FunnelState {
   bestTimeToCall: string
   areaOfInterest: string
   message: string
+  contactMethod: "phone" | "email" | "whatsapp" | null
   submitted: boolean
 }
 
@@ -22,6 +23,7 @@ type Action =
   | { type: "SET_BEST_TIME_TO_CALL"; payload: string }
   | { type: "SET_AREA_OF_INTEREST"; payload: string }
   | { type: "SET_MESSAGE"; payload: string }
+  | { type: "SET_CONTACT_METHOD"; payload: "phone" | "email" | "whatsapp" | null }
   | { type: "SUBMIT" }
   | { type: "RESET" }
 
@@ -33,6 +35,7 @@ const initialState: FunnelState = {
   bestTimeToCall: "",
   areaOfInterest: "",
   message: "",
+  contactMethod: null,
   submitted: false,
 }
 
@@ -54,6 +57,8 @@ function reducer(state: FunnelState, action: Action): FunnelState {
       return { ...state, areaOfInterest: action.payload }
     case "SET_MESSAGE":
       return { ...state, message: action.payload }
+    case "SET_CONTACT_METHOD":
+      return { ...state, contactMethod: action.payload }
     case "SUBMIT":
       return { ...state, submitted: true }
     case "RESET":

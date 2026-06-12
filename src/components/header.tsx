@@ -32,24 +32,23 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-            : "bg-white"
+            ? "bg-cream shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
+            : "bg-cream"
         }`}
       >
         <div className="max-w-page section-padding">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link href="/" className="flex items-center gap-2.5 group">
               <div className="w-8 h-8 lg:w-9 lg:h-9 relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                <Image src="/logo.png" alt="Halifax" width={36} height={36} className="object-contain" />
+                <Image src="/main-logo.png" alt="Halifax" width={36} height={36} className="object-contain" />
               </div>
               <div className="flex flex-row items-baseline sm:flex-col sm:items-start gap-1.5 sm:gap-0 leading-tight">
                 <span
-                  className="font-serif italic text-[20px] lg:text-[22px] text-near-black tracking-tight"
-                  style={{ fontFamily: "var(--font-serif)" }}
+                  className="font-serif italic text-xl lg:text-heading text-near-black tracking-tight transition-transform duration-300 group-hover:scale-105"
                 >
                   Halifax
                 </span>
-                <span className="text-[10px] font-semibold text-crimson tracking-[2px] uppercase sm:block">
+                <span className="text-[10px] font-semibold text-crimson tracking-[2px] uppercase sm:block transition-transform duration-300 group-hover:scale-105 origin-left">
                   East Bay
                 </span>
               </div>
@@ -84,7 +83,7 @@ export default function Header() {
         </div>
 
         <div
-          className={`fixed top-0 right-0 w-[280px] h-full bg-white z-40 transition-transform duration-300 lg:hidden ${
+          className={`fixed top-0 right-0 w-[280px] h-full bg-cream z-40 transition-transform duration-300 lg:hidden ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -93,7 +92,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-[17px] font-medium text-near-black hover:text-crimson transition-colors touch-target py-2"
+                className="text-lead font-medium text-near-black hover:text-crimson transition-colors touch-target py-2"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
@@ -101,7 +100,7 @@ export default function Header() {
             ))}
             <Link
               href="/consultation"
-              className="text-[17px] font-semibold text-white bg-crimson px-6 py-4 rounded-full text-center hover:bg-crimson-dark transition-colors touch-target"
+              className="text-lead font-semibold text-white bg-crimson px-6 py-4 rounded-full text-center hover:bg-crimson-dark transition-colors touch-target"
               onClick={() => setMobileOpen(false)}
             >
               Get in Touch

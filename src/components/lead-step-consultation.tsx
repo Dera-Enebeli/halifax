@@ -11,142 +11,139 @@ export default function LeadStepConsultation() {
   const router = useRouter()
   const { state, dispatch } = useFunnel()
 
+  const interestMessages: Record<string, { heading: string; body: string }> = {
+    buyer: {
+      heading: "Let\u2019s Find Your Next Home",
+      body: "I\u2019ll reach out to learn more about what you\u2019re looking for and help you find the perfect property in the East Bay.",
+    },
+    seller: {
+      heading: "Let\u2019s Sell Your Home",
+      body: "I\u2019ll help you prepare a market analysis, set the right price, and market your property to the right buyers.",
+    },
+    homeowner: {
+      heading: "Let\u2019s Discuss Your Home\u2019s Value",
+      body: "I\u2019ll prepare a full market analysis and walk you through what your property is worth in today\u2019s market.",
+    },
+  }
+
+  const msg = state.interest ? interestMessages[state.interest] : interestMessages.homeowner
+
   return (
-    <section className="py-16 md:py-20" style={{ background: "var(--color-cream-dark, #EAE2D6)" }}>
+    <section className="py-16 md:py-24 bg-cream-dark">
       <div className="max-w-page section-padding">
-        <div className="w-full max-w-xl md:max-w-3xl mx-auto">
-          <div className="bg-cream shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-cream">
             <div className="h-1 w-full bg-crimson" />
 
-            <div className="p-6 sm:p-8">
+            <div className="px-7 sm:px-10 py-8 sm:py-10">
 
-              <div className="text-center mb-5">
-                <p className="font-serif italic text-[22px] text-near-black leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                  Halifax <span className="text-olive text-[11px] tracking-[2px] uppercase font-semibold not-italic">· East Bay Real Estate</span>
+              <div className="text-center mb-8">
+                <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-2">
+                  Inquiry Submitted
                 </p>
-                <p className="text-[17px] text-gray-500 mt-1.5 font-normal leading-snug">
+                <h1 className="font-serif italic text-[clamp(26px,3.5vw,38px)] text-near-black leading-[1.15] mb-1">
                   Thanks, {state.name?.split(" ")[0]}!
+                </h1>
+                <div className="w-10 h-[3px] bg-crimson mx-auto mt-4 mb-5" />
+                <p className="text-[15px] text-near-black/55 leading-relaxed font-light">
+                  Your preferred contact method has been confirmed. Here&rsquo;s what happens next.
                 </p>
               </div>
 
-              <div className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
-                  {state.interest === "buyer" && (
-                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center flex flex-col justify-center">
-                      <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
-                        Let&apos;s Find Your Next Home
-                      </p>
-                      <p className="text-[15px] sm:text-[17px] text-gray-500 leading-relaxed">
-                        I&apos;ll reach out to learn more about what you&apos;re looking for and help you find the perfect property in the East Bay.
-                      </p>
-                    </div>
-                  )}
-
-                  {state.interest === "seller" && (
-                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center flex flex-col justify-center">
-                      <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
-                        Let&apos;s Sell Your Home
-                      </p>
-                      <p className="text-[15px] sm:text-[17px] text-gray-500 leading-relaxed">
-                        I&apos;ll help you prepare a market analysis, set the right price, and market your property to the right buyers.
-                      </p>
-                    </div>
-                  )}
-
-                  {state.interest === "homeowner" && (
-                    <div className="bg-white p-6 sm:p-8 shadow-inner text-center flex flex-col justify-center">
-                      <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-2">
-                        Let&apos;s Discuss Your Home&apos;s Value
-                      </p>
-                      <p className="text-[15px] sm:text-[17px] text-gray-500 leading-relaxed">
-                        I&apos;ll prepare a full market analysis and walk you through what your property is worth in today&apos;s market.
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="bg-white p-6 sm:p-8 shadow-inner flex flex-col justify-center">
-                    <p className="text-[15px] sm:text-[17px] font-bold text-olive-dark uppercase tracking-wider mb-3 text-center">
-                      Speak with your agent
-                    </p>
-                    <div className="flex flex-col items-center gap-3">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 relative flex items-center justify-center">
-                        <Image src="/logo.png" alt="Halifax" width={48} height={48} className="object-contain sm:w-14 sm:h-14" />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-[16px] sm:text-[17px] font-bold text-near-black">
-                          {agent.name}
-                        </p>
-                        <p className="text-[13px] sm:text-[13px] text-gray-400 font-medium">
-                          {agent.type} &middot; {agent.experience}
-                        </p>
-                        <p className="text-[14px] sm:text-[15px] text-gray-500 font-normal">
-                          {agent.phone}
-                        </p>
-                        <p className="text-[14px] sm:text-[15px] text-crimson font-medium">
-                          {agent.email}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-3 pt-2">
-                  <p className="text-[15px] font-semibold text-near-black text-center mb-1">
-                    Contact {agent.name}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div className="bg-cream-dark px-6 py-8 flex flex-col items-center justify-center text-center">
+                  <p className="font-serif italic text-lg text-near-black mb-3">{msg.heading}</p>
+                  <p className="text-[15px] text-near-black/55 leading-relaxed font-light">
+                    {msg.body}
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                    <a
-                      href={`tel:+1${agent.phone.replace(/[^\d]/g, "")}`}
-                      className="flex items-center justify-center gap-2 h-12 bg-white border-2 border-near-black/20 text-near-black text-[15px] font-semibold rounded-full hover:border-crimson hover:text-crimson transition-all duration-200"
-                    >
-                      <Phone className="h-4 w-4" />
-                      Call
-                    </a>
-                    <a
-                      href={`mailto:${agent.email}`}
-                      className="flex items-center justify-center gap-2 h-12 bg-white border-2 border-near-black/20 text-near-black text-[15px] font-semibold rounded-full hover:border-crimson hover:text-crimson transition-all duration-200"
-                    >
-                      <Mail className="h-4 w-4" />
-                      Email
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const data: Record<string, string> = {
-                          Name: state.name,
-                          Email: state.email,
-                          Phone: state.phone,
-                        }
-                        if (state.bestTimeToCall) data["Best Time to Call"] = state.bestTimeToCall
-                        if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
-                        if (state.message) data["Message"] = state.message
-                        data["Schedule"] = state.interest === "buyer" ? "Home Buying Consultation" : state.interest === "seller" ? "Listing Consultation" : "Full Valuation"
-                        openWhatsApp(data)
-                      }}
-                      className="flex items-center justify-center gap-2 h-12 bg-crimson text-white text-[15px] font-semibold rounded-full hover:bg-crimson-dark transition-all duration-200"
-                    >
-                      <MessageCircle className="h-4 w-4" />
-                      WhatsApp
-                    </button>
+                </div>
+                <div className="bg-cream-dark px-6 py-8 flex flex-col items-center justify-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-cream flex items-center justify-center mb-3">
+                    <Image src="/main-logo.png" alt="Halifax" width={30} height={30} className="object-contain" />
                   </div>
+                  <p className="font-bold text-[15px] text-near-black">{agent.name}</p>
+                  <p className="text-xs text-near-black/50">{agent.type} &middot; {agent.experience}</p>
+                  <p className="text-sm text-near-black/60 mt-1">{agent.phone}</p>
+                  <p className="text-sm text-crimson font-medium">{agent.email}</p>
+                </div>
+              </div>
 
-                  <div className="pt-2 text-center">
-                    <button
-                      type="button"
-                      onClick={() => router.push("/")}
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-crimson hover:text-crimson-dark transition-colors cursor-pointer group"
-                    >
-                      <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
-                      Back
-                    </button>
-                  </div>
+              <div className="space-y-3">
+                <p className="text-sm font-semibold text-near-black text-center">
+                  {state.contactMethod === "phone"
+                    ? "Geoffrey will call you shortly"
+                    : state.contactMethod === "email"
+                    ? "A detailed response is on its way"
+                    : state.contactMethod === "whatsapp"
+                    ? "Look out for a WhatsApp message"
+                    : `Contact ${agent.name} directly`}
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  <a
+                    href={`tel:+1${agent.phone.replace(/[^\d]/g, "")}`}
+                    className={`flex items-center justify-center gap-2 h-12 text-sm font-semibold rounded-lg transition-all duration-200 ${
+                      state.contactMethod === "phone"
+                        ? "bg-crimson text-white shadow-md"
+                        : "bg-cream border border-warm-border text-near-black hover:border-crimson hover:text-crimson"
+                    }`}
+                  >
+                    <Phone className="h-4 w-4" />
+                    Call
+                  </a>
+                  <a
+                    href={`mailto:${agent.email}`}
+                    className={`flex items-center justify-center gap-2 h-12 text-sm font-semibold rounded-lg transition-all duration-200 ${
+                      state.contactMethod === "email"
+                        ? "bg-crimson text-white shadow-md"
+                        : "bg-cream border border-warm-border text-near-black hover:border-crimson hover:text-crimson"
+                    }`}
+                  >
+                    <Mail className="h-4 w-4" />
+                    Email
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const data: Record<string, string> = {
+                        Name: state.name,
+                        Email: state.email,
+                        Phone: state.phone,
+                      }
+                      if (state.bestTimeToCall) data["Best Time to Call"] = state.bestTimeToCall
+                      if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
+                      if (state.message) data["Message"] = state.message
+                      data["Schedule"] = state.interest === "buyer" ? "Home Buying Consultation" : state.interest === "seller" ? "Listing Consultation" : "Full Valuation"
+                      openWhatsApp(data)
+                    }}
+                    className={`flex items-center justify-center gap-2 h-12 text-sm font-semibold rounded-lg transition-all duration-200 ${
+                      state.contactMethod === "whatsapp"
+                        ? "bg-crimson text-white shadow-md"
+                        : "bg-cream border border-warm-border text-near-black hover:border-crimson hover:text-crimson"
+                    }`}
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    WhatsApp
+                  </button>
                 </div>
 
-                <p className="text-[14px] text-gray-400 text-center leading-relaxed font-normal pt-1">
-                  By submitting, you agree to be contacted by {agent.name} regarding
-                  your real estate inquiry.
-                </p>
+                <div className="pt-4 text-center">
+                  <button
+                    type="button"
+                    onClick={() => router.push("/")}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-near-black/40 hover:text-crimson transition-colors cursor-pointer group"
+                  >
+                    <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
+                    Back to Home
+                  </button>
+                </div>
               </div>
+            </div>
+
+            <div className="border-t border-warm-border px-10 py-4">
+              <p className="text-xs text-near-black/35 text-center">
+                By submitting, you agree to be contacted by {agent.name} regarding
+                your real estate inquiry.
+              </p>
             </div>
           </div>
         </div>

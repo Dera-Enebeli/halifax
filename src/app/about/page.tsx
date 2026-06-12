@@ -1,10 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Home, Building2, DollarSign, Phone, Mail, MapPin, ArrowLeft, Award } from "lucide-react"
+import { Home, Building2, DollarSign, Phone, Mail, MapPin } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import UtilityBar from "@/components/utility-bar"
 import { agent, certifications } from "@/lib/mock-data"
+import ScrollReveal from "@/components/scroll-reveal"
 
 const values = [
   {
@@ -29,37 +30,43 @@ export default function AboutPage() {
     <>
       <UtilityBar />
       <Header />
-      <main className="pt-20">
-        <div className="py-16" style={{ background: "rgba(30, 74, 122, 0.85)" }}>
-          <div className="max-w-page section-padding">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 text-sm text-white/60 hover:text-white transition-colors mb-4"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back
-            </Link>
-            <div className="text-center">
-            <h1 className="font-serif italic text-3xl md:text-4xl text-white mb-3" style={{ fontFamily: "var(--font-serif)" }}>
-              About Halifax Properties &amp; Investments
-            </h1>
-            <p className="text-white/70 text-sm font-light max-w-xl mx-auto">
-              Your trusted East Bay real estate partner — helping families buy, sell, and value homes across Oakland, Berkeley, Walnut Creek, Dublin, and beyond.
-            </p>
+      <main className="pt-16 lg:pt-20">
+
+        <div className="bg-near-black relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: "radial-gradient(circle at 25% 50%, white 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }} />
+          <div className="max-w-page section-padding relative">
+            <div className="py-20 md:py-28">
+              <div className="max-w-3xl">
+                <p className="text-xs font-medium tracking-[2px] uppercase text-white/40 mb-4">
+                  About
+                </p>
+                <h1 className="font-serif italic text-[clamp(32px,5vw,52px)] text-white leading-[1.1] mb-5">
+                  Halifax Properties<br />
+                  <span className="text-crimson">&amp;</span> Investments
+                </h1>
+                <div className="w-16 h-[3px] bg-crimson mb-6" />
+                <p className="text-white/60 text-[15px] md:text-[17px] leading-relaxed max-w-2xl font-light">
+                  Your trusted East Bay real estate partner — helping families buy, sell, and value homes across Oakland, Berkeley, Walnut Creek, Dublin, and beyond.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-        <section className="py-16 md:py-20">
+        <section className="py-20 md:py-24">
           <div className="max-w-page section-padding">
-            <div className="max-w-3xl mx-auto text-center mb-14">
-              <p className="text-[13px] font-medium tracking-[2px] uppercase text-olive mb-2">
+            <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+              <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-3">
                 Our Mission
               </p>
-              <h2 className="font-serif italic text-[clamp(26px,3.5vw,38px)] text-near-black leading-tight mb-4" style={{ fontFamily: "var(--font-serif)" }}>
+              <h2 className="font-serif italic text-[clamp(28px,4vw,42px)] text-near-black leading-[1.15] mb-4">
                 Making East Bay Real Estate Simple
               </h2>
-              <p className="text-[16px] text-gray-500 font-light leading-relaxed">
+              <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
+              <p className="text-[15px] md:text-[16px] text-near-black/60 leading-relaxed font-light max-w-xl mx-auto">
                 At Halifax Properties &amp; Investments, we believe buying or selling a home should be exciting, not overwhelming. 
                 Led by Geoffrey Enebly, we bring years of East Bay market knowledge, honest advice, and a genuine commitment 
                 to helping you reach your goals — whether that&apos;s finding your first home, upgrading to more space, downsizing, 
@@ -67,164 +74,269 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="max-w-3xl mx-auto space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {values.map((item, i) => {
                 const Icon = item.icon
                 return (
-                  <div key={item.title} className="flex gap-5">
-                    <div className="hidden sm:flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-crimson/10 flex items-center justify-center flex-shrink-0">
+                  <ScrollReveal key={item.title} delay={i * 150}>
+                  <div
+                    key={item.title}
+                    className="relative overflow-hidden bg-[#FCFAF5] pt-0 px-7 pb-7 rounded-lg shadow-lg shadow-black/10"
+                  >
+                    {i === 0 && (
+                      <div className="absolute -top-10 -right-10 w-48 h-48 opacity-[0.3] text-crimson pointer-events-none" aria-hidden="true">
+                        <div className="w-full h-full rounded-full border-2 border-current" />
+                        <div className="absolute inset-7 rounded-full border-2 border-current" />
+                        <div className="absolute inset-14 rounded-full border-2 border-current" />
+                      </div>
+                    )}
+                    {i === 1 && (
+                      <div className="absolute -bottom-10 -left-10 w-44 h-44 opacity-[0.3] text-crimson pointer-events-none" aria-hidden="true">
+                        <div className="w-full h-full border-2 border-current rotate-45" />
+                        <div className="absolute inset-10 border-2 border-current rotate-45" />
+                      </div>
+                    )}
+                    {i === 2 && (
+                      <div className="absolute top-1 right-1 w-28 h-28 opacity-[0.35] text-crimson pointer-events-none" aria-hidden="true">
+                        <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'2px', left:'2px'}} />
+                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'0', left:'22px'}} />
+                        <div className="w-[18px] h-[18px] rounded-full bg-current absolute" style={{top:'12px', left:'48px'}} />
+                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'30px', left:'8px'}} />
+                        <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'36px', left:'42px'}} />
+                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'52px', left:'48px'}} />
+                        <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'50px', left:'0px'}} />
+                        <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'52px', left:'18px'}} />
+                      </div>
+                    )}
+                    <div className="h-[3px] bg-crimson w-full mb-6 rounded-t-lg" />
+                    <div className="relative z-[1]">
+                      <div className="w-10 h-10 rounded-full bg-crimson/10 flex items-center justify-center mb-4">
                         <Icon className="h-5 w-5 text-crimson" />
                       </div>
-                      {i < values.length - 1 && <div className="w-px flex-1 bg-warm-border mt-2" />}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="sm:hidden w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center flex-shrink-0">
-                          <Icon className="h-4 w-4 text-crimson" />
-                        </div>
-                        <h3 className="font-bold text-xl text-near-black">{item.title}</h3>
-                      </div>
-                      <p className="text-[16px] text-gray-500 leading-relaxed">{item.desc}</p>
+                      <h3 className="font-serif italic text-xl text-near-black mb-3">{item.title}</h3>
+                      <p className="text-[15px] text-near-black/60 leading-relaxed font-light">
+                        {item.desc}
+                      </p>
                     </div>
                   </div>
+                  </ScrollReveal>
                 )
               })}
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-20" style={{ background: "var(--color-cream-dark, #EAE2D6)" }}>
+        <section className="py-20 md:py-24 bg-cream-dark">
           <div className="max-w-page section-padding">
-            <div className="max-w-3xl mx-auto">
-              <div className="bg-white rounded-xl border border-warm-border p-8 sm:p-10 shadow-sm">
-                <div className="flex flex-col sm:flex-row items-start gap-6">
-                  <div className="w-20 h-20 flex-shrink-0 relative rounded-full overflow-hidden">
-                    <Image src={agent.image} alt="Geoffrey Enebly" fill className="object-cover" />
+            <div className="max-w-4xl mx-auto">
+                <div className="text-center mb-14">
+                  <ScrollReveal>
+                  <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-3">
+                    Your Agent
+                  </p>
+                  <h2 className="font-serif italic text-[clamp(28px,4vw,42px)] text-near-black leading-[1.15] mb-4">
+                    Meet Geoffrey Enebly
+                  </h2>
+                  <div className="w-12 h-[3px] bg-crimson mx-auto mb-4" />
+                  <p className="text-xs text-crimson font-bold tracking-wider uppercase">
+                    Halifax Properties &amp; Investments &mdash; One Stop Real Estate
+                  </p>
+                  </ScrollReveal>
+                </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-10">
+                <div className="lg:col-span-2">
+                  <div className="bg-cream p-6 md:p-8 rounded-lg">
+                    <div className="w-28 h-28 md:w-36 md:h-36 relative mx-auto md:mx-0 rounded-full overflow-hidden mb-5 border-2 border-warm-border">
+                      <Image src={agent.image} alt="Geoffrey Enebly" fill className="object-cover" />
+                    </div>
+                    <h3 className="font-bold text-xl text-near-black text-center md:text-left">{agent.name}</h3>
+                    <p className="text-sm text-crimson font-semibold text-center md:text-left mb-1">
+                      {agent.type} &middot; {agent.experience}
+                    </p>
+                    <p className="text-xs text-near-black/50 text-center md:text-left mb-4">
+                      {agent.license}
+                    </p>
+
+                    <div className="h-px bg-warm-border mb-4" />
+
+                    <div className="space-y-2.5">
+                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
+                        <span className="w-6 flex items-center justify-center">
+                          <Phone className="h-3.5 w-3.5 text-crimson" />
+                        </span>
+                        (510) 507-5088
+                      </span>
+                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
+                        <span className="w-6 flex items-center justify-center">
+                          <Mail className="h-3.5 w-3.5 text-crimson" />
+                        </span>
+                        Enebly@aol.com
+                      </span>
+                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
+                        <span className="w-6 flex items-center justify-center">
+                          <MapPin className="h-3.5 w-3.5 text-crimson" />
+                        </span>
+                        {agent.address}
+                      </span>
+                    </div>
+
+                    <div className="h-px bg-warm-border my-4" />
+
+                    <div className="text-xs text-near-black/50 space-y-1 text-center md:text-left">
+                      <p>{agent.brokerage}</p>
+                      <p>Representing {agent.represents} &middot; Since {agent.licensedSince}</p>
+                      <p>Service Areas: {agent.serviceAreas.join(", ")}</p>
+                      <p>Languages: {agent.languages.join(", ")}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-xl text-near-black mb-1">{agent.name}</h3>
-                    <p className="text-sm text-crimson font-semibold tracking-wide mb-1">
-                      {agent.type} &middot; {agent.experience} &middot; {agent.license}
+                </div>
+
+                <div className="lg:col-span-3">
+                  <div className="space-y-5 text-[15px] text-near-black/65 leading-relaxed font-light">
+                    <hr className="w-12 h-[3px] bg-crimson border-0 mx-auto block lg:hidden" />
+                    <p>
+                      Choosing the right real estate agent makes all the difference. You need someone committed to delivering expert guidance and deep knowledge of the local market, someone who will walk you through every step of the buying or selling process with clarity and confidence. That level of dedication is what has allowed me to consistently deliver strong results for my clients.
                     </p>
-                    <p className="text-sm text-olive font-medium tracking-wide uppercase mb-3">
-                      Representing {agent.represents} &middot; Licensed Since {agent.licensedSince}
+                    <p>
+                      There&apos;s nothing more rewarding to me than helping people achieve their real estate goals. I&apos;m committed to always acting in your best interest, and I pride myself on being honest, reliable, and knowledgeable. Whether you&apos;re searching for your dream home or aiming to secure the best possible offer for your property, I&apos;ll work tirelessly to make it happen.
                     </p>
-                    <p className="text-xs text-gray-400 font-medium mb-3">
-                      {agent.brokerage} &middot; Service Areas: {agent.serviceAreas.join(", ")} &middot; {agent.languages.join(", ")}
+                    <p>
+                      From first-time buyers to seasoned investors, I&apos;m here to provide guidance, support, and results. Feel free to explore my website or reach out directly to schedule a consultation&mdash;I&apos;d be happy to help you every step of the way.
                     </p>
-                    <div className="text-[16px] text-gray-500 leading-relaxed mb-4 space-y-4">
-                      <p>
-                        Choosing the right real estate agent makes all the difference. You need someone committed to delivering expert guidance and deep knowledge of the local market, someone who will walk you through every step of the buying or selling process with clarity and confidence. That level of dedication is what has allowed me to consistently deliver strong results for my clients.
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mt-8">
+                    <ScrollReveal delay={0}>
+                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-5 md:px-5 py-6 md:py-5">
+                      <div className="absolute -top-10 -right-10 w-40 h-40 opacity-[0.1] text-crimson pointer-events-none" aria-hidden="true">
+                        <div className="w-full h-full rounded-full border border-current" />
+                        <div className="absolute inset-7 rounded-full border border-current" />
+                        <div className="absolute inset-14 rounded-full border border-current" />
+                      </div>
+                      <div className="h-[3px] bg-crimson w-full mb-4 rounded-t" />
+                      <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
+                        Experience
                       </p>
-                      <p>
-                        There&apos;s nothing more rewarding to me than helping people achieve their real estate goals. I&apos;m committed to always acting in your best interest, and I pride myself on being honest, reliable, and knowledgeable. Whether you&apos;re searching for your dream home or aiming to secure the best possible offer for your property, I&apos;ll work tirelessly to make it happen.
-                      </p>
-                      <p>
-                        From first-time buyers to seasoned investors, I&apos;m here to provide guidance, support, and results. Feel free to explore my website or reach out directly to schedule a consultation&mdash;I&apos;d be happy to help you every step of the way.
+                      <p className="text-sm md:text-[14px] text-near-black/60 leading-relaxed font-light">
+                        Selling and listing residential &amp; commercial properties. Working with asset-managers and banks in property disposition.
                       </p>
                     </div>
-
-                    <div className="mb-4">
-                      <p className="text-[15px] font-bold text-near-black mb-2">Professional Experience</p>
-                      <p className="text-[16px] text-gray-500 leading-relaxed">
-                        In selling and listing residential and commercial properties. Working with asset-managers and banks in property disposition.
+                    </ScrollReveal>
+                    <ScrollReveal delay={150}>
+                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-5 md:px-5 py-6 md:py-5">
+                      <div className="absolute -bottom-10 -left-10 w-40 h-40 opacity-[0.1] text-crimson pointer-events-none" aria-hidden="true">
+                        <div className="w-full h-full border border-current rotate-45" />
+                        <div className="absolute inset-10 border border-current rotate-45" />
+                      </div>
+                      <div className="h-[3px] bg-crimson w-full mb-4 rounded-t" />
+                      <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
+                        Services
+                      </p>
+                      <p className="text-sm md:text-[14px] text-near-black/60 leading-relaxed font-light">
+                        Help home buyers find new homes. Help sellers cash in on their equity. Provide free market analysis and optimal timing.
                       </p>
                     </div>
-
-                    <div className="mb-4">
-                      <p className="text-[15px] font-bold text-near-black mb-2">Services</p>
-                      <p className="text-[16px] text-gray-500 leading-relaxed">
-                        Help home buyers find new homes. Help sellers cash in on their equity. Provide sellers with free market analysis and best time to sell.
+                    </ScrollReveal>
+                    <ScrollReveal delay={300}>
+                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-5 md:px-5 py-6 md:py-5">
+                      <div className="absolute top-1 right-1 w-24 h-24 opacity-[0.12] text-crimson pointer-events-none" aria-hidden="true">
+                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'2px', left:'2px'}} />
+                        <div className="w-1.5 h-1.5 rounded-full bg-current absolute" style={{top:'0', left:'22px'}} />
+                        <div className="w-[14px] h-[14px] rounded-full bg-current absolute" style={{top:'12px', left:'48px'}} />
+                        <div className="w-1.5 h-1.5 rounded-full bg-current absolute" style={{top:'30px', left:'8px'}} />
+                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'36px', left:'42px'}} />
+                        <div className="w-1.5 h-1.5 rounded-full bg-current absolute" style={{top:'52px', left:'48px'}} />
+                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'50px', left:'0px'}} />
+                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'52px', left:'18px'}} />
+                      </div>
+                      <div className="h-[3px] bg-crimson w-full mb-4 rounded-t" />
+                      <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
+                        Expertise
                       </p>
-                    </div>
-
-                    <div className="mb-4">
-                      <p className="text-[15px] font-bold text-near-black mb-2">Expertise</p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 mt-2">
                         {["Default Property", "Investment Property", "Multi-Family", "Commercial"].map((item) => (
-                          <span key={item} className="text-[14px] bg-crimson/10 text-crimson font-medium px-3 py-1 rounded-full">
+                          <span key={item} className="text-xs bg-crimson/10 text-crimson font-medium px-2.5 py-1">
                             {item}
                           </span>
                         ))}
                       </div>
                     </div>
-
-                    <p className="text-[13px] text-navy font-bold tracking-wider uppercase mb-4">
-                      Halifax Properties &amp; Investments &mdash; One Stop Real Estate
-                    </p>
-                    <div className="flex flex-col gap-2 text-[16px] text-gray-500">
-                      <span className="flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-crimson" />
-                        (510) 507-5088
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <Mail className="h-4 w-4 text-crimson" />
-                        Enebly@aol.com
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 text-crimson" />
-                        {agent.address}
-                      </span>
-                    </div>
+                    </ScrollReveal>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-20">
+        <section className="py-20 md:py-24">
           <div className="max-w-page section-padding">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <p className="text-[13px] font-medium tracking-[2px] uppercase text-olive mb-2">
+              <div className="text-center mb-14">
+                <ScrollReveal>
+                <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-3">
                   Credentials
                 </p>
-                <h2 className="font-serif italic text-[clamp(26px,3.5vw,38px)] text-near-black leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                  Certifications &amp; Designations
+                <h2 className="font-serif italic text-[clamp(28px,4vw,42px)] text-near-black leading-[1.15] mb-4">
+                  Certifications <span className="text-crimson">&amp;</span> Designations
                 </h2>
+                <div className="w-12 h-[3px] bg-crimson mx-auto" />
+                </ScrollReveal>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {certifications.map((cert) => (
-                  <div key={cert.abbrev} className="bg-white rounded-xl border border-warm-border p-5 text-center hover:shadow-md transition-shadow">
-                    <div className="w-12 h-12 mx-auto mb-3 relative flex items-center justify-center">
-                      <Image src={cert.image} alt={cert.abbrev} width={48} height={48} className="object-contain" />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                {certifications.map((cert, i) => (
+                  <ScrollReveal key={cert.abbrev} delay={i * 100}>
+                  <div
+                    key={cert.abbrev}
+                    className="relative overflow-hidden bg-cream pt-0 px-5 pb-6 text-center rounded-lg shadow-lg shadow-black/10"
+                  >
+                    <div className="h-[3px] bg-crimson w-full mb-5 rounded-t-lg" />
+                    <div className="w-14 h-14 mx-auto mb-3 relative flex items-center justify-center bg-cream rounded-full">
+                      <Image src={cert.image} alt={cert.abbrev} width={40} height={40} className="object-contain" />
                     </div>
-                    <p className="text-[16px] font-bold text-near-black mb-1">{cert.abbrev}</p>
-                    <p className="text-[13px] text-gray-500 leading-snug">{cert.name}</p>
+                    <p className="text-sm font-bold text-near-black mb-0.5">{cert.abbrev}</p>
+                    <p className="text-[12px] text-near-black/50 leading-snug">{cert.name}</p>
                   </div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-20">
-          <div className="max-w-page section-padding text-center">
-            <h2 className="font-serif italic text-[clamp(24px,3vw,34px)] text-near-black leading-tight mb-3" style={{ fontFamily: "var(--font-serif)" }}>
-              Ready to Get Started?
-            </h2>
-            <p className="text-[16px] text-gray-500 font-light mb-6">
-              Reach out for a free consultation and let&apos;s discuss your real estate goals.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link
-                href="/consultation"
-                className="inline-flex items-center gap-2 bg-crimson text-white text-[16px] font-semibold px-6 py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200"
-              >
-                <Phone className="h-4 w-4" />
-                Get a Free Consultation
-              </Link>
-              <Link
-                href="/consultation"
-                className="inline-flex items-center gap-2 border border-crimson text-crimson text-[16px] font-semibold px-6 py-3.5 rounded-full hover:bg-crimson hover:text-white transition-all duration-200"
-              >
-                Contact Geoffrey Enebly
-              </Link>
+        <section className="py-20 md:py-24 bg-cream-dark">
+          <div className="max-w-page section-padding">
+            <div className="max-w-2xl mx-auto text-center">
+              <ScrollReveal>
+              <h2 className="font-serif italic text-[clamp(26px,3.5vw,38px)] text-near-black leading-[1.15] mb-4">
+                Ready to Get Started?
+              </h2>
+              <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
+              <p className="text-[15px] text-near-black/60 font-light mb-8 max-w-md mx-auto">
+                Reach out for a free consultation and let&apos;s discuss your real estate goals.
+              </p>
+              </ScrollReveal>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Link
+                  href="/consultation"
+                  className="inline-flex items-center gap-2 bg-crimson text-white text-[15px] font-bold px-7 py-3.5 rounded-full hover:bg-crimson-dark hover:shadow-lg hover:shadow-crimson/25 transition-all duration-200"
+                >
+                  <Phone className="h-4 w-4" />
+                  Get a Free Consultation
+                </Link>
+                <Link
+                  href="/consultation"
+                  className="inline-flex items-center gap-2 border-2 border-crimson text-crimson text-[15px] font-semibold px-7 py-3.5 rounded-full hover:bg-crimson hover:text-white transition-all duration-200"
+                >
+                  Contact Geoffrey Enebly
+                </Link>
+              </div>
             </div>
           </div>
         </section>
+
       </main>
       <Footer />
     </>

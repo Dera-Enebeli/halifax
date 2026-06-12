@@ -1,31 +1,51 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Home, Building2, DollarSign, Phone, Mail, MessageCircle, Check } from "lucide-react"
 import { useFunnel } from "@/lib/funnel-store"
 import { eastBayCities, agent } from "@/lib/mock-data"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Select } from "@/components/ui/select"
 
-function FieldFAQ({ children }: { children: React.ReactNode }) {
+function FieldHint({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-sm text-gray-400 italic mt-1.5">
+    <p className="text-sm text-near-black/40 mt-1.5">
       {children}
     </p>
   )
 }
 
+const interestOptions = [
+  { value: "buyer" as const, label: "Buying", sub: "Find a home", icon: Home },
+  { value: "seller" as const, label: "Selling", sub: "List my home", icon: Building2 },
+  { value: "homeowner" as const, label: "Valuation", sub: "Home value", icon: DollarSign },
+]
+
+const contactOptions = [
+  { value: "phone" as const, label: "Phone Call", sub: "Geoffrey will call you", icon: Phone },
+  { value: "email" as const, label: "Email", sub: "Get a detailed response", icon: Mail },
+  { value: "whatsapp" as const, label: "WhatsApp", sub: "Quick chat on WhatsApp", icon: MessageCircle },
+]
+
 export default function LeadForm() {
   const router = useRouter()
   const { state, dispatch } = useFunnel()
+  const [showContactStep, setShowContactStep] = useState(false)
+  const [selectedMethod, setSelectedMethod] = useState<"phone" | "email" | "whatsapp" | null>(null)
 
   const canSubmit = !!state.interest && !!state.name.trim() && !!state.email.trim() && !!state.phone.trim()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!canSubmit) return
+    setShowContactStep(true)
+  }
 
+  const handleConfirmContact = () => {
+    if (!selectedMethod) return
     const interestLabels: Record<string, string> = {
       buyer: "Buying",
       seller: "Selling",
@@ -42,81 +62,165 @@ export default function LeadForm() {
     if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
     if (state.message.trim()) data["Message"] = state.message
 
+    dispatch({ type: "SET_CONTACT_METHOD", payload: selectedMethod })
     dispatch({ type: "SUBMIT" })
   }
 
   return (
-    <section className="py-16 md:py-20" style={{ background: "var(--color-cream-dark, #EAE2D6)" }}>
+    <section className="py-16 md:py-24 bg-cream-dark">
       <div className="max-w-page section-padding">
-        <div className="w-full max-w-xl md:max-w-3xl mx-auto">
-          <div className="bg-cream shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-cream">
             <div className="h-1 w-full bg-crimson" />
 
-              <div className="p-6 sm:p-8">
+            <div className="px-7 sm:px-10 py-8 sm:py-10">
 
               <button
                 type="button"
                 onClick={() => router.back()}
-                className="flex items-center gap-1.5 text-sm font-medium text-crimson hover:text-crimson-dark transition-colors mb-5 cursor-pointer group"
+                className="flex items-center gap-1.5 text-sm font-medium text-near-black/40 hover:text-crimson transition-colors mb-8 cursor-pointer group"
               >
                 <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
                 Back
               </button>
 
-              <div className="bg-white rounded-lg border border-warm-border p-4 sm:p-5 mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5">
-                <div className="w-10 h-10 flex-shrink-0 relative flex items-center justify-center">
-                  <Image src="/logo.png" alt="Halifax" width={40} height={40} className="object-contain" />
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-11 h-11 rounded-full bg-cream-dark flex items-center justify-center flex-shrink-0">
+                  <Image src="/main-logo.png" alt="Halifax" width={28} height={28} className="object-contain" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-near-black">Geoffrey Enebly</p>
-                  <p className="text-xs text-gray-500">{agent.type} &middot; {agent.experience} &middot; (510) 507-5088</p>
+                  <p className="font-serif italic text-[15px] text-near-black leading-tight">
+                    Geoffrey Enebly
+                  </p>
+                  <p className="text-xs text-near-black/50">{agent.type} &middot; {agent.experience} &middot; (510) 507-5088</p>
                 </div>
               </div>
 
-              <div className="text-center mb-6">
-                <p className="font-serif italic text-[22px] sm:text-xl text-near-black leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                  Halifax <span className="text-olive text-[10px] tracking-[2px] uppercase font-semibold not-italic">· East Bay Real Estate</span>
+              <div className="mb-10">
+                <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-2">
+                  Free Consultation
                 </p>
-                <p className="text-[16px] text-gray-500 mt-1">
-                  Tell us a bit about yourself and we&apos;ll get in touch.
+                <h1 className="font-serif italic text-[clamp(26px,3.5vw,38px)] text-near-black leading-[1.15] mb-3">
+                  Let&rsquo;s find your next home.
+                </h1>
+                <div className="w-10 h-[3px] bg-crimson mb-4" />
+                <p className="text-[15px] text-near-black/55 leading-relaxed font-light max-w-lg">
+                  Tell us a bit about yourself and Geoffrey will reach out personally within 24 hours.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              {showContactStep ? (
+                <div className="space-y-7">
+                  <div>
+                    <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-2">
+                      Almost done
+                    </p>
+                    <h2 className="font-serif italic text-[clamp(22px,3vw,32px)] text-near-black leading-[1.15] mb-3">
+                      How should Geoffrey reach you?
+                    </h2>
+                    <div className="w-10 h-[3px] bg-crimson mb-4" />
+                    <p className="text-[15px] text-near-black/55 leading-relaxed font-light max-w-lg">
+                      Pick your preferred way to connect and we&rsquo;ll take it from there.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {contactOptions.map((opt) => {
+                      const Icon = opt.icon
+                      const isActive = selectedMethod === opt.value
+                      return (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          onClick={() => setSelectedMethod(opt.value)}
+                          className={`flex items-center gap-3 sm:flex-col sm:text-center py-4 px-4 rounded-lg transition-all duration-200 cursor-pointer border ${
+                            isActive
+                              ? "bg-crimson text-white border-crimson"
+                              : "bg-cream text-near-black border-warm-border hover:border-near-black/30"
+                          }`}
+                        >
+                          <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
+                            isActive ? "bg-white/15" : "bg-crimson/10"
+                          }`}>
+                            <Icon className={`h-[20px] w-[20px] ${isActive ? "text-white" : "text-crimson"}`} />
+                          </div>
+                          <div className="sm:mt-0.5">
+                            <span className={`block text-sm font-bold ${isActive ? "text-white" : "text-near-black"}`}>
+                              {opt.label}
+                            </span>
+                            <span className={`block text-xs mt-px ${isActive ? "text-white/65" : "text-near-black/40"}`}>
+                              {opt.sub}
+                            </span>
+                          </div>
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => setShowContactStep(false)}
+                      className="flex-1 h-13 text-base font-semibold text-near-black border-2 border-warm-border rounded-full hover:border-near-black/30 transition-all duration-200 cursor-pointer"
+                    >
+                      Back
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleConfirmContact}
+                      disabled={!selectedMethod}
+                      className="flex-1 h-13 text-base font-bold tracking-wide text-white bg-crimson rounded-full hover:bg-crimson-dark transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <Check className="h-5 w-5" />
+                      Confirm &amp; Submit
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-7">
 
                 <div>
-                  <label className="block text-[16px] font-semibold text-near-black mb-3">
+                  <label className="block text-sm font-semibold text-near-black mb-3">
                     What are you looking for?
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                    {([
-                      { value: "buyer" as const, label: "Buying", sub: "Find a home" },
-                      { value: "seller" as const, label: "Selling", sub: "List my home" },
-                      { value: "homeowner" as const, label: "Valuation", sub: "Home value" },
-                    ]).map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => dispatch({ type: "SET_INTEREST", payload: option.value })}
-                        className={`text-center py-3 sm:py-4 px-3 sm:px-2 rounded-lg transition-all duration-200 cursor-pointer border ${
-                          state.interest === option.value
-                            ? "bg-crimson text-white border-crimson"
-                            : "bg-white text-near-black border-gray-300 hover:border-near-black/40"
-                        }`}
-                      >
-                        <span className="block text-[16px] font-bold">{option.label}</span>
-                        <span className={`block text-xs mt-0.5 ${state.interest === option.value ? "text-white/70" : "text-gray-400"}`}>
-                          {option.sub}
-                        </span>
-                      </button>
-                    ))}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {interestOptions.map((option) => {
+                      const Icon = option.icon
+                      const isActive = state.interest === option.value
+                      return (
+                        <button
+                          key={option.value}
+                          type="button"
+                          onClick={() => dispatch({ type: "SET_INTEREST", payload: option.value })}
+                          className={`flex items-center gap-3 sm:flex-col sm:text-center py-3.5 px-4 rounded-lg transition-all duration-200 cursor-pointer border ${
+                            isActive
+                              ? "bg-crimson text-white border-crimson"
+                              : "bg-cream text-near-black border-warm-border hover:border-near-black/30"
+                          }`}
+                        >
+                          <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${
+                            isActive ? "bg-white/15" : "bg-crimson/10"
+                          }`}>
+                            <Icon className={`h-[18px] w-[18px] ${isActive ? "text-white" : "text-crimson"}`} />
+                          </div>
+                          <div className="sm:mt-0.5">
+                            <span className={`block text-sm font-bold ${isActive ? "text-white" : "text-near-black"}`}>
+                              {option.label}
+                            </span>
+                            <span className={`block text-xs mt-px ${isActive ? "text-white/65" : "text-near-black/40"}`}>
+                              {option.sub}
+                            </span>
+                          </div>
+                        </button>
+                      )
+                    })}
                   </div>
-                  <FieldFAQ>Select the option that best fits your goal.</FieldFAQ>
+                  <FieldHint>Select the option that best fits your goal.</FieldHint>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
                   <div>
-                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                    <label className="block text-sm font-semibold text-near-black mb-1.5">
                       Full Name
                     </label>
                     <Input
@@ -125,13 +229,12 @@ export default function LeadForm() {
                       onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
                       placeholder="Your full name"
                       required
-                      className="focus:ring-crimson/20 focus:border-crimson"
                     />
-                    <FieldFAQ>So we know how to address you.</FieldFAQ>
+                    <FieldHint>So we know how to address you.</FieldHint>
                   </div>
 
                   <div>
-                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                    <label className="block text-sm font-semibold text-near-black mb-1.5">
                       Email Address
                     </label>
                     <Input
@@ -140,13 +243,12 @@ export default function LeadForm() {
                       onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
                       placeholder="your@email.com"
                       required
-                      className="focus:ring-crimson/20 focus:border-crimson"
                     />
-                    <FieldFAQ>So we can follow up with you.</FieldFAQ>
+                    <FieldHint>So we can follow up with you.</FieldHint>
                   </div>
 
                   <div>
-                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                    <label className="block text-sm font-semibold text-near-black mb-1.5">
                       Phone Number
                     </label>
                     <Input
@@ -155,51 +257,44 @@ export default function LeadForm() {
                       onChange={(e) => dispatch({ type: "SET_PHONE", payload: e.target.value })}
                       placeholder="(555) 123-4567"
                       required
-                      className="focus:ring-crimson/20 focus:border-crimson"
                     />
-                    <FieldFAQ>So we can reach you directly.</FieldFAQ>
+                    <FieldHint>So we can reach you directly.</FieldHint>
                   </div>
 
                   <div>
-                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                    <label className="block text-sm font-semibold text-near-black mb-1.5">
                       Best Time to Call
                     </label>
                     <Input
                       type="text"
                       value={state.bestTimeToCall}
                       onChange={(e) => dispatch({ type: "SET_BEST_TIME_TO_CALL", payload: e.target.value })}
-                      placeholder="e.g. Morning, Afternoon, Evening, Anytime"
-                      className="focus:ring-crimson/20 focus:border-crimson"
+                      placeholder="Morning, Afternoon, Evening, Anytime"
                     />
-                    <FieldFAQ>When is the most convenient time to reach you?</FieldFAQ>
+                    <FieldHint>When is the most convenient time to reach you?</FieldHint>
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                    <label className="block text-sm font-semibold text-near-black mb-1.5">
                       Area of Interest
                     </label>
-                      <select
-                        value={state.areaOfInterest}
-                        onChange={(e) => dispatch({ type: "SET_AREA_OF_INTEREST", payload: e.target.value })}
-                        className="flex h-12 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-[16px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson appearance-none cursor-pointer"
-                        style={{
-                          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
-                          backgroundPosition: "right 12px center",
-                          backgroundRepeat: "no-repeat",
-                          backgroundSize: "16px",
-                        }}
-                      >
-                        <option value="">Select an area</option>
-                        {eastBayCities.filter((c) => c !== "All Cities").map((city) => (
-                          <option key={city} value={city}>{city}</option>
-                        ))}
-                      </select>
-                      <FieldFAQ>Which part of the East Bay are you interested in?</FieldFAQ>
-                    </div>
+                    <Select
+                      value={state.areaOfInterest || ""}
+                      onChange={(e: React.ChangeEvent<HTMLSelectElement>) => dispatch({ type: "SET_AREA_OF_INTEREST", payload: e.target.value })}
+                      options={[
+                        { value: "", label: "Select an area" },
+                        ...eastBayCities.filter((c) => c !== "All Cities").map((city) => ({
+                          value: city,
+                          label: city,
+                        })),
+                      ]}
+                    />
+                    <FieldHint>Which part of the East Bay are you interested in?</FieldHint>
                   </div>
+                </div>
 
                 <div>
-                  <label className="block text-[16px] font-semibold text-near-black mb-1.5">
+                  <label className="block text-sm font-semibold text-near-black mb-1.5">
                     Message / Comments
                   </label>
                   <textarea
@@ -207,25 +302,26 @@ export default function LeadForm() {
                     onChange={(e) => dispatch({ type: "SET_MESSAGE", payload: e.target.value })}
                     placeholder="Tell me about your needs..."
                     rows={3}
-                    className="flex w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-[16px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson resize-vertical"
+                    className="flex w-full rounded-lg border border-warm-border bg-cream px-3.5 py-2.5 text-base placeholder:text-near-black/35 focus:outline-none focus:ring-2 focus:ring-crimson/20 focus:border-crimson resize-vertical"
                   />
-                  <FieldFAQ>Any questions or details you'd like to share.</FieldFAQ>
+                  <FieldHint>Any questions or details you&rsquo;d like to share.</FieldHint>
                 </div>
 
                 <Button
                   type="submit"
                   disabled={!canSubmit}
-                  className="w-full h-14 text-[18px] font-bold"
+                  className="w-full h-13 text-base font-bold tracking-wide"
                   size="xl"
                 >
                   Submit Inquiry
                 </Button>
 
               </form>
+              )}
             </div>
 
-            <div className="border-t border-gray-200 px-8 py-4">
-              <p className="text-xs text-gray-400 text-center">
+            <div className="border-t border-warm-border px-10 py-4">
+              <p className="text-xs text-near-black/35 text-center">
                 By submitting, you agree to be contacted regarding your real estate inquiry.
                 Your information is kept private and never shared.
               </p>

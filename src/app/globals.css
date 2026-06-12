@@ -4,17 +4,16 @@
   --color-cream: #F5F0E8;
   --color-cream-dark: #EAE2D6;
   --color-near-black: #1A1A1A;
-  --color-navy: #1E5A7A;
-  --color-navy-dark: #15445E;
   --color-crimson: #cc2032;
   --color-crimson-dark: #a81a28;
-  --color-sky: #45bcfd;
   --color-olive: #6B7D5E;
   --color-olive-dark: #4A5E3E;
   --color-warm-border: #E5DDD3;
-  --color-warm-overlay: rgba(30, 74, 122, 0.6);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
+  --text-body: 15px;
+  --text-lead: 17px;
+  --text-heading: 22px;
 }
 
 @layer base {
@@ -35,6 +34,12 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
+  }
+  .text-gray-500 {
+    color: #4A4A4A;
+  }
+  .text-gray-600 {
+    color: #3A3A3A;
   }
 }
 
@@ -66,10 +71,10 @@
     margin-bottom: 16px;
   }
   .section-desc {
-    font-size: 15px;
+    font-size: var(--text-body);
     line-height: 1.7;
-    color: #666;
-    font-weight: 300;
+    color: #4A4A4A;
+    font-weight: 400;
     max-width: 580px;
   }
   .animate-fade-up {
@@ -84,82 +89,5 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-}
-
-@layer utilities {
-  .bg-subtle-grid {
-    background-image:
-      linear-gradient(rgba(192, 74, 26, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(192, 74, 26, 0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-  .bg-subtle-weave {
-    background-image:
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 20px,
-        rgba(107, 125, 94, 0.04) 20px,
-        rgba(107, 125, 94, 0.04) 21px
-      ),
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 20px,
-        rgba(107, 125, 94, 0.04) 20px,
-        rgba(107, 125, 94, 0.04) 21px
-      );
-    background-size: 42px 42px;
-  }
-  .bg-wood-warm {
-    background-color: #3D2415;
-    background-image:
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(255, 255, 255, 0.012) 2px,
-        rgba(255, 255, 255, 0.012) 3px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 28px,
-        rgba(139, 90, 43, 0.06) 28px,
-        rgba(139, 90, 43, 0.06) 30px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 180px,
-        rgba(0, 0, 0, 0.05) 180px,
-        rgba(0, 0, 0, 0.05) 182px
-      );
-  }
-  .bg-wood-desk {
-    background-color: #5C3A1E;
-    background-image:
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 1px,
-        rgba(255, 255, 255, 0.015) 1px,
-        rgba(255, 255, 255, 0.015) 2px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 35px,
-        rgba(255, 255, 255, 0.025) 35px,
-        rgba(255, 255, 255, 0.025) 36px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 150px,
-        rgba(0, 0, 0, 0.04) 150px,
-        rgba(0, 0, 0, 0.04) 152px
-      );
   }
 }
