@@ -18,7 +18,6 @@ export default function UtilityBar() {
               <Phone className="h-3.5 w-3.5 shrink-0" />
               <span className="font-normal lg:font-medium">(510) 507-5088</span>
             </a>
-            <span className="text-white/20">|</span>
             <a
               href="mailto:Enebly@aol.com"
               className="hidden lg:flex items-center gap-1.5 hover:text-white transition-colors duration-200"

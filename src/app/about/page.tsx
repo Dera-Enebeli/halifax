@@ -79,10 +79,7 @@ export default function AboutPage() {
                 const Icon = item.icon
                 return (
                   <ScrollReveal key={item.title} delay={i * 150}>
-                  <div
-                    key={item.title}
-                    className="relative overflow-hidden bg-[#FCFAF5] pt-0 px-7 pb-7 rounded-lg shadow-lg shadow-black/10"
-                  >
+                  <div className="relative overflow-hidden bg-[#FCFAF5] pt-0 px-7 pb-7 rounded-lg shadow-lg shadow-black/10">
                     {i === 0 && (
                       <div className="absolute -top-10 -right-10 w-48 h-48 opacity-[0.3] text-crimson pointer-events-none" aria-hidden="true">
                         <div className="w-full h-full rounded-full border-2 border-current" />
@@ -206,15 +203,15 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 mt-4 md:mt-6">
                     <ScrollReveal delay={0}>
-                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-5 md:px-5 py-6 md:py-5">
+                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-4 md:px-5 py-4 md:py-5">
                       <div className="absolute -top-10 -right-10 w-40 h-40 opacity-[0.1] text-crimson pointer-events-none" aria-hidden="true">
                         <div className="w-full h-full rounded-full border border-current" />
                         <div className="absolute inset-7 rounded-full border border-current" />
                         <div className="absolute inset-14 rounded-full border border-current" />
                       </div>
-                      <div className="h-[3px] bg-crimson w-full mb-4 rounded-t" />
+                      <div className="h-[3px] bg-crimson w-full mb-3 md:mb-4 rounded-t" />
                       <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
                         Experience
                       </p>
@@ -224,12 +221,12 @@ export default function AboutPage() {
                     </div>
                     </ScrollReveal>
                     <ScrollReveal delay={150}>
-                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-5 md:px-5 py-6 md:py-5">
+                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-4 md:px-5 py-4 md:py-5">
                       <div className="absolute -bottom-10 -left-10 w-40 h-40 opacity-[0.1] text-crimson pointer-events-none" aria-hidden="true">
                         <div className="w-full h-full border border-current rotate-45" />
                         <div className="absolute inset-10 border border-current rotate-45" />
                       </div>
-                      <div className="h-[3px] bg-crimson w-full mb-4 rounded-t" />
+                      <div className="h-[3px] bg-crimson w-full mb-3 md:mb-4 rounded-t" />
                       <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
                         Services
                       </p>
@@ -239,7 +236,7 @@ export default function AboutPage() {
                     </div>
                     </ScrollReveal>
                     <ScrollReveal delay={300}>
-                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-5 md:px-5 py-6 md:py-5">
+                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-4 md:px-5 py-4 md:py-5">
                       <div className="absolute top-1 right-1 w-24 h-24 opacity-[0.12] text-crimson pointer-events-none" aria-hidden="true">
                         <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'2px', left:'2px'}} />
                         <div className="w-1.5 h-1.5 rounded-full bg-current absolute" style={{top:'0', left:'22px'}} />
@@ -250,7 +247,7 @@ export default function AboutPage() {
                         <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'50px', left:'0px'}} />
                         <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'52px', left:'18px'}} />
                       </div>
-                      <div className="h-[3px] bg-crimson w-full mb-4 rounded-t" />
+                      <div className="h-[3px] bg-crimson w-full mb-3 md:mb-4 rounded-t" />
                       <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
                         Expertise
                       </p>
@@ -288,10 +285,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {certifications.map((cert, i) => (
                   <ScrollReveal key={cert.abbrev} delay={i * 100}>
-                  <div
-                    key={cert.abbrev}
-                    className="relative overflow-hidden bg-cream pt-0 px-5 pb-6 text-center rounded-lg shadow-lg shadow-black/10"
-                  >
+                  <div className="relative overflow-hidden bg-cream pt-0 px-5 pb-6 text-center rounded-lg shadow-lg shadow-black/10">
                     <div className="h-[3px] bg-crimson w-full mb-5 rounded-t-lg" />
                     <div className="w-14 h-14 mx-auto mb-3 relative flex items-center justify-center bg-cream rounded-full">
                       <Image src={cert.image} alt={cert.abbrev} width={40} height={40} className="object-contain" />
@@ -314,7 +308,7 @@ export default function AboutPage() {
                 Ready to Get Started?
               </h2>
               <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
-              <p className="text-[15px] text-near-black/60 font-light mb-8 max-w-md mx-auto">
+              <p className="text-[15px] text-near-black/60 font-light mb-10 sm:mb-10 md:mb-12 lg:mb-14 max-w-md mx-auto">
                 Reach out for a free consultation and let&apos;s discuss your real estate goals.
               </p>
               </ScrollReveal>

@@ -6,7 +6,7 @@ export const agent = {
   license: "CalBRE# 00899654",
   experience: "30 Years Experience",
   licensedSince: "1985",
-  serviceAreas: ["Oakland", "Emeryville"],
+  serviceAreas: ["Bay Area"],
   represents: "Both Buyers and Sellers",
   languages: ["English"],
   brokerage: "Halifax Solutions Inc",

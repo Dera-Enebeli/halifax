@@ -9,7 +9,7 @@ import { openWhatsApp } from "@/lib/whatsapp"
 
 export default function LeadStepConsultation() {
   const router = useRouter()
-  const { state, dispatch } = useFunnel()
+  const { state } = useFunnel()
 
   const interestMessages: Record<string, { heading: string; body: string }> = {
     buyer: {
