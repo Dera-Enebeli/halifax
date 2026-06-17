@@ -13,6 +13,7 @@ const services = [
     headline: "Your first home starts here",
     items: [
       "Free access to Bay Area property listings",
+      "Free pre-foreclosure & off-market listings",
       "Free pre-qualification",
       "3% down",
       "Zero closing costs",
@@ -25,7 +26,7 @@ const services = [
     items: [
       "Free property value / appraisal",
       "Free market analysis",
-      "How to sell your home for top $$",
+      "Free guide to selling for top $$",
       "Free relocation",
     ],
     href: "/consultation?interest=seller",
@@ -35,9 +36,9 @@ const services = [
     headline: "Know what your home is worth",
     items: [
       "Free home value estimate",
-      "Comparable market analysis",
-      "Local market data & trends",
-      "No-obligation consultation",
+      "Free comparable market analysis",
+      "Free local market data & trends",
+      "Free no-obligation consultation",
     ],
     href: "/consultation?interest=homeowner",
   },
