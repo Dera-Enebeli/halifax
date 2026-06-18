@@ -8,6 +8,7 @@ import { X, Menu } from "lucide-react"
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
 ]
 
 export default function Header() {
