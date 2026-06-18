@@ -29,7 +29,6 @@ const footerLinks = [
     title: "Company",
     links: [
       { label: "About Geoffrey", href: "/about" },
-      { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/consultation" },
     ],
   },

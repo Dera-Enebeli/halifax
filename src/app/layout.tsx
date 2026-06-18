@@ -126,7 +126,7 @@ const orgSchema = {
         { "@type": "ListItem", position: 2, name: "About", item: `${baseUrl}/about` },
         { "@type": "ListItem", position: 3, name: "Free Home Valuation", item: `${baseUrl}/free-valuation` },
         { "@type": "ListItem", position: 4, name: "Consultation", item: `${baseUrl}/consultation` },
-        { "@type": "ListItem", position: 5, name: "Blog", item: `${baseUrl}/blog` },
+        { "@type": "ListItem", position: 5, name: "Free Home Valuation", item: `${baseUrl}/free-valuation` },
         { "@type": "ListItem", position: 6, name: "Oakland Real Estate", item: `${baseUrl}/areas/oakland` },
         { "@type": "ListItem", position: 7, name: "Berkeley Real Estate", item: `${baseUrl}/areas/berkeley` },
         { "@type": "ListItem", position: 8, name: "Walnut Creek Real Estate", item: `${baseUrl}/areas/walnut-creek` },
