@@ -1,11 +1,31 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
 import { Home, Building2, DollarSign, Phone, Mail, MapPin } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import UtilityBar from "@/components/utility-bar"
 import { agent, certifications } from "@/lib/mock-data"
 import ScrollReveal from "@/components/scroll-reveal"
+
+export const metadata: Metadata = {
+  title: "About Geoffrey Enebly | Halifax Properties — East Bay Real Estate Agent",
+  description:
+    "Meet Geoffrey Enebly — East Bay real estate agent with 30 years experience. Buy, sell, or value your home in Oakland, Berkeley, Walnut Creek, Dublin & beyond. Broker, CalBRE# 00899654.",
+  openGraph: {
+    title: "About Geoffrey Enebly | Halifax Properties — East Bay Real Estate Agent",
+    description:
+      "Meet Geoffrey Enebly — East Bay real estate agent with 30 years experience. Buy, sell, or value your home in Oakland, Berkeley, Walnut Creek, Dublin & beyond.",
+  },
+  twitter: {
+    title: "About Geoffrey Enebly | Halifax Properties — East Bay Real Estate Agent",
+    description:
+      "Meet Geoffrey Enebly — East Bay real estate agent with 30 years experience.",
+  },
+  alternates: {
+    canonical: "/about",
+  },
+}
 
 const values = [
   {

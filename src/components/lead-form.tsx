@@ -3,17 +3,17 @@
 import { useState } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { ArrowLeft, Home, Building2, DollarSign, Phone, Mail, MessageCircle, Check } from "lucide-react"
+import { ArrowLeft, Home, Building2, DollarSign, Phone, Mail, MessageCircle, Check, Loader2 } from "lucide-react"
 import { useFunnel } from "@/lib/funnel-store"
 import { eastBayCities, agent } from "@/lib/mock-data"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Select } from "@/components/ui/select"
 
-function FieldHint({ children }: { children: React.ReactNode }) {
+function FieldHint({ children, error }: { children: React.ReactNode; error?: string | false }) {
   return (
-    <p className="text-sm text-near-black/40 mt-1.5">
-      {children}
+    <p className={`text-sm mt-1.5 ${error ? "text-red-600 font-medium" : "text-near-black/40"}`}>
+      {error || children}
     </p>
   )
 }
@@ -35,35 +35,75 @@ export default function LeadForm() {
   const { state, dispatch } = useFunnel()
   const [showContactStep, setShowContactStep] = useState(false)
   const [selectedMethod, setSelectedMethod] = useState<"phone" | "email" | "whatsapp" | null>(null)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({})
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const phoneDigits = state.phone.replace(/\D/g, "")
+
+  const validate = (): boolean => {
+    const errors: Record<string, string> = {}
+    if (!state.interest) errors.interest = "Please select your interest"
+    if (!state.name.trim()) errors.name = "Full name is required"
+    if (!state.email.trim()) {
+      errors.email = "Email is required"
+    } else if (!emailRegex.test(state.email)) {
+      errors.email = "Please enter a valid email"
+    }
+    if (!state.phone.trim()) {
+      errors.phone = "Phone number is required"
+    } else if (phoneDigits.length < 10) {
+      errors.phone = "Please enter a valid phone number (10+ digits)"
+    }
+    setValidationErrors(errors)
+    return Object.keys(errors).length === 0
+  }
 
   const canSubmit = !!state.interest && !!state.name.trim() && !!state.email.trim() && !!state.phone.trim()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!canSubmit) return
+    if (!validate()) return
     setShowContactStep(true)
   }
 
-  const handleConfirmContact = () => {
+  const handleConfirmContact = async () => {
     if (!selectedMethod) return
-    const interestLabels: Record<string, string> = {
-      buyer: "Buying",
-      seller: "Selling",
-      homeowner: "Valuation",
-    }
-    const data: Record<string, string> = {
-      Interest: interestLabels[state.interest ?? ""] || "Valuation",
-      Name: state.name,
-      Email: state.email,
-      Phone: state.phone,
-    }
+    setSubmitting(true)
+    setSubmitError(null)
 
-    if (state.bestTimeToCall.trim()) data["Best Time to Call"] = state.bestTimeToCall
-    if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
-    if (state.message.trim()) data["Message"] = state.message
+    try {
+      const payload: Record<string, string> = {
+        interest: state.interest ?? "homeowner",
+        name: state.name,
+        email: state.email,
+        phone: state.phone,
+        contactMethod: selectedMethod,
+      }
 
-    dispatch({ type: "SET_CONTACT_METHOD", payload: selectedMethod })
-    dispatch({ type: "SUBMIT" })
+      if (state.bestTimeToCall.trim()) payload.bestTimeToCall = state.bestTimeToCall
+      if (state.areaOfInterest) payload.areaOfInterest = state.areaOfInterest
+      if (state.message.trim()) payload.message = state.message
+
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        const err = await res.json()
+        throw new Error(err.error || "Failed to submit")
+      }
+
+      dispatch({ type: "SET_CONTACT_METHOD", payload: selectedMethod })
+      dispatch({ type: "SUBMIT" })
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -157,15 +197,25 @@ export default function LeadForm() {
                     })}
                   </div>
 
+                  {submitError && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3">
+                      {submitError}
+                    </div>
+                  )}
+
                   <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
                     <button
                       type="button"
                       onClick={handleConfirmContact}
-                      disabled={!selectedMethod}
+                      disabled={!selectedMethod || submitting}
                       className="h-12 px-8 text-base font-bold tracking-wide text-crimson border-2 border-crimson rounded-lg hover:bg-crimson hover:text-white transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 w-full sm:w-auto"
                     >
-                      <Check className="h-5 w-5 flex-shrink-0" />
-                      <span>Confirm &amp; Submit</span>
+                      {submitting ? (
+                        <Loader2 className="h-5 w-5 animate-spin flex-shrink-0" />
+                      ) : (
+                        <Check className="h-5 w-5 flex-shrink-0" />
+                      )}
+                      <span>{submitting ? "Submitting..." : "Confirm &amp; Submit"}</span>
                     </button>
                     <button
                       type="button"
@@ -216,7 +266,7 @@ export default function LeadForm() {
                       )
                     })}
                   </div>
-                  <FieldHint>Select the option that best fits your goal.</FieldHint>
+                  <FieldHint error={validationErrors.interest}>Select the option that best fits your goal.</FieldHint>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
@@ -231,7 +281,7 @@ export default function LeadForm() {
                       placeholder="Your full name"
                       required
                     />
-                    <FieldHint>So we know how to address you.</FieldHint>
+                    <FieldHint error={validationErrors.name}>So we know how to address you.</FieldHint>
                   </div>
 
                   <div>
@@ -245,7 +295,7 @@ export default function LeadForm() {
                       placeholder="your@email.com"
                       required
                     />
-                    <FieldHint>So we can follow up with you.</FieldHint>
+                    <FieldHint error={validationErrors.email}>So we can follow up with you.</FieldHint>
                   </div>
 
                   <div>
@@ -259,7 +309,7 @@ export default function LeadForm() {
                       placeholder="(555) 123-4567"
                       required
                     />
-                    <FieldHint>So we can reach you directly.</FieldHint>
+                    <FieldHint error={validationErrors.phone}>So we can reach you directly.</FieldHint>
                   </div>
 
                   <div>

@@ -6,12 +6,14 @@ export default function HeroSection() {
   return (
     <section className="relative w-full -mt-16 lg:-mt-20">
       <div className="relative min-h-[calc(100dvh+64px)] lg:min-h-[calc(100dvh+80px)] flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              'url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=90")',
-          }}
+        <Image
+          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=90"
+          alt="East Bay real estate — Halifax Properties & Investments"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+          unoptimized
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
 

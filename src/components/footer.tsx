@@ -3,6 +3,14 @@ import Link from "next/link"
 import { Phone, Mail, MapPin, Building2 } from "lucide-react"
 import { agent } from "@/lib/mock-data"
 
+const areaLinks = [
+  { label: "Oakland", href: "/areas/oakland" },
+  { label: "Berkeley", href: "/areas/berkeley" },
+  { label: "Walnut Creek", href: "/areas/walnut-creek" },
+  { label: "Dublin", href: "/areas/dublin" },
+  { label: "Pleasanton", href: "/areas/pleasanton" },
+]
+
 const footerLinks = [
   {
     title: "Services",
@@ -10,11 +18,17 @@ const footerLinks = [
       { label: "Buy a Home", href: "/consultation" },
       { label: "Sell a Home", href: "/consultation?interest=seller" },
       { label: "Property Valuation", href: "/consultation?interest=homeowner" },
+      { label: "Free Consultation", href: "/consultation" },
     ],
   },
   {
-    title: "Support",
+    title: "East Bay Areas",
+    links: areaLinks,
+  },
+  {
+    title: "Company",
     links: [
+      { label: "About Geoffrey", href: "/about" },
       { label: "Contact", href: "/consultation" },
     ],
   },

@@ -1,11 +1,13 @@
 import UtilityBar from "@/components/utility-bar"
 import Header from "@/components/header"
 import HeroSection from "@/components/hero-section"
+import TestimonialsSection from "@/components/testimonials-section"
 import Footer from "@/components/footer"
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, Mail } from "lucide-react"
+import { Phone, Mail, ArrowRight } from "lucide-react"
 import ScrollReveal from "@/components/scroll-reveal"
+import { cities } from "@/lib/city-data"
 
 const services = [
   {
@@ -73,17 +75,43 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-near-black via-transparent to-near-black pointer-events-none" />
           <div className="max-w-page section-padding relative z-[1]">
             <ScrollReveal>
-              <div className="text-center py-14 md:py-20 px-4">
+              <div className="text-center py-14 md:py-16 px-4">
                 <p className="text-xs font-medium tracking-[0.18em] uppercase text-olive/80 mb-4">
                   Free Consultation
                 </p>
-                <h2 className="font-serif italic text-[clamp(28px,3rem,52px)] font-medium text-white leading-[1.15]">
+                <h2 className="font-serif italic text-[clamp(28px,3rem,52px)] font-medium text-white leading-[1.15] mb-5">
                   One Stop <span className="text-crimson italic">Real Estate</span>
                 </h2>
-                <hr className="w-12 h-[2px] bg-crimson border-0 mx-auto my-5" />
-                <p className="max-w-[600px] mx-auto text-[15px] text-white/50 leading-relaxed [text-wrap:pretty]">
+                <hr className="w-12 h-[2px] bg-crimson border-0 mx-auto mb-5" />
+                <p className="max-w-[600px] mx-auto text-[15px] text-white/50 leading-relaxed [text-wrap:pretty] mb-12 md:mb-14">
                   Buying, selling, or valuing&mdash;we guide you through every step of the East Bay market with local expertise and honest advice.
                 </p>
+
+                <h3 className="font-serif italic text-[clamp(22px,2.5vw,32px)] text-white leading-[1.2] mb-8 md:mb-10">
+                  Find Your Home in the East Bay
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-5 max-w-4xl mx-auto">
+                  {cities.map((c) => (
+                    <Link
+                      key={c.slug}
+                      href={`/areas/${c.slug}`}
+                      className="group flex flex-col items-center justify-center gap-1.5 bg-white/5 hover:bg-crimson/15 rounded-lg px-3 py-5 md:py-6 transition-all duration-200"
+                    >
+                      <span className="font-serif italic text-[15px] md:text-base text-white/80 group-hover:text-crimson transition-colors">
+                        {c.name}
+                      </span>
+                      <span className="text-[10px] md:text-[11px] text-white/30 group-hover:text-white/50 transition-colors text-center leading-tight">
+                        {c.tagline}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  href="/areas/oakland"
+                  className="inline-flex items-center gap-1.5 text-xs mt-5 text-white/40 hover:text-crimson transition-colors font-medium uppercase tracking-wider"
+                >
+                  Explore all areas <ArrowRight className="h-3 w-3" />
+                </Link>
               </div>
             </ScrollReveal>
 
@@ -140,6 +168,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <TestimonialsSection />
 
         <section className="py-14 md:py-20" style={{ background: "var(--color-cream-dark, #EAE2D6)" }}>
           <div className="max-w-page section-padding">

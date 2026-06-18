@@ -65,7 +65,7 @@ export default function Header() {
                 </Link>
               ))}
               <a
-                href="#"
+                href="https://www.facebook.com/geffreyeneblyrealestate"
                 className="w-8 h-8 rounded-full flex items-center justify-center text-near-black/60 hover:text-crimson hover:bg-cream-dark transition-all duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -110,7 +110,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="#"
+              href="https://www.facebook.com/geffreyeneblyrealestate"
               className="w-10 h-10 rounded-full flex items-center justify-center mx-auto text-near-black/60 hover:text-crimson hover:bg-cream-dark transition-all duration-200"
               target="_blank"
               rel="noopener noreferrer"
