@@ -86,9 +86,12 @@ export default function Footer() {
                     <Mail className="h-3.5 w-3.5 text-crimson shrink-0" />
                     Enebly@aol.com
                   </a>
-                  <div className="flex items-center gap-2.5 text-[13px] sm:text-[15px] text-white/60">
-                    <MapPin className="h-3.5 w-3.5 text-crimson shrink-0" />
-                    Antioch, CA
+                  <div className="flex items-start gap-2.5 text-[13px] sm:text-[15px] text-white/60">
+                    <MapPin className="h-3.5 w-3.5 text-crimson shrink-0 mt-0.5" />
+                    <div className="flex flex-col">
+                      <span>{agent.address}</span>
+                      <span>{agent.address2}</span>
+                    </div>
                   </div>
                 </div>
             </div>
