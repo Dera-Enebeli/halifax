@@ -153,7 +153,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-lead font-medium text-near-black hover:text-crimson transition-colors touch-target py-2"
+                className="text-lead font-medium text-near-black hover:text-crimson transition-colors touch-target py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 rounded"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
@@ -163,7 +163,7 @@ export default function Header() {
               href={mortgageUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lead font-medium text-near-black hover:text-crimson transition-colors touch-target py-2"
+              className="text-lead font-medium text-near-black hover:text-crimson transition-colors touch-target py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 rounded"
               onClick={() => setMobileOpen(false)}
             >
               Mortgage
@@ -171,7 +171,7 @@ export default function Header() {
             </a>
             <a
               href="https://www.facebook.com/geffreyeneblyrealestate"
-              className="w-10 h-10 rounded-full flex items-center justify-center mx-auto text-near-black/60 hover:text-crimson hover:bg-cream-dark transition-all duration-200"
+              className="w-10 h-10 rounded-full flex items-center justify-center mx-auto text-near-black/60 hover:text-crimson hover:bg-cream-dark transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -183,7 +183,7 @@ export default function Header() {
             </a>
             <Link
               href="/consultation"
-              className="text-lead font-semibold text-white bg-crimson px-6 py-4 rounded-full text-center hover:bg-crimson-dark transition-colors touch-target"
+              className="text-lead font-semibold text-white bg-crimson px-6 py-4 rounded-full text-center hover:bg-crimson-dark transition-colors touch-target focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2"
               onClick={() => setMobileOpen(false)}
             >
               Get in Touch
