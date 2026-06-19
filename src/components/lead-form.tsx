@@ -3,20 +3,22 @@
 import { useState } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { ArrowLeft, Home, Building2, DollarSign, Phone, Mail, MessageCircle, Check, Loader2 } from "lucide-react"
+import { ArrowLeft, Home, Building2, DollarSign, Phone, Mail, MessageCircle, Check, Loader2, ExternalLink } from "lucide-react"
 import { useFunnel } from "@/lib/funnel-store"
 import { eastBayCities, agent } from "@/lib/mock-data"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Select } from "@/components/ui/select"
 
-function FieldHint({ children, error }: { children: React.ReactNode; error?: string | false }) {
+function FieldHint({ children, error, id, errorId }: { children: React.ReactNode; error?: string | false; id?: string; errorId?: string }) {
   return (
-    <p className={`text-sm mt-1.5 ${error ? "text-red-600 font-medium" : "text-near-black/40"}`}>
+    <p id={error ? errorId : id} className={`text-sm mt-1.5 ${error ? "text-red-600 font-medium" : "text-near-black/40"}`} role={error ? "alert" : undefined}>
       {error || children}
     </p>
   )
 }
+
+const mortgageUrl = "https://www.empirelending.net"
 
 const interestOptions = [
   { value: "buyer" as const, label: "Buying", sub: "Find a home", icon: Home },
@@ -231,10 +233,10 @@ export default function LeadForm() {
                 <form onSubmit={handleSubmit} className="space-y-7">
 
                 <div>
-                  <label className="block text-sm font-semibold text-near-black mb-3">
+                  <label className="block text-sm font-semibold text-near-black mb-3" id="interest-label">
                     What are you looking for?
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3" role="radiogroup" aria-labelledby="interest-label" aria-describedby={validationErrors.interest ? "error-interest" : "hint-interest"}>
                     {interestOptions.map((option) => {
                       const Icon = option.icon
                       const isActive = state.interest === option.value
@@ -242,6 +244,8 @@ export default function LeadForm() {
                         <button
                           key={option.value}
                           type="button"
+                          role="radio"
+                          aria-checked={isActive}
                           onClick={() => dispatch({ type: "SET_INTEREST", payload: option.value })}
                           className={`flex items-center gap-3 sm:flex-col sm:text-center py-3.5 px-4 rounded-lg transition-all duration-200 cursor-pointer border ${
                             isActive
@@ -266,7 +270,28 @@ export default function LeadForm() {
                       )
                     })}
                   </div>
-                  <FieldHint error={validationErrors.interest}>Select the option that best fits your goal.</FieldHint>
+                  <FieldHint error={validationErrors.interest} id="hint-interest" errorId="error-interest">Select the option that best fits your goal.</FieldHint>
+                  <div className="mt-3 pt-3 border-t border-warm-border">
+                    <a
+                      href={mortgageUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Opens empirelending.net in a new tab"
+                      className="group flex items-center gap-3 py-3 px-4 rounded-lg border border-emerald-300 bg-emerald-50/60 hover:bg-emerald-100 transition-all duration-200"
+                    >
+                      <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                        <ExternalLink className="h-[18px] w-[18px] text-emerald-600" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="block text-sm font-bold text-emerald-800">
+                          Need a mortgage?
+                        </span>
+                        <span className="block text-xs mt-px text-emerald-600/70">
+                          Get pre-approved — you'll leave our site
+                        </span>
+                      </div>
+                    </a>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
@@ -280,8 +305,10 @@ export default function LeadForm() {
                       onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
                       placeholder="Your full name"
                       required
+                      aria-invalid={!!validationErrors.name}
+                      aria-describedby={validationErrors.name ? "error-name" : "hint-name"}
                     />
-                    <FieldHint error={validationErrors.name}>So we know how to address you.</FieldHint>
+                    <FieldHint error={validationErrors.name} id="hint-name" errorId="error-name">So we know how to address you.</FieldHint>
                   </div>
 
                   <div>
@@ -294,8 +321,10 @@ export default function LeadForm() {
                       onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
                       placeholder="your@email.com"
                       required
+                      aria-invalid={!!validationErrors.email}
+                      aria-describedby={validationErrors.email ? "error-email" : "hint-email"}
                     />
-                    <FieldHint error={validationErrors.email}>So we can follow up with you.</FieldHint>
+                    <FieldHint error={validationErrors.email} id="hint-email" errorId="error-email">So we can follow up with you.</FieldHint>
                   </div>
 
                   <div>
@@ -308,8 +337,10 @@ export default function LeadForm() {
                       onChange={(e) => dispatch({ type: "SET_PHONE", payload: e.target.value })}
                       placeholder="(555) 123-4567"
                       required
+                      aria-invalid={!!validationErrors.phone}
+                      aria-describedby={validationErrors.phone ? "error-phone" : "hint-phone"}
                     />
-                    <FieldHint error={validationErrors.phone}>So we can reach you directly.</FieldHint>
+                    <FieldHint error={validationErrors.phone} id="hint-phone" errorId="error-phone">So we can reach you directly.</FieldHint>
                   </div>
 
                   <div>

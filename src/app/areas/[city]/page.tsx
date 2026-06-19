@@ -5,7 +5,6 @@ import Image from "next/image"
 import { Phone, Home, Building2, ArrowLeft, MapPin } from "lucide-react"
 import { cities, cityBySlug, areaRoutes } from "@/lib/city-data"
 import { neighborhoodsByCity } from "@/lib/neighborhood-data"
-import type { NeighborhoodInfo } from "@/lib/neighborhood-data"
 import ScrollReveal from "@/components/scroll-reveal"
 import { agent } from "@/lib/mock-data"
 

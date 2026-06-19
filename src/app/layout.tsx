@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 })
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://real-estate-site-six.vercel.app"
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://HalifaxProperties.org"
 const gaId = process.env.NEXT_PUBLIC_GA_ID || ""
 
 export const viewport: Viewport = {
@@ -151,7 +151,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {gaId && (
+          <>
+            <link rel="preconnect" href="https://www.googletagmanager.com" />
+            <link rel="preconnect" href="https://www.google-analytics.com" />
+          </>
+        )}
+      </head>
       <body className="font-sans antialiased">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-crimson focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-bold focus:outline-none">
+          Skip to main content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
@@ -164,7 +177,7 @@ export default function RootLayout({
             </Script>
           </>
         )}
-        {children}
+        <div id="main-content">{children}</div>
       </body>
     </html>
   )

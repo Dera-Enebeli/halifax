@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV === "development"
+const evalSrc = isDev ? "'unsafe-eval'" : ""
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -29,6 +32,10 @@ const nextConfig: NextConfig = {
           {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: `default-src 'self'; script-src 'self' 'unsafe-inline' ${evalSrc} https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' https://images.unsplash.com data:; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; frame-src 'none'; object-src 'none'`,
           },
         ],
       },

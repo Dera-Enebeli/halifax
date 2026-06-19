@@ -1,7 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Phone, Mail, MapPin, Building2 } from "lucide-react"
+import { Phone, Mail, MapPin, Building2, CreditCard } from "lucide-react"
 import { agent } from "@/lib/mock-data"
+
+const mortgageUrl = "https://www.empirelending.net"
 
 const areaLinks = [
   { label: "Oakland", href: "/areas/oakland" },
@@ -30,6 +32,16 @@ const footerLinks = [
     links: [
       { label: "About Geoffrey", href: "/about" },
       { label: "Contact", href: "/consultation" },
+    ],
+  },
+  {
+    title: "Mortgage Services",
+    external: true,
+    links: [
+      { label: "Get Pre-Approved", href: `${mortgageUrl}/apply-now/` },
+      { label: "Today's Rates", href: `${mortgageUrl}/todays-rates/` },
+      { label: "Refinance", href: `${mortgageUrl}/home-refinance/` },
+      { label: "Loan Programs", href: `${mortgageUrl}/loan-programs/` },
     ],
   },
 ]
@@ -87,12 +99,23 @@ export default function Footer() {
                 <ul className="flex flex-col gap-2.5">
                   {group.links.map((link) => (
                     <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-[13px] sm:text-[15px] text-white/50 hover:text-white transition-colors duration-200 font-light"
-                      >
-                        {link.label}
-                      </Link>
+                      {group.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[13px] sm:text-[15px] text-white/50 hover:text-white transition-colors duration-200 font-light"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-[13px] sm:text-[15px] text-white/50 hover:text-white transition-colors duration-200 font-light"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -107,6 +130,15 @@ export default function Footer() {
           <span>
             &copy; {new Date().getFullYear()} Halifax Properties &amp; Investments — East Bay. All rights reserved.
           </span>
+          <a
+            href={mortgageUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-white transition-colors"
+          >
+            <CreditCard className="h-3 w-3" />
+            <span>Empire Lending Group</span>
+          </a>
         </div>
       </div>
     </footer>

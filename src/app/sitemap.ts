@@ -3,7 +3,7 @@ import { areaRoutes } from "@/lib/city-data"
 import { neighborhoods } from "@/lib/neighborhood-data"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://real-estate-site-six.vercel.app"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://HalifaxProperties.org"
 
   const areaPages = areaRoutes.map((slug) => ({
     url: `${baseUrl}/areas/${slug}`,

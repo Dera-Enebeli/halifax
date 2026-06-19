@@ -1,19 +1,20 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, Mail, Home, Building2, DollarSign } from "lucide-react"
+import { Phone, Mail, Home, Building2, DollarSign, ExternalLink } from "lucide-react"
+
+const mortgageUrl = "https://www.empirelending.net"
 
 export default function HeroSection() {
   return (
     <section className="relative w-full -mt-16 lg:-mt-20">
       <div className="relative min-h-[calc(100dvh+64px)] lg:min-h-[calc(100dvh+80px)] flex items-center justify-center">
         <Image
-          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=90"
+          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
           alt="East Bay real estate — Halifax Properties & Investments"
           fill
           className="object-cover"
           sizes="100vw"
           priority
-          unoptimized
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
 
@@ -75,6 +76,15 @@ export default function HeroSection() {
                 <DollarSign className="h-3.5 w-3.5 text-white/60" />
                 Valuation
               </Link>
+              <a
+                href={mortgageUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
+              >
+                <ExternalLink className="h-3.5 w-3.5 text-white/60" />
+                Pre-Approval
+              </a>
             </div>
           </div>
         </div>

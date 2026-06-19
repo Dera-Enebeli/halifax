@@ -1,13 +1,19 @@
+import dynamic from "next/dynamic"
 import UtilityBar from "@/components/utility-bar"
 import Header from "@/components/header"
 import HeroSection from "@/components/hero-section"
-import TestimonialsSection from "@/components/testimonials-section"
-import Footer from "@/components/footer"
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, Mail, ArrowRight } from "lucide-react"
+import { Phone, Mail, ArrowRight, ExternalLink } from "lucide-react"
 import ScrollReveal from "@/components/scroll-reveal"
 import { cities } from "@/lib/city-data"
+
+const TestimonialsSection = dynamic(() => import("@/components/testimonials-section"), {
+  loading: () => <div className="py-16 md:py-24 bg-cream" />,
+})
+const Footer = dynamic(() => import("@/components/footer"), {
+  loading: () => <div className="bg-near-black py-16" />,
+})
 
 const services = [
   {
@@ -44,6 +50,18 @@ const services = [
     ],
     href: "/consultation?interest=homeowner",
   },
+  {
+    label: "Mortgage",
+    headline: "Get pre-approved today",
+    items: [
+      "Conventional & FHA loans",
+      "First-time home buyer programs",
+      "Competitive interest rates",
+      "Powered by Empire Lending Group",
+    ],
+    href: "https://www.empirelending.net",
+    external: true,
+  },
 ]
 
 export default function Home() {
@@ -63,12 +81,11 @@ export default function Home() {
             }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1691320396937-e3b66cd332f1?w=1600&q=85"
+              src="https://images.unsplash.com/photo-1691320396937-e3b66cd332f1"
               alt=""
               fill
               className="object-cover"
-              sizes="100vw md:55vw"
-              unoptimized
+              sizes="(max-width: 768px) 100vw, 55vw"
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-near-black/40 to-near-black" />
@@ -115,7 +132,7 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7 pb-14 md:pb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-7 pb-14 md:pb-20">
               {services.map((s, i) => (
                 <ScrollReveal key={s.label} delay={i * 150}>
                   <div className="relative pt-6 md:pt-8 px-5 md:px-7 pb-6 md:pb-7 border-t-[3px] border-crimson">
@@ -144,6 +161,13 @@ export default function Home() {
                       <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'52px', left:'18px'}} />
                     </div>
                   )}
+                  {i === 3 && (
+                    <div className="absolute -top-10 -right-10 w-48 h-48 opacity-[0.15] text-emerald-400 pointer-events-none" aria-hidden="true">
+                      <div className="w-full h-full rounded-full border border-current" />
+                      <div className="absolute inset-7 rounded-full border border-current" />
+                      <div className="absolute inset-14 rounded-full border border-current" />
+                    </div>
+                  )}
                   <p className="font-serif italic text-olive text-base mb-2">{s.label}</p>
                   <h3 className="font-serif text-[22px] md:text-[28px] font-semibold leading-[1.2] text-white mb-4 md:mb-5">
                     {s.headline}
@@ -156,12 +180,23 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href={s.href}
-                    className="inline-block text-sm sm:text-xs uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2"
-                  >
-                    Learn more &rarr;
-                  </Link>
+                  {s.external ? (
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm sm:text-xs uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2"
+                    >
+                      Apply now <ExternalLink className="h-3 w-3" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={s.href}
+                      className="inline-block text-sm sm:text-xs uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2"
+                    >
+                      Learn more &rarr;
+                    </Link>
+                  )}
                 </div>
                 </ScrollReveal>
               ))}

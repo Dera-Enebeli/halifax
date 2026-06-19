@@ -1,18 +1,22 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { X, Menu } from "lucide-react"
+import { X, Menu, ExternalLink } from "lucide-react"
 
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
 ]
 
+const mortgageUrl = "https://www.empirelending.net"
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const drawerRef = useRef<HTMLDivElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -20,6 +24,38 @@ export default function Header() {
     onScroll()
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  useEffect(() => {
+    if (!mobileOpen) return
+    const drawer = drawerRef.current
+    if (!drawer) return
+
+    const focusable = drawer.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+
+    first?.focus()
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key !== "Tab") return
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault()
+          last?.focus()
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault()
+          first?.focus()
+        }
+      }
+    }
+
+    drawer.addEventListener("keydown", handleKeyDown)
+    return () => drawer.removeEventListener("keydown", handleKeyDown)
+  }, [mobileOpen])
 
   return (
     <>
@@ -65,6 +101,15 @@ export default function Header() {
                 </Link>
               ))}
               <a
+                href={mortgageUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-near-black/80 hover:text-crimson transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+              >
+                Mortgage
+                <ExternalLink className="h-3 w-3 ml-1 inline-block -mt-0.5 opacity-60" />
+              </a>
+              <a
                 href="https://www.facebook.com/geffreyeneblyrealestate"
                 className="w-8 h-8 rounded-full flex items-center justify-center text-near-black/60 hover:text-crimson hover:bg-cream-dark transition-all duration-200"
                 target="_blank"
@@ -84,6 +129,7 @@ export default function Header() {
             </nav>
 
             <button
+              ref={toggleRef}
               className={`lg:hidden flex items-center justify-center w-12 h-12 cursor-pointer bg-none border-none z-50 transition-colors duration-300 text-near-black touch-target`}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Menu"}
@@ -94,9 +140,13 @@ export default function Header() {
         </div>
 
         <div
+          ref={drawerRef}
           className={`fixed top-0 right-0 w-[280px] h-full bg-cream z-40 transition-transform duration-300 lg:hidden ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
+          role="dialog"
+          aria-modal={mobileOpen ? "true" : undefined}
+          aria-label="Navigation menu"
         >
           <div className="flex flex-col gap-6 pt-20 px-8">
             {navItems.map((item) => (
@@ -109,6 +159,16 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            <a
+              href={mortgageUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lead font-medium text-near-black hover:text-crimson transition-colors touch-target py-2"
+              onClick={() => setMobileOpen(false)}
+            >
+              Mortgage
+              <ExternalLink className="h-3.5 w-3.5 ml-1.5 inline-block opacity-50" />
+            </a>
             <a
               href="https://www.facebook.com/geffreyeneblyrealestate"
               className="w-10 h-10 rounded-full flex items-center justify-center mx-auto text-near-black/60 hover:text-crimson hover:bg-cream-dark transition-all duration-200"
