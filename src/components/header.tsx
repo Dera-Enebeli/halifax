@@ -82,7 +82,7 @@ export default function Header() {
                 >
                   Halifax
                 </span>
-                <span className="text-[10px] font-semibold text-crimson tracking-[2px] uppercase sm:block transition-transform duration-300 group-hover:scale-105 origin-left">
+                <span className="text-xs font-semibold text-crimson tracking-[2px] uppercase sm:block transition-transform duration-300 group-hover:scale-105 origin-left">
                   East Bay
                 </span>
               </div>
@@ -128,7 +128,7 @@ export default function Header() {
 
             <button
               ref={toggleRef}
-              className={`lg:hidden flex items-center justify-center w-12 h-12 cursor-pointer bg-none border-none z-50 transition-colors duration-300 text-near-black touch-target`}
+              className={`lg:hidden flex items-center justify-center w-12 h-12 cursor-pointer bg-none border-none z-50 transition-colors duration-300 text-near-black touch-target focus-visible:outline-none`}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Menu"}
             >

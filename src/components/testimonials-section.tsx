@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
               <ScrollReveal key={t.name} delay={i * 100}>
                 <div className="bg-cream-dark px-6 py-7 md:px-7 md:py-8 rounded-lg h-full flex flex-col">
                   <Stars count={t.rating} />
-                  <p className="text-[15px] text-near-black/65 leading-relaxed font-light mt-4 mb-5 flex-1 [text-wrap:pretty]">
+                  <p className="text-sm text-near-black/65 leading-relaxed font-light mt-4 mb-5 flex-1 [text-wrap:pretty]">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="h-px bg-warm-border mb-4" />

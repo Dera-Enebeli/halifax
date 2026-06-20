@@ -68,7 +68,7 @@ export default function AboutPage() {
                   <span className="text-crimson">&amp;</span> Investments
                 </h1>
                 <div className="w-16 h-[3px] bg-crimson mb-6" />
-                <p className="text-white/60 text-[15px] md:text-[17px] leading-relaxed max-w-2xl font-light">
+                <p className="text-white/60 text-body leading-relaxed max-w-2xl font-light">
                   Your trusted East Bay real estate partner — helping families buy, sell, and value homes across Oakland, Berkeley, Walnut Creek, Dublin, and beyond.
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function AboutPage() {
                 Making East Bay Real Estate Simple
               </h2>
               <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
-              <p className="text-[15px] md:text-[16px] text-near-black/60 leading-relaxed font-light max-w-xl mx-auto">
+              <p className="text-body text-near-black/60 leading-relaxed font-light max-w-xl mx-auto">
                 At Halifax Properties &amp; Investments, we believe buying or selling a home should be exciting, not overwhelming. 
                 Led by Geoffrey Enebly, we bring years of East Bay market knowledge, honest advice, and a genuine commitment 
                 to helping you reach your goals — whether that&apos;s finding your first home, upgrading to more space, downsizing, 
@@ -94,12 +94,12 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {values.map((item, i) => {
                 const Icon = item.icon
                 return (
                   <ScrollReveal key={item.title} delay={i * 150}>
-                  <div className="relative overflow-hidden bg-[#FCFAF5] pt-0 px-7 pb-7 rounded-lg shadow-lg shadow-black/10">
+                  <div className="relative overflow-hidden bg-cream-dark pt-0 px-7 pb-7 rounded-lg shadow-lg shadow-black/10">
                     {i === 0 && (
                       <div className="absolute -top-10 -right-10 w-48 h-48 opacity-[0.3] text-crimson pointer-events-none" aria-hidden="true">
                         <div className="w-full h-full rounded-full border-2 border-current" />
@@ -131,7 +131,7 @@ export default function AboutPage() {
                         <Icon className="h-5 w-5 text-crimson" />
                       </div>
                       <h3 className="font-serif italic text-xl text-near-black mb-3">{item.title}</h3>
-                      <p className="text-[15px] text-near-black/60 leading-relaxed font-light">
+                      <p className="text-sm text-near-black/85 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -178,18 +178,16 @@ export default function AboutPage() {
                     <div className="h-px bg-warm-border mb-4" />
 
                     <div className="space-y-2.5">
-                      <span className="flex items-center gap-2.5 text-body text-near-black/60">
-                        <span className="w-6 flex items-center justify-center">
-                          <Phone className="h-3.5 w-3.5 text-crimson" />
-                        </span>
-                        (510) 507-5088
-                      </span>
-                      <span className="flex items-center gap-2.5 text-body text-near-black/60">
-                        <span className="w-6 flex items-center justify-center">
-                          <Mail className="h-3.5 w-3.5 text-crimson" />
-                        </span>
-                        Enebly@aol.com
-                      </span>
+                      <div style={{ display: "flex", flexDirection: "row" }}>
+                        <div style={{ width: "50%", display: "flex", alignItems: "center", gap: "4px", overflow: "hidden" }} className="text-xs sm:text-sm text-near-black/60">
+                          <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-crimson shrink-0" />
+                          <span className="truncate">(510) 507-5088</span>
+                        </div>
+                        <div style={{ width: "50%", display: "flex", alignItems: "center", gap: "4px", overflow: "hidden" }} className="text-xs sm:text-sm text-near-black/60">
+                          <Mail className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-crimson shrink-0" />
+                          <span className="truncate">Enebly@aol.com</span>
+                        </div>
+                      </div>
                       <span className="flex items-center gap-2.5 text-body text-near-black/60">
                         <span className="w-6 flex items-center justify-center">
                           <MapPin className="h-3.5 w-3.5 text-crimson" />
@@ -216,7 +214,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="lg:col-span-3">
-                  <div className="space-y-5 text-[15px] text-near-black/65 leading-relaxed font-light">
+                  <div className="space-y-5 text-body text-near-black/70 leading-normal">
                     <hr className="w-12 h-[3px] bg-crimson border-0 mx-auto block lg:hidden" />
                     <p>
                       Choosing the right real estate agent makes all the difference. You need someone committed to delivering expert guidance and deep knowledge of the local market, someone who will walk you through every step of the buying or selling process with clarity and confidence. That level of dedication is what has allowed me to consistently deliver strong results for my clients.
@@ -229,7 +227,7 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 mt-4 md:mt-6">
+                  <div className="grid-cols-1 space-y-3 mt-4 md:mt-6">
                     <ScrollReveal delay={0}>
                     <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-4 md:px-5 py-4 md:py-5">
                       <div className="absolute -top-10 -right-10 w-40 h-40 opacity-[0.1] text-crimson pointer-events-none" aria-hidden="true">
@@ -241,7 +239,7 @@ export default function AboutPage() {
                       <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
                         Experience
                       </p>
-                      <p className="text-sm md:text-[14px] text-near-black/60 leading-relaxed font-light">
+                      <p className="text-sm text-near-black/60 leading-relaxed font-light">
                         Selling and listing residential &amp; commercial properties. Working with asset-managers and banks in property disposition.
                       </p>
                     </div>
@@ -256,7 +254,7 @@ export default function AboutPage() {
                       <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
                         Services
                       </p>
-                      <p className="text-sm md:text-[14px] text-near-black/60 leading-relaxed font-light">
+                      <p className="text-sm text-near-black/60 leading-relaxed font-light">
                         Help home buyers find new homes. Help sellers cash in on their equity. Provide free market analysis and optimal timing.
                       </p>
                     </div>
@@ -317,7 +315,7 @@ export default function AboutPage() {
                       <Image src={cert.image} alt={cert.abbrev} width={40} height={40} className="object-contain" />
                     </div>
                     <p className="text-sm font-bold text-near-black mb-0.5">{cert.abbrev}</p>
-                    <p className="text-[12px] text-near-black/50 leading-snug break-words">{cert.name}</p>
+                    <p className="text-xs text-near-black/50 leading-snug break-words">{cert.name}</p>
                   </div>
                   </ScrollReveal>
                 ))}
@@ -334,21 +332,21 @@ export default function AboutPage() {
                 Ready to Get Started?
               </h2>
               <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
-              <p className="text-[15px] text-near-black/60 font-light mb-10 sm:mb-10 md:mb-12 lg:mb-14 max-w-md mx-auto">
+              <p className="text-sm text-near-black/60 font-light mb-10 sm:mb-10 md:mb-12 lg:mb-14 max-w-md mx-auto">
                 Reach out for a free consultation and let&apos;s discuss your real estate goals.
               </p>
               </ScrollReveal>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link
                   href="/consultation"
-                  className="inline-flex items-center justify-center gap-2 bg-crimson text-white text-[15px] font-bold px-7 py-3.5 rounded-full hover:bg-crimson-dark hover:shadow-lg hover:shadow-crimson/25 transition-all duration-200 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 bg-crimson text-white text-sm font-bold px-7 py-3.5 rounded-full hover:bg-crimson-dark hover:shadow-lg hover:shadow-crimson/25 transition-all duration-200 w-full sm:w-auto"
                 >
                   <Phone className="h-4 w-4" />
                   Get a Free Consultation
                 </Link>
                 <Link
                   href="/consultation"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-crimson text-crimson text-[15px] font-semibold px-7 py-3.5 rounded-full hover:bg-crimson hover:text-white transition-all duration-200 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-crimson text-crimson text-sm font-semibold px-7 py-3.5 rounded-full hover:bg-crimson hover:text-white transition-all duration-200 w-full sm:w-auto"
                 >
                   Contact Geoffrey Enebly
                 </Link>

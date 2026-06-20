@@ -11,6 +11,10 @@ export interface FunnelState {
   bestTimeToCall: string
   areaOfInterest: string
   message: string
+  budget: string
+  timeline: string
+  consentEmail: boolean
+  consentSMS: boolean
   contactMethod: "phone" | "email" | "whatsapp" | null
   submitted: boolean
 }
@@ -23,6 +27,10 @@ type Action =
   | { type: "SET_BEST_TIME_TO_CALL"; payload: string }
   | { type: "SET_AREA_OF_INTEREST"; payload: string }
   | { type: "SET_MESSAGE"; payload: string }
+  | { type: "SET_BUDGET"; payload: string }
+  | { type: "SET_TIMELINE"; payload: string }
+  | { type: "SET_CONSENT_EMAIL"; payload: boolean }
+  | { type: "SET_CONSENT_SMS"; payload: boolean }
   | { type: "SET_CONTACT_METHOD"; payload: "phone" | "email" | "whatsapp" | null }
   | { type: "SUBMIT" }
   | { type: "RESET" }
@@ -35,6 +43,10 @@ const initialState: FunnelState = {
   bestTimeToCall: "",
   areaOfInterest: "",
   message: "",
+  budget: "",
+  timeline: "",
+  consentEmail: false,
+  consentSMS: false,
   contactMethod: null,
   submitted: false,
 }
@@ -57,6 +69,14 @@ function reducer(state: FunnelState, action: Action): FunnelState {
       return { ...state, areaOfInterest: action.payload }
     case "SET_MESSAGE":
       return { ...state, message: action.payload }
+    case "SET_BUDGET":
+      return { ...state, budget: action.payload }
+    case "SET_TIMELINE":
+      return { ...state, timeline: action.payload }
+    case "SET_CONSENT_EMAIL":
+      return { ...state, consentEmail: action.payload }
+    case "SET_CONSENT_SMS":
+      return { ...state, consentSMS: action.payload }
     case "SET_CONTACT_METHOD":
       return { ...state, contactMethod: action.payload }
     case "SUBMIT":

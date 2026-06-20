@@ -86,6 +86,10 @@ export default function LeadForm() {
 
       if (state.bestTimeToCall.trim()) payload.bestTimeToCall = state.bestTimeToCall
       if (state.areaOfInterest) payload.areaOfInterest = state.areaOfInterest
+      if (state.budget) payload.budget = state.budget
+      if (state.timeline) payload.timeline = state.timeline
+      if (state.consentEmail) payload.consentEmail = "yes"
+      if (state.consentSMS) payload.consentSMS = "yes"
       if (state.message.trim()) payload.message = state.message
 
       const res = await fetch("/api/lead", {
@@ -131,7 +135,7 @@ export default function LeadForm() {
                     <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain" />
                 </div>
                 <div>
-                  <p className="font-serif italic text-[15px] text-near-black leading-tight">
+                  <p className="font-serif italic text-sm text-near-black leading-tight">
                     Geoffrey Enebly
                   </p>
                   <p className="text-xs text-near-black/50">{agent.type} &middot; {agent.experience} &middot; (510) 507-5088</p>
@@ -146,7 +150,7 @@ export default function LeadForm() {
                   Let&rsquo;s find your next home.
                 </h1>
                 <div className="w-10 h-[3px] bg-crimson mb-4" />
-                <p className="text-[15px] text-near-black/55 leading-relaxed font-light max-w-lg">
+                <p className="text-sm text-near-black/55 leading-relaxed font-light max-w-lg">
                   Tell us a bit about yourself and Geoffrey will reach out personally within 24 hours.
                 </p>
               </div>
@@ -161,7 +165,7 @@ export default function LeadForm() {
                       How should Geoffrey reach you?
                     </h2>
                     <div className="w-10 h-[3px] bg-crimson mb-4" />
-                    <p className="text-[15px] text-near-black/55 leading-relaxed font-light max-w-lg">
+                    <p className="text-sm text-near-black/55 leading-relaxed font-light max-w-lg">
                       Pick your preferred way to connect and we&rsquo;ll take it from there.
                     </p>
                   </div>
@@ -217,7 +221,7 @@ export default function LeadForm() {
                       ) : (
                         <Check className="h-5 w-5 flex-shrink-0" />
                       )}
-                      <span>{submitting ? "Submitting..." : "Confirm &amp; Submit"}</span>
+                      <span>{submitting ? "Submitting..." : "Confirm & Submit"}</span>
                     </button>
                     <button
                       type="button"
@@ -287,7 +291,7 @@ export default function LeadForm() {
                           Need a mortgage?
                         </span>
                         <span className="block text-xs mt-px text-emerald-600/70">
-                          Get pre-approved — you'll leave our site
+                          Get pre-approved &mdash; you&rsquo;ll leave our site
                         </span>
                       </div>
                     </a>
@@ -373,6 +377,76 @@ export default function LeadForm() {
                     />
                     <FieldHint>Which part of the East Bay are you interested in?</FieldHint>
                   </div>
+
+                  {(state.interest === "buyer" || state.interest === "seller") && (
+                    <div>
+                      <label className="block text-sm font-semibold text-near-black mb-1.5">
+                        {state.interest === "buyer" ? "What's your budget?" : "What's your expected price?"}
+                      </label>
+                      <Select
+                        value={state.budget}
+                        onChange={(e: React.ChangeEvent<HTMLSelectElement>) => dispatch({ type: "SET_BUDGET", payload: e.target.value })}
+                        placeholder="Select a range"
+                        options={[
+                          { value: "under-500k", label: "Under $500,000" },
+                          { value: "500k-750k", label: "$500,000 – $750,000" },
+                          { value: "750k-1m", label: "$750,000 – $1,000,000" },
+                          { value: "1m-1.5m", label: "$1,000,000 – $1,500,000" },
+                          { value: "1.5m-2m", label: "$1,500,000 – $2,000,000" },
+                          { value: "2m-plus", label: "$2,000,000+" },
+                          { value: "not-sure", label: "Not sure yet" },
+                        ]}
+                      />
+                      <FieldHint>Optional — helps me find the right options for you.</FieldHint>
+                    </div>
+                  )}
+
+                  <div>
+                    <label className="block text-sm font-semibold text-near-black mb-1.5">
+                      What&rsquo;s your timeline?
+                    </label>
+                    <Select
+                      value={state.timeline}
+                      onChange={(e: React.ChangeEvent<HTMLSelectElement>) => dispatch({ type: "SET_TIMELINE", payload: e.target.value })}
+                      placeholder="Select a timeline"
+                      options={[
+                        { value: "just-looking", label: "Just looking / Browsing" },
+                        { value: "1-3", label: "1 – 3 months" },
+                        { value: "3-6", label: "3 – 6 months" },
+                        { value: "6-plus", label: "6+ months" },
+                        { value: "not-sure", label: "Not sure" },
+                      ]}
+                    />
+                    <FieldHint>Optional — so I know how quickly to follow up.</FieldHint>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <label className="block text-sm font-semibold text-near-black">
+                    Keep me updated
+                  </label>
+                  <label className="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={state.consentEmail}
+                      onChange={(e) => dispatch({ type: "SET_CONSENT_EMAIL", payload: e.target.checked })}
+                      className="mt-0.5 h-4 w-4 rounded border-warm-border text-crimson focus:ring-crimson/20 focus:ring-2 accent-crimson"
+                    />
+                    <span className="text-sm text-near-black/60 group-hover:text-near-black/80 transition-colors">
+                      Yes, I&rsquo;d like to receive email updates about new properties and market trends.
+                    </span>
+                  </label>
+                  <label className="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={state.consentSMS}
+                      onChange={(e) => dispatch({ type: "SET_CONSENT_SMS", payload: e.target.checked })}
+                      className="mt-0.5 h-4 w-4 rounded border-warm-border text-crimson focus:ring-crimson/20 focus:ring-2 accent-crimson"
+                    />
+                    <span className="text-sm text-near-black/60 group-hover:text-near-black/80 transition-colors">
+                      Yes, I agree to receive text messages from Geoffrey Enebly about my inquiry. Reply STOP to opt out.
+                    </span>
+                  </label>
                 </div>
 
                 <div>

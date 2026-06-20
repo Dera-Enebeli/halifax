@@ -62,29 +62,29 @@ export default function Footer() {
                   Halifax
                 </span>
               </Link>
-              <p className="text-[13px] sm:text-[15px] text-white/50 font-light leading-relaxed max-w-xs mb-6">
+              <p className="text-sm text-white/50 font-light leading-relaxed max-w-xs mb-6">
                 Your East Bay real estate partner. Get access to premium properties across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.
               </p>
                 <div className="flex items-center gap-2 mb-3">
                   <Building2 className="h-3.5 w-3.5 text-crimson shrink-0" />
-                  <span className="text-[13px] text-white/40">Geoffrey Enebly &middot; {agent.type} &middot; {agent.license}</span>
+                  <span className="text-sm text-white/40">Geoffrey Enebly &middot; {agent.type} &middot; {agent.license}</span>
                 </div>
                 <div className="flex flex-col gap-2.5">
                   <a
                     href="tel:+15105075088"
-                    className="flex items-center gap-2.5 text-[13px] sm:text-[15px] text-white/60 hover:text-white transition-colors duration-200"
+                    className="flex items-center gap-2.5 text-sm text-white/60 hover:text-white transition-colors duration-200"
                   >
                     <Phone className="h-3.5 w-3.5 text-crimson shrink-0" />
                     (510) 507-5088
                   </a>
                   <a
                     href="mailto:Enebly@aol.com"
-                    className="flex items-center gap-2.5 text-[13px] sm:text-[15px] text-white/60 hover:text-white transition-colors duration-200"
+                    className="flex items-center gap-2.5 text-sm text-white/60 hover:text-white transition-colors duration-200"
                   >
                     <Mail className="h-3.5 w-3.5 text-crimson shrink-0" />
                     Enebly@aol.com
                   </a>
-                  <div className="flex items-start gap-2.5 text-sm sm:text-body text-white/60">
+                  <div className="flex items-start gap-2.5 text-sm text-white/60">
                     <MapPin className="h-3.5 w-3.5 text-crimson shrink-0 mt-0.5" />
                     <div className="flex flex-col">
                       <span>{agent.address}</span>
@@ -105,14 +105,14 @@ export default function Footer() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm sm:text-body text-white/50 hover:text-white transition-colors duration-200 font-light"
+                          className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
                         >
                           {link.label}
                         </a>
                       ) : (
                         <Link
                           href={link.href}
-                          className="text-sm sm:text-body text-white/50 hover:text-white transition-colors duration-200 font-light"
+                          className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
                         >
                           {link.label}
                         </Link>
@@ -127,7 +127,7 @@ export default function Footer() {
 
         <div className="h-px bg-white/10" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-[12px] sm:text-[14px] text-white/40 font-light">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-xs sm:text-sm text-white/40 font-light">
           <span>
             &copy; {new Date().getFullYear()} Halifax Properties &amp; Investments — East Bay. All rights reserved.
           </span>

@@ -45,7 +45,7 @@ export default function LeadStepConsultation() {
                   Thanks, {state.name?.split(" ")[0]}!
                 </h1>
                 <div className="w-10 h-[3px] bg-crimson mx-auto mt-4 mb-5" />
-                <p className="text-[15px] text-near-black/55 leading-relaxed font-light">
+                <p className="text-sm text-near-black/55 leading-relaxed font-light">
                   Your preferred contact method has been confirmed. Here&rsquo;s what happens next.
                 </p>
               </div>
@@ -53,7 +53,7 @@ export default function LeadStepConsultation() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
                 <div className="bg-cream-dark px-6 py-8 flex flex-col items-center justify-center text-center">
                   <p className="font-serif italic text-lg text-near-black mb-3">{msg.heading}</p>
-                  <p className="text-[15px] text-near-black/55 leading-relaxed font-light">
+                  <p className="text-sm text-near-black/55 leading-relaxed font-light">
                     {msg.body}
                   </p>
                 </div>
@@ -61,7 +61,7 @@ export default function LeadStepConsultation() {
                   <div className="w-20 h-20 rounded-full bg-cream flex items-center justify-center mb-3 overflow-hidden">
                     <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain" />
                   </div>
-                  <p className="font-bold text-[15px] text-near-black">{agent.name}</p>
+                  <p className="font-bold text-sm text-near-black">{agent.name}</p>
                   <p className="text-xs text-near-black/50">{agent.type} &middot; {agent.experience}</p>
                   <p className="text-sm text-near-black/60 mt-1">{agent.phone}</p>
                   <p className="text-sm text-crimson font-medium">{agent.email}</p>
@@ -111,6 +111,28 @@ export default function LeadStepConsultation() {
                       }
                       if (state.bestTimeToCall) data["Best Time to Call"] = state.bestTimeToCall
                       if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
+                      if (state.budget) {
+                        const budgetLabels: Record<string, string> = {
+                          "under-500k": "Under $500,000",
+                          "500k-750k": "$500,000 – $750,000",
+                          "750k-1m": "$750,000 – $1,000,000",
+                          "1m-1.5m": "$1,000,000 – $1,500,000",
+                          "1.5m-2m": "$1,500,000 – $2,000,000",
+                          "2m-plus": "$2,000,000+",
+                          "not-sure": "Not sure yet",
+                        }
+                        data["Budget"] = budgetLabels[state.budget] || state.budget
+                      }
+                      if (state.timeline) {
+                        const timelineLabels: Record<string, string> = {
+                          "just-looking": "Just looking / Browsing",
+                          "1-3": "1 – 3 months",
+                          "3-6": "3 – 6 months",
+                          "6-plus": "6+ months",
+                          "not-sure": "Not sure",
+                        }
+                        data["Timeline"] = timelineLabels[state.timeline] || state.timeline
+                      }
                       if (state.message) data["Message"] = state.message
                       data["Schedule"] = state.interest === "buyer" ? "Home Buying Consultation" : state.interest === "seller" ? "Listing Consultation" : "Full Valuation"
                       openWhatsApp(data)

@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin } from "lucide-react"
 
 export default function UtilityBar() {
   return (
-    <div className="hidden sm:block bg-near-black text-white/80 text-[13px] lg:text-[14px]">
+    <div className="hidden sm:block bg-near-black text-white/80 text-sm">
       <div className="max-w-page section-padding">
         <div className="flex items-center justify-between h-9">
           <div className="flex items-center gap-5">

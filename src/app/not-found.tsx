@@ -19,19 +19,19 @@ export default function NotFound() {
                 404
               </h1>
               <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
-              <p className="text-[15px] md:text-[17px] text-white/60 leading-relaxed font-light mb-10 max-w-md mx-auto">
+              <p className="text-body text-white/60 leading-relaxed font-light mb-10 max-w-md mx-auto">
                 The page you&apos;re looking for doesn&apos;t exist or has been moved. Let&apos;s get you back on track.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link
                   href="/"
-                  className="inline-flex items-center justify-center gap-2 bg-crimson text-white text-[15px] font-bold px-7 py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 bg-crimson text-white text-sm font-bold px-7 py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200 w-full sm:w-auto"
                 >
                   Back to Home
                 </Link>
                 <Link
                   href="/consultation"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white/80 text-[15px] font-semibold px-7 py-3.5 rounded-full hover:border-white/60 hover:text-white transition-all duration-200 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white/80 text-sm font-semibold px-7 py-3.5 rounded-full hover:border-white/60 hover:text-white transition-all duration-200 w-full sm:w-auto"
                 >
                   Get a Free Consultation
                 </Link>

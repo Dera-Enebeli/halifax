@@ -99,7 +99,7 @@ export default async function FreeValuationPage() {
                     Free Home <span className="text-crimson">Valuation</span>
                   </h1>
                   <div className="w-16 h-[3px] bg-crimson mb-6" />
-                  <p className="text-[16px] md:text-[17px] text-white/55 leading-relaxed max-w-xl font-light">
+                  <p className="text-body text-white/55 leading-relaxed max-w-xl font-light">
                     Know exactly what your home is worth in today&rsquo;s East Bay market. No obligation, no spam&mdash;just honest numbers.
                   </p>
                 </ScrollReveal>
@@ -108,15 +108,15 @@ export default async function FreeValuationPage() {
                   <div className="flex flex-wrap gap-x-8 gap-y-3 mt-10">
                     <div>
                       <p className="text-white font-bold text-lg leading-tight">30 Years</p>
-                      <p className="text-[13px] text-white/40">Experience</p>
+                      <p className="text-sm text-white/40">Experience</p>
                     </div>
                     <div>
                       <p className="text-white font-bold text-lg leading-tight">CalBRE#</p>
-                      <p className="text-[13px] text-white/40">00899654</p>
+                      <p className="text-sm text-white/40">00899654</p>
                     </div>
                     <div>
                       <p className="text-white font-bold text-lg leading-tight">Licensed</p>
-                      <p className="text-[13px] text-white/40">Broker</p>
+                      <p className="text-sm text-white/40">Broker</p>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -152,7 +152,7 @@ export default async function FreeValuationPage() {
                     Tell us about your <span className="text-crimson">property</span>
                   </h2>
                   <div className="w-12 h-[3px] bg-crimson mb-6" />
-                  <p className="text-[15px] text-near-black/60 leading-relaxed font-light max-w-lg">
+                  <p className="text-sm text-near-black/60 leading-relaxed font-light max-w-lg">
                     Fill out the form and Geoffrey will prepare a personalized valuation based on recent comps, local trends, and his 30 years of East Bay market expertise.
                   </p>
                 </ScrollReveal>
@@ -164,7 +164,7 @@ export default async function FreeValuationPage() {
                         <div className="w-6 h-6 rounded-full bg-crimson/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                           <Check className="h-3.5 w-3.5 text-crimson" />
                         </div>
-                        <span className="text-[15px] text-near-black/70 leading-relaxed">{item}</span>
+                        <span className="text-sm text-near-black/70 leading-relaxed">{item}</span>
                       </div>
                     </ScrollReveal>
                   ))}
@@ -233,7 +233,7 @@ export default async function FreeValuationPage() {
                           {i < 2 && <ChevronRight className="h-4 w-4 text-crimson/30 hidden md:block" />}
                         </div>
                         <h3 className="font-serif italic text-xl text-near-black mb-3">{step.title}</h3>
-                        <p className="text-[14px] text-near-black/55 leading-relaxed font-light">{step.desc}</p>
+                        <p className="text-sm text-near-black/55 leading-relaxed font-light">{step.desc}</p>
                       </div>
                     </div>
                   </ScrollReveal>
@@ -255,7 +255,7 @@ export default async function FreeValuationPage() {
                     Why Get a <span className="text-crimson">Valuation</span>?
                   </h2>
                   <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
-                  <p className="text-[15px] text-near-black/60 leading-relaxed font-light max-w-lg mx-auto">
+                  <p className="text-sm text-near-black/60 leading-relaxed font-light max-w-lg mx-auto">
                     Knowing your home&rsquo;s value gives you the power to make smarter real estate decisions.
                   </p>
                 </ScrollReveal>
@@ -268,7 +268,7 @@ export default async function FreeValuationPage() {
                       <div className="w-7 h-7 rounded-full bg-crimson/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="h-3.5 w-3.5 text-crimson" />
                       </div>
-                      <span className="text-[15px] text-near-black/70 leading-relaxed">{item}</span>
+                      <span className="text-sm text-near-black/70 leading-relaxed">{item}</span>
                     </div>
                   </ScrollReveal>
                 ))}
@@ -288,7 +288,7 @@ export default async function FreeValuationPage() {
                   Let&rsquo;s Talk Numbers
                 </h2>
                 <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
-                <p className="text-[15px] text-near-black/60 font-light mb-8 max-w-md mx-auto">
+                <p className="text-sm text-near-black/60 font-light mb-8 max-w-md mx-auto">
                   Reach out directly for a fast, friendly valuation&mdash;no form required.
                 </p>
               </ScrollReveal>

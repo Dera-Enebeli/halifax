@@ -100,7 +100,7 @@ export default function Home() {
                   One Stop <span className="text-crimson italic">Real Estate</span>
                 </h2>
                 <hr className="w-12 h-[2px] bg-crimson border-0 mx-auto mb-5" />
-                <p className="max-w-[600px] mx-auto text-[15px] text-white/50 leading-relaxed [text-wrap:pretty] mb-12 md:mb-14">
+                <p className="max-w-[600px] mx-auto text-sm text-white/50 leading-relaxed [text-wrap:pretty] mb-12 md:mb-14">
                   Buying, selling, or valuing&mdash;we guide you through every step of the East Bay market with local expertise and honest advice.
                 </p>
 
@@ -114,10 +114,10 @@ export default function Home() {
                       href={`/areas/${c.slug}`}
                       className="group flex flex-col items-center justify-center gap-1.5 bg-white/5 hover:bg-crimson/15 rounded-lg px-3 py-5 md:py-6 transition-all duration-200"
                     >
-                      <span className="font-serif italic text-[15px] md:text-base text-white/80 group-hover:text-crimson transition-colors">
+                      <span className="font-serif italic text-sm md:text-base text-white/80 group-hover:text-crimson transition-colors">
                         {c.name}
                       </span>
-                      <span className="text-[10px] md:text-[11px] text-white/30 group-hover:text-white/50 transition-colors text-center leading-tight">
+                      <span className="text-xs text-white/30 group-hover:text-white/50 transition-colors text-center leading-tight">
                         {c.tagline}
                       </span>
                     </Link>
@@ -174,7 +174,7 @@ export default function Home() {
                   </h3>
                   <ul className="space-y-1.5 mb-7">
                     {s.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-[14px] leading-relaxed text-white/60">
+                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-white/60">
                         <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
                         {item}
                       </li>
@@ -206,7 +206,7 @@ export default function Home() {
 
         <TestimonialsSection />
 
-        <section className="py-14 md:py-20" style={{ background: "var(--color-cream-dark, #EAE2D6)" }}>
+        <section className="py-14 md:py-20" style={{ background: "var(--color-cream-dark, #E4D7BE)" }}>
           <div className="max-w-page section-padding">
             <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center">

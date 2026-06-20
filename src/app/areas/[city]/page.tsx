@@ -70,7 +70,7 @@ export default async function CityPage({ params }: Props) {
               {info.tagline}
             </p>
             <div className="w-16 h-[3px] bg-crimson mb-6" />
-            <p className="text-white/60 text-[15px] md:text-[17px] leading-relaxed max-w-2xl font-light">
+            <p className="text-white/60 text-body leading-relaxed max-w-2xl font-light">
               {info.description}
             </p>
           </div>
@@ -108,7 +108,7 @@ export default async function CityPage({ params }: Props) {
                   </h2>
                   <ul className="space-y-2.5">
                     {info.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-3 text-[14px] md:text-[15px] text-near-black/65 leading-relaxed font-light">
+                      <li key={h} className="flex items-start gap-3 text-sm text-near-black/65 leading-relaxed font-light">
                         <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
                         {h}
                       </li>
@@ -159,11 +159,11 @@ export default async function CityPage({ params }: Props) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="bg-cream-dark rounded-lg px-5 py-4">
                       <p className="text-xs font-bold uppercase tracking-wider text-crimson mb-2">Education</p>
-                      <p className="text-[14px] text-near-black/65 leading-relaxed font-light">{info.schoolNote}</p>
+                      <p className="text-sm text-near-black/65 leading-relaxed font-light">{info.schoolNote}</p>
                     </div>
                     <div className="bg-cream-dark rounded-lg px-5 py-4">
                       <p className="text-xs font-bold uppercase tracking-wider text-crimson mb-2">Commute</p>
-                      <p className="text-[14px] text-near-black/65 leading-relaxed font-light">{info.commuteNote}</p>
+                      <p className="text-sm text-near-black/65 leading-relaxed font-light">{info.commuteNote}</p>
                     </div>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ export default async function CityPage({ params }: Props) {
                 <p className="text-xs text-center text-near-black/50 mb-4">
                   {agent.type} &middot; {agent.experience}
                 </p>
-                <p className="text-[14px] text-near-black/65 leading-relaxed font-light text-center mb-5">
+                <p className="text-sm text-near-black/65 leading-relaxed font-light text-center mb-5">
                   {info.whyGeoffrey}
                 </p>
                 <div className="h-px bg-warm-border mb-5" />
@@ -250,21 +250,21 @@ export default async function CityPage({ params }: Props) {
                 Ready to Find Your Home in {info.name}?
               </h2>
               <div className="w-10 h-[3px] bg-crimson mx-auto mb-5" />
-              <p className="text-[15px] text-white/50 font-light mb-8 max-w-md mx-auto">
+              <p className="text-sm text-white/50 font-light mb-8 max-w-md mx-auto">
                 Reach out for a free consultation and let&apos;s discuss your real estate goals in {info.name}.
               </p>
             </ScrollReveal>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/consultation"
-                className="inline-flex items-center justify-center gap-2 bg-crimson text-white text-[15px] font-bold px-7 py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 bg-crimson text-white text-sm font-bold px-7 py-3.5 rounded-full hover:bg-crimson-dark transition-all duration-200 w-full sm:w-auto"
               >
                 <Home className="h-4 w-4" />
                 Get a Free Consultation
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white/80 text-[15px] font-semibold px-7 py-3.5 rounded-full hover:border-white/60 hover:text-white transition-all duration-200 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white/80 text-sm font-semibold px-7 py-3.5 rounded-full hover:border-white/60 hover:text-white transition-all duration-200 w-full sm:w-auto"
               >
                 Meet Geoffrey Enebly
               </Link>
