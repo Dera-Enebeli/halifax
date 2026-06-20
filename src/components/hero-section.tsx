@@ -21,8 +21,8 @@ export default function HeroSection() {
         <div className="absolute bottom-0 left-0 right-0 h-28 md:h-40 bg-gradient-to-t from-near-black via-near-black/30 to-transparent backdrop-blur-[3px] z-[5]" />
 
         <div className="relative z-10 text-center px-5 max-w-3xl mx-auto pt-16 lg:pt-20 pb-6 sm:pb-12 animate-fade-up opacity-0">
-            <div className="w-[72px] h-[72px] sm:w-24 sm:h-24 mx-auto mb-4 relative flex items-center justify-center">
-              <Image src="/main-logo.png" alt="Halifax Properties & Investments" width={128} height={128} className="object-contain drop-shadow-lg" />
+            <div className="w-[140px] h-[140px] sm:w-48 sm:h-48 mx-auto mb-4 relative flex items-center justify-center">
+              <Image src="/main-logo.png" alt="Halifax Properties & Investments" width={256} height={256} className="object-contain drop-shadow-lg" />
             </div>
             <h1 className="text-white font-serif text-[clamp(28px,6vw,48px)] leading-[1.1] tracking-tight mb-2">
               Halifax Properties <span className="text-crimson">&amp;</span> Investments
