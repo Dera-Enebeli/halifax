@@ -178,25 +178,25 @@ export default function AboutPage() {
                     <div className="h-px bg-warm-border mb-4" />
 
                     <div className="space-y-2.5">
-                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
+                      <span className="flex items-center gap-2.5 text-body text-near-black/60">
                         <span className="w-6 flex items-center justify-center">
                           <Phone className="h-3.5 w-3.5 text-crimson" />
                         </span>
                         (510) 507-5088
                       </span>
-                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
+                      <span className="flex items-center gap-2.5 text-body text-near-black/60">
                         <span className="w-6 flex items-center justify-center">
                           <Mail className="h-3.5 w-3.5 text-crimson" />
                         </span>
                         Enebly@aol.com
                       </span>
-                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
+                      <span className="flex items-center gap-2.5 text-body text-near-black/60">
                         <span className="w-6 flex items-center justify-center">
                           <MapPin className="h-3.5 w-3.5 text-crimson" />
                         </span>
                         {agent.address}
                       </span>
-                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
+                      <span className="flex items-center gap-2.5 text-body text-near-black/60">
                         <span className="w-6 flex items-center justify-center">
                           <MapPin className="h-3.5 w-3.5 text-crimson" />
                         </span>
@@ -206,7 +206,7 @@ export default function AboutPage() {
 
                     <div className="h-px bg-warm-border my-4" />
 
-                    <div className="text-xs text-near-black/50 space-y-1 text-center md:text-left">
+                    <div className="text-sm text-near-black/50 space-y-1 text-center md:text-left">
                       <p>{agent.brokerage}</p>
                       <p>Representing {agent.represents} &middot; Since {agent.licensedSince}</p>
                       <p>Service Areas: {agent.serviceAreas.join(", ")}</p>

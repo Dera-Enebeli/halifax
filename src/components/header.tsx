@@ -76,7 +76,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link href="/" className="flex items-center gap-2.5 group">
               <div className="w-8 h-8 lg:w-9 lg:h-9 relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                <Image src="/main-logo.png" alt="Halifax" width={36} height={36} className="object-contain" />
+                <Image src="/main-logo.png" alt="Halifax" width={48} height={48} className="object-contain" />
               </div>
               <div className="flex flex-col items-start gap-0 leading-tight">
                 <span
@@ -95,7 +95,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-medium text-near-black/80 hover:text-crimson transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+                  className="text-base font-medium text-near-black/80 hover:text-crimson transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 after:w-0 hover:after:w-full"
                 >
                   {item.label}
                 </Link>
@@ -104,7 +104,7 @@ export default function Header() {
                 href={mortgageUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-near-black/80 hover:text-crimson transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+                className="text-base font-medium text-near-black/80 hover:text-crimson transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 after:w-0 hover:after:w-full"
               >
                 Mortgage
                 <ExternalLink className="h-3 w-3 ml-1 inline-block -mt-0.5 opacity-60" />
@@ -122,7 +122,7 @@ export default function Header() {
               </a>
               <Link
                 href="/consultation"
-                className="text-sm font-semibold text-white bg-crimson hover:bg-crimson-dark px-6 py-3 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-crimson/25"
+                className="text-base font-semibold text-white bg-crimson hover:bg-crimson-dark px-6 py-3 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-crimson/25"
               >
                 Get in Touch
               </Link>

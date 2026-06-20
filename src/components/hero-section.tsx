@@ -22,7 +22,7 @@ export default function HeroSection() {
 
         <div className="relative z-10 text-center px-5 max-w-3xl mx-auto pt-16 lg:pt-20 pb-6 sm:pb-12 animate-fade-up opacity-0">
             <div className="w-[72px] h-[72px] sm:w-24 sm:h-24 mx-auto mb-4 relative flex items-center justify-center">
-              <Image src="/main-logo.png" alt="Halifax Properties & Investments" width={96} height={96} className="object-contain drop-shadow-lg" />
+              <Image src="/main-logo.png" alt="Halifax Properties & Investments" width={128} height={128} className="object-contain drop-shadow-lg" />
             </div>
             <h1 className="text-white font-serif text-[clamp(28px,6vw,48px)] leading-[1.1] tracking-tight mb-2">
               Halifax Properties <span className="text-crimson">&amp;</span> Investments
@@ -30,10 +30,10 @@ export default function HeroSection() {
             <p className="text-white/70 font-medium text-body sm:text-lead mb-1">
               East Bay Real Estate
             </p>
-            <p className="text-white/80 font-medium text-sm sm:text-body mb-0.5">
+            <p className="text-white/80 font-medium text-body sm:text-lead mb-0.5">
               30 Yrs Experience &middot; Realtor &middot; CalBRE# 00899654
             </p>
-            <p className="text-white/50 font-light text-xs sm:text-sm mb-4 sm:mb-6">
+            <p className="text-white/50 font-light text-sm sm:text-body mb-4 sm:mb-6">
               by Geoffrey Enebly
             </p>
 
@@ -57,21 +57,21 @@ export default function HeroSection() {
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
               <Link
                 href="/consultation?interest=buyer"
-                className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
+                className="flex items-center gap-1.5 text-white/70 hover:text-white text-body font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
                 <Home className="h-3.5 w-3.5 text-white/60" />
                 Buy
               </Link>
               <Link
                 href="/consultation?interest=seller"
-                className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
+                className="flex items-center gap-1.5 text-white/70 hover:text-white text-body font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
                 <Building2 className="h-3.5 w-3.5 text-white/60" />
                 Sell
               </Link>
               <Link
                 href="/consultation?interest=homeowner"
-                className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
+                className="flex items-center gap-1.5 text-white/70 hover:text-white text-body font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
                 <DollarSign className="h-3.5 w-3.5 text-white/60" />
                 Valuation
@@ -80,7 +80,7 @@ export default function HeroSection() {
                 href={mortgageUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
+                className="flex items-center gap-1.5 text-white/70 hover:text-white text-body font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5"
               >
                 <ExternalLink className="h-3.5 w-3.5 text-white/60" />
                 Pre-Approval

@@ -55,7 +55,7 @@ export default function Footer() {
             <div className="col-span-2 md:col-span-1">
               <Link href="/" className="flex items-center gap-2.5 group mb-4">
                 <div className="w-8 h-8 relative flex items-center justify-center">
-                  <Image src="/main-logo.png" alt="Halifax" width={32} height={32} className="object-contain" />
+                  <Image src="/main-logo.png" alt="Halifax" width={44} height={44} className="object-contain" />
                 </div>
                 <span
                   className="font-serif italic text-xl text-white tracking-tight"
@@ -86,7 +86,7 @@ export default function Footer() {
                     <Mail className="h-3.5 w-3.5 text-crimson shrink-0" />
                     Enebly@aol.com
                   </a>
-                  <div className="flex items-start gap-2.5 text-[13px] sm:text-[15px] text-white/60">
+                  <div className="flex items-start gap-2.5 text-sm sm:text-body text-white/60">
                     <MapPin className="h-3.5 w-3.5 text-crimson shrink-0 mt-0.5" />
                     <div className="flex flex-col">
                       <span>{agent.address}</span>
@@ -98,7 +98,7 @@ export default function Footer() {
 
             {footerLinks.map((group) => (
               <div key={group.title}>
-                <h4 className="text-sm font-bold text-white mb-4">{group.title}</h4>
+                <h4 className="text-base font-bold text-white mb-4">{group.title}</h4>
                 <ul className="flex flex-col gap-2.5">
                   {group.links.map((link) => (
                     <li key={link.label}>
@@ -107,14 +107,14 @@ export default function Footer() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[13px] sm:text-[15px] text-white/50 hover:text-white transition-colors duration-200 font-light"
+                          className="text-sm sm:text-body text-white/50 hover:text-white transition-colors duration-200 font-light"
                         >
                           {link.label}
                         </a>
                       ) : (
                         <Link
                           href={link.href}
-                          className="text-[13px] sm:text-[15px] text-white/50 hover:text-white transition-colors duration-200 font-light"
+                          className="text-sm sm:text-body text-white/50 hover:text-white transition-colors duration-200 font-light"
                         >
                           {link.label}
                         </Link>

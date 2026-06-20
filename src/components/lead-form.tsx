@@ -128,7 +128,7 @@ export default function LeadForm() {
 
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-11 h-11 rounded-full bg-cream-dark flex items-center justify-center flex-shrink-0">
-                  <Image src="/main-logo.png" alt="Halifax" width={28} height={28} className="object-contain" />
+                  <Image src="/main-logo.png" alt="Halifax" width={36} height={36} className="object-contain" />
                 </div>
                 <div>
                   <p className="font-serif italic text-[15px] text-near-black leading-tight">

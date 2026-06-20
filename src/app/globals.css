@@ -11,9 +11,9 @@
   --color-warm-border: #E5DDD3;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
-  --text-body: 15px;
-  --text-lead: 17px;
-  --text-heading: 22px;
+  --text-body: 16px;
+  --text-lead: 19px;
+  --text-heading: 24px;
 }
 
 @layer base {

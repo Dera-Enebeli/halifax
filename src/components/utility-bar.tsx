@@ -28,7 +28,7 @@ export default function UtilityBar() {
           </div>
           <a
             href="/consultation"
-            className="text-white/70 hover:text-white transition-colors duration-200 font-medium text-xs lg:text-[13px]"
+            className="text-white/70 hover:text-white transition-colors duration-200 font-medium text-xs sm:text-sm"
           >
             Contact Geoffrey Enebly
           </a>
