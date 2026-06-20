@@ -54,9 +54,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
             <div className="col-span-2 md:col-span-1">
               <Link href="/" className="flex items-center gap-2.5 group mb-4">
-                <div className="w-8 h-8 relative flex items-center justify-center">
-                  <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain" />
-                </div>
+                <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain w-16 h-16" />
                 <span
                   className="font-serif italic text-xl text-white tracking-tight"
                   style={{ fontFamily: "var(--font-serif)" }}
