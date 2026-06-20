@@ -55,7 +55,7 @@ export default function Footer() {
             <div className="col-span-2 md:col-span-1">
               <Link href="/" className="flex items-center gap-2.5 group mb-4">
                 <div className="w-8 h-8 relative flex items-center justify-center">
-                  <Image src="/main-logo.png" alt="Halifax" width={128} height={128} className="object-contain" />
+                  <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain" />
                 </div>
                 <span
                   className="font-serif italic text-xl text-white tracking-tight"

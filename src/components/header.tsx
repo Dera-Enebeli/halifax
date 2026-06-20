@@ -76,7 +76,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link href="/" className="flex items-center gap-2.5 group">
               <div className="w-8 h-8 lg:w-9 lg:h-9 relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                <Image src="/main-logo.png" alt="Halifax" width={128} height={128} className="object-contain" />
+                <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain" />
               </div>
               <div className="flex flex-col items-start gap-0 leading-tight">
                 <span
