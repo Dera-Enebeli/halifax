@@ -57,7 +57,7 @@ const services = [
       "Conventional & FHA loans",
       "First-time home buyer programs",
       "Competitive interest rates",
-      "Powered by Empire Lending Group",
+      "Powered by Empire Lending Group \u2014 a division of Halifax Solutions Inc",
     ],
     href: "https://www.empirelending.net",
     external: true,

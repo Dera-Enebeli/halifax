@@ -50,7 +50,7 @@ export default function TeamPage() {
                 </h1>
                 <div className="w-16 h-[3px] bg-crimson mb-6" />
                 <p className="text-white/60 text-body leading-relaxed max-w-2xl font-light">
-                  From first consultation to closing day, our team brings decades of experience and a personal commitment to your success.
+                  One parent company. Two expert teams. <strong className="text-white/80">Halifax Properties &amp; Investments</strong> handles East Bay real estate&mdash;buying, selling, and valuations. Through <strong className="text-white/80">Halifax Solutions Inc</strong>, our parent company, Empire Lending Group provides mortgage and financing services. From your first conversation to closing day, we cover every step.
                 </p>
               </div>
             </div>
@@ -60,8 +60,27 @@ export default function TeamPage() {
         <section className="py-20 md:py-24">
           <div className="max-w-page section-padding">
             <div className="max-w-5xl mx-auto space-y-16">
+              <div className="text-center px-4">
+                <div className="inline-flex items-center gap-3 mb-4">
+                  <span className="h-px w-8 bg-crimson/30" />
+                  <span className="text-xs font-bold tracking-[2px] uppercase text-crimson">Real Estate</span>
+                  <span className="h-px w-8 bg-crimson/30" />
+                </div>
+              </div>
               {teamMembers.map((member, i) => (
                 <ScrollReveal key={member.id} delay={i * 150}>
+                  {i === 1 && (
+                    <div className="text-center mb-12">
+                      <div className="inline-flex items-center gap-3 mb-4">
+                        <span className="h-px w-8 bg-crimson/30" />
+                        <span className="text-xs font-bold tracking-[2px] uppercase text-crimson">Mortgage Services</span>
+                        <span className="h-px w-8 bg-crimson/30" />
+                      </div>
+                      <p className="text-sm text-near-black/50 max-w-lg mx-auto">
+                        Financing handled by Empire Lending Group, a division of Halifax Solutions Inc &mdash; separate from our real estate brokerage but working together for you.
+                      </p>
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-10">
                     <div className="lg:col-span-2">
                       <div className="bg-cream p-6 md:p-8 rounded-lg">
@@ -100,6 +119,15 @@ export default function TeamPage() {
                             {member.email}
                           </a>
                         </div>
+
+                        {member.id === "braimah" && (
+                          <>
+                            <div className="h-px bg-warm-border my-4" />
+                            <p className="text-xs text-near-black/40 text-center md:text-left">
+                              Empire Lending Group is a division of Halifax Solutions Inc. NMLS #1817865.
+                            </p>
+                          </>
+                        )}
                       </div>
                     </div>
 
