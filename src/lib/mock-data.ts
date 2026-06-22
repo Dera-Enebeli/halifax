@@ -50,7 +50,7 @@ export const teamMembers = [
     title: "Loan Officer — Empire Lending Group",
     phone: "(510) 303-0324",
     email: "BBraimah@empirelending.net",
-    image: null,
+    image: "/agent-bbraimah.jpg",
     license: "NMLS #1817865",
     description:
       "B. Braimah is a dedicated mortgage professional at Empire Lending Group, a division of Halifax Solutions Inc. He helps home buyers secure financing with competitive rates and a smooth closing process.",
