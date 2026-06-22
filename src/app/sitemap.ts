@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: baseUrl, priority: 1.0 },
     { url: `${baseUrl}/about`, priority: 0.7 },
+    { url: `${baseUrl}/team`, priority: 0.7 },
     { url: `${baseUrl}/consultation`, priority: 0.6 },
     { url: `${baseUrl}/free-valuation`, priority: 0.8 },
     ...areaPages,

@@ -8,6 +8,7 @@ import { X, Menu, ExternalLink } from "lucide-react"
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Team", href: "/team" },
 ]
 
 const mortgageUrl = "https://www.empirelending.net"

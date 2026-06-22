@@ -26,6 +26,43 @@ export const certifications = [
   { abbrev: "CSP", name: "Certified Short-Sale Professional", image: "/certs/csp.png" },
 ]
 
+export const teamMembers = [
+  {
+    id: "geoffrey",
+    name: "Geoffrey Enebly",
+    title: "Broker / Owner",
+    phone: "(510) 507-5088",
+    email: "Enebly@aol.com",
+    image: "/j-pic.png",
+    license: "CalBRE# 00899654",
+    description:
+      "With 30 years of East Bay real estate experience, Geoffrey leads Halifax Properties & Investments with honesty, integrity, and deep local market knowledge. He represents both buyers and sellers across Oakland, Berkeley, Walnut Creek, Dublin, Pleasanton, and the entire East Bay.",
+    highlights: [
+      "30 Years Experience",
+      "Certified Residential Specialist (CRS)",
+      "Broker Price Opinion Resource (BPOR)",
+      "Certified Distressed Property Expert (CDPE)",
+    ],
+  },
+  {
+    id: "braimah",
+    name: "B. Braimah",
+    title: "Loan Officer — Empire Lending Group",
+    phone: "(510) 303-0324",
+    email: "BBraimah@empirelending.net",
+    image: null,
+    license: "NMLS #1817865",
+    description:
+      "B. Braimah is a dedicated mortgage professional at Empire Lending Group, a division of Halifax Solutions Inc. He helps home buyers secure financing with competitive rates and a smooth closing process.",
+    highlights: [
+      "Conventional & FHA Loans",
+      "First-Time Home Buyer Programs",
+      "Competitive Interest Rates",
+      "Refinance Options",
+    ],
+  },
+]
+
 export const eastBayCities = [
   "All Cities",
   "Oakland",

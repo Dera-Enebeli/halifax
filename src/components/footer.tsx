@@ -31,6 +31,7 @@ const footerLinks = [
     title: "Company",
     links: [
       { label: "About Geoffrey", href: "/about" },
+      { label: "Our Team", href: "/team" },
       { label: "Contact", href: "/consultation" },
     ],
   },
@@ -92,6 +93,12 @@ export default function Footer() {
                     </div>
                   </div>
                 </div>
+                <div className="h-px bg-white/10 my-4" />
+                <div className="text-xs text-white/30 leading-relaxed">
+                  <p className="font-medium text-white/50 mb-1">Company Information</p>
+                  <p>{agent.brokerage} &middot; {agent.license}</p>
+                  <p>{agent.address}</p>
+                </div>
             </div>
 
             {footerLinks.map((group) => (
@@ -129,7 +136,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-xs sm:text-sm text-white/40 font-light">
           <span>
-            &copy; {new Date().getFullYear()} Halifax Properties &amp; Investments — East Bay. All rights reserved.
+            &copy; {new Date().getFullYear()} {agent.brokerage} &middot; All rights reserved.
           </span>
           <a
             href={mortgageUrl}
@@ -140,6 +147,9 @@ export default function Footer() {
             <CreditCard className="h-3 w-3" />
             <span>Empire Lending Group</span>
           </a>
+        </div>
+        <div className="pb-4 text-[11px] text-white/20 text-center">
+          Halifax Properties &amp; Investments is a division of {agent.brokerage}. {agent.license}.
         </div>
       </div>
     </footer>
