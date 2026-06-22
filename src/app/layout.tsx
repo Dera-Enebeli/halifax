@@ -28,10 +28,7 @@ export const metadata: Metadata = {
   description:
     "East Bay real estate with Halifax Properties & Investments. Buy, sell, or get a property valuation. Led by Geoffrey Enebly — your trusted East Bay real estate agent.",
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/main-logo.png", sizes: "32x32" },
-    ],
+    icon: "/favicon.svg",
     apple: "/main-logo.png",
   },
   openGraph: {
