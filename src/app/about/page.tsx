@@ -78,7 +78,7 @@ export default function AboutPage() {
 
         <section className="py-20 md:py-24">
           <div className="max-w-page section-padding">
-            <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+            <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12">
               <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-3">
                 Our Mission
               </p>
@@ -125,12 +125,12 @@ export default function AboutPage() {
                         <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'52px', left:'18px'}} />
                       </div>
                     )}
-                    <div className="h-[3px] bg-crimson w-full mb-3 rounded-t-lg" />
+                    <div className="h-[3px] bg-crimson w-full mb-6 rounded-t-lg" />
                     <div className="relative z-[1]">
-                      <div className="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center mb-2.5">
-                        <Icon className="h-4 w-4 text-crimson" />
+                      <div className="w-10 h-10 rounded-full bg-crimson/10 flex items-center justify-center mb-4">
+                        <Icon className="h-5 w-5 text-crimson" />
                       </div>
-                      <h3 className="font-serif italic text-xl text-near-black mb-2">{item.title}</h3>
+                      <h3 className="font-serif italic text-xl text-near-black mb-3">{item.title}</h3>
                       <p className="text-sm text-near-black/85 leading-relaxed">
                         {item.desc}
                       </p>
@@ -178,23 +178,23 @@ export default function AboutPage() {
                     <div className="h-px bg-warm-border mb-4" />
 
                     <div className="space-y-2.5">
-                      <div style={{ display: "flex", flexDirection: "row" }}>
-                        <div style={{ width: "50%", display: "flex", alignItems: "center", gap: "4px", overflow: "hidden" }} className="text-xs sm:text-sm text-near-black/60">
+                      <div className="flex flex-row gap-2">
+                        <a href="tel:+15105075088" className="flex items-center gap-1.5 text-xs sm:text-sm text-near-black/60 hover:text-crimson transition-colors whitespace-nowrap">
                           <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-crimson shrink-0" />
-                          <span className="truncate">(510) 507-5088</span>
-                        </div>
-                        <div style={{ width: "50%", display: "flex", alignItems: "center", gap: "4px", overflow: "hidden" }} className="text-xs sm:text-sm text-near-black/60">
+                          (510) 507-5088
+                        </a>
+                        <a href="mailto:Enebly@aol.com" className="flex items-center gap-1.5 text-xs sm:text-sm text-near-black/60 hover:text-crimson transition-colors whitespace-nowrap">
                           <Mail className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-crimson shrink-0" />
-                          <span className="truncate">Enebly@aol.com</span>
-                        </div>
+                          Enebly@aol.com
+                        </a>
                       </div>
-                      <span className="flex items-center gap-2.5 text-body text-near-black/60">
+                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
                         <span className="w-6 flex items-center justify-center">
                           <MapPin className="h-3.5 w-3.5 text-crimson" />
                         </span>
                         {agent.address}
                       </span>
-                      <span className="flex items-center gap-2.5 text-body text-near-black/60">
+                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
                         <span className="w-6 flex items-center justify-center">
                           <MapPin className="h-3.5 w-3.5 text-crimson" />
                         </span>
