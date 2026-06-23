@@ -11,7 +11,7 @@ import ScrollReveal from "@/components/scroll-reveal"
 export const metadata: Metadata = {
   title: "About Geoffrey Enebly | Halifax Properties — East Bay Real Estate Agent",
   description:
-    "Meet Geoffrey Enebly — East Bay real estate agent with 30 years experience. Buy, sell, or value your home in Oakland, Berkeley, Walnut Creek, Dublin & beyond. Broker, CalBRE# 00899654.",
+    "Meet Geoffrey Enebly — East Bay real estate agent with 30 years experience. Buy, sell, or value your home in Oakland, Berkeley, Walnut Creek, Dublin & beyond. Realtor, CalBRE# 00899654.",
   openGraph: {
     title: "About Geoffrey Enebly | Halifax Properties — East Bay Real Estate Agent",
     description:
@@ -194,12 +194,7 @@ export default function AboutPage() {
                         </span>
                         {agent.address}
                       </span>
-                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
-                        <span className="w-6 flex items-center justify-center">
-                          <MapPin className="h-3.5 w-3.5 text-crimson" />
-                        </span>
-                        {agent.address2}
-                      </span>
+
                     </div>
 
                     <div className="h-px bg-warm-border my-4" />

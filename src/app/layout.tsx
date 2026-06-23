@@ -71,10 +71,10 @@ const orgSchema = {
       ],
       address: {
         "@type": "PostalAddress",
-        streetAddress: "5097 Wagon Wheel Way",
-        addressLocality: "Antioch",
+        streetAddress: "7442 Hillmont Dr",
+        addressLocality: "Oakland",
         addressRegion: "CA",
-        postalCode: "94531",
+        postalCode: "94605",
         addressCountry: "US",
       },
       areaServed: [

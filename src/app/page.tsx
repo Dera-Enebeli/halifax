@@ -50,18 +50,6 @@ const services = [
     ],
     href: "/consultation?interest=homeowner",
   },
-  {
-    label: "Mortgage",
-    headline: "Get pre-approved today",
-    items: [
-      "Conventional & FHA loans",
-      "First-time home buyer programs",
-      "Competitive interest rates",
-      "Powered by Empire Lending Group \u2014 a division of Halifax Solutions Inc",
-    ],
-    href: "https://www.empirelending.net",
-    external: true,
-  },
 ]
 
 export default function Home() {
@@ -132,7 +120,7 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-7 pb-14 md:pb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-7 pb-14 md:pb-20">
               {services.map((s, i) => (
                 <ScrollReveal key={s.label} delay={i * 150}>
                   <div className="relative pt-6 md:pt-8 px-5 md:px-7 pb-6 md:pb-7 border-t-[3px] border-crimson">
@@ -161,13 +149,7 @@ export default function Home() {
                       <div className="w-3 h-3 rounded-full bg-current absolute" style={{top:'52px', left:'18px'}} />
                     </div>
                   )}
-                  {i === 3 && (
-                    <div className="absolute -top-10 -right-10 w-48 h-48 opacity-[0.15] text-emerald-400 pointer-events-none" aria-hidden="true">
-                      <div className="w-full h-full rounded-full border border-current" />
-                      <div className="absolute inset-7 rounded-full border border-current" />
-                      <div className="absolute inset-14 rounded-full border border-current" />
-                    </div>
-                  )}
+
                   <p className="font-serif italic text-olive text-base mb-2">{s.label}</p>
                   <h3 className="font-serif text-[22px] md:text-[28px] font-semibold leading-[1.2] text-white mb-4 md:mb-5">
                     {s.headline}
@@ -180,26 +162,34 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  {s.external ? (
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm sm:text-xs uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2"
-                    >
-                      Apply now <ExternalLink className="h-3 w-3" />
-                    </a>
-                  ) : (
-                    <Link
-                      href={s.href}
-                      className="inline-block text-sm sm:text-xs uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2"
-                    >
-                      Learn more &rarr;
-                    </Link>
-                  )}
+                  <Link
+                    href={s.href}
+                    className="inline-block text-sm sm:text-xs uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2"
+                  >
+                    Learn more &rarr;
+                  </Link>
                 </div>
                 </ScrollReveal>
               ))}
+            </div>
+
+            <div className="max-w-lg mx-auto text-center mt-8 md:mt-10">
+              <div className="border-t border-white/10 pt-8">
+                <p className="text-xs font-medium tracking-[2px] uppercase text-olive/60 mb-2">
+                  Mortgage Referral
+                </p>
+                <p className="text-sm text-white/50 leading-relaxed font-light max-w-sm mx-auto">
+                  We don&apos;t originate loans ourselves. Geoffrey personally refers clients to B. Braimah at Empire Lending Group &mdash; a separate company under Halifax Solutions Inc &mdash; for all financing needs.
+                </p>
+                <a
+                  href="https://www.empirelending.net"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2 mt-3"
+                >
+                  Visit Empire Lending Group <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
             </div>
           </div>
         </section>

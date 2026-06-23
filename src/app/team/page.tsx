@@ -67,31 +67,14 @@ export default function TeamPage() {
                   <span className="h-px w-8 bg-crimson/30" />
                 </div>
               </div>
-              {teamMembers.map((member, i) => (
+
+              {teamMembers.filter(m => m.id === "geoffrey").map((member, i) => (
                 <ScrollReveal key={member.id} delay={i * 150}>
-                  {i === 1 && (
-                    <div className="text-center mb-12">
-                      <div className="inline-flex items-center gap-3 mb-4">
-                        <span className="h-px w-8 bg-crimson/30" />
-                        <span className="text-xs font-bold tracking-[2px] uppercase text-crimson">Mortgage Services</span>
-                        <span className="h-px w-8 bg-crimson/30" />
-                      </div>
-                      <p className="text-sm text-near-black/50 max-w-lg mx-auto">
-                        Financing handled by Empire Lending Group, a division of Halifax Solutions Inc &mdash; separate from our real estate brokerage but working together for you.
-                      </p>
-                    </div>
-                  )}
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-10">
                     <div className="lg:col-span-2">
                       <div className="bg-cream p-6 md:p-8 rounded-lg">
                         <div className="w-28 h-28 md:w-36 md:h-36 relative mx-auto md:mx-0 rounded-full overflow-hidden mb-5 border-2 border-warm-border">
-                          {member.image ? (
-                            <Image src={member.image} alt={member.name} fill className="object-cover" />
-                          ) : (
-                            <div className="w-full h-full bg-cream-dark flex items-center justify-center">
-                              <Building2 className="h-10 w-10 text-near-black/20" />
-                            </div>
-                          )}
+                          <Image src={member.image!} alt={member.name} fill className="object-cover" />
                         </div>
                         <h3 className="font-bold text-xl text-near-black text-center md:text-left">{member.name}</h3>
                         <p className="text-sm text-crimson font-semibold text-center md:text-left mb-1">
@@ -100,37 +83,19 @@ export default function TeamPage() {
                         <p className="text-xs text-near-black/50 text-center md:text-left mb-4">
                           {member.license}
                         </p>
-
                         <div className="h-px bg-warm-border mb-4" />
-
                         <div className="space-y-2.5">
-                          <a
-                            href={`tel:+1${member.phone.replace(/[^\d]/g, "")}`}
-                            className="flex items-center gap-2.5 text-sm sm:text-body text-near-black/60 hover:text-crimson transition-colors duration-200"
-                          >
+                          <a href={`tel:+1${member.phone.replace(/[^\d]/g, "")}`} className="flex items-center gap-2.5 text-sm sm:text-body text-near-black/60 hover:text-crimson transition-colors duration-200">
                             <Phone className="h-3.5 w-3.5 text-crimson shrink-0" />
                             {member.phone}
                           </a>
-                          <a
-                            href={`mailto:${member.email}`}
-                            className="flex items-center gap-2.5 text-sm sm:text-body text-near-black/60 hover:text-crimson transition-colors duration-200"
-                          >
+                          <a href={`mailto:${member.email}`} className="flex items-center gap-2.5 text-sm sm:text-body text-near-black/60 hover:text-crimson transition-colors duration-200">
                             <Mail className="h-3.5 w-3.5 text-crimson shrink-0" />
                             {member.email}
                           </a>
                         </div>
-
-                        {member.id === "braimah" && (
-                          <>
-                            <div className="h-px bg-warm-border my-4" />
-                            <p className="text-xs text-near-black/40 text-center md:text-left">
-                              Empire Lending Group is a division of Halifax Solutions Inc. NMLS #1817865.
-                            </p>
-                          </>
-                        )}
                       </div>
                     </div>
-
                     <div className="lg:col-span-3 flex flex-col justify-center">
                       <p className="text-body text-near-black/70 leading-relaxed mb-6">
                         {member.description}
@@ -147,6 +112,42 @@ export default function TeamPage() {
                   </div>
                 </ScrollReveal>
               ))}
+
+              <div className="text-center pt-8 border-t border-warm-border">
+                <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-3">
+                  Mortgage Referral
+                </p>
+                <h3 className="font-serif italic text-2xl text-near-black mb-3">
+                  Need Financing?
+                </h3>
+                <p className="text-sm text-near-black/55 max-w-lg mx-auto leading-relaxed font-light mb-6">
+                  We don&apos;t originate loans ourselves. Geoffrey personally refers clients to <strong className="text-near-black/80">B. Braimah</strong> at Empire Lending Group (NMLS #1817865) — a separate company under our parent, Halifax Solutions Inc. Reach him directly for mortgages, pre-approvals, and refinancing.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <a
+                    href="tel:+15103030324"
+                    className="inline-flex items-center justify-center gap-2 bg-crimson text-white text-sm font-bold px-6 py-3 rounded-full hover:bg-crimson-dark transition-all duration-200"
+                  >
+                    <Phone className="h-4 w-4" />
+                    (510) 303-0324
+                  </a>
+                  <a
+                    href="mailto:BBraimah@empirelending.net"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-near-black/15 text-near-black/70 text-sm font-semibold px-6 py-3 rounded-full hover:border-near-black/30 hover:text-near-black transition-all duration-200"
+                  >
+                    <Mail className="h-4 w-4" />
+                    BBraimah@empirelending.net
+                  </a>
+                  <a
+                    href="https://www.empirelending.net"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-sm font-medium text-crimson hover:text-crimson-dark transition-colors"
+                  >
+                    Visit Website <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -156,11 +157,11 @@ export default function TeamPage() {
             <div className="max-w-2xl mx-auto text-center">
               <ScrollReveal>
               <h2 className="font-serif italic text-[clamp(26px,3.5vw,38px)] text-near-black leading-[1.15] mb-4">
-                Work With Us
+                Work With Geoffrey
               </h2>
               <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
               <p className="text-sm text-near-black/60 font-light mb-10 max-w-md mx-auto">
-                Whether you&apos;re buying, selling, or just exploring your options, our team is here to help.
+                Whether you&apos;re buying, selling, or just exploring your options, Geoffrey is here to help.
               </p>
               </ScrollReveal>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -171,15 +172,6 @@ export default function TeamPage() {
                   <Phone className="h-4 w-4" />
                   Get a Free Consultation
                 </Link>
-                <a
-                  href="https://www.empirelending.net"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-near-black/15 text-near-black/70 text-sm font-semibold px-7 py-3.5 rounded-full hover:border-near-black/30 hover:text-near-black transition-all duration-200 w-full sm:w-auto"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  Mortgage Services
-                </a>
               </div>
             </div>
           </div>

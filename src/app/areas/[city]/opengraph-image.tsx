@@ -90,7 +90,7 @@ export default async function Image({
               Geoffrey Enebly · (510) 507-5088
             </span>
             <span style={{ fontSize: 14, color: '#6B7D5E' }}>
-              Licensed Broker · CalBRE# 00899654
+              Licensed Realtor · CalBRE# 00899654
             </span>
           </div>
         </div>

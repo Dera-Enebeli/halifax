@@ -116,7 +116,7 @@ export default async function FreeValuationPage() {
                     </div>
                     <div>
                       <p className="text-white font-bold text-lg leading-tight">Licensed</p>
-                      <p className="text-sm text-white/40">Broker</p>
+                      <p className="text-sm text-white/40">Realtor</p>
                     </div>
                   </div>
                 </ScrollReveal>

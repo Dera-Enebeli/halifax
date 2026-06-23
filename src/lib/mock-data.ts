@@ -10,10 +10,9 @@ export const agent = {
   represents: "Both Buyers and Sellers",
   languages: ["English"],
   brokerage: "Halifax Solutions Inc",
-  address: "5097 Wagon Wheel Way, Antioch, CA 94531",
-  address2: "7442 Hillmont Dr, Oakland, CA 94605",
+  address: "7442 Hillmont Dr, Oakland, CA 94605",
   licenseType: "Agent",
-  type: "Broker",
+  type: "Realtor",
 }
 
 export const certifications = [
@@ -30,7 +29,7 @@ export const teamMembers = [
   {
     id: "geoffrey",
     name: "Geoffrey Enebly",
-    title: "Broker / Owner",
+    title: "Realtor / Owner",
     phone: "(510) 507-5088",
     email: "Enebly@aol.com",
     image: "/j-pic.png",

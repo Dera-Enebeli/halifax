@@ -36,7 +36,7 @@ const footerLinks = [
     ],
   },
   {
-    title: "Mortgage Services",
+    title: "Mortgage Referral",
     external: true,
     links: [
       { label: "Get Pre-Approved", href: `${mortgageUrl}/apply-now/` },
@@ -87,10 +87,7 @@ export default function Footer() {
                   </a>
                   <div className="flex items-start gap-2.5 text-sm text-white/60">
                     <MapPin className="h-3.5 w-3.5 text-crimson shrink-0 mt-0.5" />
-                    <div className="flex flex-col">
-                      <span>{agent.address}</span>
-                      <span>{agent.address2}</span>
-                    </div>
+                    <span>{agent.address}</span>
                   </div>
                 </div>
                 <div className="h-px bg-white/10 my-4" />
