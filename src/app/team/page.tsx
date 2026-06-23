@@ -58,10 +58,10 @@ export default function TeamPage() {
           </div>
         </div>
 
-        <section className="py-20 md:py-24">
+        <section className="py-14 md:py-20">
           <div className="max-w-page section-padding">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center px-4 mb-10 md:mb-14">
+              <div className="text-center px-4 mb-8 md:mb-10">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="h-px w-8 bg-crimson/30" />
                   <span className="text-xs font-bold tracking-[2px] uppercase text-crimson">Real Estate</span>
@@ -72,7 +72,7 @@ export default function TeamPage() {
               {teamMembers.map((member, i) => (
                 <ScrollReveal key={member.id} delay={i * 150}>
                   {i === 1 && (
-                    <div className="text-center pt-16 md:pt-20 mb-12">
+                    <div className="text-center pt-10 md:pt-12 mb-8">
                       <div className="inline-flex items-center gap-3 mb-4">
                         <span className="h-px w-8 bg-crimson/30" />
                         <span className="text-xs font-bold tracking-[2px] uppercase text-crimson">Mortgage Referral</span>
@@ -133,13 +133,13 @@ export default function TeamPage() {
                     </div>
                     <div className="lg:col-span-3 flex flex-col justify-center">
                       {member.sections ? (
-                        <div className="space-y-6">
+                        <div className="space-y-5">
                           {member.sections.map((section) => (
                             <div key={section.label}>
-                              <p className="text-xs font-bold tracking-[2px] uppercase text-crimson mb-3">
+                              <p className="text-xs font-bold tracking-[2px] uppercase text-crimson mb-2">
                                 {section.label}
                               </p>
-                              <ul className="space-y-2">
+                              <ul className="space-y-1.5">
                                 {section.items.map((item) => (
                                   <li key={item} className="flex items-start gap-3 text-sm sm:text-body text-near-black/65 leading-relaxed">
                                     <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
@@ -152,10 +152,10 @@ export default function TeamPage() {
                         </div>
                       ) : (
                         <>
-                          <p className="text-body text-near-black/70 leading-relaxed mb-6">
+                          <p className="text-body text-near-black/70 leading-relaxed mb-4">
                             {member.description}
                           </p>
-                          <ul className="space-y-2">
+                          <ul className="space-y-1.5">
                             {member.highlights.map((h) => (
                               <li key={h} className="flex items-start gap-3 text-sm sm:text-body text-near-black/65 leading-relaxed">
                                 <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
@@ -173,7 +173,7 @@ export default function TeamPage() {
           </div>
         </section>
 
-        <section className="py-20 md:py-24 bg-cream-dark">
+        <section className="py-14 md:py-16 bg-cream-dark">
           <div className="max-w-page section-padding">
             <div className="max-w-2xl mx-auto text-center">
               <ScrollReveal>
