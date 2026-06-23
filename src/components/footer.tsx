@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Phone, Mail, MapPin, Building2, CreditCard } from "lucide-react"
 import { agent } from "@/lib/mock-data"
+import ExitConfirmLink from "./exit-confirm-link"
 
 const mortgageUrl = "https://www.empirelending.net"
 
@@ -105,14 +106,12 @@ export default function Footer() {
                   {group.links.map((link) => (
                     <li key={link.label}>
                       {group.external ? (
-                        <a
+                        <ExitConfirmLink
                           href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
+                          className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light cursor-pointer"
                         >
                           {link.label}
-                        </a>
+                        </ExitConfirmLink>
                       ) : (
                         <Link
                           href={link.href}
@@ -135,15 +134,13 @@ export default function Footer() {
           <span>
             &copy; {new Date().getFullYear()} {agent.brokerage} &middot; All rights reserved.
           </span>
-          <a
+          <ExitConfirmLink
             href={mortgageUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
+            className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
           >
             <CreditCard className="h-3 w-3" />
             <span>Empire Lending Group</span>
-          </a>
+          </ExitConfirmLink>
         </div>
         <div className="pb-4 text-[11px] text-white/20 text-center">
           Halifax Properties &amp; Investments is a division of {agent.brokerage}. {agent.license}.

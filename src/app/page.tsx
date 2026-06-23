@@ -5,6 +5,7 @@ import HeroSection from "@/components/hero-section"
 import Link from "next/link"
 import Image from "next/image"
 import { Phone, Mail, ArrowRight, ExternalLink } from "lucide-react"
+import ExitConfirmLink from "@/components/exit-confirm-link"
 import ScrollReveal from "@/components/scroll-reveal"
 import { cities } from "@/lib/city-data"
 
@@ -181,14 +182,12 @@ export default function Home() {
                 <p className="text-sm text-white/50 leading-relaxed font-light max-w-sm mx-auto">
                   We don&apos;t originate loans ourselves. Geoffrey personally refers clients to B. Braimah at Empire Lending Group &mdash; a separate company under Halifax Solutions Inc &mdash; for all financing needs.
                 </p>
-                <a
+                <ExitConfirmLink
                   href="https://www.empirelending.net"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2 mt-3"
+                  className="inline-flex items-center gap-1.5 text-sm uppercase tracking-[0.08em] text-crimson font-medium border-b border-transparent hover:border-crimson transition-colors duration-200 py-2 mt-3 cursor-pointer"
                 >
                   Visit Empire Lending Group <ExternalLink className="h-3 w-3" />
-                </a>
+                </ExitConfirmLink>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { Phone, Mail, Building2, ExternalLink, Check } from "lucide-react"
+import ExitConfirmLink from "@/components/exit-confirm-link"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import UtilityBar from "@/components/utility-bar"
@@ -59,7 +60,7 @@ export default function TeamPage() {
 
         <section className="py-20 md:py-24">
           <div className="max-w-page section-padding">
-            <div className="max-w-5xl mx-auto space-y-16">
+            <div className="max-w-5xl mx-auto">
               <div className="text-center px-4">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="h-px w-8 bg-crimson/30" />
@@ -138,14 +139,12 @@ export default function TeamPage() {
                     <Mail className="h-4 w-4" />
                     BBraimah@empirelending.net
                   </a>
-                  <a
+                  <ExitConfirmLink
                     href="https://www.empirelending.net"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 text-sm font-medium text-crimson hover:text-crimson-dark transition-colors"
+                    className="inline-flex items-center justify-center gap-2 text-sm font-medium text-crimson hover:text-crimson-dark transition-colors cursor-pointer"
                   >
                     Visit Website <ExternalLink className="h-3.5 w-3.5" />
-                  </a>
+                  </ExitConfirmLink>
                 </div>
               </div>
             </div>

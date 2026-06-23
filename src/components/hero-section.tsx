@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Phone, Mail, Home, Building2, DollarSign, ExternalLink } from "lucide-react"
+import ExitConfirmLink from "./exit-confirm-link"
 
 const mortgageUrl = "https://www.empirelending.net"
 
@@ -76,15 +77,13 @@ export default function HeroSection() {
                 <DollarSign className="h-3.5 w-3.5 text-white/60" />
                 Valuation
               </Link>
-              <a
+              <ExitConfirmLink
                 href={mortgageUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="basis-full sm:basis-auto flex items-center gap-1.5 text-white/70 hover:text-white text-sm sm:text-body font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5 justify-center sm:justify-center"
+                className="basis-full sm:basis-auto flex items-center gap-1.5 text-white/70 hover:text-white text-sm sm:text-body font-medium transition-colors duration-200 border-b border-transparent hover:border-white/40 pb-0.5 justify-center sm:justify-center cursor-pointer"
               >
                 <ExternalLink className="h-3.5 w-3.5 text-white/60" />
                 Pre-Approval
-              </a>
+              </ExitConfirmLink>
             </div>
           </div>
         </div>
