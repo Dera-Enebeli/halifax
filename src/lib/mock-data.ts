@@ -42,6 +42,27 @@ export const teamMembers = [
       "Broker Price Opinion Resource (BPOR)",
       "Certified Distressed Property Expert (CDPE)",
     ],
+    sections: [
+      {
+        label: "EXPERIENCE",
+        items: [
+          "Selling and listing residential & commercial properties.",
+          "Working with asset-managers and banks in property disposition.",
+        ],
+      },
+      {
+        label: "SERVICES",
+        items: [
+          "Help home buyers find new homes.",
+          "Help sellers cash in on their equity.",
+          "Provide free market analysis and optimal timing.",
+        ],
+      },
+      {
+        label: "EXPERTISE",
+        items: ["Default Property", "Investment Property"],
+      },
+    ],
   },
   {
     id: "braimah",

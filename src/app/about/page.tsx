@@ -222,65 +222,43 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="grid-cols-1 space-y-3 mt-4 md:mt-6">
-                    <ScrollReveal delay={0}>
-                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-4 md:px-5 py-4 md:py-5">
-                      <div className="absolute -top-10 -right-10 w-40 h-40 opacity-[0.1] text-crimson pointer-events-none" aria-hidden="true">
-                        <div className="w-full h-full rounded-full border border-current" />
-                        <div className="absolute inset-7 rounded-full border border-current" />
-                        <div className="absolute inset-14 rounded-full border border-current" />
-                      </div>
-                      <div className="h-[3px] bg-crimson w-full mb-3 md:mb-4 rounded-t" />
-                      <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
-                        Experience
-                      </p>
-                      <p className="text-sm text-near-black/60 leading-relaxed font-light">
-                        Selling and listing residential &amp; commercial properties. Working with asset-managers and banks in property disposition.
-                      </p>
-                    </div>
-                    </ScrollReveal>
-                    <ScrollReveal delay={150}>
-                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-4 md:px-5 py-4 md:py-5">
-                      <div className="absolute -bottom-10 -left-10 w-40 h-40 opacity-[0.1] text-crimson pointer-events-none" aria-hidden="true">
-                        <div className="w-full h-full border border-current rotate-45" />
-                        <div className="absolute inset-10 border border-current rotate-45" />
-                      </div>
-                      <div className="h-[3px] bg-crimson w-full mb-3 md:mb-4 rounded-t" />
-                      <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
-                        Services
-                      </p>
-                      <p className="text-sm text-near-black/60 leading-relaxed font-light">
-                        Help home buyers find new homes. Help sellers cash in on their equity. Provide free market analysis and optimal timing.
-                      </p>
-                    </div>
-                    </ScrollReveal>
-                    <ScrollReveal delay={300}>
-                    <div className="relative overflow-hidden bg-cream rounded-lg shadow-lg shadow-black/10 px-4 md:px-5 py-4 md:py-5">
-                      <div className="absolute top-1 right-1 w-24 h-24 opacity-[0.12] text-crimson pointer-events-none" aria-hidden="true">
-                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'2px', left:'2px'}} />
-                        <div className="w-1.5 h-1.5 rounded-full bg-current absolute" style={{top:'0', left:'22px'}} />
-                        <div className="w-[14px] h-[14px] rounded-full bg-current absolute" style={{top:'12px', left:'48px'}} />
-                        <div className="w-1.5 h-1.5 rounded-full bg-current absolute" style={{top:'30px', left:'8px'}} />
-                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'36px', left:'42px'}} />
-                        <div className="w-1.5 h-1.5 rounded-full bg-current absolute" style={{top:'52px', left:'48px'}} />
-                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'50px', left:'0px'}} />
-                        <div className="w-2 h-2 rounded-full bg-current absolute" style={{top:'52px', left:'18px'}} />
-                      </div>
-                      <div className="h-[3px] bg-crimson w-full mb-3 md:mb-4 rounded-t" />
-                      <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-2">
-                        Expertise
-                      </p>
-                      <div className="flex flex-wrap gap-1.5 mt-2">
-                        {["Default Property", "Investment Property", "Multi-Family", "Commercial"].map((item) => (
-                          <span key={item} className="text-xs bg-crimson/10 text-crimson font-medium px-2.5 py-1">
+                  <ScrollReveal>
+                  <div className="space-y-5 mt-10 md:mt-12">
+                    <div>
+                      <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-3">Experience</p>
+                      <ul className="space-y-1.5">
+                        {["Selling and listing residential &amp; commercial properties.", "Working with asset-managers and banks in property disposition."].map((item) => (
+                          <li key={item} className="flex items-start gap-3 text-sm text-near-black/65 leading-relaxed">
+                            <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
                             {item}
-                          </span>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
-                    </ScrollReveal>
+                    <div>
+                      <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-3">Services</p>
+                      <ul className="space-y-1.5">
+                        {["Help home buyers find new homes.", "Help sellers cash in on their equity.", "Provide free market analysis and optimal timing."].map((item) => (
+                          <li key={item} className="flex items-start gap-3 text-sm text-near-black/65 leading-relaxed">
+                            <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold tracking-wider uppercase text-crimson mb-3">Expertise</p>
+                      <ul className="space-y-1.5">
+                        {["Default Property", "Investment Property"].map((item) => (
+                          <li key={item} className="flex items-start gap-3 text-sm text-near-black/65 leading-relaxed">
+                            <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-
+                  </ScrollReveal>
                 </div>
               </div>
             </div>
