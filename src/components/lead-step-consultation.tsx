@@ -59,9 +59,12 @@ export default function LeadStepConsultation() {
                 </div>
                 <div className="bg-cream-dark px-6 py-8 flex flex-col items-center justify-center text-center">
                   <div className="w-20 h-20 rounded-full bg-cream flex items-center justify-center mb-3 overflow-hidden">
-                    <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain" />
+                    <Image src="/main-logo.png?v=2" alt="Halifax" width={256} height={256} className="object-contain" />
                   </div>
-                  <p className="font-bold text-sm text-near-black">{agent.name}</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="font-bold text-sm text-near-black">{agent.name}</p>
+                    <Image src="/realtor-badge.png?v=2" alt="Realtor" width={24} height={27} className="object-contain flex-shrink-0" />
+                  </div>
                   <p className="text-xs text-near-black/50">{agent.type} &middot; {agent.experience}</p>
                   <p className="text-sm text-near-black/60 mt-1">{agent.phone}</p>
                   <p className="text-sm text-crimson font-medium">{agent.email}</p>

@@ -36,7 +36,6 @@ const services = [
       "Free property value / appraisal",
       "Free market analysis",
       "Free guide to selling for top $$",
-      "Free relocation",
     ],
     href: "/consultation?interest=seller",
   },
@@ -180,7 +179,7 @@ export default function Home() {
                   Mortgage Referral
                 </p>
                 <p className="text-sm text-white/50 leading-relaxed font-light max-w-sm mx-auto">
-                  We don&apos;t originate loans ourselves. Geoffrey personally refers clients to B. Braimah at Empire Lending Group &mdash; a separate company under Halifax Solutions Inc &mdash; for all financing needs.
+                  Visit our in-house lender. Empire Lending Group for pre approval.
                 </p>
                 <ExitConfirmLink
                   href="https://www.empirelending.net"

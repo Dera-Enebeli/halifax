@@ -7,7 +7,7 @@ export default function AreasLayout({ children }: { children: React.ReactNode })
     <>
       <UtilityBar />
       <Header />
-      <main className="pt-16 lg:pt-20">{children}</main>
+      <main className="pt-24 lg:pt-28">{children}</main>
       <Footer />
     </>
   )

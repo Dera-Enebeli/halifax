@@ -33,7 +33,7 @@ export default function TeamPage() {
     <>
       <UtilityBar />
       <Header />
-      <main className="pt-16 lg:pt-20">
+      <main className="pt-24 lg:pt-28">
 
         <div className="bg-near-black relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -95,7 +95,12 @@ export default function TeamPage() {
                             </div>
                           )}
                         </div>
-                        <h3 className="font-bold text-xl text-near-black text-center md:text-left">{member.name}</h3>
+                        <div className="flex items-center justify-center md:justify-start gap-3 mb-1">
+                          <h3 className="font-bold text-xl text-near-black">{member.name}</h3>
+                          {member.id === "geoffrey" && (
+                            <Image src="/realtor-badge.png?v=2" alt="Realtor" width={32} height={36} className="object-contain flex-shrink-0" />
+                          )}
+                        </div>
                         <p className="text-sm text-crimson font-semibold text-center md:text-left mb-1">
                           {member.title}
                         </p>

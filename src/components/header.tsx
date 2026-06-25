@@ -74,19 +74,9 @@ export default function Header() {
         }`}
       >
         <div className="max-w-page section-padding">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-24 lg:h-28">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain w-16 h-16 lg:w-20 lg:h-20 transition-transform duration-300 group-hover:scale-105" />
-              <div className="flex flex-col items-start gap-0 leading-tight">
-                <span
-                  className="font-serif italic text-xl lg:text-heading text-near-black tracking-tight transition-transform duration-300 group-hover:scale-105"
-                >
-                  Halifax
-                </span>
-                <span className="text-xs font-semibold text-crimson tracking-[2px] uppercase sm:block transition-transform duration-300 group-hover:scale-105 origin-left">
-                  East Bay
-                </span>
-              </div>
+              <Image src="/main-logo.png?v=2" alt="Halifax Properties & Investments" width={256} height={256} className="object-contain w-32 h-32 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-56 lg:h-56 transition-transform duration-300 group-hover:scale-105" />
             </Link>
 
             <nav className="hidden lg:flex items-center gap-9">

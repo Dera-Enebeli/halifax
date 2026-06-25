@@ -132,13 +132,16 @@ export default function LeadForm() {
 
               <div className="flex items-center gap-4 mb-8">
                   <div className="w-20 h-20 rounded-full bg-cream-dark flex items-center justify-center flex-shrink-0">
-                    <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain" />
+                    <Image src="/main-logo.png?v=2" alt="Halifax" width={256} height={256} className="object-contain" />
                 </div>
-                <div>
-                  <p className="font-serif italic text-sm text-near-black leading-tight">
-                    Geoffrey Enebly
-                  </p>
-                  <p className="text-xs text-near-black/50">{agent.type} &middot; {agent.experience} &middot; (510) 507-5088</p>
+                <div className="flex items-center gap-3">
+                  <div>
+                    <p className="font-serif italic text-sm text-near-black leading-tight">
+                      Geoffrey Enebly
+                    </p>
+                    <p className="text-xs text-near-black/50">{agent.type} &middot; {agent.experience} &middot; (510) 507-5088</p>
+                  </div>
+                  <Image src="/realtor-badge.png?v=2" alt="Realtor" width={40} height={45} className="object-contain flex-shrink-0" />
                 </div>
               </div>
 

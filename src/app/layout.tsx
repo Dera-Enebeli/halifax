@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "East Bay real estate with Halifax Properties & Investments. Buy, sell, or get a property valuation. Led by Geoffrey Enebly — your trusted East Bay real estate agent.",
   icons: {
     icon: "/favicon-logo.svg",
-    apple: "/main-logo.png",
+    apple: "/main-logo.png?v=2",
   },
   openGraph: {
     title: "Halifax Properties & Investments | East Bay Real Estate",
@@ -61,7 +61,7 @@ const orgSchema = {
       name: "Halifax Properties & Investments",
       description: "East Bay real estate — buy, sell, or value your home with Geoffrey Enebly.",
       url: baseUrl,
-      image: `${baseUrl}/main-logo.png`,
+      image: `${baseUrl}/main-logo.png?v=2`,
       telephone: "+15105075088",
       email: "Enebly@aol.com",
       priceRange: "$$",

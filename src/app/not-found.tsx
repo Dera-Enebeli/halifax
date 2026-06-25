@@ -8,7 +8,7 @@ export default function NotFound() {
     <>
       <UtilityBar />
       <Header />
-      <main className="pt-16 lg:pt-20">
+      <main className="pt-24 lg:pt-28">
         <section className="py-24 md:py-32 bg-near-black">
           <div className="max-w-page section-padding">
             <div className="max-w-2xl mx-auto text-center">

@@ -175,9 +175,12 @@ export default async function CityPage({ params }: Props) {
                 <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden mx-auto mb-4 border-[3px] border-cream shadow-md">
                   <Image src={agent.image} alt="Geoffrey Enebly" fill className="object-cover" sizes="112px" />
                 </div>
-                <h3 className="font-bold text-lg text-near-black text-center mb-1">
-                  Work with Geoffrey
-                </h3>
+                <div className="flex items-center justify-center gap-2 mb-1">
+                  <h3 className="font-bold text-lg text-near-black text-center">
+                    Work with Geoffrey
+                  </h3>
+                  <Image src="/realtor-badge.png?v=2" alt="Realtor" width={28} height={32} className="object-contain flex-shrink-0" />
+                </div>
                 <p className="text-xs text-center text-near-black/50 mb-4">
                   {agent.type} &middot; {agent.experience}
                 </p>

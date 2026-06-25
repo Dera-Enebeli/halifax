@@ -55,14 +55,8 @@ export default function Footer() {
         <div className="py-16 md:py-20">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
             <div className="col-span-2 md:col-span-1">
-              <Link href="/" className="flex items-center gap-2.5 group mb-4">
-                <Image src="/main-logo.png" alt="Halifax" width={256} height={256} className="object-contain w-16 h-16" />
-                <span
-                  className="font-serif italic text-xl text-white tracking-tight"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
-                  Halifax
-                </span>
+              <Link href="/" className="flex items-center group mb-1">
+                <Image src="/main-logo.png?v=2" alt="Halifax" width={256} height={256} className="object-contain w-32 h-32 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-56 lg:h-56" />
               </Link>
               <p className="text-sm text-white/50 font-light leading-relaxed max-w-xs mb-6">
                 Your East Bay real estate partner. Get access to premium properties across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.
