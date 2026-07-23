@@ -30,7 +30,6 @@ export default function ExitConfirmLink({ href, children, className }: ExitConfi
         isOpen={showModal}
         onClose={() => setShowModal(false)}
         onConfirm={handleConfirm}
-        url={href}
       />
     </>
   )

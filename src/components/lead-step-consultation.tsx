@@ -11,23 +11,6 @@ export default function LeadStepConsultation() {
   const router = useRouter()
   const { state } = useFunnel()
 
-  const interestMessages: Record<string, { heading: string; body: string }> = {
-    buyer: {
-      heading: "Let\u2019s Find Your Next Home",
-      body: "I\u2019ll reach out to learn more about what you\u2019re looking for and help you find the perfect property in the East Bay.",
-    },
-    seller: {
-      heading: "Let\u2019s Sell Your Home",
-      body: "I\u2019ll help you prepare a market analysis, set the right price, and market your property to the right buyers.",
-    },
-    homeowner: {
-      heading: "Let\u2019s Discuss Your Home\u2019s Value",
-      body: "I\u2019ll prepare a full market analysis and walk you through what your property is worth in today\u2019s market.",
-    },
-  }
-
-  const msg = state.interest ? interestMessages[state.interest] : interestMessages.homeowner
-
   return (
     <section className="py-16 md:py-24 bg-cream-dark">
       <div className="max-w-page section-padding">
@@ -52,9 +35,9 @@ export default function LeadStepConsultation() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
                 <div className="bg-cream-dark px-6 py-8 flex flex-col items-center justify-center text-center">
-                  <p className="font-serif italic text-lg text-near-black mb-3">{msg.heading}</p>
+                  <p className="font-serif italic text-lg text-near-black mb-3">Let&rsquo;s Discuss Your Home&rsquo;s Value</p>
                   <p className="text-sm text-near-black/55 leading-relaxed font-light">
-                    {msg.body}
+                    I&rsquo;ll prepare a full market analysis and walk you through what your property is worth in today&rsquo;s market.
                   </p>
                 </div>
                 <div className="bg-cream-dark px-6 py-8 flex flex-col items-center justify-center text-center">
@@ -114,30 +97,7 @@ export default function LeadStepConsultation() {
                       }
                       if (state.bestTimeToCall) data["Best Time to Call"] = state.bestTimeToCall
                       if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
-                      if (state.budget) {
-                        const budgetLabels: Record<string, string> = {
-                          "under-500k": "Under $500,000",
-                          "500k-750k": "$500,000 – $750,000",
-                          "750k-1m": "$750,000 – $1,000,000",
-                          "1m-1.5m": "$1,000,000 – $1,500,000",
-                          "1.5m-2m": "$1,500,000 – $2,000,000",
-                          "2m-plus": "$2,000,000+",
-                          "not-sure": "Not sure yet",
-                        }
-                        data["Budget"] = budgetLabels[state.budget] || state.budget
-                      }
-                      if (state.timeline) {
-                        const timelineLabels: Record<string, string> = {
-                          "just-looking": "Just looking / Browsing",
-                          "1-3": "1 – 3 months",
-                          "3-6": "3 – 6 months",
-                          "6-plus": "6+ months",
-                          "not-sure": "Not sure",
-                        }
-                        data["Timeline"] = timelineLabels[state.timeline] || state.timeline
-                      }
-                      if (state.message) data["Message"] = state.message
-                      data["Schedule"] = state.interest === "buyer" ? "Home Buying Consultation" : state.interest === "seller" ? "Listing Consultation" : "Full Valuation"
+                      data["Schedule"] = "Home Valuation Consultation"
                       openWhatsApp(data)
                     }}
                     className={`flex items-center justify-center gap-2 h-12 text-sm font-semibold rounded-lg transition-all duration-200 ${

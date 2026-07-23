@@ -23,7 +23,7 @@ export default function HeroSection() {
 
         <div className="relative z-10 text-center px-5 max-w-3xl mx-auto pt-24 lg:pt-28 pb-6 sm:pb-12 animate-fade-up opacity-0">
             <div className="w-[160px] aspect-[3/2] sm:w-64 mx-auto mb-6 relative flex items-center justify-center">
-              <Image src="/main-logo.png?v=2" alt="Halifax Properties & Investments" width={256} height={256} className="object-contain drop-shadow-lg" />
+              <Image src="/main-logo.png?v=2" alt="Halifax Properties & Investments" width={256} height={256} loading="eager" className="object-contain drop-shadow-lg" />
             </div>
             <h1 className="text-white font-serif text-[clamp(28px,6vw,48px)] leading-[1.1] tracking-tight mb-2">
               Halifax Properties <span className="text-crimson">&amp;</span> Investments

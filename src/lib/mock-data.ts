@@ -11,6 +11,7 @@ export const agent = {
   languages: ["English"],
   brokerage: "Halifax Solutions Inc",
   address: "7442 Hillmont Dr, Oakland, CA 94605",
+  secondaryAddress: "5097 Wagon Wheel Way, Antioch, CA 94531",
   licenseType: "Agent",
   type: "Realtor",
 }

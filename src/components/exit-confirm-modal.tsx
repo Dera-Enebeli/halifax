@@ -7,10 +7,9 @@ interface ExitConfirmModalProps {
   isOpen: boolean
   onClose: () => void
   onConfirm: () => void
-  url: string
 }
 
-export default function ExitConfirmModal({ isOpen, onClose, onConfirm, url }: ExitConfirmModalProps) {
+export default function ExitConfirmModal({ isOpen, onClose, onConfirm }: ExitConfirmModalProps) {
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose()

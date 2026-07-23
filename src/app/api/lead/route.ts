@@ -24,9 +24,9 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json()
-    const { interest, name, email, phone, bestTimeToCall, areaOfInterest, budget, timeline, consentEmail, consentSMS, message, contactMethod } = body
+    const { name, email, phone, bestTimeToCall, areaOfInterest, contactMethod } = body
 
-    if (!name || !email || !phone || !interest) {
+    if (!name || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
@@ -40,17 +40,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Phone number must have at least 10 digits" }, { status: 400 })
     }
 
-    const interestLabels: Record<string, string> = {
-      buyer: "Buying",
-      seller: "Selling",
-      homeowner: "Valuation",
-    }
-
-    const subject = `New Lead: ${interestLabels[interest] || "Valuation"} - ${name}`
     const lines = [
       `New lead from halifaxproperties.com`,
       `---`,
-      `Interest: ${interestLabels[interest] || "Valuation"}`,
       `Name: ${name}`,
       `Email: ${email}`,
       `Phone: ${phone}`,
@@ -58,37 +50,13 @@ export async function POST(request: Request) {
 
     if (bestTimeToCall) lines.push(`Best Time to Call: ${bestTimeToCall}`)
     if (areaOfInterest) lines.push(`Area of Interest: ${areaOfInterest}`)
-    if (budget) {
-      const budgetLabels: Record<string, string> = {
-        "under-500k": "Under $500,000",
-        "500k-750k": "$500,000 – $750,000",
-        "750k-1m": "$750,000 – $1,000,000",
-        "1m-1.5m": "$1,000,000 – $1,500,000",
-        "1.5m-2m": "$1,500,000 – $2,000,000",
-        "2m-plus": "$2,000,000+",
-        "not-sure": "Not sure yet",
-      }
-      lines.push(`Budget: ${budgetLabels[budget] || budget}`)
-    }
-    if (timeline) {
-      const timelineLabels: Record<string, string> = {
-        "just-looking": "Just looking / Browsing",
-        "1-3": "1 – 3 months",
-        "3-6": "3 – 6 months",
-        "6-plus": "6+ months",
-        "not-sure": "Not sure",
-      }
-      lines.push(`Timeline: ${timelineLabels[timeline] || timeline}`)
-    }
-    if (consentEmail === "yes") lines.push(`Consent: Email marketing`)
-    if (consentSMS === "yes") lines.push(`Consent: SMS`)
-    if (message) lines.push(`Message: ${message}`)
     if (contactMethod) lines.push(`Preferred Contact Method: ${contactMethod}`)
 
     lines.push(`---`)
     lines.push(`Geoffrey Enebly | Halifax Properties & Investments`)
 
     const text = lines.join("\n")
+    const subject = `New Lead: ${name}`
 
     console.log(`[Lead] ${subject}`)
     console.log(text)

@@ -197,6 +197,12 @@ export default function AboutPage() {
                         </span>
                         {agent.address}
                       </span>
+                      <span className="flex items-center gap-2.5 text-sm text-near-black/60">
+                        <span className="w-6 flex items-center justify-center">
+                          <MapPin className="h-3.5 w-3.5 text-crimson" />
+                        </span>
+                        {agent.secondaryAddress}
+                      </span>
 
                     </div>
 

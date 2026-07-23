@@ -1,12 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
-import { Phone, Mail, Building2, ExternalLink, Check } from "lucide-react"
+import { Phone, Mail, Building2, ExternalLink } from "lucide-react"
 import ExitConfirmLink from "@/components/exit-confirm-link"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import UtilityBar from "@/components/utility-bar"
-import { teamMembers, agent } from "@/lib/mock-data"
+import { teamMembers } from "@/lib/mock-data"
 import ScrollReveal from "@/components/scroll-reveal"
 
 export const metadata: Metadata = {

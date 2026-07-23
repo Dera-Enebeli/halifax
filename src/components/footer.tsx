@@ -56,7 +56,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
             <div className="col-span-2 md:col-span-1">
               <Link href="/" className="flex items-center group mb-1">
-                <Image src="/main-logo.png?v=2" alt="Halifax" width={256} height={256} className="object-contain w-32 h-32 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-56 lg:h-56" />
+                <Image src="/main-logo.png?v=2" alt="Halifax" width={256} height={256} className="object-contain w-32 h-auto sm:w-36 md:w-48 lg:w-56" />
               </Link>
               <p className="text-sm text-white/50 font-light leading-relaxed max-w-xs mb-6">
                 Your East Bay real estate partner. Get access to premium properties across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.
@@ -84,12 +84,17 @@ export default function Footer() {
                     <MapPin className="h-3.5 w-3.5 text-crimson shrink-0 mt-0.5" />
                     <span>{agent.address}</span>
                   </div>
+                  <div className="flex items-start gap-2.5 text-sm text-white/60">
+                    <MapPin className="h-3.5 w-3.5 text-crimson shrink-0 mt-0.5" />
+                    <span>{agent.secondaryAddress}</span>
+                  </div>
                 </div>
                 <div className="h-px bg-white/10 my-4" />
                 <div className="text-xs text-white/30 leading-relaxed">
                   <p className="font-medium text-white/50 mb-1">Company Information</p>
                   <p>{agent.brokerage} &middot; {agent.license}</p>
                   <p>{agent.address}</p>
+                  <p>{agent.secondaryAddress}</p>
                 </div>
             </div>
 
