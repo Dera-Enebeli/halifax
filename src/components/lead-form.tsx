@@ -12,7 +12,7 @@ import { Select } from "@/components/ui/select"
 
 function FieldHint({ children, error, id, errorId }: { children: React.ReactNode; error?: string | false; id?: string; errorId?: string }) {
   return (
-    <p id={error ? errorId : id} className={`text-sm mt-1.5 ${error ? "text-red-600 font-medium" : "text-near-black/40"}`} role={error ? "alert" : undefined}>
+    <p id={error ? errorId : id} className={`text-sm mt-1.5 ${error ? "text-red-600 font-medium" : "text-near-black/60"}`} role={error ? "alert" : undefined}>
       {error || children}
     </p>
   )
@@ -110,7 +110,7 @@ export default function LeadForm() {
               <button
                 type="button"
                 onClick={() => router.back()}
-                className="flex items-center gap-1.5 text-sm font-medium text-near-black/40 hover:text-crimson transition-colors mb-8 cursor-pointer group"
+                className="flex items-center gap-1.5 text-sm font-medium text-near-black/60 hover:text-crimson transition-colors mb-8 cursor-pointer group"
               >
                 <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
                 Back
@@ -125,7 +125,7 @@ export default function LeadForm() {
                     <p className="font-serif italic text-sm text-near-black leading-tight">
                       Geoffrey Enebly
                     </p>
-                    <p className="text-xs text-near-black/50">{agent.type} &middot; {agent.experience} &middot; (510) 507-5088</p>
+                    <p className="text-xs text-near-black/70">{agent.type} &middot; {agent.experience} &middot; (510) 507-5088</p>
                   </div>
                   <Image src="/realtor-badge.png?v=2" alt="Realtor" width={40} height={45} className="object-contain flex-shrink-0" />
                 </div>
@@ -139,7 +139,7 @@ export default function LeadForm() {
                   Let&rsquo;s find your next home.
                 </h1>
                 <div className="w-10 h-[3px] bg-crimson mb-4" />
-                <p className="text-sm text-near-black/55 leading-relaxed font-light max-w-lg">
+                <p className="text-sm text-near-black/70 leading-relaxed font-light max-w-lg">
                   Tell us a bit about yourself and Geoffrey will reach out personally within 24 hours.
                 </p>
               </div>
@@ -154,7 +154,7 @@ export default function LeadForm() {
                       How should Geoffrey reach you?
                     </h2>
                     <div className="w-10 h-[3px] bg-crimson mb-4" />
-                    <p className="text-sm text-near-black/55 leading-relaxed font-light max-w-lg">
+                    <p className="text-sm text-near-black/70 leading-relaxed font-light max-w-lg">
                       Pick your preferred way to connect and we&rsquo;ll take it from there.
                     </p>
                   </div>
@@ -183,7 +183,7 @@ export default function LeadForm() {
                             <span className={`block text-sm font-bold ${isActive ? "text-white" : "text-near-black"}`}>
                               {opt.label}
                             </span>
-                            <span className={`block text-xs mt-px ${isActive ? "text-white/65" : "text-near-black/40"}`}>
+                            <span className={`block text-xs mt-px ${isActive ? "text-white/75" : "text-near-black/60"}`}>
                               {opt.sub}
                             </span>
                           </div>
@@ -215,7 +215,7 @@ export default function LeadForm() {
                     <button
                       type="button"
                       onClick={() => setShowContactStep(false)}
-                      className="flex items-center gap-1.5 text-sm font-medium text-near-black/40 hover:text-crimson transition-colors cursor-pointer group"
+                      className="flex items-center gap-1.5 text-sm font-medium text-near-black/60 hover:text-crimson transition-colors cursor-pointer group"
                     >
                       <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
                       Back
@@ -320,7 +320,7 @@ export default function LeadForm() {
             </div>
 
             <div className="border-t border-warm-border px-7 sm:px-10 py-4">
-              <p className="text-xs text-near-black/35 text-center">
+              <p className="text-xs text-near-black/50 text-center">
                 By submitting, you agree to be contacted regarding your real estate inquiry.
                 Your information is kept private and never shared.
               </p>

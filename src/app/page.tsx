@@ -13,7 +13,7 @@ const TestimonialsSection = dynamic(() => import("@/components/testimonials-sect
   loading: () => <div className="py-16 md:py-24 bg-cream" />,
 })
 const Footer = dynamic(() => import("@/components/footer"), {
-  loading: () => <div className="bg-near-black py-16" />,
+  loading: () => <div className="bg-cream-dark py-16" />,
 })
 
 const services = [
@@ -60,9 +60,9 @@ export default function Home() {
       <main>
         <HeroSection />
 
-        <section className="relative overflow-hidden bg-near-black">
+        <section className="relative overflow-hidden bg-cream-dark">
           <div
-            className="absolute inset-0 md:inset-auto md:-top-24 md:-bottom-24 md:-right-24 md:w-[55%] opacity-[0.2] md:opacity-[0.45]"
+            className="absolute inset-0 md:inset-auto md:-top-24 md:-bottom-24 md:-right-24 md:w-[55%] opacity-[0.15] md:opacity-[0.3]"
             style={{
               maskImage: "linear-gradient(to left, black 25%, transparent 100%)",
               WebkitMaskImage: "linear-gradient(to left, black 25%, transparent 100%)",
@@ -76,23 +76,23 @@ export default function Home() {
               sizes="(max-width: 768px) 100vw, 55vw"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-near-black/40 to-near-black" />
-          <div className="absolute inset-0 bg-gradient-to-b from-near-black via-transparent to-near-black pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-cream-dark/40 to-cream-dark" />
+          <div className="absolute inset-0 bg-gradient-to-b from-cream-dark via-transparent to-cream-dark pointer-events-none" />
           <div className="max-w-page section-padding relative z-[1]">
             <ScrollReveal>
               <div className="text-center py-14 md:py-16 px-4">
                 <p className="text-xs font-medium tracking-[0.18em] uppercase text-olive/80 mb-4">
                   Free Consultation
                 </p>
-                <h2 className="font-serif italic text-[clamp(28px,3rem,52px)] font-medium text-white leading-[1.15] mb-5">
+                <h2 className="font-serif italic text-[clamp(28px,3rem,52px)] font-medium text-near-black leading-[1.15] mb-5">
                   One Stop <span className="text-crimson italic">Real Estate</span>
                 </h2>
                 <hr className="w-12 h-[2px] bg-crimson border-0 mx-auto mb-5" />
-                <p className="max-w-[600px] mx-auto text-sm text-white/50 leading-relaxed [text-wrap:pretty] mb-12 md:mb-14">
+                <p className="max-w-[600px] mx-auto text-sm text-near-black/75 leading-relaxed [text-wrap:pretty] mb-12 md:mb-14">
                   Buying, selling, or valuing&mdash;we guide you through every step of the East Bay market with local expertise and honest advice.
                 </p>
 
-                <h3 className="font-serif italic text-[clamp(22px,2.5vw,32px)] text-white leading-[1.2] mb-8 md:mb-10">
+                <h3 className="font-serif italic text-[clamp(22px,2.5vw,32px)] text-near-black leading-[1.2] mb-8 md:mb-10">
                   Find Your Home in the East Bay
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-5 max-w-4xl mx-auto">
@@ -100,12 +100,12 @@ export default function Home() {
                     <Link
                       key={c.slug}
                       href={`/areas/${c.slug}`}
-                      className="group flex flex-col items-center justify-center gap-1.5 bg-white/5 hover:bg-crimson/15 rounded-lg px-3 py-5 md:py-6 transition-all duration-200"
+                      className="group flex flex-col items-center justify-center gap-1.5 bg-near-black/5 hover:bg-crimson/15 rounded-lg px-3 py-5 md:py-6 transition-all duration-200"
                     >
-                      <span className="font-serif italic text-sm md:text-base text-white/80 group-hover:text-crimson transition-colors">
+                      <span className="font-serif italic text-sm md:text-base text-near-black/85 group-hover:text-crimson transition-colors">
                         {c.name}
                       </span>
-                      <span className="text-xs text-white/30 group-hover:text-white/50 transition-colors text-center leading-tight">
+                      <span className="text-xs text-near-black/65 group-hover:text-near-black/80 transition-colors text-center leading-tight">
                         {c.tagline}
                       </span>
                     </Link>
@@ -113,7 +113,7 @@ export default function Home() {
                 </div>
                 <Link
                   href="/areas/oakland"
-                  className="inline-flex items-center gap-1.5 text-xs mt-5 text-white/40 hover:text-crimson transition-colors font-medium uppercase tracking-wider"
+                  className="inline-flex items-center gap-1.5 text-xs mt-5 text-near-black/75 hover:text-crimson transition-colors font-medium uppercase tracking-wider"
                 >
                   Explore all areas <ArrowRight className="h-3 w-3" />
                 </Link>
@@ -151,12 +151,12 @@ export default function Home() {
                   )}
 
                   <p className="font-serif italic text-olive text-base mb-2">{s.label}</p>
-                  <h3 className="font-serif text-[22px] md:text-[28px] font-semibold leading-[1.2] text-white mb-4 md:mb-5">
+                  <h3 className="font-serif text-[22px] md:text-[28px] font-semibold leading-[1.2] text-near-black mb-4 md:mb-5">
                     {s.headline}
                   </h3>
                   <ul className="space-y-1.5 mb-7">
                     {s.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-white/60">
+                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-near-black/80">
                         <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
                         {item}
                       </li>
@@ -174,11 +174,11 @@ export default function Home() {
             </div>
 
             <div className="max-w-lg mx-auto text-center mt-8 md:mt-10">
-              <div className="border-t border-white/10 pt-8">
-                <p className="text-xs font-medium tracking-[2px] uppercase text-olive/60 mb-2">
+              <div className="border-t border-near-black/10 pt-8">
+                <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-2">
                   Mortgage Referral
                 </p>
-                <p className="text-sm text-white/50 leading-relaxed font-light max-w-sm mx-auto">
+                <p className="text-sm text-near-black/75 leading-relaxed font-light max-w-sm mx-auto">
                   Visit our in-house lender. Empire Lending Group for pre approval.
                 </p>
                 <ExitConfirmLink

@@ -1,16 +1,19 @@
 import type { Metadata, Viewport } from "next"
-import { Inter, Playfair_Display } from "next/font/google"
+import { Fraunces, Source_Serif_4 } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
 
-const inter = Inter({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
 })
 
-const playfair = Playfair_Display({
+const sourceSerif4 = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-source-serif4",
 })
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://HalifaxProperties.org"
@@ -147,7 +150,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`} data-scroll-behavior="smooth">
+    <html lang="en" className={`${fraunces.variable} ${sourceSerif4.variable}`} data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

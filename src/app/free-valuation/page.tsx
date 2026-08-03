@@ -64,11 +64,11 @@ export default async function FreeValuationPage() {
       <Header />
       <main>
 
-        <section className="relative overflow-hidden bg-near-black">
+        <section className="relative overflow-hidden bg-cream-dark">
           <div
             className="absolute inset-0 opacity-[0.04]"
             style={{
-              backgroundImage: "radial-gradient(circle at 25% 50%, white 1px, transparent 1px)",
+              backgroundImage: "radial-gradient(circle at 25% 50%, #1A1A1A 1px, transparent 1px)",
               backgroundSize: "40px 40px",
             }}
           />
@@ -76,30 +76,30 @@ export default async function FreeValuationPage() {
             className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.06] pointer-events-none"
             aria-hidden="true"
           >
-            <div className="w-full h-full rounded-full border border-white" />
-            <div className="absolute inset-16 rounded-full border border-white" />
-            <div className="absolute inset-32 rounded-full border border-white" />
+            <div className="w-full h-full rounded-full border-near-black" />
+            <div className="absolute inset-16 rounded-full border-near-black" />
+            <div className="absolute inset-32 rounded-full border-near-black" />
           </div>
           <div
             className="absolute -bottom-20 -left-20 w-80 h-80 opacity-[0.04] pointer-events-none"
             aria-hidden="true"
           >
-            <div className="w-full h-full border border-white rotate-45" />
-            <div className="absolute inset-12 border border-white rotate-45" />
+            <div className="w-full h-full border-near-black rotate-45" />
+            <div className="absolute inset-12 border-near-black rotate-45" />
           </div>
 
           <div className="max-w-page section-padding relative z-[1]">
             <div className="py-20 md:py-28 lg:py-32">
               <div className="max-w-3xl">
                 <ScrollReveal animation="fade-up">
-                  <p className="text-xs font-medium tracking-[2px] uppercase text-olive/80 mb-4">
+                  <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-4">
                     Free Service
                   </p>
-                  <h1 className="font-serif italic text-[clamp(34px,5.5vw,56px)] text-white leading-[1.08] mb-5">
+                  <h1 className="font-serif italic text-[clamp(34px,5.5vw,56px)] text-near-black leading-[1.08] mb-5">
                     Free Home <span className="text-crimson">Valuation</span>
                   </h1>
                   <div className="w-16 h-[3px] bg-crimson mb-6" />
-                  <p className="text-body text-white/55 leading-relaxed max-w-xl font-light">
+                  <p className="text-body text-near-black/80 leading-relaxed max-w-xl font-light">
                     Know exactly what your home is worth in today&rsquo;s East Bay market. No obligation, no spam&mdash;just honest numbers.
                   </p>
                 </ScrollReveal>
@@ -107,16 +107,16 @@ export default async function FreeValuationPage() {
                 <ScrollReveal animation="fade-up" delay={250}>
                   <div className="flex flex-wrap gap-x-8 gap-y-3 mt-10">
                     <div>
-                      <p className="text-white font-bold text-lg leading-tight">30 Years</p>
-                      <p className="text-sm text-white/40">Experience</p>
+                      <p className="text-near-black font-bold text-lg leading-tight">30 Years</p>
+                      <p className="text-sm text-near-black/70">Experience</p>
                     </div>
                     <div>
-                      <p className="text-white font-bold text-lg leading-tight">CalBRE#</p>
-                      <p className="text-sm text-white/40">00899654</p>
+                      <p className="text-near-black font-bold text-lg leading-tight">CalBRE#</p>
+                      <p className="text-sm text-near-black/70">00899654</p>
                     </div>
                     <div>
-                      <p className="text-white font-bold text-lg leading-tight">Licensed</p>
-                      <p className="text-sm text-white/40">Realtor</p>
+                      <p className="text-near-black font-bold text-lg leading-tight">Licensed</p>
+                      <p className="text-sm text-near-black/70">Realtor</p>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -130,7 +130,7 @@ export default async function FreeValuationPage() {
             <ScrollReveal animation="fade-in">
               <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-5 text-center">
                 {["Oakland", "Berkeley", "Walnut Creek", "Dublin", "Pleasanton"].map((city) => (
-                  <span key={city} className="flex items-center gap-1.5 text-sm text-near-black/50">
+                  <span key={city} className="flex items-center gap-1.5 text-sm text-near-black/70">
                     <MapPin className="h-3.5 w-3.5 text-crimson/60" />
                     {city}
                   </span>
@@ -152,7 +152,7 @@ export default async function FreeValuationPage() {
                     Tell us about your <span className="text-crimson">property</span>
                   </h2>
                   <div className="w-12 h-[3px] bg-crimson mb-6" />
-                  <p className="text-sm text-near-black/60 leading-relaxed font-light max-w-lg">
+                  <p className="text-sm text-near-black/75 leading-relaxed font-light max-w-lg">
                     Fill out the form and Geoffrey will prepare a personalized valuation based on recent comps, local trends, and his 30 years of East Bay market expertise.
                   </p>
                 </ScrollReveal>
@@ -164,7 +164,7 @@ export default async function FreeValuationPage() {
                         <div className="w-6 h-6 rounded-full bg-crimson/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                           <Check className="h-3.5 w-3.5 text-crimson" />
                         </div>
-                        <span className="text-sm text-near-black/70 leading-relaxed">{item}</span>
+                        <span className="text-sm text-near-black/80 leading-relaxed">{item}</span>
                       </div>
                     </ScrollReveal>
                   ))}
@@ -233,7 +233,7 @@ export default async function FreeValuationPage() {
                           {i < 2 && <ChevronRight className="h-4 w-4 text-crimson/30 hidden md:block" />}
                         </div>
                         <h3 className="font-serif italic text-xl text-near-black mb-3">{step.title}</h3>
-                        <p className="text-sm text-near-black/55 leading-relaxed font-light">{step.desc}</p>
+                        <p className="text-sm text-near-black/70 leading-relaxed font-light">{step.desc}</p>
                       </div>
                     </div>
                   </ScrollReveal>
@@ -255,7 +255,7 @@ export default async function FreeValuationPage() {
                     Why Get a <span className="text-crimson">Valuation</span>?
                   </h2>
                   <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
-                  <p className="text-sm text-near-black/60 leading-relaxed font-light max-w-lg mx-auto">
+                  <p className="text-sm text-near-black/75 leading-relaxed font-light max-w-lg mx-auto">
                     Knowing your home&rsquo;s value gives you the power to make smarter real estate decisions.
                   </p>
                 </ScrollReveal>
@@ -268,7 +268,7 @@ export default async function FreeValuationPage() {
                       <div className="w-7 h-7 rounded-full bg-crimson/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="h-3.5 w-3.5 text-crimson" />
                       </div>
-                      <span className="text-sm text-near-black/70 leading-relaxed">{item}</span>
+                      <span className="text-sm text-near-black/80 leading-relaxed">{item}</span>
                     </div>
                   </ScrollReveal>
                 ))}
@@ -288,7 +288,7 @@ export default async function FreeValuationPage() {
                   Let&rsquo;s Talk Numbers
                 </h2>
                 <div className="w-12 h-[3px] bg-crimson mx-auto mb-6" />
-                <p className="text-sm text-near-black/60 font-light mb-8 max-w-md mx-auto">
+                <p className="text-sm text-near-black/75 font-light mb-8 max-w-md mx-auto">
                   Reach out directly for a fast, friendly valuation&mdash;no form required.
                 </p>
               </ScrollReveal>

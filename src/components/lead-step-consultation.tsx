@@ -28,7 +28,7 @@ export default function LeadStepConsultation() {
                   Thanks, {state.name?.split(" ")[0]}!
                 </h1>
                 <div className="w-10 h-[3px] bg-crimson mx-auto mt-4 mb-5" />
-                <p className="text-sm text-near-black/55 leading-relaxed font-light">
+                <p className="text-sm text-near-black/70 leading-relaxed font-light">
                   Your preferred contact method has been confirmed. Here&rsquo;s what happens next.
                 </p>
               </div>
@@ -36,7 +36,7 @@ export default function LeadStepConsultation() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
                 <div className="bg-cream-dark px-6 py-8 flex flex-col items-center justify-center text-center">
                   <p className="font-serif italic text-lg text-near-black mb-3">Let&rsquo;s Discuss Your Home&rsquo;s Value</p>
-                  <p className="text-sm text-near-black/55 leading-relaxed font-light">
+                  <p className="text-sm text-near-black/70 leading-relaxed font-light">
                     I&rsquo;ll prepare a full market analysis and walk you through what your property is worth in today&rsquo;s market.
                   </p>
                 </div>
@@ -48,8 +48,8 @@ export default function LeadStepConsultation() {
                     <p className="font-bold text-sm text-near-black">{agent.name}</p>
                     <Image src="/realtor-badge.png?v=2" alt="Realtor" width={24} height={27} className="object-contain flex-shrink-0" />
                   </div>
-                  <p className="text-xs text-near-black/50">{agent.type} &middot; {agent.experience}</p>
-                  <p className="text-sm text-near-black/60 mt-1">{agent.phone}</p>
+                  <p className="text-xs text-near-black/70">{agent.type} &middot; {agent.experience}</p>
+                  <p className="text-sm text-near-black/75 mt-1">{agent.phone}</p>
                   <p className="text-sm text-crimson font-medium">{agent.email}</p>
                 </div>
               </div>
@@ -115,7 +115,7 @@ export default function LeadStepConsultation() {
                   <button
                     type="button"
                     onClick={() => router.push("/")}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-near-black/40 hover:text-crimson transition-colors cursor-pointer group"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-near-black/60 hover:text-crimson transition-colors cursor-pointer group"
                   >
                     <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
                     Back to Home
@@ -125,7 +125,7 @@ export default function LeadStepConsultation() {
             </div>
 
             <div className="border-t border-warm-border px-7 sm:px-10 py-4">
-              <p className="text-xs text-near-black/35 text-center">
+              <p className="text-xs text-near-black/50 text-center">
                 By submitting, you agree to be contacted by {agent.name} regarding
                 your real estate inquiry.
               </p>

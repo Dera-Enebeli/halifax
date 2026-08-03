@@ -11,7 +11,7 @@ const buttonVariants = cva(
         default: "bg-crimson text-white hover:bg-crimson-dark shadow-sm",
         destructive: "bg-red-600 text-white hover:bg-red-500",
         outline: "border-2 border-crimson text-crimson hover:bg-crimson hover:text-white",
-        ghost: "text-near-black/60 hover:bg-cream-dark",
+        ghost: "text-near-black/75 hover:bg-cream-dark",
         link: "text-crimson underline-offset-4 hover:underline",
       },
       size: {

@@ -58,40 +58,40 @@ export default function Footer() {
               <Link href="/" className="flex items-center group mb-1">
                 <Image src="/main-logo.png?v=2" alt="Halifax" width={256} height={256} className="object-contain w-32 h-auto sm:w-36 md:w-48 lg:w-56" />
               </Link>
-              <p className="text-sm text-white/50 font-light leading-relaxed max-w-xs mb-6">
+              <p className="text-sm text-white/65 font-light leading-relaxed max-w-xs mb-6">
                 Your East Bay real estate partner. Get access to premium properties across Oakland, Berkeley, Walnut Creek, Dublin, and the entire East Bay.
               </p>
                 <div className="flex items-center gap-2 mb-3">
                   <Building2 className="h-3.5 w-3.5 text-crimson shrink-0" />
-                  <span className="text-sm text-white/40">Geoffrey Enebly &middot; {agent.type} &middot; {agent.license}</span>
+                  <span className="text-sm text-white/60">Geoffrey Enebly &middot; {agent.type} &middot; {agent.license}</span>
                 </div>
                 <div className="flex flex-col gap-2.5">
                   <a
                     href="tel:+15105075088"
-                    className="flex items-center gap-2.5 text-sm text-white/60 hover:text-white transition-colors duration-200"
+                    className="flex items-center gap-2.5 text-sm text-white/75 hover:text-white transition-colors duration-200"
                   >
                     <Phone className="h-3.5 w-3.5 text-crimson shrink-0" />
                     (510) 507-5088
                   </a>
                   <a
                     href="mailto:Enebly@aol.com"
-                    className="flex items-center gap-2.5 text-sm text-white/60 hover:text-white transition-colors duration-200"
+                    className="flex items-center gap-2.5 text-sm text-white/75 hover:text-white transition-colors duration-200"
                   >
                     <Mail className="h-3.5 w-3.5 text-crimson shrink-0" />
                     Enebly@aol.com
                   </a>
-                  <div className="flex items-start gap-2.5 text-sm text-white/60">
+                  <div className="flex items-start gap-2.5 text-sm text-white/75">
                     <MapPin className="h-3.5 w-3.5 text-crimson shrink-0 mt-0.5" />
                     <span>{agent.address}</span>
                   </div>
-                  <div className="flex items-start gap-2.5 text-sm text-white/60">
+                  <div className="flex items-start gap-2.5 text-sm text-white/75">
                     <MapPin className="h-3.5 w-3.5 text-crimson shrink-0 mt-0.5" />
                     <span>{agent.secondaryAddress}</span>
                   </div>
                 </div>
                 <div className="h-px bg-white/10 my-4" />
-                <div className="text-xs text-white/30 leading-relaxed">
-                  <p className="font-medium text-white/50 mb-1">Company Information</p>
+                <div className="text-xs text-white/40 leading-relaxed">
+                  <p className="font-medium text-white/65 mb-1">Company Information</p>
                   <p>{agent.brokerage} &middot; {agent.license}</p>
                   <p>{agent.address}</p>
                   <p>{agent.secondaryAddress}</p>
@@ -107,14 +107,14 @@ export default function Footer() {
                       {group.external ? (
                         <ExitConfirmLink
                           href={link.href}
-                          className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light cursor-pointer"
+                          className="text-sm text-white/65 hover:text-white transition-colors duration-200 font-light cursor-pointer"
                         >
                           {link.label}
                         </ExitConfirmLink>
                       ) : (
                         <Link
                           href={link.href}
-                          className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
+                          className="text-sm text-white/65 hover:text-white transition-colors duration-200 font-light"
                         >
                           {link.label}
                         </Link>
@@ -129,7 +129,7 @@ export default function Footer() {
 
         <div className="h-px bg-white/10" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-xs sm:text-sm text-white/40 font-light">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-xs sm:text-sm text-white/60 font-light">
           <span>
             &copy; {new Date().getFullYear()} {agent.brokerage} &middot; All rights reserved.
           </span>
@@ -141,7 +141,7 @@ export default function Footer() {
             <span>Empire Lending Group</span>
           </ExitConfirmLink>
         </div>
-        <div className="pb-4 text-[11px] text-white/20 text-center">
+        <div className="pb-4 text-[11px] text-white/40 text-center">
           Halifax Properties &amp; Investments is a division of {agent.brokerage}. {agent.license}.
         </div>
       </div>

@@ -41,7 +41,7 @@ export default function ExitConfirmModal({ isOpen, onClose, onConfirm }: ExitCon
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-near-black/40 hover:text-near-black hover:bg-cream-dark transition-all cursor-pointer"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-near-black/60 hover:text-near-black hover:bg-cream-dark transition-all cursor-pointer"
           aria-label="Close"
         >
           <X className="h-4 w-4" />
@@ -55,8 +55,8 @@ export default function ExitConfirmModal({ isOpen, onClose, onConfirm }: ExitCon
           You&apos;re Leaving Our Site
         </h3>
 
-        <p className="text-sm text-near-black/60 text-center leading-relaxed mb-6">
-          This link will take you to <strong className="text-near-black/80">Empire Lending Group</strong>, our trusted mortgage partner. We don&apos;t originate loans ourselves &mdash; they handle all financing needs separately.
+        <p className="text-sm text-near-black/75 text-center leading-relaxed mb-6">
+          This link will take you to <strong className="text-near-black/85">Empire Lending Group</strong>, our trusted mortgage partner. We don&apos;t originate loans ourselves &mdash; they handle all financing needs separately.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
@@ -69,7 +69,7 @@ export default function ExitConfirmModal({ isOpen, onClose, onConfirm }: ExitCon
           </button>
           <button
             onClick={onClose}
-            className="flex-1 inline-flex items-center justify-center gap-2 border-2 border-near-black/15 text-near-black/70 text-sm font-semibold px-5 py-3 rounded-full hover:border-near-black/30 hover:text-near-black transition-all duration-200 cursor-pointer"
+            className="flex-1 inline-flex items-center justify-center gap-2 border-2 border-near-black/15 text-near-black/80 text-sm font-semibold px-5 py-3 rounded-full hover:border-near-black/30 hover:text-near-black transition-all duration-200 cursor-pointer"
           >
             Stay on Page
           </button>

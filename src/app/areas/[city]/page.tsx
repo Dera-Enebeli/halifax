@@ -46,16 +46,16 @@ export default async function CityPage({ params }: Props) {
 
   return (
     <>
-      <section className="bg-near-black relative overflow-hidden">
+      <section className="bg-cream-dark relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: "radial-gradient(circle at 25% 50%, white 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle at 25% 50%, #1A1A1A 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }} />
         <div className="max-w-page section-padding relative">
           <div className="py-16 md:py-20">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-white/40 hover:text-white transition-colors mb-6"
+              className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-near-black/70 hover:text-near-black transition-colors mb-6"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Back to Home
@@ -63,14 +63,14 @@ export default async function CityPage({ params }: Props) {
             <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-3">
               East Bay Real Estate
             </p>
-            <h1 className="font-serif italic text-[clamp(32px,5vw,52px)] text-white leading-[1.1] mb-3">
+            <h1 className="font-serif italic text-[clamp(32px,5vw,52px)] text-near-black leading-[1.1] mb-3">
               {info.name}
             </h1>
             <p className="font-serif italic text-lg md:text-xl text-crimson mb-4">
               {info.tagline}
             </p>
             <div className="w-16 h-[3px] bg-crimson mb-6" />
-            <p className="text-white/60 text-body leading-relaxed max-w-2xl font-light">
+            <p className="text-near-black/80 text-body leading-relaxed max-w-2xl font-light">
               {info.description}
             </p>
           </div>
@@ -108,7 +108,7 @@ export default async function CityPage({ params }: Props) {
                   </h2>
                   <ul className="space-y-2.5">
                     {info.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-3 text-sm text-near-black/65 leading-relaxed font-light">
+                      <li key={h} className="flex items-start gap-3 text-sm text-near-black/80 leading-relaxed font-light">
                         <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
                         {h}
                       </li>
@@ -140,7 +140,7 @@ export default async function CityPage({ params }: Props) {
                               <p className="font-serif italic text-lg text-near-black group-hover:text-crimson transition-colors">
                                 {n.name}
                               </p>
-                              <p className="text-xs text-near-black/50">{n.headline}</p>
+                              <p className="text-xs text-near-black/70">{n.headline}</p>
                             </div>
                             <span className="text-crimson text-lg group-hover:translate-x-1 transition-transform">&rarr;</span>
                           </Link>
@@ -159,11 +159,11 @@ export default async function CityPage({ params }: Props) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="bg-cream-dark rounded-lg px-5 py-4">
                       <p className="text-xs font-bold uppercase tracking-wider text-crimson mb-2">Education</p>
-                      <p className="text-sm text-near-black/65 leading-relaxed font-light">{info.schoolNote}</p>
+                      <p className="text-sm text-near-black/80 leading-relaxed font-light">{info.schoolNote}</p>
                     </div>
                     <div className="bg-cream-dark rounded-lg px-5 py-4">
                       <p className="text-xs font-bold uppercase tracking-wider text-crimson mb-2">Commute</p>
-                      <p className="text-sm text-near-black/65 leading-relaxed font-light">{info.commuteNote}</p>
+                      <p className="text-sm text-near-black/80 leading-relaxed font-light">{info.commuteNote}</p>
                     </div>
                   </div>
                 </div>
@@ -181,10 +181,10 @@ export default async function CityPage({ params }: Props) {
                   </h3>
                   <Image src="/realtor-badge.png?v=2" alt="Realtor" width={28} height={32} className="object-contain flex-shrink-0" />
                 </div>
-                <p className="text-xs text-center text-near-black/50 mb-4">
+                <p className="text-xs text-center text-near-black/70 mb-4">
                   {agent.type} &middot; {agent.experience}
                 </p>
-                <p className="text-sm text-near-black/65 leading-relaxed font-light text-center mb-5">
+                <p className="text-sm text-near-black/80 leading-relaxed font-light text-center mb-5">
                   {info.whyGeoffrey}
                 </p>
                 <div className="h-px bg-warm-border mb-5" />
@@ -235,7 +235,7 @@ export default async function CityPage({ params }: Props) {
                     <p className="font-serif italic text-lg text-near-black group-hover:text-crimson transition-colors">
                       {c.name}
                     </p>
-                    <p className="text-xs text-near-black/50">{c.tagline}</p>
+                    <p className="text-xs text-near-black/70">{c.tagline}</p>
                   </div>
                   <span className="text-crimson text-lg group-hover:translate-x-1 transition-transform">&rarr;</span>
                 </Link>
@@ -245,15 +245,15 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-near-black">
+      <section className="py-14 md:py-20 bg-cream-dark">
         <div className="max-w-page section-padding">
           <div className="max-w-2xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="font-serif italic text-[clamp(24px,3vw,34px)] text-white leading-[1.15] mb-4">
+              <h2 className="font-serif italic text-[clamp(24px,3vw,34px)] text-near-black leading-[1.15] mb-4">
                 Ready to Find Your Home in {info.name}?
               </h2>
               <div className="w-10 h-[3px] bg-crimson mx-auto mb-5" />
-              <p className="text-sm text-white/50 font-light mb-8 max-w-md mx-auto">
+              <p className="text-sm text-near-black/75 font-light mb-8 max-w-md mx-auto">
                 Reach out for a free consultation and let&apos;s discuss your real estate goals in {info.name}.
               </p>
             </ScrollReveal>
@@ -267,7 +267,7 @@ export default async function CityPage({ params }: Props) {
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white/80 text-sm font-semibold px-7 py-3.5 rounded-full hover:border-white/60 hover:text-white transition-all duration-200 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 border-2 border-near-black/25 text-near-black/85 text-sm font-semibold px-7 py-3.5 rounded-full hover:border-near-black/60 hover:text-near-black transition-all duration-200 w-full sm:w-auto"
               >
                 Meet Geoffrey Enebly
               </Link>

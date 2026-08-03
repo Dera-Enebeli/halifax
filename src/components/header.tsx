@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { X, Menu, ExternalLink } from "lucide-react"
 
 const navItems = [
@@ -14,6 +15,7 @@ const navItems = [
 const mortgageUrl = "https://www.empirelending.net"
 
 export default function Header() {
+  const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const drawerRef = useRef<HTMLDivElement>(null)
@@ -80,27 +82,35 @@ export default function Header() {
             </Link>
 
             <nav className="hidden lg:flex items-center gap-9">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-base font-medium text-near-black/80 hover:text-crimson transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 after:w-0 hover:after:w-full"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = pathname === item.href
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`text-base font-medium transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 ${
+                      isActive
+                        ? "text-crimson after:w-full"
+                        : "text-near-black/85 hover:text-crimson after:w-0 hover:after:w-full"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
               <a
                 href={mortgageUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base font-medium text-near-black/80 hover:text-crimson transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+                className="text-base font-medium text-near-black/85 hover:text-crimson transition-colors duration-200 relative pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-crimson after:transition-all after:duration-300 after:w-0 hover:after:w-full"
               >
                 Mortgage
                 <ExternalLink className="h-3 w-3 ml-1 inline-block -mt-0.5 opacity-60" />
               </a>
               <a
                 href="https://www.facebook.com/geffreyeneblyrealestate"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-near-black/60 hover:text-crimson hover:bg-cream-dark transition-all duration-200"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-near-black/75 hover:text-crimson hover:bg-cream-dark transition-all duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -138,16 +148,22 @@ export default function Header() {
           aria-label="Navigation menu"
         >
           <div className="flex flex-col gap-6 pt-20 px-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-lead font-medium text-near-black hover:text-crimson transition-colors touch-target py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 rounded"
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname === item.href
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`text-lead font-medium transition-colors touch-target py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 rounded ${
+                    isActive ? "text-crimson font-semibold" : "text-near-black hover:text-crimson"
+                  }`}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
             <a
               href={mortgageUrl}
               target="_blank"
@@ -160,7 +176,7 @@ export default function Header() {
             </a>
             <a
               href="https://www.facebook.com/geffreyeneblyrealestate"
-              className="w-10 h-10 rounded-full flex items-center justify-center mx-auto text-near-black/60 hover:text-crimson hover:bg-cream-dark transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2"
+              className="w-10 h-10 rounded-full flex items-center justify-center mx-auto text-near-black/75 hover:text-crimson hover:bg-cream-dark transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"

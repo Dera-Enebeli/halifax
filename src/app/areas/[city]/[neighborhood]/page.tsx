@@ -91,16 +91,16 @@ export default async function NeighborhoodPage({ params }: Props) {
     <>
       <HeroImage info={info} />
 
-      <section className="bg-near-black relative overflow-hidden">
+      <section className="bg-cream-dark relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: "radial-gradient(circle at 25% 50%, white 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle at 25% 50%, #1A1A1A 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }} />
         <div className="max-w-page section-padding relative">
           <div className="py-10 md:py-14">
             <Link
               href={`/areas/${city}`}
-              className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-white/40 hover:text-white transition-colors mb-5"
+              className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-near-black/70 hover:text-near-black transition-colors mb-5"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Back to {info.cityName}
@@ -108,14 +108,14 @@ export default async function NeighborhoodPage({ params }: Props) {
             <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-3">
               {info.cityName} Neighborhood
             </p>
-            <h1 className="font-serif italic text-[clamp(32px,5vw,52px)] text-white leading-[1.1] mb-3">
+            <h1 className="font-serif italic text-[clamp(32px,5vw,52px)] text-near-black leading-[1.1] mb-3">
               {info.name}
             </h1>
             <p className="font-serif italic text-lg md:text-xl text-crimson mb-4">
               {info.headline}
             </p>
             <div className="w-16 h-[3px] bg-crimson mb-6" />
-            <p className="text-white/60 text-body leading-relaxed max-w-2xl font-light">
+            <p className="text-near-black/80 text-body leading-relaxed max-w-2xl font-light">
               {info.longDescription}
             </p>
           </div>
@@ -135,7 +135,7 @@ export default async function NeighborhoodPage({ params }: Props) {
                       Why Live in {info.name}
                     </h2>
                   </div>
-                  <p className="text-body text-near-black/65 leading-relaxed font-light">
+                  <p className="text-body text-near-black/80 leading-relaxed font-light">
                     {info.whyLiveHere}
                   </p>
                 </div>
@@ -151,7 +151,7 @@ export default async function NeighborhoodPage({ params }: Props) {
                   </div>
                   <ul className="space-y-2.5">
                     {info.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-3 text-sm text-near-black/65 leading-relaxed font-light">
+                      <li key={h} className="flex items-start gap-3 text-sm text-near-black/80 leading-relaxed font-light">
                         <span className="w-[5px] h-[5px] rounded-full bg-crimson mt-[9px] flex-shrink-0" />
                         {h}
                       </li>
@@ -171,11 +171,11 @@ export default async function NeighborhoodPage({ params }: Props) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="bg-cream-dark rounded-lg px-5 py-4">
                       <p className="text-xs font-bold uppercase tracking-wider text-crimson mb-2">Education</p>
-                      <p className="text-sm text-near-black/65 leading-relaxed font-light">{cityInfo.schoolNote}</p>
+                      <p className="text-sm text-near-black/80 leading-relaxed font-light">{cityInfo.schoolNote}</p>
                     </div>
                     <div className="bg-cream-dark rounded-lg px-5 py-4">
                       <p className="text-xs font-bold uppercase tracking-wider text-crimson mb-2">Commute</p>
-                      <p className="text-sm text-near-black/65 leading-relaxed font-light">{cityInfo.commuteNote}</p>
+                      <p className="text-sm text-near-black/80 leading-relaxed font-light">{cityInfo.commuteNote}</p>
                     </div>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export default async function NeighborhoodPage({ params }: Props) {
                   <h2 className="font-serif italic text-[clamp(22px,2.5vw,30px)] text-near-black leading-[1.2] mb-4">
                     Homes for Sale in {info.name}
                   </h2>
-                  <p className="text-sm text-near-black/65 leading-relaxed font-light mb-4">
+                  <p className="text-sm text-near-black/80 leading-relaxed font-light mb-4">
                     {info.name} is one of {info.cityName}&apos;s most desirable neighborhoods, offering a unique lifestyle that appeals to a wide range of buyers. Whether you&apos;re looking for a cozy bungalow, a modern townhome, or a hillside estate, Geoffrey Enebly can help you find the perfect property in {info.name}.
                   </p>
                   <Link
@@ -210,10 +210,10 @@ export default async function NeighborhoodPage({ params }: Props) {
                   </h3>
                   <Image src="/realtor-badge.png?v=2" alt="Realtor" width={28} height={32} className="object-contain flex-shrink-0" />
                 </div>
-                <p className="text-xs text-center text-near-black/50 mb-4">
+                <p className="text-xs text-center text-near-black/70 mb-4">
                   {agent.type} &middot; {agent.experience}
                 </p>
-                <p className="text-sm text-near-black/65 leading-relaxed font-light text-center mb-5">
+                <p className="text-sm text-near-black/80 leading-relaxed font-light text-center mb-5">
                   Looking for homes in {info.name}? I know this neighborhood inside and out. Let&apos;s find your perfect home.
                 </p>
                 <div className="h-px bg-warm-border mb-5" />
@@ -234,10 +234,10 @@ export default async function NeighborhoodPage({ params }: Props) {
                   </Link>
                 </div>
                 <div className="mt-5 pt-5 border-t border-warm-border">
-                  <p className="text-xs font-medium uppercase tracking-wider text-near-black/40 text-center mb-2">
+                  <p className="text-xs font-medium uppercase tracking-wider text-near-black/60 text-center mb-2">
                     Your {info.cityName} Agent
                   </p>
-                  <p className="text-xs text-near-black/50 text-center font-light">
+                  <p className="text-xs text-near-black/70 text-center font-light">
                     {agent.license}
                   </p>
                 </div>
@@ -258,7 +258,7 @@ export default async function NeighborhoodPage({ params }: Props) {
                 Ready to Find Your Home in {info.name}?
               </h2>
               <div className="w-10 h-[3px] bg-crimson mx-auto mt-4 mb-5" />
-              <p className="text-sm text-near-black/50 font-light mb-8 max-w-md mx-auto">
+              <p className="text-sm text-near-black/70 font-light mb-8 max-w-md mx-auto">
                 Whether you&apos;re buying or selling in {info.name}, Geoffrey Enebly brings decades of local expertise to every transaction. Reach out for a free consultation.
               </p>
             </ScrollReveal>
@@ -272,7 +272,7 @@ export default async function NeighborhoodPage({ params }: Props) {
               </Link>
               <Link
                 href={`/areas/${city}`}
-                className="inline-flex items-center justify-center gap-2 border-2 border-near-black/15 text-near-black/70 text-sm font-semibold px-7 py-3.5 rounded-full hover:border-near-black/30 hover:text-near-black transition-all duration-200 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 border-2 border-near-black/15 text-near-black/80 text-sm font-semibold px-7 py-3.5 rounded-full hover:border-near-black/30 hover:text-near-black transition-all duration-200 w-full sm:w-auto"
               >
                 <MapPin className="h-4 w-4" />
                 Explore {info.cityName}
