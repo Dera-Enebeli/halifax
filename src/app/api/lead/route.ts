@@ -24,7 +24,19 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json()
-    const { name, email, phone, bestTimeToCall, areaOfInterest, contactMethod } = body
+    const {
+      interest,
+      name,
+      email,
+      phone,
+      bestTimeToCall,
+      areaOfInterest,
+      propertyAddress,
+      reasonForSelling,
+      sellingTimeline,
+      propertyType,
+      contactMethod,
+    } = body
 
     if (!name || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
@@ -43,6 +55,7 @@ export async function POST(request: Request) {
     const lines = [
       `New lead from halifaxproperties.com`,
       `---`,
+      `Interest: ${interest || "homeowner"}`,
       `Name: ${name}`,
       `Email: ${email}`,
       `Phone: ${phone}`,
@@ -50,6 +63,10 @@ export async function POST(request: Request) {
 
     if (bestTimeToCall) lines.push(`Best Time to Call: ${bestTimeToCall}`)
     if (areaOfInterest) lines.push(`Area of Interest: ${areaOfInterest}`)
+    if (propertyAddress) lines.push(`Property Address: ${propertyAddress}`)
+    if (reasonForSelling) lines.push(`Reason for Selling: ${reasonForSelling}`)
+    if (sellingTimeline) lines.push(`Selling Timeline: ${sellingTimeline}`)
+    if (propertyType) lines.push(`Property Type: ${propertyType}`)
     if (contactMethod) lines.push(`Preferred Contact Method: ${contactMethod}`)
 
     lines.push(`---`)

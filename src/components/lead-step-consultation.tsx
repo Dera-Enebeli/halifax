@@ -91,12 +91,17 @@ export default function LeadStepConsultation() {
                     type="button"
                     onClick={() => {
                       const data: Record<string, string> = {
+                        Interest: state.interest.charAt(0).toUpperCase() + state.interest.slice(1),
                         Name: state.name,
                         Email: state.email,
                         Phone: state.phone,
                       }
                       if (state.bestTimeToCall) data["Best Time to Call"] = state.bestTimeToCall
                       if (state.areaOfInterest) data["Area of Interest"] = state.areaOfInterest
+                      if (state.propertyAddress) data["Property Address"] = state.propertyAddress
+                      if (state.reasonForSelling) data["Reason for Selling"] = state.reasonForSelling
+                      if (state.sellingTimeline) data["Selling Timeline"] = state.sellingTimeline
+                      if (state.propertyType) data["Property Type"] = state.propertyType
                       data["Schedule"] = "Home Valuation Consultation"
                       openWhatsApp(data)
                     }}

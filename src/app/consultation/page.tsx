@@ -27,13 +27,22 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ConsultationPage() {
+export default async function ConsultationPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ interest?: string }>
+}) {
+  const { interest } = await searchParams
+  const validInterest = interest === "buyer" || interest === "seller" || interest === "homeowner"
+    ? interest
+    : undefined
+
   return (
     <>
       <UtilityBar />
       <Header />
       <main className="pt-20">
-        <LeadFunnel />
+        <LeadFunnel interest={validInterest} />
       </main>
       <Footer />
     </>

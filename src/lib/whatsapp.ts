@@ -4,7 +4,19 @@ export function buildWhatsAppLink(data: Record<string, string>): string {
   const header = "🔔 New Lead from halifaxproperties.com"
   const lines = [header, "---"]
 
-  const orderedKeys = ["Interest", "Name", "Email", "Phone", "Best Time to Call", "Area of Interest", "Message"]
+  const orderedKeys = [
+    "Interest",
+    "Name",
+    "Email",
+    "Phone",
+    "Best Time to Call",
+    "Area of Interest",
+    "Property Address",
+    "Reason for Selling",
+    "Selling Timeline",
+    "Property Type",
+    "Message",
+  ]
 
   for (const key of orderedKeys) {
     if (data[key]) {

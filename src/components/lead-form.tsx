@@ -24,6 +24,31 @@ const contactOptions = [
   { value: "whatsapp" as const, label: "WhatsApp", sub: "Quick chat on WhatsApp", icon: MessageCircle },
 ]
 
+const reasonForSellingOptions = [
+  "Relocating",
+  "Downsizing",
+  "Upsizing",
+  "Investment property",
+  "Divorce or estate",
+  "Financial or foreclosure",
+  "Other",
+]
+
+const sellingTimelineOptions = [
+  "ASAP (0–3 months)",
+  "3–6 months",
+  "6–12 months",
+  "Just exploring / not sure",
+]
+
+const propertyTypeOptions = [
+  "Single Family Home",
+  "Condo / Townhome",
+  "Multi-Unit (2–4)",
+  "Vacant Land",
+  "Commercial",
+]
+
 export default function LeadForm() {
   const router = useRouter()
   const { state, dispatch } = useFunnel()
@@ -49,11 +74,22 @@ export default function LeadForm() {
     } else if (phoneDigits.length < 10) {
       errors.phone = "Please enter a valid phone number (10+ digits)"
     }
+    if (state.interest === "seller") {
+      if (!state.propertyAddress.trim()) errors.propertyAddress = "Property address is required"
+      if (!state.reasonForSelling) errors.reasonForSelling = "Please select a reason"
+      if (!state.sellingTimeline) errors.sellingTimeline = "Please select a timeline"
+      if (!state.propertyType) errors.propertyType = "Please select a property type"
+    }
     setValidationErrors(errors)
     return Object.keys(errors).length === 0
   }
 
-  const canSubmit = !!state.name.trim() && !!state.email.trim() && !!state.phone.trim()
+  const canSubmit =
+    !!state.name.trim() &&
+    !!state.email.trim() &&
+    !!state.phone.trim() &&
+    (state.interest !== "seller" ||
+      (!!state.propertyAddress.trim() && !!state.reasonForSelling && !!state.sellingTimeline && !!state.propertyType))
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -68,7 +104,7 @@ export default function LeadForm() {
 
     try {
       const payload: Record<string, string> = {
-        interest: "homeowner",
+        interest: state.interest,
         name: state.name,
         email: state.email,
         phone: state.phone,
@@ -77,6 +113,10 @@ export default function LeadForm() {
 
       if (state.bestTimeToCall.trim()) payload.bestTimeToCall = state.bestTimeToCall
       if (state.areaOfInterest) payload.areaOfInterest = state.areaOfInterest
+      if (state.propertyAddress.trim()) payload.propertyAddress = state.propertyAddress
+      if (state.reasonForSelling) payload.reasonForSelling = state.reasonForSelling
+      if (state.sellingTimeline) payload.sellingTimeline = state.sellingTimeline
+      if (state.propertyType) payload.propertyType = state.propertyType
 
       const res = await fetch("/api/lead", {
         method: "POST",
@@ -133,14 +173,18 @@ export default function LeadForm() {
 
               <div className="mb-10">
                 <p className="text-xs font-medium tracking-[2px] uppercase text-olive mb-2">
-                  Free Consultation
+                  {state.interest === "seller" ? "Free Seller Consultation" : "Free Consultation"}
                 </p>
                 <h1 className="font-serif italic text-[clamp(26px,3.5vw,38px)] text-near-black leading-[1.15] mb-3">
-                  Let&rsquo;s find your next home.
+                  {state.interest === "seller"
+                    ? "Let\u2019s get you top dollar for your home."
+                    : "Let\u2019s find your next home."}
                 </h1>
                 <div className="w-10 h-[3px] bg-crimson mb-4" />
                 <p className="text-sm text-near-black/70 leading-relaxed font-light max-w-lg">
-                  Tell us a bit about yourself and Geoffrey will reach out personally within 24 hours.
+                  {state.interest === "seller"
+                    ? "Tell us about your property and Geoffrey will reach out personally within 24 hours with a custom selling plan."
+                    : "Tell us a bit about yourself and Geoffrey will reach out personally within 24 hours."}
                 </p>
               </div>
 
@@ -305,6 +349,84 @@ export default function LeadForm() {
                     <FieldHint>Which part of the East Bay are you interested in?</FieldHint>
                   </div>
                 </div>
+
+                {state.interest === "seller" && (
+                  <div className="pt-2">
+                    <p className="font-serif italic text-[clamp(20px,2.5vw,26px)] text-near-black leading-[1.2] mb-1">
+                      Tell us about your property
+                    </p>
+                    <div className="w-10 h-[3px] bg-crimson mt-2 mb-6" />
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-semibold text-near-black mb-1.5">
+                          Property Address
+                        </label>
+                        <Input
+                          type="text"
+                          value={state.propertyAddress}
+                          onChange={(e) => dispatch({ type: "SET_PROPERTY_ADDRESS", payload: e.target.value })}
+                          placeholder="123 Main St, Oakland, CA"
+                          required
+                          aria-invalid={!!validationErrors.propertyAddress}
+                          aria-describedby={validationErrors.propertyAddress ? "error-propertyAddress" : "hint-propertyAddress"}
+                        />
+                        <FieldHint error={validationErrors.propertyAddress} id="hint-propertyAddress" errorId="error-propertyAddress">The home you&rsquo;re planning to sell.</FieldHint>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-near-black mb-1.5">
+                          Why Are You Selling?
+                        </label>
+                        <Select
+                          value={state.reasonForSelling}
+                          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => dispatch({ type: "SET_REASON_FOR_SELLING", payload: e.target.value })}
+                          options={[
+                            { value: "", label: "Select a reason" },
+                            ...reasonForSellingOptions.map((opt) => ({ value: opt, label: opt })),
+                          ]}
+                          aria-invalid={!!validationErrors.reasonForSelling}
+                          aria-describedby={validationErrors.reasonForSelling ? "error-reasonForSelling" : "hint-reasonForSelling"}
+                        />
+                        <FieldHint error={validationErrors.reasonForSelling} id="hint-reasonForSelling" errorId="error-reasonForSelling">So Geoffrey can tailor his strategy.</FieldHint>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-near-black mb-1.5">
+                          When Do You Want to Sell?
+                        </label>
+                        <Select
+                          value={state.sellingTimeline}
+                          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => dispatch({ type: "SET_SELLING_TIMELINE", payload: e.target.value })}
+                          options={[
+                            { value: "", label: "Select a timeline" },
+                            ...sellingTimelineOptions.map((opt) => ({ value: opt, label: opt })),
+                          ]}
+                          aria-invalid={!!validationErrors.sellingTimeline}
+                          aria-describedby={validationErrors.sellingTimeline ? "error-sellingTimeline" : "hint-sellingTimeline"}
+                        />
+                        <FieldHint error={validationErrors.sellingTimeline} id="hint-sellingTimeline" errorId="error-sellingTimeline">Your ideal time to list.</FieldHint>
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-semibold text-near-black mb-1.5">
+                          Property Type
+                        </label>
+                        <Select
+                          value={state.propertyType}
+                          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => dispatch({ type: "SET_PROPERTY_TYPE", payload: e.target.value })}
+                          options={[
+                            { value: "", label: "Select a property type" },
+                            ...propertyTypeOptions.map((opt) => ({ value: opt, label: opt })),
+                          ]}
+                          aria-invalid={!!validationErrors.propertyType}
+                          aria-describedby={validationErrors.propertyType ? "error-propertyType" : "hint-propertyType"}
+                        />
+                        <FieldHint error={validationErrors.propertyType} id="hint-propertyType" errorId="error-propertyType">What kind of property are you selling?</FieldHint>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 <Button
                   type="submit"

@@ -1,6 +1,6 @@
 "use client"
 
-import { FunnelProvider, useFunnel } from "@/lib/funnel-store"
+import { FunnelProvider, useFunnel, type InterestType } from "@/lib/funnel-store"
 import LeadForm from "@/components/lead-form"
 import LeadStepConsultation from "@/components/lead-step-consultation"
 
@@ -14,9 +14,9 @@ function FunnelInner() {
   return <LeadForm />
 }
 
-export default function LeadFunnel() {
+export default function LeadFunnel({ interest }: { interest?: InterestType }) {
   return (
-    <FunnelProvider>
+    <FunnelProvider initialInterest={interest}>
       <FunnelInner />
     </FunnelProvider>
   )
